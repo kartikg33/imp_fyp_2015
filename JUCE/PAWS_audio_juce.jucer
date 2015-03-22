@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="Cja7fG" name="PAWS_audio_juce" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="com.yourcompany.PAWS_audio_juce" includeBinaryInAppConfig="1"
+              jucerVersion="3.1.0" companyName="Kartik Gohil Imperial College London">
+  <MAINGROUP id="F2uQwG" name="PAWS_audio_juce">
+    <GROUP id="{D24FB9D9-A63A-5E52-5914-2C3ED148AF6E}" name="Source">
+      <FILE id="yM08pL" name="PAWS_GUI.cpp" compile="1" resource="0" file="Source/PAWS_GUI.cpp"/>
+      <FILE id="d6cOvj" name="PAWS_GUI.h" compile="0" resource="0" file="Source/PAWS_GUI.h"/>
+      <FILE id="EDobkR" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+      <FILE id="YjVoiS" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="1" optimisation="1" targetName="PAWS_audio_juce"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="0" optimisation="2" targetName="PAWS_audio_juce"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_video" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../../../Volumes/Data/JUCE-OSX/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_video" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
