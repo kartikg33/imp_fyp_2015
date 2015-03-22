@@ -64,8 +64,6 @@
 #include <IOKit/serial/ioss.h>
 #include <IOKit/IOBSD.h>
 
-#define MATCH_PATH "/dev/cu.usbmodem1a1221"
-
 // Default to local echo being on. If your modem has local echo disabled, undefine the following macro.
 #define LOCAL_ECHO
 
@@ -181,7 +179,7 @@ static kern_return_t getModemPath(io_iterator_t serialPortIterator, char *bsdPat
             
             if (result) {
                 printf("Modem found with BSD path: %s", bsdPath);
-                modemFound = true;
+                //modemFound = true;
                 kernResult = KERN_SUCCESS;
             }
         }
@@ -418,7 +416,7 @@ static char *logString(char *str)
 // Return true if successful, otherwise false.
 static Boolean initializeModem(int fileDescriptor)
 {
-    char		buffer[256];	// Input buffer //oroginally char
+    char		buffer[256];	// Input buffer
     char		*bufPtr;		// Current char in buffer
     ssize_t		numBytes;		// Number of bytes read or written
     int			tries;			// Number of tries so far
@@ -467,7 +465,6 @@ static Boolean initializeModem(int fileDescriptor)
         // NUL terminate the string and see if we got an OK response
         *bufPtr = '\0';
         
-        //printf("Read \"%s\"\n", logString(buffer));
         printf("Read \"%s\"\n", logString(buffer));
         
         if (strncmp(buffer, kOKResponseString, strlen(kOKResponseString)) == 0) {
@@ -507,19 +504,19 @@ int main(int argc, const char * argv[])
     kern_return_t	kernResult;
     io_iterator_t	serialPortIterator;
     char            bsdPath[MAXPATHLEN];
-    
+    printf("findModems\n");
     kernResult = findModems(&serialPortIterator);
     if (KERN_SUCCESS != kernResult) {
         printf("No modems were found.\n");
     }
-    
+    printf("getModemPath\n");
     kernResult = getModemPath(serialPortIterator, bsdPath, sizeof(bsdPath));
     if (KERN_SUCCESS != kernResult) {
         printf("Could not get path for modem.\n");
     }
-    
+    printf("IOObjectRelease\n");
     IOObjectRelease(serialPortIterator);	// Release the iterator.
-    
+    printf("open modem port");
     // Now open the modem port we found, initialize the modem, then close it
     if (!bsdPath[0]) {
         printf("No modem port found.\n");
@@ -530,14 +527,14 @@ int main(int argc, const char * argv[])
     if (-1 == fileDescriptor) {
         return EX_IOERR;
     }
-    
+    printf("initialise modem\n");
     if (initializeModem(fileDescriptor)) {
         printf("Modem initialized successfully.\n");
     }
     else {
         printf("Could not initialize modem.\n");
     }
-    
+    printf("close port\n");
     closeSerialPort(fileDescriptor);
     printf("Modem port closed.\n");
     
