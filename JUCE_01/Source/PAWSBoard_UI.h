@@ -66,11 +66,14 @@ public:
     bool SampleFl = false;
     int buffptr = 0;
     float amplitude = 0.0f;
+    AudioSampleBuffer * samplebuff;
+    String storedsamp = "NULL";
 
     void initBuffer();
     void listSerial();
     void connectPort(char*);
     void closePort(int);
+    void loadSample(String);
 
     //[/UserMethods]
 
@@ -103,6 +106,7 @@ private:
 //[EndFile] You can add extra defines here...
 #define ard "/dev/tty.usbmodem1d1121"
 #define blu "/dev/tty.HC-06-DevB"
+#define drum "/Users/kartikgohil/Documents/Imperial/Year4/Project/Test Audio/afrimid.wav"
 void *playVoice(void*);
 void *playSample(void*);
 //[/EndFile]

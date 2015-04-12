@@ -39,7 +39,7 @@ float tau = 1/FS;
 void setup(){
   pinMode(gainpin, OUTPUT);
   pinMode(mic, INPUT); //microphone
-  Serial.begin(9600);
+  Serial.begin(115200);
   analogWrite(gainpin,gain);
 
 }//end setup

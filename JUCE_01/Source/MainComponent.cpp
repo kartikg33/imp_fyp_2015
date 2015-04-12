@@ -100,19 +100,19 @@ public:
             if(overlay->numBoards != 0){
                 int num = overlay->numBoards;
                 //std::cout<<num<<newLine;
-                float amp[num];
+                //float amp[num];
                 int len[num];
                 int ptr[num];
                 float * bufferL[num];
                 float * bufferR[num];
                 
-                for(int n = 0; n<num;n++){
-                    amp[n] = overlay->amplitude;
+                for(int n = 0; n<num;++n){
+                    //amp[n] = overlay->amplitude;
                     len[n] = overlay->boardUI[n]->bufflen;
                     ptr[n] = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
                     if(ptr[n]<0)
                         ptr[n]+=len[n];
-                    std::cout<<ptr[n]<<newLine;
+                    //std::cout<<ptr[n]<<newLine; 
                     bufferL[n] = overlay->boardUI[n]->buffL;
                     bufferR[n] = overlay->boardUI[n]->buffR;
 
@@ -122,9 +122,9 @@ public:
                 {
                     waveformL[waveptr] = 0;
                     waveformR[waveptr] = 0;
-                    for(int n = 0; n<num;n++){
-                        waveformL[waveptr] += float(bufferL[n][ptr[n]]*amp[n]);
-                        waveformR[waveptr] += float(bufferR[n][ptr[n]]*amp[n]);
+                    for(int n = 0; n<num;++n){
+                        waveformL[waveptr] += float(bufferL[n][ptr[n]]*overlay->amplitude);
+                        waveformR[waveptr] += float(bufferR[n][ptr[n]]*overlay->amplitude);
                         ptr[n]++;
                         if(ptr[n]>=len[n])
                             ptr[n] = 0;
@@ -144,7 +144,7 @@ public:
                     channelDataL[i] = 0;
                     channelDataR[i] = 0;
                 }
-                for(int x = 0; x<wavelen;x++){
+                for(int x = 0; x<wavelen;++x){
                     waveformL[x] = 0;
                     waveformR[x] = 0;
                 }

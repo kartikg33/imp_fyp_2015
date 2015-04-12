@@ -2748,7 +2748,7 @@
 		90A21A83454139825BCE34AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = D9AD838B4BE4A760C4E65091 /* Build configuration list for PBXProject "PAWS_audio_01" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2827,7 +2827,6 @@
 		555A1D7B611EE05FFABC038D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -2870,6 +2869,7 @@
 				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = PAWS_audio_01;
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
@@ -2879,7 +2879,6 @@
 		F60C2CBE5213DB9C425CED6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				COMBINE_HIDPI_IMAGES = YES;
