@@ -102,7 +102,6 @@ PAWSBoard_UI::~PAWSBoard_UI()
     VoiceFl = false;
     SampleFl = false;
     closePort(serport);
-    samplebuff->clear();
     samplebuff->~AudioSampleBuffer();
     //[/Destructor_pre]
 
@@ -284,6 +283,7 @@ void *playVoice(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
     static const int len = 30;
+    float val;
     int i;
     char c;
     while(obj->VoiceFl && obj->serport!=-1){
@@ -299,8 +299,11 @@ void *playVoice(void* dummy){
             //std::cout<<c<<newLine;
         }
         //std::cout<<"read\n";
-        obj->buffL[obj->buffptr] = (atof(ascii_int)-512)*0.00195f*obj->amplitude;
-        obj->buffR[obj->buffptr] = obj->buffL[obj->buffptr];
+        val = (atof(ascii_int)-512)*0.00195f*obj->amplitude;
+        obj->buffL[obj->buffptr] = val;
+        obj->buffR[obj->buffptr] = val;
+
+        
         obj->buffptr++;
         if(obj->buffptr>=obj->bufflen)
             obj->buffptr = 0;
@@ -323,9 +326,12 @@ void *playSample(void* dummy){
     int tempptr = 0;
     int diff = 0;
     int change = 0;
-    int thresh = 200;
+    int thresh = 100;
     
     bool play = false;
+    pthread_t t;
+    pthread_create(&t, NULL,initSamp,(void*)obj);
+
     
     static const int dist = 30;
     int i;
@@ -343,31 +349,41 @@ void *playSample(void* dummy){
         }
         tempbuff[tempptr] = atoi(ascii_int);
         //std::cout<<tempptr<<" "<<tempbuff[tempptr]<<newLine;
+        
         diff = tempptr+1;
         if (diff>=len)
             diff = 0;
+        
         change = tempbuff[tempptr] - tempbuff[diff];
         change = abs(change);
         //std::cout<<tempbuff[tempptr]<<" - "<<tempbuff[diff]<<newLine;
-        std::cout<<change<<newLine;
+        //std::cout<<change<<newLine;
         
         
-        if (change<(thresh*0.6) && play==true){
+        if (change<(thresh*0.8) && play==true){
             play = false;
         }
         if(change>=thresh && play==false){
             //std::cout<<change<<newLine;
+            
             play = true;
+            
+            /*
+            t_active = true;
+            pthread_t t;
+            pthread_create(&t, NULL,addSamp,(void*)obj);
+             */
+            
             for(int i = 0; i < obj->samplebuff->getNumSamples(); i++){
                 obj->buffL[obj->buffptr] = obj->samplebuff->getSample(0, i)*obj->amplitude;
                 obj->buffR[obj->buffptr] = obj->samplebuff->getSample(1, i)*obj->amplitude;
                 //std::cout<<obj->buffL[ptr]<<newLine;
-
+                
                 obj->buffptr++;
                 if(obj->buffptr>=obj->bufflen)
                     obj->buffptr = 0;
-                
             }
+            
             
         }
         
@@ -375,13 +391,15 @@ void *playSample(void* dummy){
         tempptr++;
         if(tempptr>=len)
             tempptr = 0;
-        
+        /*
+        if(!t_active){
         obj->buffL[obj->buffptr] = 0;
         obj->buffR[obj->buffptr] = 0;
         obj->buffptr++;
         if(obj->buffptr>=obj->bufflen)
             obj->buffptr = 0;
-        
+        }
+        */
         
     }
     
@@ -392,6 +410,31 @@ void *playSample(void* dummy){
     
 }
 
+void *addSamp(void* dummy){
+    PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
+    
+    for(int i = 0; i < obj->samplebuff->getNumSamples(); i++){
+        obj->buffL[obj->buffptr] = obj->samplebuff->getSample(0, i)*obj->amplitude;
+        obj->buffR[obj->buffptr] = obj->samplebuff->getSample(1, i)*obj->amplitude;
+        //std::cout<<obj->buffL[ptr]<<newLine;
+        
+        obj->buffptr++;
+        if(obj->buffptr>=obj->bufflen)
+            obj->buffptr = 0;
+    }
+    obj = nullptr;
+    delete obj;
+    return 0;
+}
+
+void *initSamp(void*dummy){
+    PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
+    obj->initBuffer();
+    pthread_t t;
+    sleep(1);
+    pthread_create(&t, NULL,initSamp,(void*)obj);
+    return 0;
+}
 
 
 void PAWSBoard_UI::loadSample(String samp){

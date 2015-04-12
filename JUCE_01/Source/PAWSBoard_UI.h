@@ -109,6 +109,7 @@ private:
 #define drum "/Users/kartikgohil/Documents/Imperial/Year4/Project/Test Audio/afrimid.wav"
 void *playVoice(void*);
 void *playSample(void*);
+void *initSamp(void*);
 //[/EndFile]
 
 #endif   // __JUCE_HEADER_11346C81341AFB38__

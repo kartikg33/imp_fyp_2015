@@ -93,6 +93,7 @@ public:
         // Your audio-processing code goes here!
         // For more details, see the help for AudioProcessor::getNextAudioBlock()
         //blue();
+        bufferToFill.clearActiveBufferRegion();
         channelDataL = bufferToFill.buffer->getWritePointer (0, bufferToFill.startSample);
         channelDataR = bufferToFill.buffer->getWritePointer (1, bufferToFill.startSample);
         
@@ -117,7 +118,7 @@ public:
                     bufferR[n] = overlay->boardUI[n]->buffR;
 
                 }
-
+                
                 for (int i = 0; i < bufferToFill.numSamples ; ++i)
                 {
                     waveformL[waveptr] = 0;
@@ -139,7 +140,9 @@ public:
                         waveptr = 0;
                     
                 }
+                
             } else {
+                
                 for (int i = 0; i < bufferToFill.numSamples ; ++i){
                     channelDataL[i] = 0;
                     channelDataR[i] = 0;

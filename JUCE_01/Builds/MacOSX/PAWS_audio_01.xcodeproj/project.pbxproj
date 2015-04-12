@@ -507,8 +507,6 @@
 		86E6187E8CBF1A67C588ACAF /* juce_Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Singleton.h; path = "../../../../../../../../../Volumes/Data/JUCE-OSX/modules/juce_core/memory/juce_Singleton.h"; sourceTree = SOURCE_ROOT; };
 		8742D295DF1397FAEB3261FE /* juce_DrawableButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_DrawableButton.cpp; path = "../../../../../../../../../Volumes/Data/JUCE-OSX/modules/juce_gui_basics/buttons/juce_DrawableButton.cpp"; sourceTree = SOURCE_ROOT; };
 		87A65DF4E63C85791389BE95 /* juce_BubbleMessageComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_BubbleMessageComponent.h; path = "../../../../../../../../../Volumes/Data/JUCE-OSX/modules/juce_gui_extra/misc/juce_BubbleMessageComponent.h"; sourceTree = SOURCE_ROOT; };
-		88068B591ABA175100FC0820 /* Bluetooth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Bluetooth.cpp; path = ../../Source/Bluetooth.cpp; sourceTree = "<group>"; };
-		88068B5A1ABA175100FC0820 /* Bluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Bluetooth.h; path = ../../Source/Bluetooth.h; sourceTree = "<group>"; };
 		88068B5C1ABA189900FC0820 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
 		88068B5E1ABA189F00FC0820 /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = SDKROOT; };
 		88068B601ABA18C100FC0820 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -2468,8 +2466,6 @@
 		D55897951A9934E24EDDA4B3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				88068B591ABA175100FC0820 /* Bluetooth.cpp */,
-				88068B5A1ABA175100FC0820 /* Bluetooth.h */,
 				72A8B6818F67DEFFACD51B06 /* PAWS_audio_01 */,
 				D981C115BDA7DBC0AC11EDB4 /* Juce Modules */,
 				BD2782142D9D2AF7983AC5A7 /* Juce Library Code */,
