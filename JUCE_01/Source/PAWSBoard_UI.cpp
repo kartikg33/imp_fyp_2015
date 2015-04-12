@@ -423,7 +423,7 @@ void *playSample(void* dummy){
 
 void *addSamp(void* dummy){
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
-    float tim = (float)1/100;
+    float tim = (float)1/5000;
     for(int i = 0; i < obj->samplebuff->getNumSamples(); i++){
         obj->buffL[obj->buffptr] = obj->samplebuff->getSample(0, i)*obj->amplitude;
         obj->buffR[obj->buffptr] = obj->samplebuff->getSample(1, i)*obj->amplitude;

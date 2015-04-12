@@ -94,13 +94,15 @@ public:
         // For more details, see the help for AudioProcessor::getNextAudioBlock()
         //blue();
         bufferToFill.clearActiveBufferRegion();
+        //channelDataL = bufferToFill.buffer->getWritePointer(0, bufferToFill.startSample);
+        //channelDataR = bufferToFill.buffer->getWritePointer(1, bufferToFill.startSample);
         
         if(overlay != nullptr){
             if(overlay->numBoards != 0){
                 int num = overlay->numBoards;
                 //std::cout<<num<<newLine;
                 //float amp[num];
-                
+                //int wave = waveptr;
                 for(int n = 0; n<num;++n){
                     int len = overlay->boardUI[n]->bufflen;
                     int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
@@ -108,15 +110,15 @@ public:
                         ptr+=len;
                     float *bufferL = overlay->boardUI[n]->buffL;
                     float *bufferR = overlay->boardUI[n]->buffR;
-                    
+                    //waveptr = wave;
                     for (int i = 0; i < bufferToFill.numSamples ; ++i)
                     {
                         if(n==0){
                             waveformL[waveptr] = 0;
                             waveformR[waveptr] = 0;
                         }
-                        waveformL[waveptr] += float(bufferL[ptr]*overlay->amplitude);
-                        waveformR[waveptr] += float(bufferR[ptr]*overlay->amplitude);
+                        waveformL[waveptr] += float(bufferL[ptr]);//*overlay->amplitude);
+                        waveformR[waveptr] += float(bufferR[ptr]);//*overlay->amplitude);
                         
                         ptr++;
                         if(ptr>=len)
@@ -126,9 +128,19 @@ public:
                             waveptr = 0;
                     }
                 }
+                /*
+                waveptr = wave;
+                for(int i = 0; i < bufferToFill.numSamples; ++i){
+                    channelDataL[i] = waveformL[waveptr];
+                    channelDataR[i] = waveformR[waveptr];
+                    waveptr++;
+                    if(waveptr>=wavelen)
+                        waveptr = 0;
+                }*/
                 
-                bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples);
-                bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples);
+                bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
+                bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
+                
                 
             } else {
                 
@@ -227,7 +239,7 @@ private:
     float * waveformL = nullptr;
     float * waveformR = nullptr;
     int waveptr = 0;
-    const int wavelen = 1024;
+    const int wavelen = 512;
     
     float * channelDataL = nullptr;
     float * channelDataR = nullptr;
