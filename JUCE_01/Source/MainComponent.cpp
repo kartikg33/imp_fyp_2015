@@ -31,8 +31,6 @@ public:
         waveformL(),
         waveformR(),
         waveptr(0),
-        channelDataL(),
-        channelDataR(),
         sampleRate(0.0),
         expectedSamplesPerBlock (0)
     
@@ -46,7 +44,6 @@ public:
         //setSampleRate ();
         
         addAndMakeVisible (overlay = new AddBoardButton());
-        //startTimerHz (2*sampleRate/(wavelen)); // use a timer to keep repainting this component
         startTimerHz (75); // use a timer to keep repainting this component
 
     }
@@ -93,16 +90,13 @@ public:
         // Your audio-processing code goes here!
         // For more details, see the help for AudioProcessor::getNextAudioBlock()
         //blue();
+        
         bufferToFill.clearActiveBufferRegion();
-        //channelDataL = bufferToFill.buffer->getWritePointer(0, bufferToFill.startSample);
-        //channelDataR = bufferToFill.buffer->getWritePointer(1, bufferToFill.startSample);
         
         if(overlay != nullptr){
             if(overlay->numBoards != 0){
                 int num = overlay->numBoards;
-                //std::cout<<num<<newLine;
-                //float amp[num];
-                //int wave = waveptr;
+
                 for(int n = 0; n<num;++n){
                     int len = overlay->boardUI[n]->bufflen;
                     int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
@@ -110,13 +104,14 @@ public:
                         ptr+=len;
                     float *bufferL = overlay->boardUI[n]->buffL;
                     float *bufferR = overlay->boardUI[n]->buffR;
-                    //waveptr = wave;
+                    
                     for (int i = 0; i < bufferToFill.numSamples ; ++i)
                     {
                         if(n==0){
                             waveformL[waveptr] = 0;
                             waveformR[waveptr] = 0;
                         }
+                        
                         waveformL[waveptr] += float(bufferL[ptr]);//*overlay->amplitude);
                         waveformR[waveptr] += float(bufferR[ptr]);//*overlay->amplitude);
                         
@@ -127,16 +122,8 @@ public:
                         if(waveptr>=wavelen)
                             waveptr = 0;
                     }
+
                 }
-                /*
-                waveptr = wave;
-                for(int i = 0; i < bufferToFill.numSamples; ++i){
-                    channelDataL[i] = waveformL[waveptr];
-                    channelDataR[i] = waveformR[waveptr];
-                    waveptr++;
-                    if(waveptr>=wavelen)
-                        waveptr = 0;
-                }*/
                 
                 bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
                 bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
@@ -176,7 +163,6 @@ public:
         
         const int centreY = getHeight() / 2;
         
-        // draw a representative sinewave
         Path wavePathL;
         Path wavePathR;
         wavePathL.startNewSubPath (0, centreY);
@@ -195,7 +181,6 @@ public:
             }
 
         }
-        //std::cout<<getWidth()<<" "<<incr<<" "<<wavelen<<" "<<i<<newLine;
 
         g.setColour (Colours::blue);
         g.setOpacity(0.5f);
@@ -240,9 +225,6 @@ private:
     float * waveformR = nullptr;
     int waveptr = 0;
     const int wavelen = 512;
-    
-    float * channelDataL = nullptr;
-    float * channelDataR = nullptr;
     
     double sampleRate;
     int expectedSamplesPerBlock;

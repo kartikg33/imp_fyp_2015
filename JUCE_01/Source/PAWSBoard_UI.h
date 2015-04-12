@@ -66,7 +66,7 @@ public:
     bool SampleFl = false;
     int buffptr = 0;
     float amplitude = 0.0f;
-    AudioSampleBuffer * samplebuff;
+    AudioSampleBuffer * samplebuff = nullptr;
     int sampBuffPtr = 0;
     String storedsamp = "NULL";
     bool alive = true;

@@ -295,8 +295,6 @@ void *initBuff(void * dummy){
 
         sleep(t);
     }
-    obj = nullptr;
-    delete obj;
     return 0;
 }
 
@@ -331,8 +329,6 @@ void *playVoice(void* dummy){
 
         //std::cout<<obj->buffL[obj->buffptr]<<newLine;
     }
-    obj = nullptr;
-    delete obj;
     std::cout<<"End Voice Function"<<newLine;
     return 0;
 }
@@ -355,7 +351,6 @@ void *playSample(void* dummy){
     pthread_t t;
     pthread_create(&t, NULL,initSamp,(void*)obj);
      */
-
     
     static const int dist = 30;
     int i;
@@ -414,8 +409,6 @@ void *playSample(void* dummy){
         
     }
     
-    obj = nullptr;
-    delete obj;
     std::cout<<"End Sample Function"<<newLine;
     return 0;
     
@@ -423,7 +416,7 @@ void *playSample(void* dummy){
 
 void *addSamp(void* dummy){
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
-    float tim = (float)1/5000;
+    float tim = (float)1/50;
     for(int i = 0; i < obj->samplebuff->getNumSamples(); i++){
         obj->buffL[obj->buffptr] = obj->samplebuff->getSample(0, i)*obj->amplitude;
         obj->buffR[obj->buffptr] = obj->samplebuff->getSample(1, i)*obj->amplitude;
@@ -434,8 +427,6 @@ void *addSamp(void* dummy){
             obj->buffptr = 0;
         sleep(tim);
     }
-    obj = nullptr;
-    delete obj;
     return 0;
 }
 
@@ -452,15 +443,19 @@ void *initSamp(void*dummy){
 void PAWSBoard_UI::loadSample(String samp){
     if(storedsamp != samp){
         File _file = File(samp);
-        WavAudioFormat _wavAudioFormat; //= new WavAudioFormat();
+        WavAudioFormat _wavAudioFormat;
         AudioFormatReader * _audioFormatReader = _wavAudioFormat.createReaderFor(_file.createInputStream(), 0);
-        samplebuff = new AudioSampleBuffer();
+        if(samplebuff==nullptr){
+            samplebuff = new AudioSampleBuffer();
+        }else{
+            samplebuff->clear();
+            delete samplebuff;
+            samplebuff = new AudioSampleBuffer();
+        }
         samplebuff->setSize(2, _audioFormatReader->lengthInSamples);
         _audioFormatReader->read(samplebuff, (int)0, _audioFormatReader->lengthInSamples, (int64)0, true, true);
         storedsamp = samp;
-        //delete _wavAudioFormat;
         delete _audioFormatReader;
-        
     }
 }
 
