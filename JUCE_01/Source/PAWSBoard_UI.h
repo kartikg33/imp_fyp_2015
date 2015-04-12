@@ -67,7 +67,9 @@ public:
     int buffptr = 0;
     float amplitude = 0.0f;
     AudioSampleBuffer * samplebuff;
+    int sampBuffPtr = 0;
     String storedsamp = "NULL";
+    bool alive = true;
 
     void initBuffer();
     void listSerial();
@@ -87,7 +89,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    pthread_t threads[2];
+    pthread_t threads[3];
     //[/UserVariables]
 
     //==============================================================================
@@ -110,6 +112,8 @@ private:
 void *playVoice(void*);
 void *playSample(void*);
 void *initSamp(void*);
+void *addSamp(void*);
+void *initBuff(void*);
 //[/EndFile]
 
 #endif   // __JUCE_HEADER_11346C81341AFB38__

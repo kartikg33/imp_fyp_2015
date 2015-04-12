@@ -85,10 +85,11 @@ PAWSBoard_UI::PAWSBoard_UI ()
     //[Constructor] You can add your own custom stuff here..
     slider->setValue(0.5);
     int i;
-    for(i = 0; i< 2; i++){
+    for(i = 0; i< 3; i++){
         threads[i] = nullptr;
     }
     initBuffer();
+    //pthread_create(&threads[2], NULL,initBuff,(void*)this);
     listSerial();
     toggleButton->setRadioGroupId(1,(NotificationType)0);
     toggleButton2->setRadioGroupId(1,(NotificationType)0);
@@ -99,6 +100,7 @@ PAWSBoard_UI::PAWSBoard_UI ()
 PAWSBoard_UI::~PAWSBoard_UI()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+    alive = false;
     VoiceFl = false;
     SampleFl = false;
     closePort(serport);
@@ -115,8 +117,11 @@ PAWSBoard_UI::~PAWSBoard_UI()
 
     //[Destructor]. You can add your own custom destruction code here..
     int i;
-    for(i = 0; i <2; i++){
-        pthread_cancel(threads[i]);
+    for(i = 0; i <3; i++){
+        if(threads[i] != nullptr){
+            pthread_cancel(threads[i]);
+            threads[i] = nullptr;
+        }
     }
     //[/Destructor]
 }
@@ -190,9 +195,8 @@ void PAWSBoard_UI::buttonClicked (Button* buttonThatWasClicked)
         VoiceFl = true;
         SampleFl = false;
         //std::cout<<(&threads[0])<<newLine;
-        if(threads[0]!=nullptr){
+        if(threads[0]!=nullptr)
             pthread_cancel(threads[0]);
-        }
         pthread_create(&threads[0], NULL,playVoice,(void*)this);
 
         //[/UserButtonCode_toggleButton]
@@ -204,9 +208,8 @@ void PAWSBoard_UI::buttonClicked (Button* buttonThatWasClicked)
         SampleFl = true;
 
         //std::cout<<(&threads[1])<<newLine;
-        if(threads[1]!=nullptr){
+        if(threads[1]!=nullptr)
             pthread_cancel(threads[1]);
-        }
         pthread_create(&threads[1], NULL,playSample,(void*)this);
 
         //[/UserButtonCode_toggleButton2]
@@ -279,6 +282,24 @@ void PAWSBoard_UI::initBuffer(){
     }
 }
 
+void *initBuff(void * dummy){
+    PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
+    float t = 29/512;
+    while (obj->alive) {
+        obj->buffL[obj->buffptr] = 0;
+        obj->buffR[obj->buffptr] = 0;
+        
+        obj->buffptr++;
+        if(obj->buffptr>=obj->bufflen)
+            obj->buffptr = 0;
+
+        sleep(t);
+    }
+    obj = nullptr;
+    delete obj;
+    return 0;
+}
+
 void *playVoice(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
@@ -329,8 +350,11 @@ void *playSample(void* dummy){
     int thresh = 100;
     
     bool play = false;
+    pthread_t t = nullptr;
+    /*
     pthread_t t;
     pthread_create(&t, NULL,initSamp,(void*)obj);
+     */
 
     
     static const int dist = 30;
@@ -368,38 +392,25 @@ void *playSample(void* dummy){
             
             play = true;
             
-            /*
-            t_active = true;
-            pthread_t t;
-            pthread_create(&t, NULL,addSamp,(void*)obj);
-             */
             
-            for(int i = 0; i < obj->samplebuff->getNumSamples(); i++){
-                obj->buffL[obj->buffptr] = obj->samplebuff->getSample(0, i)*obj->amplitude;
-                obj->buffR[obj->buffptr] = obj->samplebuff->getSample(1, i)*obj->amplitude;
-                //std::cout<<obj->buffL[ptr]<<newLine;
-                
-                obj->buffptr++;
-                if(obj->buffptr>=obj->bufflen)
-                    obj->buffptr = 0;
+            //t_active = true;
+            if(t!=nullptr){
+                pthread_cancel(t);
             }
+            pthread_create(&t, NULL,addSamp,(void*)obj);
+            
+            
+            /*
+            obj->buffL[obj->buffptr] = 1;
+            obj->buffR[obj->buffptr] = 1;
+             */
             
             
         }
-        
         
         tempptr++;
         if(tempptr>=len)
             tempptr = 0;
-        /*
-        if(!t_active){
-        obj->buffL[obj->buffptr] = 0;
-        obj->buffR[obj->buffptr] = 0;
-        obj->buffptr++;
-        if(obj->buffptr>=obj->bufflen)
-            obj->buffptr = 0;
-        }
-        */
         
     }
     
@@ -412,7 +423,7 @@ void *playSample(void* dummy){
 
 void *addSamp(void* dummy){
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
-    
+    float tim = (float)1/100;
     for(int i = 0; i < obj->samplebuff->getNumSamples(); i++){
         obj->buffL[obj->buffptr] = obj->samplebuff->getSample(0, i)*obj->amplitude;
         obj->buffR[obj->buffptr] = obj->samplebuff->getSample(1, i)*obj->amplitude;
@@ -421,6 +432,7 @@ void *addSamp(void* dummy){
         obj->buffptr++;
         if(obj->buffptr>=obj->bufflen)
             obj->buffptr = 0;
+        sleep(tim);
     }
     obj = nullptr;
     delete obj;

@@ -94,58 +94,47 @@ public:
         // For more details, see the help for AudioProcessor::getNextAudioBlock()
         //blue();
         bufferToFill.clearActiveBufferRegion();
-        channelDataL = bufferToFill.buffer->getWritePointer (0, bufferToFill.startSample);
-        channelDataR = bufferToFill.buffer->getWritePointer (1, bufferToFill.startSample);
         
         if(overlay != nullptr){
             if(overlay->numBoards != 0){
                 int num = overlay->numBoards;
                 //std::cout<<num<<newLine;
                 //float amp[num];
-                int len[num];
-                int ptr[num];
-                float * bufferL[num];
-                float * bufferR[num];
                 
                 for(int n = 0; n<num;++n){
-                    //amp[n] = overlay->amplitude;
-                    len[n] = overlay->boardUI[n]->bufflen;
-                    ptr[n] = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
-                    if(ptr[n]<0)
-                        ptr[n]+=len[n];
-                    //std::cout<<ptr[n]<<newLine; 
-                    bufferL[n] = overlay->boardUI[n]->buffL;
-                    bufferR[n] = overlay->boardUI[n]->buffR;
-
+                    int len = overlay->boardUI[n]->bufflen;
+                    int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
+                    if(ptr<0)
+                        ptr+=len;
+                    float *bufferL = overlay->boardUI[n]->buffL;
+                    float *bufferR = overlay->boardUI[n]->buffR;
+                    
+                    for (int i = 0; i < bufferToFill.numSamples ; ++i)
+                    {
+                        if(n==0){
+                            waveformL[waveptr] = 0;
+                            waveformR[waveptr] = 0;
+                        }
+                        waveformL[waveptr] += float(bufferL[ptr]*overlay->amplitude);
+                        waveformR[waveptr] += float(bufferR[ptr]*overlay->amplitude);
+                        
+                        ptr++;
+                        if(ptr>=len)
+                            ptr = 0;
+                        waveptr++;
+                        if(waveptr>=wavelen)
+                            waveptr = 0;
+                    }
                 }
                 
-                for (int i = 0; i < bufferToFill.numSamples ; ++i)
-                {
-                    waveformL[waveptr] = 0;
-                    waveformR[waveptr] = 0;
-                    for(int n = 0; n<num;++n){
-                        waveformL[waveptr] += float(bufferL[n][ptr[n]]*overlay->amplitude);
-                        waveformR[waveptr] += float(bufferR[n][ptr[n]]*overlay->amplitude);
-                        ptr[n]++;
-                        if(ptr[n]>=len[n])
-                            ptr[n] = 0;
-                    }
-                    
-                    
-                    channelDataL[i] = waveformL[waveptr];
-                    channelDataR[i] = waveformR[waveptr];
-                    
-                    waveptr++;
-                    if(waveptr>=wavelen)
-                        waveptr = 0;
-                    
-                }
+                bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples);
+                bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples);
                 
             } else {
                 
                 for (int i = 0; i < bufferToFill.numSamples ; ++i){
-                    channelDataL[i] = 0;
-                    channelDataR[i] = 0;
+                    bufferToFill.buffer->setSample(0, i, 0);
+                    bufferToFill.buffer->setSample(1, i, 0);
                 }
                 for(int x = 0; x<wavelen;++x){
                     waveformL[x] = 0;
@@ -196,13 +185,15 @@ public:
         }
         //std::cout<<getWidth()<<" "<<incr<<" "<<wavelen<<" "<<i<<newLine;
 
+        g.setColour (Colours::blue);
+        g.setOpacity(0.5f);
+        g.strokePath (wavePathR, PathStrokeType (2.0f));
+        
         g.setColour (Colours::red);
         g.setOpacity(0.5f);
         g.strokePath (wavePathL, PathStrokeType (2.0f));
         
-        g.setColour (Colours::blue);
-        g.setOpacity(0.5f);
-        g.strokePath (wavePathR, PathStrokeType (2.0f));
+        
 
         // You can add your drawing code here!
     }
