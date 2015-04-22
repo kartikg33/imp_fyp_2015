@@ -96,7 +96,6 @@ AddBoardButton::~AddBoardButton()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
-
     textButton = nullptr;
     textButton2 = nullptr;
     label = nullptr;
