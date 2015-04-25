@@ -48,9 +48,7 @@ public:
     int numBoards = 0;
     static const int maxBoards = 3;
     float amplitude = 0.0f;
-    PAWSBoard_UI *boardUI[maxBoards];
-    void generateBoard();
-    void removeBoard();
+    ScopedPointer<PAWSBoard_UI> boardUI[maxBoards];
     //[/UserMethods]
 
     void paint (Graphics& g);

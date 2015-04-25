@@ -83,6 +83,7 @@ PAWSBoard_UI::PAWSBoard_UI ()
 
 
     //[Constructor] You can add your own custom stuff here..
+    //label->setText(TRANS("one"), dontSendNotification);
     slider->setValue(0.5);
     int i;
     for(i = 0; i< 3; i++){
@@ -104,7 +105,8 @@ PAWSBoard_UI::~PAWSBoard_UI()
     VoiceFl = false;
     SampleFl = false;
     closePort(serport);
-    samplebuff->~AudioSampleBuffer();
+    samplebuff = nullptr;
+
     //[/Destructor_pre]
 
     comboBox = nullptr;
@@ -288,7 +290,7 @@ void *initBuff(void * dummy){
     while (obj->alive) {
         obj->buffL[obj->buffptr] = 0;
         obj->buffR[obj->buffptr] = 0;
-        
+
         obj->buffptr++;
         if(obj->buffptr>=obj->bufflen)
             obj->buffptr = 0;
@@ -322,7 +324,7 @@ void *playVoice(void* dummy){
         obj->buffL[obj->buffptr] = val;
         obj->buffR[obj->buffptr] = val;
 
-        
+
         obj->buffptr++;
         if(obj->buffptr>=obj->bufflen)
             obj->buffptr = 0;
@@ -337,27 +339,27 @@ void *playSample(void* dummy){
     std::cout<<"Sample Function"<<newLine;
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
     obj->loadSample(drum);
-    
+
     static const int len = 500;
     int tempbuff[len] = {0};
     int tempptr = 0;
     int diff = 0;
     int change = 0;
     int thresh = 100;
-    
+
     bool play = false;
     pthread_t t = nullptr;
     /*
     pthread_t t;
     pthread_create(&t, NULL,initSamp,(void*)obj);
      */
-    
+
     static const int dist = 30;
     int i;
     char c;
-    
+
     while(obj->SampleFl && obj->serport!=-1){
-        
+
         char ascii_int[dist] = {0};
         c = NULL;
         i = 0;
@@ -368,50 +370,50 @@ void *playSample(void* dummy){
         }
         tempbuff[tempptr] = atoi(ascii_int);
         //std::cout<<tempptr<<" "<<tempbuff[tempptr]<<newLine;
-        
+
         diff = tempptr+1;
         if (diff>=len)
             diff = 0;
-        
+
         change = tempbuff[tempptr] - tempbuff[diff];
         change = abs(change);
         //std::cout<<tempbuff[tempptr]<<" - "<<tempbuff[diff]<<newLine;
         //std::cout<<change<<newLine;
-        
-        
+
+
         if (change<(thresh*0.8) && play==true){
             play = false;
         }
         if(change>=thresh && play==false){
             //std::cout<<change<<newLine;
-            
+
             play = true;
-            
-            
+
+
             //t_active = true;
             if(t!=nullptr){
                 pthread_cancel(t);
             }
             pthread_create(&t, NULL,addSamp,(void*)obj);
-            
-            
+
+
             /*
             obj->buffL[obj->buffptr] = 1;
             obj->buffR[obj->buffptr] = 1;
              */
-            
-            
+
+
         }
-        
+
         tempptr++;
         if(tempptr>=len)
             tempptr = 0;
-        
+
     }
-    
+
     std::cout<<"End Sample Function"<<newLine;
     return 0;
-    
+
 }
 
 void *addSamp(void* dummy){
@@ -421,7 +423,7 @@ void *addSamp(void* dummy){
         obj->buffL[obj->buffptr] = obj->samplebuff->getSample(0, i)*obj->amplitude;
         obj->buffR[obj->buffptr] = obj->samplebuff->getSample(1, i)*obj->amplitude;
         //std::cout<<obj->buffL[ptr]<<newLine;
-        
+
         obj->buffptr++;
         if(obj->buffptr>=obj->bufflen)
             obj->buffptr = 0;
@@ -444,18 +446,18 @@ void PAWSBoard_UI::loadSample(String samp){
     if(storedsamp != samp){
         File _file = File(samp);
         WavAudioFormat _wavAudioFormat;
-        AudioFormatReader * _audioFormatReader = _wavAudioFormat.createReaderFor(_file.createInputStream(), 0);
+        ScopedPointer<AudioFormatReader> _audioFormatReader = _wavAudioFormat.createReaderFor(_file.createInputStream(), 0);
         if(samplebuff==nullptr){
             samplebuff = new AudioSampleBuffer();
         }else{
             samplebuff->clear();
-            delete samplebuff;
+            samplebuff = nullptr;
             samplebuff = new AudioSampleBuffer();
         }
         samplebuff->setSize(2, _audioFormatReader->lengthInSamples);
         _audioFormatReader->read(samplebuff, (int)0, _audioFormatReader->lengthInSamples, (int64)0, true, true);
         storedsamp = samp;
-        delete _audioFormatReader;
+        _audioFormatReader = nullptr;
     }
 }
 

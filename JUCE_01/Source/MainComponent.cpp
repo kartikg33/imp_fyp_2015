@@ -51,11 +51,8 @@ public:
     ~MainContentComponent()
     {
         
-        delete overlay;
         overlay = nullptr;
-        delete[] waveformL;
         waveformL = nullptr;
-        delete[] waveformR;
         waveformR = nullptr;
         
         shutdownAudio();
@@ -221,15 +218,15 @@ private:
 
     // Your private member variables go here...
     //float buffer[512];
-    float * waveformL = nullptr;
-    float * waveformR = nullptr;
+    ScopedPointer<float> waveformL = nullptr;
+    ScopedPointer<float> waveformR = nullptr;
     int waveptr = 0;
     const int wavelen = 512;
     
     double sampleRate;
     int expectedSamplesPerBlock;
     
-    AddBoardButton * overlay = nullptr;
+    ScopedPointer<AddBoardButton> overlay = nullptr;
 
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainContentComponent)

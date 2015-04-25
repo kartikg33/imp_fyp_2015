@@ -106,7 +106,6 @@ AddBoardButton::~AddBoardButton()
     //[Destructor]. You can add your own custom destruction code here..
 
     for(int i = 0; i<maxBoards;i++){
-        delete boardUI[i];
         boardUI[i] = nullptr;
     }
 
@@ -175,31 +174,26 @@ void AddBoardButton::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == textButton)
     {
         //[UserButtonCode_textButton] -- add your button handler code here..
-
-        //std::cout<<numBoards<<newLine;
         if(numBoards<maxBoards){
-            generateBoard();
+            boardUI[numBoards] = new PAWSBoard_UI();
+            addAndMakeVisible(boardUI[numBoards]);
             numBoards++;
         }
-        resized();
-
         //[/UserButtonCode_textButton]
     }
     else if (buttonThatWasClicked == textButton2)
     {
         //[UserButtonCode_textButton2] -- add your button handler code here..
-
-        if(numBoards!=0){
+        if(numBoards>0){
             numBoards--;
-            removeBoard();
-
+            removeChildComponent(boardUI[numBoards]);
+            boardUI[numBoards] = nullptr;
         }
-        resized();
-
         //[/UserButtonCode_textButton2]
     }
 
     //[UserbuttonClicked_Post]
+    resized();
     //[/UserbuttonClicked_Post]
 }
 
@@ -222,17 +216,7 @@ void AddBoardButton::sliderValueChanged (Slider* sliderThatWasMoved)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-void AddBoardButton::generateBoard(){
-    boardUI[numBoards] = new PAWSBoard_UI();
-    addAndMakeVisible(boardUI[numBoards]);
-    resized();
-}
-void AddBoardButton::removeBoard(){
-    removeChildComponent(boardUI[numBoards]);
-    //std::cout<<"childcomponentremoved";
-    delete boardUI[numBoards];
-    boardUI[numBoards] = nullptr;
-}
+
 //[/MiscUserCode]
 
 
