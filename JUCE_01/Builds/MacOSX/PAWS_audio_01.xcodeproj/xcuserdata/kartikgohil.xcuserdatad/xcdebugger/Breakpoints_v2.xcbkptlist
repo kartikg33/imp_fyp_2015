@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../Source/PAWSBoard_UI.cpp"
-            timestampString = "451664094.607724"
+            timestampString = "451763305.886308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "446"
-            endingLineNumber = "446"
+            startingLineNumber = "447"
+            endingLineNumber = "447"
             landmarkName = "PAWSBoard_UI::loadSample(String samp)"
             landmarkType = "5">
          </BreakpointContent>
@@ -111,6 +111,22 @@
             endingLineNumber = "180"
             landmarkName = "AddBoardButton::buttonClicked (Button* buttonThatWasClicked)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Source/PAWSBoard_UI.cpp"
+            timestampString = "451763305.886308"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
+            landmarkName = "playSample(void* dummy)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

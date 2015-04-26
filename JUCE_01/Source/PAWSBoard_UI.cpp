@@ -388,14 +388,15 @@ void *playSample(void* dummy){
             //std::cout<<change<<newLine;
 
             play = true;
+            obj->sampPlaying = true;
 
-
+/*
             //t_active = true;
             if(t!=nullptr){
                 pthread_cancel(t);
             }
             pthread_create(&t, NULL,addSamp,(void*)obj);
-
+*/
 
             /*
             obj->buffL[obj->buffptr] = 1;

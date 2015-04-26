@@ -93,34 +93,86 @@ public:
         if(overlay != nullptr){
             if(overlay->numBoards != 0){
                 int num = overlay->numBoards;
-
-                for(int n = 0; n<num;++n){
-                    int len = overlay->boardUI[n]->bufflen;
-                    int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
-                    if(ptr<0)
-                        ptr+=len;
-                    float *bufferL = overlay->boardUI[n]->buffL;
-                    float *bufferR = overlay->boardUI[n]->buffR;
-                    
-                    for (int i = 0; i < bufferToFill.numSamples ; ++i)
-                    {
-                        if(n==0){
-                            waveformL[waveptr] = 0;
-                            waveformR[waveptr] = 0;
-                        }
-                        
-                        waveformL[waveptr] += float(bufferL[ptr]);//*overlay->amplitude);
-                        waveformR[waveptr] += float(bufferR[ptr]);//*overlay->amplitude);
-                        
-                        ptr++;
-                        if(ptr>=len)
-                            ptr = 0;
-                        waveptr++;
-                        if(waveptr>=wavelen)
-                            waveptr = 0;
-                    }
-
+                
+                for(int x = 0; x<wavelen;++x){
+                    waveformL[x] = 0;
+                    waveformR[x] = 0;
                 }
+                
+                for(int n = 0; n<num;++n){
+                    
+                    if(overlay->boardUI[n]->SampleFl){
+                        
+                        int ptr = overlay->boardUI[n]->sampBuffPtr;
+                        int len = overlay->boardUI[n]->samplebuff->getNumSamples();
+                        bool end = false;
+                        int i = 0;
+                        if (overlay->boardUI[n]->sampPlaying) {
+                            
+                        
+                            while (i < bufferToFill.numSamples && !end)
+                            {
+                                waveformL[waveptr] += overlay->boardUI[n]->samplebuff->getSample(0, ptr);
+                                waveformR[waveptr] += overlay->boardUI[n]->samplebuff->getSample(1, ptr);
+                            
+                                ptr++;
+                                if(ptr>=len){
+                                    end = true;
+                                    overlay->boardUI[n]->sampPlaying = false;
+                                    overlay->boardUI[n]->sampBuffPtr = 0;
+                                }
+                            
+                                waveptr++;
+                                if(waveptr>=wavelen)
+                                    waveptr = 0;
+                            
+                                ++i;
+                            
+                            }
+                            if(i<bufferToFill.numSamples){
+                                while (i < bufferToFill.numSamples)
+                                {
+                                    waveformL[waveptr] += 0;
+                                    waveformR[waveptr] += 0;
+                                    ++i;
+                                }
+                            
+                            } else {
+                                overlay->boardUI[n]->sampBuffPtr = ptr;
+                            }
+                        
+                        } else {
+                            for(int x = 0; x<wavelen;++x){
+                                waveformL[x] += 0;
+                                waveformR[x] += 0;
+                            }
+                        }
+                    
+                    } else {
+                    
+                        int len = overlay->boardUI[n]->bufflen;
+                        int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
+                        if(ptr<0)
+                            ptr+=len;
+                        float *bufferL = overlay->boardUI[n]->buffL;
+                        float *bufferR = overlay->boardUI[n]->buffR;
+                    
+                        for (int i = 0; i < bufferToFill.numSamples ; ++i)
+                        {
+                        
+                            waveformL[waveptr] += float(bufferL[ptr]);//*overlay->amplitude);
+                            waveformR[waveptr] += float(bufferR[ptr]);//*overlay->amplitude);
+                        
+                            ptr++;
+                            if(ptr>=len)
+                                ptr = 0;
+                            waveptr++;
+                            if(waveptr>=wavelen)
+                                waveptr = 0;
+                        }//for (int i = 0; i < bufferToFill.numSamples ; ++i)
+                        
+                    } //if(overlay->boardUI[n]->SampleFl)
+                }//for(int n = 0; n<num;++n)
                 
                 bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
                 bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
@@ -128,14 +180,12 @@ public:
                 
             } else {
                 
-                for (int i = 0; i < bufferToFill.numSamples ; ++i){
-                    bufferToFill.buffer->setSample(0, i, 0);
-                    bufferToFill.buffer->setSample(1, i, 0);
-                }
                 for(int x = 0; x<wavelen;++x){
                     waveformL[x] = 0;
                     waveformR[x] = 0;
                 }
+                bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
+                bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
             }//if(overlay->boardUI !=nullptr)
         } //if(overlay != nullptr)
        
