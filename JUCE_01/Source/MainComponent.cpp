@@ -90,14 +90,14 @@ public:
         
         bufferToFill.clearActiveBufferRegion();
         
+        for(int x = 0; x<wavelen;++x){
+            waveformL[x] = 0;
+            waveformR[x] = 0;
+        }
+        
         if(overlay != nullptr){
             if(overlay->numBoards != 0){
                 int num = overlay->numBoards;
-                
-                for(int x = 0; x<wavelen;++x){
-                    waveformL[x] = 0;
-                    waveformR[x] = 0;
-                }
                 
                 for(int n = 0; n<num;++n){
                     
@@ -107,46 +107,50 @@ public:
                         int len = overlay->boardUI[n]->samplebuff->getNumSamples();
                         bool end = false;
                         int i = 0;
+                        
                         if (overlay->boardUI[n]->sampPlaying) {
-                            
                         
                             while (i < bufferToFill.numSamples && !end)
                             {
                                 waveformL[waveptr] += overlay->boardUI[n]->samplebuff->getSample(0, ptr);
                                 waveformR[waveptr] += overlay->boardUI[n]->samplebuff->getSample(1, ptr);
                             
-                                ptr++;
+                                ++ptr;
                                 if(ptr>=len){
                                     end = true;
                                     overlay->boardUI[n]->sampPlaying = false;
-                                    overlay->boardUI[n]->sampBuffPtr = 0;
+                                    ptr = 0;
                                 }
                             
-                                waveptr++;
+                                ++waveptr;
                                 if(waveptr>=wavelen)
                                     waveptr = 0;
                             
                                 ++i;
                             
                             }
-                            if(i<bufferToFill.numSamples){
-                                while (i < bufferToFill.numSamples)
-                                {
-                                    waveformL[waveptr] += 0;
-                                    waveformR[waveptr] += 0;
-                                    ++i;
-                                }
-                            
-                            } else {
-                                overlay->boardUI[n]->sampBuffPtr = ptr;
+                           
+                            while (i < bufferToFill.numSamples)
+                            {
+                                waveformL[waveptr] += 0;
+                                waveformR[waveptr] += 0;
+                                    
+                                ++waveptr;
+                                if(waveptr>=wavelen)
+                                    waveptr = 0;
+                                ++i;
                             }
+                            
+                            
+                            overlay->boardUI[n]->sampBuffPtr = ptr;
+                            
                         
-                        } else {
+                        } /*else {
                             for(int x = 0; x<wavelen;++x){
                                 waveformL[x] += 0;
                                 waveformR[x] += 0;
                             }
-                        }
+                        }*/
                     
                     } else {
                     
@@ -174,9 +178,8 @@ public:
                     } //if(overlay->boardUI[n]->SampleFl)
                 }//for(int n = 0; n<num;++n)
                 
-                bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
-                bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
                 
+             /*
                 
             } else {
                 
@@ -186,9 +189,12 @@ public:
                 }
                 bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
                 bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
+              */
             }//if(overlay->boardUI !=nullptr)
         } //if(overlay != nullptr)
        
+        bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
+        bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
     }
 
     void releaseResources() override

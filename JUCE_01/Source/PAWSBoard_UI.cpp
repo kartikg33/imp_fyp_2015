@@ -348,7 +348,7 @@ void *playSample(void* dummy){
     int thresh = 100;
 
     bool play = false;
-    pthread_t t = nullptr;
+    //pthread_t t = nullptr;
     /*
     pthread_t t;
     pthread_create(&t, NULL,initSamp,(void*)obj);
@@ -386,7 +386,6 @@ void *playSample(void* dummy){
         }
         if(change>=thresh && play==false){
             //std::cout<<change<<newLine;
-
             play = true;
             obj->sampPlaying = true;
 
@@ -406,7 +405,7 @@ void *playSample(void* dummy){
 
         }
 
-        tempptr++;
+        ++tempptr;
         if(tempptr>=len)
             tempptr = 0;
 
