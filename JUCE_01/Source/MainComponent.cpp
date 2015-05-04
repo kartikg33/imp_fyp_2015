@@ -86,7 +86,6 @@ public:
     {
         // Your audio-processing code goes here!
         // For more details, see the help for AudioProcessor::getNextAudioBlock()
-        //blue();
         
         bufferToFill.clearActiveBufferRegion();
         
@@ -108,8 +107,14 @@ public:
                         bool end = false;
                         int i = 0;
                         
-                        if (overlay->boardUI[n]->sampPlaying) {
+                        if (overlay->boardUI[n]->playSamp) {
+                            overlay->boardUI[n]->sampPlaying = true;
+                            ptr = 0;
+                        }
                         
+                        
+                        if(overlay->boardUI[n]->sampPlaying){
+                            
                             while (i < bufferToFill.numSamples && !end)
                             {
                                 waveformL[waveptr] += overlay->boardUI[n]->samplebuff->getSample(0, ptr);
@@ -144,15 +149,9 @@ public:
                             
                             overlay->boardUI[n]->sampBuffPtr = ptr;
                             
-                        
-                        } /*else {
-                            for(int x = 0; x<wavelen;++x){
-                                waveformL[x] += 0;
-                                waveformR[x] += 0;
-                            }
-                        }*/
+                        }
                     
-                    } else {
+                    } else { //if(overlay->boardUI[n]->SampleFl)
                     
                         int len = overlay->boardUI[n]->bufflen;
                         int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
@@ -191,10 +190,13 @@ public:
                 bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
               */
             }//if(overlay->boardUI !=nullptr)
+
+        
+            bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
+            bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
+            
         } //if(overlay != nullptr)
-       
-        bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
-        bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
+        
     }
 
     void releaseResources() override

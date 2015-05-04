@@ -94,7 +94,11 @@ PAWSBoard_UI::PAWSBoard_UI ()
     listSerial();
     toggleButton->setRadioGroupId(1,(NotificationType)0);
     toggleButton2->setRadioGroupId(1,(NotificationType)0);
-
+    
+    samplebuff = new AudioSampleBuffer();
+    samplebuff->setSize(2, 512);
+    samplebuff->clear();
+    
     //[/Constructor]
 }
 
@@ -347,7 +351,7 @@ void *playSample(void* dummy){
     int change = 0;
     int thresh = 100;
 
-    bool play = false;
+    obj->playSamp = false;
     //pthread_t t = nullptr;
     /*
     pthread_t t;
@@ -381,14 +385,14 @@ void *playSample(void* dummy){
         //std::cout<<change<<newLine;
 
 
-        if (change<(thresh*0.8) && play==true){
-            play = false;
+        if (change<(thresh*0.8) && obj->playSamp==true){
+            obj->playSamp = false;
         }
-        if(change>=thresh && play==false){
+        if(change>=thresh && obj->playSamp==false){
             //std::cout<<change<<newLine;
-            play = true;
-            obj->sampPlaying = true;
-
+            obj->playSamp = true;
+        }
+        
 /*
             //t_active = true;
             if(t!=nullptr){
@@ -401,10 +405,10 @@ void *playSample(void* dummy){
             obj->buffL[obj->buffptr] = 1;
             obj->buffR[obj->buffptr] = 1;
              */
-
-
-        }
-
+        
+        
+        std::cout<<obj->playSamp<<newLine;
+        
         ++tempptr;
         if(tempptr>=len)
             tempptr = 0;
@@ -447,13 +451,11 @@ void PAWSBoard_UI::loadSample(String samp){
         File _file = File(samp);
         WavAudioFormat _wavAudioFormat;
         ScopedPointer<AudioFormatReader> _audioFormatReader = _wavAudioFormat.createReaderFor(_file.createInputStream(), 0);
-        if(samplebuff==nullptr){
-            samplebuff = new AudioSampleBuffer();
-        }else{
-            samplebuff->clear();
-            samplebuff = nullptr;
-            samplebuff = new AudioSampleBuffer();
-        }
+
+        samplebuff->clear();
+        samplebuff = nullptr;
+        samplebuff = new AudioSampleBuffer();
+        
         samplebuff->setSize(2, _audioFormatReader->lengthInSamples);
         _audioFormatReader->read(samplebuff, (int)0, _audioFormatReader->lengthInSamples, (int64)0, true, true);
         storedsamp = samp;

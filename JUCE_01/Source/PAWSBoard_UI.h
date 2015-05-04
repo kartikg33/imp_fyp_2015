@@ -70,6 +70,7 @@ public:
     int sampBuffPtr = 0;
     String storedsamp = "NULL";
     bool alive = true;
+    bool playSamp = false;
     bool sampPlaying = false;
 
     void initBuffer();
