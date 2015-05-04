@@ -12,7 +12,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PAWSBoard_UI.cpp"
 #include "AddBoardButton.cpp"
-#include "Bluetooth.cpp"
+
 
 
 
@@ -157,6 +157,7 @@ public:
                         int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
                         if(ptr<0)
                             ptr+=len;
+                        std::cout<<ptr<<newLine;
                         float *bufferL = overlay->boardUI[n]->buffL;
                         float *bufferR = overlay->boardUI[n]->buffR;
                     
