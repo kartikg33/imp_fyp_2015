@@ -112,6 +112,7 @@ private:
 #define blu "/dev/tty.HC-06-DevB"
 #define drum "/Users/kartikgohil/Documents/Imperial/Year4/Project/Test Audio/afrimid.wav"
 void *playVoice(void*);
+void *playVoice2(void*);
 void *playSample(void*);
 void *initSamp(void*);
 void *addSamp(void*);

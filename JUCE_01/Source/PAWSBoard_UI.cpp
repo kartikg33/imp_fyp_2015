@@ -308,6 +308,55 @@ void *playVoice(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
     static const int len = 30;
+    float val, prev, delta;
+    int i;
+    char c;
+    int inter = 13;
+    prev = obj->buffL[obj->buffptr];
+    while(obj->VoiceFl && obj->serport!=-1){
+        char ascii_int[len] = {0};
+        c = NULL;
+        i = 0;
+        //std::cout<<"reading\n";
+        read(obj->serport, &c, 1);
+        //std::cout<<c<<newLine;
+        while ((c != '\n')&&(i<len)){
+            ascii_int[i++] = c;
+            read(obj->serport, &c, 1);
+            //std::cout<<c<<newLine;
+        }
+        //std::cout<<"read\n";
+        val = (atof(ascii_int)-512)*0.00195f*obj->amplitude;
+        delta = float((val - prev)/inter);
+        
+        for(int x = 1; x < inter; x++){
+            obj->buffptr++;
+            if(obj->buffptr>=obj->bufflen)
+                obj->buffptr = 0;
+            
+            obj->buffL[obj->buffptr] = prev + float(x*delta);
+            obj->buffR[obj->buffptr] = obj->buffL[obj->buffptr];
+        }
+        
+        obj->buffptr++;
+        if(obj->buffptr>=obj->bufflen)
+            obj->buffptr = 0;
+        
+        obj->buffL[obj->buffptr] = val;
+        obj->buffR[obj->buffptr] = val;
+        
+        prev = val;
+        
+        //std::cout<<obj->buffL[obj->buffptr]<<newLine;
+    }
+    std::cout<<"End Voice Function"<<newLine;
+    return 0;
+}
+
+void *playVoice2(void* dummy){
+    std::cout<<"Voice Function"<<newLine;
+    PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
+    static const int len = 30;
     float val;
     int i;
     char c;
