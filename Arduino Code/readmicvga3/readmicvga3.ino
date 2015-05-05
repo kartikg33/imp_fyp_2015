@@ -32,7 +32,7 @@ int temp;
 keep it between 0.7 and 2.2V
 therefore 
 */
-int gain = 80; //between 64 and 128, 0 turns off
+int gain = 70; //between 64 and 128, 0 turns off
 float tau = 1/FS;
 
 

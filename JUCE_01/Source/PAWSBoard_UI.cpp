@@ -266,8 +266,8 @@ void PAWSBoard_UI::connectPort(char* ser){
         std::cout<<"Connected to Arduino\n";
         tcgetattr(serport, &options);   // read serial port options
         //options.c_lflag |= ICANON; //CANONICAL MODE
-        cfsetospeed(&options,B230400); // B115200 baud // B230400
-        cfsetispeed(&options,B230400); // B115200 baud
+        cfsetospeed(&options,B115200); // B115200 baud // B230400
+        cfsetispeed(&options,B115200); // B115200 baud
         tcsetattr(serport,TCSANOW, &options);
         fcntl(serport, F_SETFL, 0);    // clear all flags on descriptor, enable direct I/O
     }
@@ -311,7 +311,7 @@ void *playVoice(void* dummy){
     float val, prev, delta;
     int i;
     char c;
-    int inter = 13;
+    int inter = 19;
     prev = obj->buffL[obj->buffptr];
     while(obj->VoiceFl && obj->serport!=-1){
         char ascii_int[len] = {0};

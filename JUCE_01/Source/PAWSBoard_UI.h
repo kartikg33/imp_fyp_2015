@@ -58,7 +58,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    static const int bufflen = 1000;
+    static const int bufflen = 2000;
     float buffL[bufflen];
     float buffR[bufflen];
     int serport = -1;

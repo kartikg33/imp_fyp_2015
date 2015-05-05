@@ -157,7 +157,7 @@ public:
                         int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
                         if(ptr<0)
                             ptr+=len;
-                        std::cout<<ptr<<newLine;
+                        //std::cout<<ptr<<newLine;
                         float *bufferL = overlay->boardUI[n]->buffL;
                         float *bufferR = overlay->boardUI[n]->buffR;
                     
@@ -190,9 +190,10 @@ public:
                 bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
                 bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
               */
+                
+                
             }//if(overlay->boardUI !=nullptr)
 
-        
             bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
             bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
             
