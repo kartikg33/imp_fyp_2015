@@ -61,10 +61,13 @@ public:
     static const int bufflen = 2000;
     float buffL[bufflen];
     float buffR[bufflen];
+    int queue[bufflen];
+    int buffptr = 0;
+    int queueread = 0;
+    int queuewrite = 0;
     int serport = -1;
     bool VoiceFl = false;
     bool SampleFl = false;
-    int buffptr = 0;
     float amplitude = 0.0f;
     ScopedPointer<AudioSampleBuffer> samplebuff = nullptr;
     int sampBuffPtr = 0;
@@ -112,6 +115,7 @@ private:
 #define blu "/dev/tty.HC-06-DevB"
 #define drum "/Users/kartikgohil/Documents/Imperial/Year4/Project/Test Audio/afrimid.wav"
 void *playVoice(void*);
+void *queueInput(void*);
 void *playVoice2(void*);
 void *playSample(void*);
 void *initSamp(void*);
