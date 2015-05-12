@@ -239,7 +239,7 @@ public:
 
         }
 
-        g.setColour (Colours::blue);
+        g.setColour (Colours::steelblue);
         g.setOpacity(0.5f);
         g.strokePath (wavePathR, PathStrokeType (2.0f));
         
