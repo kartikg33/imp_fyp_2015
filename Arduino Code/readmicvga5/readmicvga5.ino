@@ -38,6 +38,8 @@ int read;
 
 
 void setup(){
+  setPwmFrequency(5, 128);
+  setPwmFrequency(6, 128);
   pinMode(gainpin, OUTPUT);
   pinMode(mic, INPUT); //microphone
   Serial.begin(230400);
