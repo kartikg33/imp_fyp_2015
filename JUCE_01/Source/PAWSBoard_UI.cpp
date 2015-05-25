@@ -441,6 +441,7 @@ void *queueInput(void* dummy){
             obj->queuewrite = 0;
         //std::cout<<input*4<<newLine;
         obj->queue[obj->queuewrite] = input*4;
+        std::cout<< input*4 << newLine;
         
         
         //std::cout<<obj->buffL[obj->buffptr]<<newLine;
