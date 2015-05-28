@@ -369,7 +369,7 @@ void *playVoice(void* dummy){
     
     while(obj->VoiceFl){
         
-        while(obj->queueread != obj->queuewrite){
+        while(obj->queueread != obj->queuewrite){ //POSSIBLE BREAKING POINT
             val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
             delta = float((val - prev)/inter);
         
