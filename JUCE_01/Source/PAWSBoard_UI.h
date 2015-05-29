@@ -70,6 +70,8 @@ public:
     bool SampleFl = false;
     float amplitude = 0.0f;
     ScopedPointer<AudioSampleBuffer> samplebuff = nullptr;
+    //ScopedPointer<IIRCoefficients> coeffs;
+    ScopedPointer<IIRFilter> filt = nullptr;
     int sampBuffPtr = 0;
     String storedsamp = "NULL";
     bool alive = true;
@@ -114,6 +116,7 @@ private:
 #define ard "/dev/tty.usbmodem1d1121"
 #define blu "/dev/tty.HC-06-DevB"
 #define drum "/Users/kartikgohil/Documents/Imperial/Year4/Project/Test Audio/afrimid.wav"
+void *playVoice_basic(void*);
 void *playVoice(void*);
 void *queueInput(void*);
 void *playVoice2(void*);

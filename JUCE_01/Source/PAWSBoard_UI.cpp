@@ -98,7 +98,13 @@ PAWSBoard_UI::PAWSBoard_UI ()
     samplebuff = new AudioSampleBuffer();
     samplebuff->setSize(2, 512);
     samplebuff->clear();
-
+    
+    //Generate Filter
+    IIRCoefficients coeffs;
+    coeffs.makePeakFilter(6300, 200, 1, 5);
+    filt = new IIRFilter;
+    filt->setCoefficients(coeffs);
+    
     //[/Constructor]
 }
 
@@ -129,6 +135,8 @@ PAWSBoard_UI::~PAWSBoard_UI()
             threads[i] = nullptr;
         }
     }
+    
+    filt = nullptr;
     //[/Destructor]
 }
 
@@ -356,7 +364,7 @@ void *playVoice2(void* dummy){
     return 0;
 }
 
-void *playVoice(void* dummy){
+void *playVoice_basic(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
     
@@ -402,6 +410,52 @@ void *playVoice(void* dummy){
     return 0;
 }
 
+void *playVoice(void* dummy){
+    std::cout<<"Voice Function"<<newLine;
+    PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
+    
+    pthread_t t;
+    pthread_create(&t, NULL,queueInput,(void*)obj);
+    
+    float val, prev, delta;
+    int inter = 7;
+    prev = obj->buffL[obj->buffptr];
+    
+    while(obj->VoiceFl){
+        
+        while(obj->queueread != obj->queuewrite){ //POSSIBLE BREAKING POINT
+            val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
+            delta = float((val - prev)/inter);
+            
+            for(int x = 1; x < inter; x++){
+                obj->buffptr++;
+                if(obj->buffptr>=obj->bufflen)
+                    obj->buffptr = 0;
+                
+                obj->buffL[obj->buffptr] = prev + float(x*delta);
+                obj->buffR[obj->buffptr] = obj->buffL[obj->buffptr];
+            }
+            
+            obj->queueread++;
+            if(obj->queueread>=obj->bufflen)
+                obj->queueread = 0;
+            
+            obj->buffptr++;
+            if(obj->buffptr>=obj->bufflen)
+                obj->buffptr = 0;
+            
+            obj->buffL[obj->buffptr] = val;
+            obj->buffR[obj->buffptr] = val;
+            
+            prev = val;
+        }
+    }
+    
+    pthread_cancel(t);
+    std::cout<<"End Voice Function"<<newLine;
+    return 0;
+}
+
 void *queueInput(void* dummy){
     std::cout<<"Queue Input"<<newLine;
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
@@ -437,11 +491,13 @@ void *queueInput(void* dummy){
          */
         //std::cout<<input<<newLine;
         obj->queuewrite++;
-        if(obj->queuewrite>=obj->bufflen)
+        if(obj->queuewrite>=obj->bufflen){
             obj->queuewrite = 0;
+        }
         //std::cout<<input*4<<newLine;
         obj->queue[obj->queuewrite] = input*4;
-        std::cout<< input*4 << newLine;
+        //obj->queue[obj->queuewrite] = obj->filt->processSingleSampleRaw(input*4);
+        //std::cout<< input*4 << newLine;
         
         
         //std::cout<<obj->buffL[obj->buffptr]<<newLine;
