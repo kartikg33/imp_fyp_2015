@@ -417,39 +417,58 @@ void *playVoice(void* dummy){
     pthread_t t;
     pthread_create(&t, NULL,queueInput,(void*)obj);
     
+    float *chunk;
     float val, prev, delta;
     int inter = 7;
-    prev = obj->buffL[obj->buffptr];
+    val = obj->buffL[obj->buffptr];
+    int length = 0;
+    int diff = 0;
     
     while(obj->VoiceFl){
         
-        while(obj->queueread != obj->queuewrite){ //POSSIBLE BREAKING POINT
+        //FIND CHUNK LENGTH
+        if((diff = (obj->queuewrite - obj->queueread)%obj->bufflen) > 10){
+            diff = 10;
+        }
+        length = diff*inter;
+        chunk = new float[length];
+        
+        //INTERPOLATE CHUNK
+        for(int x = 1; x <= diff; x++){
+            prev = val;
             val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
-            delta = float((val - prev)/inter);
-            
-            for(int x = 1; x < inter; x++){
-                obj->buffptr++;
-                if(obj->buffptr>=obj->bufflen)
-                    obj->buffptr = 0;
-                
-                obj->buffL[obj->buffptr] = prev + float(x*delta);
-                obj->buffR[obj->buffptr] = obj->buffL[obj->buffptr];
-            }
+            chunk[x*7] = val;
             
             obj->queueread++;
             if(obj->queueread>=obj->bufflen)
                 obj->queueread = 0;
             
+            delta = float((val - prev)/inter);
+            
+            for(int i = 1; x < inter; x++){
+                chunk[((x-1)*7)+(i-1)] = prev + float(i*delta);
+            }
+            
+        }
+    
+        //FILTER CHUNK
+        
+        
+        
+        //PUSH CHUNK TO BUFFER
+        for(int x = 0; x<length; x++){
+            
             obj->buffptr++;
             if(obj->buffptr>=obj->bufflen)
                 obj->buffptr = 0;
             
-            obj->buffL[obj->buffptr] = val;
-            obj->buffR[obj->buffptr] = val;
+            obj->buffL[obj->buffptr] = chunk[x];
+            obj->buffR[obj->buffptr] = chunk[x];
             
-            prev = val;
         }
-    }
+        delete[] chunk;
+        
+    } //while(obj->VoiceFl){
     
     pthread_cancel(t);
     std::cout<<"End Voice Function"<<newLine;
