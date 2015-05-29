@@ -183,6 +183,7 @@ void PAWSBoard_UI::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 
         //set serport (-1 if not connected)
         connectPort((char*)static_cast<const char*>(comboBox->getText().toUTF8()));
+        pthread_create(&threads[2], NULL,queueInput,(void*)this);
         if(VoiceFl){
             buttonClicked(toggleButton);
         }else if(SampleFl){
@@ -364,12 +365,12 @@ void *playVoice2(void* dummy){
     return 0;
 }
 
-void *playVoice_basic(void* dummy){
+void *playVoice(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
     
-    pthread_t t;
-    pthread_create(&t, NULL,queueInput,(void*)obj);
+    //pthread_t t;
+    //pthread_create(&t, NULL,queueInput,(void*)obj);
     
     float val, prev, delta;
     int inter = 7;
@@ -405,17 +406,17 @@ void *playVoice_basic(void* dummy){
         }
     }
     
-    pthread_cancel(t);
+    //pthread_cancel(t);
     std::cout<<"End Voice Function"<<newLine;
     return 0;
 }
 
-void *playVoice(void* dummy){
+void *playVoice_basic(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
     
-    pthread_t t;
-    pthread_create(&t, NULL,queueInput,(void*)obj);
+    //pthread_t t;
+    //pthread_create(&t, NULL,queueInput,(void*)obj);
     
     float *chunk;
     float val, prev, delta;
@@ -437,7 +438,7 @@ void *playVoice(void* dummy){
         for(int x = 1; x <= diff; x++){
             prev = val;
             val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
-            chunk[x*7] = val;
+            chunk[(x*7)-1] = val;
             
             obj->queueread++;
             if(obj->queueread>=obj->bufflen)
@@ -466,12 +467,15 @@ void *playVoice(void* dummy){
             obj->buffR[obj->buffptr] = chunk[x];
             
         }
+        
         delete[] chunk;
+        chunk = nullptr;
+
         
     } //while(obj->VoiceFl){
     
-    pthread_cancel(t);
-    std::cout<<"End Voice Function"<<newLine;
+    //pthread_cancel(t);
+    //std::cout<<"End Voice Function"<<newLine;
     return 0;
 }
 
@@ -565,8 +569,8 @@ void *playSample(void* dummy){
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
     obj->loadSample(drum);
 
-    pthread_t t;
-    pthread_create(&t, NULL,queueInput,(void*)obj);
+    //pthread_t t;
+    //pthread_create(&t, NULL,queueInput,(void*)obj);
     
     static const int len = 500;
     int tempbuff[len] = {512};
@@ -647,7 +651,7 @@ void *playSample(void* dummy){
 
     }
     
-    pthread_cancel(t);
+    //pthread_cancel(t);
 
     std::cout<<"End Sample Function"<<newLine;
     return 0;
