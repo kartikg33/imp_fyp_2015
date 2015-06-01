@@ -91,7 +91,6 @@ public:
         
         if(waveptr>=wavelen)
             waveptr = 0;
-        //std::cout<<waveptr<<newLine;
         int start = waveptr;
         
         for(int x = 0; x<bufferToFill.numSamples;++x){
@@ -133,9 +132,6 @@ public:
                                 }
                             
                                 ++waveptr;
-                                //if(waveptr>=wavelen)
-                                  //  waveptr = 0;
-                            
                                 ++i;
                             
                             }
@@ -146,8 +142,6 @@ public:
                                 waveformR[waveptr] += 0;
                                     
                                 ++waveptr;
-                                //if(waveptr>=wavelen)
-                                //    waveptr = 0;
                                 ++i;
                             }
                             
@@ -162,7 +156,7 @@ public:
                         int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
                         if(ptr<0)
                             ptr+=len;
-                        //std::cout<<ptr<<newLine;
+
                         float *bufferL = overlay->boardUI[n]->buffL;
                         float *bufferR = overlay->boardUI[n]->buffR;
                     
@@ -176,8 +170,7 @@ public:
                             if(ptr>=len)
                                 ptr = 0;
                             waveptr++;
-                            //if(waveptr>=wavelen)
-                             //   waveptr = 0;
+
                         }//for (int i = 0; i < bufferToFill.numSamples ; ++i)
                         
                     } //if(overlay->boardUI[n]->SampleFl)
@@ -219,16 +212,10 @@ public:
 
         float incr = (getWidth()/float(wavelen-1));
         float i = 0.0f;
-        //int ptr = waveptr;
         for (int x = 0; x < wavelen; x++){
             wavePathL.lineTo (i, centreY + int(waveformL[x]*(centreY/2)));
             wavePathR.lineTo (i, centreY + int(waveformR[x]*(centreY/2)));
             i += incr;
-            //ptr++;
-            //if(ptr>=wavelen){
-              //  ptr=0;
-            //}
-
         }
 
         g.setColour (Colours::steelblue);

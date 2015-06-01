@@ -111,10 +111,19 @@ PAWSBoard_UI::PAWSBoard_UI ()
 PAWSBoard_UI::~PAWSBoard_UI()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+    
+    int i;
+    for(i = 0; i <3; i++){
+        if(threads[i] != nullptr){
+            pthread_cancel(threads[i]);
+            threads[i] = nullptr;
+        }
+    }
+    
     alive = false;
     VoiceFl = false;
     SampleFl = false;
-    closePort(serport);
+    serport = closePort(serport);
     samplebuff = nullptr;
 
     //[/Destructor_pre]
@@ -128,13 +137,7 @@ PAWSBoard_UI::~PAWSBoard_UI()
 
 
     //[Destructor]. You can add your own custom destruction code here..
-    int i;
-    for(i = 0; i <3; i++){
-        if(threads[i] != nullptr){
-            pthread_cancel(threads[i]);
-            threads[i] = nullptr;
-        }
-    }
+    
     
     filt = nullptr;
     //[/Destructor]
@@ -183,7 +186,8 @@ void PAWSBoard_UI::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 
         //set serport (-1 if not connected)
         connectPort((char*)static_cast<const char*>(comboBox->getText().toUTF8()));
-        pthread_create(&threads[2], NULL,queueInput,(void*)this);
+        if(threads[2] == nullptr)
+            pthread_create(&threads[2], NULL,queueInput,(void*)this);
         if(VoiceFl){
             buttonClicked(toggleButton);
         }else if(SampleFl){
@@ -266,7 +270,7 @@ void PAWSBoard_UI::connectPort(char* ser){
     memset(&options,0,sizeof(options));
     char *device = ser;
 
-    closePort(serport);
+    serport = closePort(serport);
     serport = open(device, O_RDWR | O_NOCTTY | O_NDELAY);
     if(serport == -1) {
         std::cout<<"Failed to connect to Arduino\n";
@@ -282,11 +286,12 @@ void PAWSBoard_UI::connectPort(char* ser){
     }
 }
 
-void PAWSBoard_UI::closePort(int fd){
+int PAWSBoard_UI::closePort(int fd){
     if(fd!=-1){
         close(fd);
         std::cout<<"Closing connection to Arduino\n";
     }
+    return -1;
 }
 
 void PAWSBoard_UI::initBuffer(){
@@ -379,7 +384,8 @@ void *playVoice(void* dummy){
     while(obj->VoiceFl){
         
         while(obj->queueread != obj->queuewrite){ //POSSIBLE BREAKING POINT
-            val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
+            //val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
+            val = obj->queue[obj->queueread];
             delta = float((val - prev)/inter);
         
             for(int x = 1; x < inter; x++){
@@ -437,7 +443,8 @@ void *playVoice_basic(void* dummy){
         //INTERPOLATE CHUNK
         for(int x = 1; x <= diff; x++){
             prev = val;
-            val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
+            //val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
+            val = obj->queue[obj->queueread];
             chunk[(x*7)-1] = val;
             
             obj->queueread++;
@@ -484,46 +491,84 @@ void *queueInput(void* dummy){
     PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
     //static const int len = 30;
     
-    int input;
+    
+    //coeffs.makeLowPass(6300.0, 3100.0);
+    IIRCoefficients * coeffs = new IIRCoefficients(0.0345944930030068,	0.0455180742182364,	0.0626818320117175,	0.0728764050076197,	0.0728764050076197, 0.0626818320117175);
+    
+    //IIRCoefficients * coeffs = new IIRCoefficients(double(0.0004116),double(0.0007137),double(0.0012791),double(0.0020807),double(0.0031537),double(0.0045223));
+    
+    
+    /*
+    IIRCoefficients * coeffs = new IIRCoefficients(0.122831334667863,
+                                                   0.0470393871492429,
+                                                   0.0506336736466862,
+                                                   0.0506336736466862,
+                                                   0.0470393871492429,
+                                                   0.122831334667863);
+    */
+    IIRCoefficients newcoeffs = *coeffs;
+    for(int x = 0; x <= 5; x++){
+        std::cout<<newcoeffs.coefficients[x]<<newLine;
+    }
+    
+     /*
+    for(int x = 0; x < 5; x++){
+        std::cout<<coeffs.coefficients[x]<<newLine;
+    }
+     */
+    obj->filt->setCoefficients(*coeffs);
+    IIRCoefficients stuff = obj->filt->getCoefficients();
+    
+
+    //std::cout<< obj->filt->getCoefficients()<< newLine;
+    
+    float temp[11];
+    int tempptr = 0;
+    float *input = new float[10];
     char c;
     
     
     while(obj->serport!=-1){
-        //char ascii_int[len] = {0};
-        //int input = 0;
-        //c = NULL;
-        //i = 0;
-        //std::cout<<"reading\n";
+
+        tempptr = 0;
         do{
-        read(obj->serport, &c, 1);
-        } while (c!='\n');
-        //std::cout<<c<<newLine;
-        read(obj->serport, &c, 1);
-        input = Byte(c);
-        //read(obj->serport, &c, 1);
-        //input = input | Byte(c)<<8;
-        
-        /*
-        while ((c != '\n')&&(i<len)){
-            input = input | Byte(c)<<(i*8);
-            i++;
-            //ascii_int[i++] = c;
             read(obj->serport, &c, 1);
-            //std::cout<<c<<newLine;
-        }
-         */
-        //std::cout<<input<<newLine;
-        obj->queuewrite++;
-        if(obj->queuewrite>=obj->bufflen){
-            obj->queuewrite = 0;
-        }
-        //std::cout<<input*4<<newLine;
-        obj->queue[obj->queuewrite] = input*4;
-        //obj->queue[obj->queuewrite] = obj->filt->processSingleSampleRaw(input*4);
-        //std::cout<< input*4 << newLine;
+            temp[tempptr] = ((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
+            ++tempptr;
+        } while (c!='\n');
         
         
-        //std::cout<<obj->buffL[obj->buffptr]<<newLine;
+        for(int x = 0; x < 10; x++){
+            read(obj->serport, &c, 1);
+            input[x] = ((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
+        }
+        
+        // FILTERING HERE
+        
+        obj->filt->processSamples(input, 10);
+        
+        // END FILTERING HERE
+        
+        for(int x = 0; x < tempptr-1; x++){
+            obj->queuewrite++;
+            if(obj->queuewrite>=obj->bufflen){
+                obj->queuewrite = 0;
+            }
+            //std::cout<<input<<newLine;
+            obj->queue[obj->queuewrite] = temp[x];
+            
+        }
+        
+        for(int x = 0; x < 10; x++){
+            obj->queuewrite++;
+            if(obj->queuewrite>=obj->bufflen){
+                obj->queuewrite = 0;
+            }
+            //std::cout<<input[x]<<newLine;
+            obj->queue[obj->queuewrite] = input[x];
+        }
+        
+        
     }
     std::cout<<"End Queue Input"<<newLine;
     return 0;

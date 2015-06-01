@@ -61,7 +61,7 @@ public:
     static const int bufflen = 2000;
     float buffL[bufflen];
     float buffR[bufflen];
-    int queue[bufflen];
+    float queue[bufflen];
     int buffptr = 0;
     int queueread = 0;
     int queuewrite = 0;
@@ -81,7 +81,7 @@ public:
     void initBuffer();
     void listSerial();
     void connectPort(char*);
-    void closePort(int);
+    int closePort(int);
     void loadSample(String);
 
     //[/UserMethods]

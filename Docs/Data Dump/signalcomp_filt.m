@@ -30,14 +30,16 @@ ylabel('Amplitude (floating point value)')
 xlabel('Time (s)')
 
 rp = 3;           % Passband ripple
-rs = 40;          % Stopband ripple
+rs = 80;          % Stopband ripple
 fs = newrate;        % Sampling frequency
-f = [1000 oldrate/2];    % Cutoff frequencies
+f = [1000 2000];    % Cutoff frequencies
 a = [1 0];        % Desired amplitudes
 dev = [(10^(rp/20)-1)/(10^(rp/20)+1)  10^(-rs/20)];
 [n,fo,ao,w] = firpmord(f,a,dev,fs);
 b = firpm(n,fo,ao,w);
 D = filter(b,1,C);
+[h,t] = impz(b,a);
+size(h)
 
 subplot(2,2,2)
 f = fft(D);
