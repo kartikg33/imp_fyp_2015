@@ -577,7 +577,7 @@ void *playSample(void* dummy){
     int tempptr = 0;
     int diff = 0;
     int change = 0;
-    int thresh = 100;
+    int thresh = 150;
 
     obj->playSamp = false;
     //pthread_t t = nullptr;
