@@ -89,9 +89,14 @@ public:
         
         bufferToFill.clearActiveBufferRegion();
         
-        for(int x = 0; x<wavelen;++x){
-            waveformL[x] = 0;
-            waveformR[x] = 0;
+        if(waveptr>=wavelen)
+            waveptr = 0;
+        //std::cout<<waveptr<<newLine;
+        int start = waveptr;
+        
+        for(int x = 0; x<bufferToFill.numSamples;++x){
+            waveformL[x+start] = 0;
+            waveformR[x+start] = 0;
         }
         
         if(overlay != nullptr){
@@ -99,7 +104,7 @@ public:
                 int num = overlay->numBoards;
                 
                 for(int n = 0; n<num;++n){
-                    
+                    waveptr = start;
                     if(overlay->boardUI[n]->SampleFl){
                         
                         int ptr = overlay->boardUI[n]->sampBuffPtr;
@@ -128,8 +133,8 @@ public:
                                 }
                             
                                 ++waveptr;
-                                if(waveptr>=wavelen)
-                                    waveptr = 0;
+                                //if(waveptr>=wavelen)
+                                  //  waveptr = 0;
                             
                                 ++i;
                             
@@ -141,8 +146,8 @@ public:
                                 waveformR[waveptr] += 0;
                                     
                                 ++waveptr;
-                                if(waveptr>=wavelen)
-                                    waveptr = 0;
+                                //if(waveptr>=wavelen)
+                                //    waveptr = 0;
                                 ++i;
                             }
                             
@@ -171,31 +176,18 @@ public:
                             if(ptr>=len)
                                 ptr = 0;
                             waveptr++;
-                            if(waveptr>=wavelen)
-                                waveptr = 0;
+                            //if(waveptr>=wavelen)
+                             //   waveptr = 0;
                         }//for (int i = 0; i < bufferToFill.numSamples ; ++i)
                         
                     } //if(overlay->boardUI[n]->SampleFl)
                 }//for(int n = 0; n<num;++n)
                 
                 
-             /*
-                
-            } else {
-                
-                for(int x = 0; x<wavelen;++x){
-                    waveformL[x] = 0;
-                    waveformR[x] = 0;
-                }
-                bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
-                bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
-              */
-                
-                
             }//if(overlay->boardUI !=nullptr)
 
-            bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, waveformL, bufferToFill.numSamples,overlay->amplitude);
-            bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, waveformR, bufferToFill.numSamples,overlay->amplitude);
+            bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, &waveformL[start], bufferToFill.numSamples,overlay->amplitude);
+            bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, &waveformR[start], bufferToFill.numSamples,overlay->amplitude);
             
         } //if(overlay != nullptr)
         
@@ -227,15 +219,15 @@ public:
 
         float incr = (getWidth()/float(wavelen-1));
         float i = 0.0f;
-        int ptr = waveptr;
+        //int ptr = waveptr;
         for (int x = 0; x < wavelen; x++){
-            wavePathL.lineTo (i, centreY + int(waveformL[ptr]*(centreY/2)));
-            wavePathR.lineTo (i, centreY + int(waveformR[ptr]*(centreY/2)));
+            wavePathL.lineTo (i, centreY + int(waveformL[x]*(centreY/2)));
+            wavePathR.lineTo (i, centreY + int(waveformR[x]*(centreY/2)));
             i += incr;
-            ptr++;
-            if(ptr>=wavelen){
-                ptr=0;
-            }
+            //ptr++;
+            //if(ptr>=wavelen){
+              //  ptr=0;
+            //}
 
         }
 
@@ -281,7 +273,7 @@ private:
     ScopedPointer<float> waveformL = nullptr;
     ScopedPointer<float> waveformR = nullptr;
     int waveptr = 0;
-    const int wavelen = 512;
+    const int wavelen = 1024;
     
     double sampleRate;
     int expectedSamplesPerBlock;
