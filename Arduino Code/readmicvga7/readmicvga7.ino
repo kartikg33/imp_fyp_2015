@@ -68,7 +68,7 @@ void setPwmFrequency(int pin, int divisor) {
 }
 
 void setup(){
-  setPwmFrequency(3, 1);
+  setPwmFrequency(3, 32);
   setPwmFrequency(5, 128);
   setPwmFrequency(6, 128);
   pinMode(gainpin, OUTPUT);
