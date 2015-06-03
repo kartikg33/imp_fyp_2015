@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>FFE96691-13D8-4210-A18A-C9A85650FA53</string>
 	<key>IDESourceControlProjectName</key>
-	<string>PAWS_3</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1E8B676901F5D65C400FEB06D28D5EFBD98501FB</key>
 		<string>https://github.com/kartikg33/imp_fyp_2015.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>PAWS_3/Builds/MacOSX/PAWS_3.xcodeproj</string>
+	<string>PAWS_3/Builds/MacOSX/PAWS_3.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1E8B676901F5D65C400FEB06D28D5EFBD98501FB</key>

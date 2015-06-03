@@ -29,10 +29,10 @@
 //==============================================================================
 Board::Board ()
 {
-    addAndMakeVisible (comboBox = new ComboBox ("cb_selectPort"));
+    addAndMakeVisible (comboBox = new ComboBox ("cb_selectSamp"));
     comboBox->setEditableText (false);
     comboBox->setJustificationType (Justification::centred);
-    comboBox->setTextWhenNothingSelected (TRANS("Select Serial Port"));
+    comboBox->setTextWhenNothingSelected (TRANS("Select Sample File"));
     comboBox->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
     comboBox->addListener (this);
 
@@ -84,6 +84,7 @@ Board::Board ()
 
     //[Constructor] You can add your own custom stuff here..
     //label->setText(TRANS("one"), dontSendNotification);
+    comboBox->setVisible(0);
     slider->setValue(0.5);
     int i;
     for(i = 0; i< 3; i++){
@@ -91,27 +92,27 @@ Board::Board ()
     }
     initBuffer();
     //pthread_create(&threads[2], NULL,initBuff,(void*)this);
-    listSerial();
+    listSamples();
     toggleButton->setRadioGroupId(1,(NotificationType)0);
     toggleButton2->setRadioGroupId(1,(NotificationType)0);
 
     samplebuff = new AudioSampleBuffer();
     samplebuff->setSize(2, 512);
     samplebuff->clear();
-    
+
     //Generate Filter
     IIRCoefficients coeffs;
     coeffs.makePeakFilter(6300, 200, 1, 5);
     filt = new IIRFilter;
     filt->setCoefficients(coeffs);
-    
+
     //[/Constructor]
 }
 
 Board::~Board()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
-    
+
     int i;
     for(i = 0; i <3; i++){
         if(threads[i] != nullptr){
@@ -119,11 +120,11 @@ Board::~Board()
             threads[i] = nullptr;
         }
     }
-    
+
     alive = false;
     VoiceFl = false;
     SampleFl = false;
-    serport = closePort(serport);
+    //serport = closePort(serport);
     samplebuff = nullptr;
 
     //[/Destructor_pre]
@@ -137,8 +138,8 @@ Board::~Board()
 
 
     //[Destructor]. You can add your own custom destruction code here..
-    
-    
+
+
     filt = nullptr;
     //[/Destructor]
 }
@@ -150,9 +151,9 @@ void Board::paint (Graphics& g)
     //[/UserPrePaint]
 
     g.setGradientFill (ColourGradient (Colours::black,
-                                       88.0f, 80.0f,
+                                       static_cast<float> ((getWidth() / 2) + -4), static_cast<float> ((getHeight() / 2) + -30),
                                        Colour (0xff311e1e),
-                                       176.0f, 240.0f,
+                                       static_cast<float> ((getWidth() / 2) + 84), static_cast<float> ((getHeight() / 2) + 130),
                                        true));
     g.fillRoundedRectangle (0.0f, 24.0f, 184.0f, 162.0f, 18.500f);
 
@@ -165,10 +166,10 @@ void Board::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    comboBox->setBounds (94 - (171 / 2), 61 - (24 / 2), 171, 24);
-    groupComponent->setBounds (8, 88, 168, 64);
-    toggleButton->setBounds (24, 112, 72, 24);
-    toggleButton2->setBounds (88, 112, 72, 24);
+    comboBox->setBounds (94 - (171 / 2), 130 - (24 / 2), 171, 24);
+    groupComponent->setBounds (8, 40, 168, 64);
+    toggleButton->setBounds (24, 64, 72, 24);
+    toggleButton2->setBounds (88, 64, 72, 24);
     label->setBounds (8, 8, 168, 32);
     slider->setBounds ((getWidth() / 2) - (80 / 2), 155, 80, 60);
     //[UserResized] Add your own custom resize handling here..
@@ -183,18 +184,6 @@ void Board::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
     if (comboBoxThatHasChanged == comboBox)
     {
         //[UserComboBoxCode_comboBox] -- add your combo box handling code here..
-
-        //set serport (-1 if not connected)
-        connectPort((char*)static_cast<const char*>(comboBox->getText().toUTF8()));
-        if(threads[2] == nullptr)
-            pthread_create(&threads[2], NULL,queueInput,(void*)this);
-        if(VoiceFl){
-            buttonClicked(toggleButton);
-        }else if(SampleFl){
-            buttonClicked(toggleButton2);
-        }
-
-
         //[/UserComboBoxCode_comboBox]
     }
 
@@ -217,7 +206,7 @@ void Board::buttonClicked (Button* buttonThatWasClicked)
         if(threads[0]!=nullptr)
             pthread_cancel(threads[0]);
         pthread_create(&threads[0], NULL,playVoice,(void*)this);
-
+        comboBox->setVisible(0);
         //[/UserButtonCode_toggleButton]
     }
     else if (buttonThatWasClicked == toggleButton2)
@@ -230,7 +219,7 @@ void Board::buttonClicked (Button* buttonThatWasClicked)
         if(threads[1]!=nullptr)
             pthread_cancel(threads[1]);
         pthread_create(&threads[1], NULL,playSample,(void*)this);
-
+        comboBox->setVisible(1);
         //[/UserButtonCode_toggleButton2]
     }
 
@@ -258,41 +247,14 @@ void Board::sliderValueChanged (Slider* sliderThatWasMoved)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-void Board::listSerial(){
 
+void Board::listSamples(){
+    
     comboBox->addItem(ard, 1);
     comboBox->addItem(blu,2);
     comboBox->addItem("NULL", 3);
 }
 
-void Board::connectPort(char* ser){
-    struct termios options;
-    memset(&options,0,sizeof(options));
-    char *device = ser;
-
-    serport = closePort(serport);
-    serport = open(device, O_RDWR | O_NOCTTY | O_NDELAY);
-    if(serport == -1) {
-        std::cout<<"Failed to connect to Arduino\n";
-        initBuffer();
-    } else {
-        std::cout<<"Connected to Arduino\n";
-        tcgetattr(serport, &options);   // read serial port options
-        //options.c_lflag |= ICANON; //CANONICAL MODE
-        cfsetospeed(&options,B230400); // B115200 baud // B230400
-        cfsetispeed(&options,B230400); // B115200 baud
-        tcsetattr(serport,TCSANOW, &options);
-        fcntl(serport, F_SETFL, 0);    // clear all flags on descriptor, enable direct I/O
-    }
-}
-
-int Board::closePort(int fd){
-    if(fd!=-1){
-        close(fd);
-        std::cout<<"Closing connection to Arduino\n";
-    }
-    return -1;
-}
 
 void Board::initBuffer(){
     int i;
@@ -340,9 +302,9 @@ void *playVoice2(void* dummy){
             //std::cout<<c<<newLine;
         }
         //std::cout<<"read\n";
-        
-        
-        
+
+
+
         val = (atof(ascii_int)-512)*0.00195f*obj->amplitude;
         delta = float((val - prev)/inter);
 
@@ -373,45 +335,45 @@ void *playVoice2(void* dummy){
 void *playVoice(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     Board *obj = (Board *) dummy;
-    
+
     //pthread_t t;
     //pthread_create(&t, NULL,queueInput,(void*)obj);
-    
+
     float val, prev, delta;
     int inter = 7;
     prev = obj->buffL[obj->buffptr];
-    
+
     while(obj->VoiceFl){
-        
+
         while(obj->queueread != obj->queuewrite){ //POSSIBLE BREAKING POINT
             val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
             //val = obj->queue[obj->queueread];
             delta = float((val - prev)/inter);
-        
+
             for(int x = 1; x < inter; x++){
                 obj->buffptr++;
                 if(obj->buffptr>=obj->bufflen)
                     obj->buffptr = 0;
-            
+
                 obj->buffL[obj->buffptr] = prev + float(x*delta);
                 obj->buffR[obj->buffptr] = obj->buffL[obj->buffptr];
             }
-        
+
             obj->queueread++;
             if(obj->queueread>=obj->bufflen)
                 obj->queueread = 0;
-            
+
             obj->buffptr++;
             if(obj->buffptr>=obj->bufflen)
                 obj->buffptr = 0;
-        
+
             obj->buffL[obj->buffptr] = val;
             obj->buffR[obj->buffptr] = val;
-        
+
             prev = val;
         }
     }
-    
+
     //pthread_cancel(t);
     std::cout<<"End Voice Function"<<newLine;
     return 0;
@@ -420,159 +382,73 @@ void *playVoice(void* dummy){
 void *playVoice_basic(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     Board *obj = (Board *) dummy;
-    
+
     //pthread_t t;
     //pthread_create(&t, NULL,queueInput,(void*)obj);
-    
+
     float *chunk;
     float val, prev, delta;
     int inter = 7;
     val = obj->buffL[obj->buffptr];
     int length = 0;
     int diff = 0;
-    
+
     while(obj->VoiceFl){
-        
+
         //FIND CHUNK LENGTH
         if((diff = (obj->queuewrite - obj->queueread)%obj->bufflen) > 10){
             diff = 10;
         }
         length = diff*inter;
         chunk = new float[length];
-        
+
         //INTERPOLATE CHUNK
         for(int x = 1; x <= diff; x++){
             prev = val;
             //val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
             val = obj->queue[obj->queueread];
             chunk[(x*7)-1] = val;
-            
+
             obj->queueread++;
             if(obj->queueread>=obj->bufflen)
                 obj->queueread = 0;
-            
+
             delta = float((val - prev)/inter);
-            
+
             for(int i = 1; x < inter; x++){
                 chunk[((x-1)*7)+(i-1)] = prev + float(i*delta);
             }
-            
+
         }
-    
+
         //FILTER CHUNK
-        
-        
-        
+
+
+
         //PUSH CHUNK TO BUFFER
         for(int x = 0; x<length; x++){
-            
+
             obj->buffptr++;
             if(obj->buffptr>=obj->bufflen)
                 obj->buffptr = 0;
-            
+
             obj->buffL[obj->buffptr] = chunk[x];
             obj->buffR[obj->buffptr] = chunk[x];
-            
+
         }
-        
+
         delete[] chunk;
         chunk = nullptr;
 
-        
+
     } //while(obj->VoiceFl){
-    
+
     //pthread_cancel(t);
     //std::cout<<"End Voice Function"<<newLine;
     return 0;
 }
 
-void *queueInput(void* dummy){
-    std::cout<<"Queue Input"<<newLine;
-    Board *obj = (Board *) dummy;
-    //static const int len = 30;
-    
-    
-    //coeffs.makeLowPass(6300.0, 3100.0);
-    IIRCoefficients * coeffs = new IIRCoefficients(0.0345944930030068,	0.0455180742182364,	0.0626818320117175,	0.0728764050076197,	0.0728764050076197, 0.0626818320117175);
-    
-    //IIRCoefficients * coeffs = new IIRCoefficients(double(0.0004116),double(0.0007137),double(0.0012791),double(0.0020807),double(0.0031537),double(0.0045223));
-    
-    
-    /*
-    IIRCoefficients * coeffs = new IIRCoefficients(0.122831334667863,
-                                                   0.0470393871492429,
-                                                   0.0506336736466862,
-                                                   0.0506336736466862,
-                                                   0.0470393871492429,
-                                                   0.122831334667863);
-    */
-    IIRCoefficients newcoeffs = *coeffs;
-    for(int x = 0; x <= 5; x++){
-        std::cout<<newcoeffs.coefficients[x]<<newLine;
-    }
-    
-     /*
-    for(int x = 0; x < 5; x++){
-        std::cout<<coeffs.coefficients[x]<<newLine;
-    }
-     */
-    obj->filt->setCoefficients(*coeffs);
-    IIRCoefficients stuff = obj->filt->getCoefficients();
-    
 
-    //std::cout<< obj->filt->getCoefficients()<< newLine;
-    
-    float temp[11];
-    int tempptr = 0;
-    float *input = new float[10];
-    char c;
-    
-    
-    while(obj->serport!=-1){
-
-        tempptr = 0;
-        do{
-            read(obj->serport, &c, 1);
-            temp[tempptr] = ((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
-            ++tempptr;
-        } while (c!='\n');
-        
-        
-        for(int x = 0; x < 10; x++){
-            read(obj->serport, &c, 1);
-            input[x] = Byte(c)*4.0f;//((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
-        }
-        
-        // FILTERING HERE
-        
-        //obj->filt->processSamples(input, 10);
-        
-        // END FILTERING HERE
-        
-        for(int x = 0; x < tempptr-1; x++){
-            obj->queuewrite++;
-            if(obj->queuewrite>=obj->bufflen){
-                obj->queuewrite = 0;
-            }
-            //std::cout<<input<<newLine;
-            obj->queue[obj->queuewrite] = temp[x];
-            
-        }
-        
-        for(int x = 0; x < 10; x++){
-            obj->queuewrite++;
-            if(obj->queuewrite>=obj->bufflen){
-                obj->queuewrite = 0;
-            }
-            //std::cout<<input[x]<<newLine;
-            obj->queue[obj->queuewrite] = input[x];
-        }
-        
-        
-    }
-    std::cout<<"End Queue Input"<<newLine;
-    return 0;
-}
 
 void *playVoice3(void* dummy){
     std::cout<<"Voice Function"<<newLine;
@@ -616,7 +492,7 @@ void *playSample(void* dummy){
 
     //pthread_t t;
     //pthread_create(&t, NULL,queueInput,(void*)obj);
-    
+
     static const int len = 500;
     int tempbuff[len] = {512};
     int tempptr = 0;
@@ -636,7 +512,7 @@ void *playSample(void* dummy){
     //char c;
 
     while(obj->SampleFl){
-        
+
         /*
         char ascii_int[dist] = {0};
         c = NULL;
@@ -688,14 +564,14 @@ void *playSample(void* dummy){
         ++tempptr;
         if(tempptr>=len)
             tempptr = 0;
-        
+
         obj->queueread++;
         if(obj->queueread>=obj->bufflen)
             obj->queueread = 0;
         }
 
     }
-    
+
     //pthread_cancel(t);
 
     std::cout<<"End Sample Function"<<newLine;
@@ -758,27 +634,27 @@ void Board::loadSample(String samp){
 
 BEGIN_JUCER_METADATA
 
-<JUCER_COMPONENT documentType="Component" className="Board" componentName=""
-                 parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="185" initialHeight="220">
+<JUCER_COMPONENT documentType="Component" className="Board" componentName="" parentClasses="public Component"
+                 constructorParams="" variableInitialisers="" snapPixels="8" snapActive="1"
+                 snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="185"
+                 initialHeight="220">
   <BACKGROUND backgroundColour="0">
-    <ROUNDRECT pos="0 24 184 162" cornerSize="18.5" fill=" radial: 88 80, 176 240, 0=ff000000, 1=ff311e1e"
+    <ROUNDRECT pos="0 24 184 162" cornerSize="18.5" fill=" radial: -4C -30C, 84C 130C, 0=ff000000, 1=ff311e1e"
                hasStroke="0"/>
   </BACKGROUND>
-  <COMBOBOX name="cb_selectPort" id="e2c2900c808bd7ce" memberName="comboBox"
-            virtualName="" explicitFocusOrder="0" pos="93.5c 61c 171 24"
-            editable="0" layout="36" items="" textWhenNonSelected="Select Serial Port"
+  <COMBOBOX name="cb_selectSamp" id="e2c2900c808bd7ce" memberName="comboBox"
+            virtualName="" explicitFocusOrder="0" pos="93.5c 130c 171 24"
+            editable="0" layout="36" items="" textWhenNonSelected="Select Sample File"
             textWhenNoItems="(no choices)"/>
   <GROUPCOMPONENT name="group_Function" id="79d81df0746b0b06" memberName="groupComponent"
-                  virtualName="" explicitFocusOrder="0" pos="8 88 168 64" outlinecol="66ffffff"
+                  virtualName="" explicitFocusOrder="0" pos="8 40 168 64" outlinecol="66ffffff"
                   textcol="ffffffff" title="Select Function" textpos="36"/>
   <TOGGLEBUTTON name="tb_Voice" id="35f20342a4396c51" memberName="toggleButton"
-                virtualName="" explicitFocusOrder="0" pos="24 112 72 24" txtcol="ffffffff"
+                virtualName="" explicitFocusOrder="0" pos="24 64 72 24" txtcol="ffffffff"
                 buttonText="Voice" connectedEdges="0" needsCallback="1" radioGroupId="0"
                 state="0"/>
   <TOGGLEBUTTON name="tb_Sample" id="e9bcf99bae131cfc" memberName="toggleButton2"
-                virtualName="" explicitFocusOrder="0" pos="88 112 72 24" txtcol="ffffffff"
+                virtualName="" explicitFocusOrder="0" pos="88 64 72 24" txtcol="ffffffff"
                 buttonText="Sample" connectedEdges="0" needsCallback="1" radioGroupId="0"
                 state="0"/>
   <LABEL name="lb_board" id="ba5212fc8a6e23f4" memberName="label" virtualName=""

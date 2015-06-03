@@ -17,8 +17,8 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_11346C81341AFB38__
-#define __JUCE_HEADER_11346C81341AFB38__
+#ifndef __JUCE_HEADER_A3003833A5CF4C38__
+#define __JUCE_HEADER_A3003833A5CF4C38__
 
 //[Headers]     -- You can add your own extra header files here --
 //#include "JuceHeader.h"
@@ -47,9 +47,9 @@
                                                                     //[/Comments]
 */
 class Board  : public Component,
-                      public ComboBoxListener,
-                      public ButtonListener,
-                      public SliderListener
+               public ComboBoxListener,
+               public ButtonListener,
+               public SliderListener
 {
 public:
     //==============================================================================
@@ -79,9 +79,7 @@ public:
     bool sampPlaying = false;
 
     void initBuffer();
-    void listSerial();
-    void connectPort(char*);
-    int closePort(int);
+    void listSamples();
     void loadSample(String);
 
     //[/UserMethods]
@@ -118,7 +116,7 @@ private:
 #define drum "/Users/kartikgohil/Documents/Imperial/Year4/Project/Test Audio/afrimid.wav"
 void *playVoice_basic(void*);
 void *playVoice(void*);
-void *queueInput(void*);
+//void *queueInput(void*);
 void *playVoice2(void*);
 void *playSample(void*);
 void *initSamp(void*);
@@ -126,4 +124,4 @@ void *addSamp(void*);
 void *initBuff(void*);
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_11346C81341AFB38__
+#endif   // __JUCE_HEADER_A3003833A5CF4C38__

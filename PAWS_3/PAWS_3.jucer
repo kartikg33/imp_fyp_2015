@@ -4,6 +4,10 @@
               bundleIdentifier="com.yourcompany.PAWS_3" includeBinaryInAppConfig="1"
               jucerVersion="3.1.0">
   <MAINGROUP id="yKdBbG" name="PAWS_3">
+    <FILE id="uAgaTu" name="Board.cpp" compile="1" resource="0" file="Source/Board.cpp"/>
+    <FILE id="wV1fkM" name="MainUI.cpp" compile="1" resource="0" file="Source/MainUI.cpp"/>
+    <FILE id="RI6PPW" name="Board.h" compile="0" resource="0" file="Source/Board.h"/>
+    <FILE id="DSIJI5" name="MainUI.h" compile="0" resource="0" file="Source/MainUI.h"/>
     <GROUP id="{95BDD608-85AC-AB9B-580A-A172FF2B2393}" name="Source">
       <FILE id="tOdPkD" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>

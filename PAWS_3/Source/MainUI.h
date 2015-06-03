@@ -17,11 +17,20 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_173B5746854F4D42__
-#define __JUCE_HEADER_173B5746854F4D42__
+#ifndef __JUCE_HEADER_DD002BB6E5B99A9E__
+#define __JUCE_HEADER_DD002BB6E5B99A9E__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
+
+#include <iostream>
+#include <termios.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+#include <pthread.h>
 //[/Headers]
 
 
@@ -35,8 +44,8 @@
                                                                     //[/Comments]
 */
 class MainUI  : public Component,
-                        public ButtonListener,
-                        public SliderListener
+                public ButtonListener,
+                public SliderListener
 {
 public:
     //==============================================================================
@@ -49,6 +58,11 @@ public:
     static const int maxBoards = 3;
     float amplitude = 0.0f;
     ScopedPointer<Board> boardUI[maxBoards];
+    int serport = -1;
+    
+    void connectPort(char*);
+    int closePort(int);
+    
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -62,6 +76,7 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     int posx;
     int posy;
+    pthread_t queue_t;
     //[/UserVariables]
 
     //==============================================================================
@@ -77,6 +92,8 @@ private:
 };
 
 //[EndFile] You can add extra defines here...
+#define ard "/dev/tty.usbmodem1d1121"
+void *queueInput(void*);
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_173B5746854F4D42__
+#endif   // __JUCE_HEADER_DD002BB6E5B99A9E__

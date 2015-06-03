@@ -29,8 +29,8 @@
 //==============================================================================
 MainUI::MainUI ()
 {
-    addAndMakeVisible (textButton = new TextButton ("bt_AddBoard"));
-    textButton->setButtonText (TRANS("ADD BOARD"));
+    addAndMakeVisible (textButton = new TextButton ("bt_Connect"));
+    textButton->setButtonText (TRANS("CONNECT"));
     textButton->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight | Button::ConnectedOnTop | Button::ConnectedOnBottom);
     textButton->addListener (this);
     textButton->setColour (TextButton::buttonColourId, Colour (0xff311e1e));
@@ -38,8 +38,8 @@ MainUI::MainUI ()
     textButton->setColour (TextButton::textColourOnId, Colours::white);
     textButton->setColour (TextButton::textColourOffId, Colours::white);
 
-    addAndMakeVisible (textButton2 = new TextButton ("bt_RemBoard"));
-    textButton2->setButtonText (TRANS("REMOVE BOARD"));
+    addAndMakeVisible (textButton2 = new TextButton ("bt_Disconnect"));
+    textButton2->setButtonText (TRANS("DISCONNECT"));
     textButton2->setConnectedEdges (Button::ConnectedOnLeft | Button::ConnectedOnRight | Button::ConnectedOnTop | Button::ConnectedOnBottom);
     textButton2->addListener (this);
     textButton2->setColour (TextButton::buttonColourId, Colour (0xff311e1e));
@@ -85,10 +85,13 @@ MainUI::MainUI ()
 
 
     //[Constructor] You can add your own custom stuff here..
+    textButton2->setVisible(0);
+    slider->setVisible(0);
     slider->setValue(0.3);
     for(int i = 0; i<maxBoards;i++){
         boardUI[i] = nullptr;
     }
+    queue_t = nullptr;
     //[/Constructor]
 }
 
@@ -96,6 +99,7 @@ MainUI::~MainUI()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
+
     textButton = nullptr;
     textButton2 = nullptr;
     label = nullptr;
@@ -127,37 +131,19 @@ void MainUI::paint (Graphics& g)
 void MainUI::resized()
 {
     //[UserPreResize] Add your own custom resize code here..
-    //std::cout<<"MainUI resized()"<<newLine;
-    textButton->setVisible(0);
-    textButton2->setVisible(0);
-    slider->setVisible(0);
-    //int i = 0;
+
     int x,y;
 
     //[/UserPreResize]
 
     textButton->setBounds ((getWidth() / 2) + -75, (getHeight() / 2) + -12, 150, 24);
-    textButton2->setBounds ((getWidth() / 2) + -75, getHeight() - 100, 150, 24);
+    textButton2->setBounds ((getWidth() / 2) + -80, getHeight() - 536, 150, 24);
     label->setBounds (16, 8, 120, 56);
     label2->setBounds (getWidth() - 128, getHeight() - 24, 126, 24);
     slider->setBounds ((getWidth() / 2) - (100 / 2), getHeight() - 140 - (80 / 2), 100, 80);
     //[UserResized] Add your own custom resize handling here..
-    if (numBoards==0){
-        textButton->setBounds ((getWidth()/2) + -75, (getHeight()/2) - 12, 150, 24);
-        textButton->setVisible(1);
-    } else {
-        textButton->setBounds ((getWidth()/2) + -75, 108 , 150, 24);
-        textButton->setVisible(1);
 
-        textButton2->setBounds ((getWidth()/2) + -75, getHeight() - 92, 150, 24);
-        textButton2->setVisible(1);
-
-        slider->setVisible(1);
-    }
-
-    int i;
-
-    for(i=0;i<numBoards;i++){
+    for(int i=0;i<numBoards;i++){
         x = boardUI[i]->getWidth();
         y = boardUI[i]->getHeight();
         boardUI[i]->setBounds(( getWidth()*(i+1)/(numBoards+1) - x/2 ) , ( getHeight()/2 - y/2 ) ,x,y);
@@ -174,12 +160,16 @@ void MainUI::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == textButton)
     {
         //[UserButtonCode_textButton] -- add your button handler code here..
-        if(numBoards<maxBoards){
-            boardUI[numBoards] = new Board();
-            addAndMakeVisible(boardUI[numBoards]);
-            numBoards++;
+        for(int x = 0; x < maxBoards; x++){
+            boardUI[x] = new Board();
+            addAndMakeVisible(boardUI[x]);
         }
-        //[/UserButtonCode_textButton]
+        numBoards = 3;
+        slider->setVisible(1);
+        resized();
+        connectPort((char*)ard);
+        pthread_create(&queue_t, NULL,queueInput,(void*)this);
+        //[/UserButtonCode_textButton]s
     }
     else if (buttonThatWasClicked == textButton2)
     {
@@ -193,7 +183,7 @@ void MainUI::buttonClicked (Button* buttonThatWasClicked)
     }
 
     //[UserbuttonClicked_Post]
-    resized();
+    
     //[/UserbuttonClicked_Post]
 }
 
@@ -217,6 +207,127 @@ void MainUI::sliderValueChanged (Slider* sliderThatWasMoved)
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 
+void MainUI::connectPort(char* ser){
+    struct termios options;
+    memset(&options,0,sizeof(options));
+    char *device = ser;
+    
+    serport = closePort(serport);
+    serport = open(device, O_RDWR | O_NOCTTY | O_NDELAY);
+    if(serport == -1) {
+        std::cout<<"Failed to connect to Arduino\n";
+    } else {
+        std::cout<<"Connected to Arduino\n";
+        tcgetattr(serport, &options);   // read serial port options
+        //options.c_lflag |= ICANON; //CANONICAL MODE
+        cfsetospeed(&options,B230400); // B115200 baud // B230400
+        cfsetispeed(&options,B230400); // B115200 baud
+        tcsetattr(serport,TCSANOW, &options);
+        fcntl(serport, F_SETFL, 0);    // clear all flags on descriptor, enable direct I/O
+    }
+}
+
+int MainUI::closePort(int fd){
+    if(fd!=-1){
+        close(fd);
+        std::cout<<"Closing connection to Arduino\n";
+    }
+    return -1;
+}
+
+
+void *queueInput(void* dummy){
+    /*
+    std::cout<<"Queue Input"<<newLine;
+    //PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
+    //static const int len = 30;
+    
+    
+    //coeffs.makeLowPass(6300.0, 3100.0);
+    IIRCoefficients * coeffs = new IIRCoefficients(0.0345944930030068,	0.0455180742182364,	0.0626818320117175,	0.0728764050076197,	0.0728764050076197, 0.0626818320117175);
+    
+    //IIRCoefficients * coeffs = new IIRCoefficients(double(0.0004116),double(0.0007137),double(0.0012791),double(0.0020807),double(0.0031537),double(0.0045223));
+    */
+    
+        /*
+     IIRCoefficients * coeffs = new IIRCoefficients(0.122831334667863,
+     0.0470393871492429,
+     0.0506336736466862,
+     0.0506336736466862,
+     0.0470393871492429,
+     0.122831334667863);
+        */
+    /*
+    IIRCoefficients newcoeffs = *coeffs;
+    for(int x = 0; x <= 5; x++){
+        std::cout<<newcoeffs.coefficients[x]<<newLine;
+    }
+    */
+    /*
+     for(int x = 0; x < 5; x++){
+     std::cout<<coeffs.coefficients[x]<<newLine;
+     }
+     */
+    /*
+    obj->filt->setCoefficients(*coeffs);
+    IIRCoefficients stuff = obj->filt->getCoefficients();
+    
+    
+    //std::cout<< obj->filt->getCoefficients()<< newLine;
+    
+    float temp[11];
+    int tempptr = 0;
+    float *input = new float[10];
+    char c;
+    
+    
+    while(obj->serport!=-1){
+        
+        tempptr = 0;
+        do{
+            read(obj->serport, &c, 1);
+            temp[tempptr] = ((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
+            ++tempptr;
+        } while (c!='\n');
+        
+        
+        for(int x = 0; x < 10; x++){
+            read(obj->serport, &c, 1);
+            input[x] = Byte(c)*4.0f;//((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
+        }
+        
+        // FILTERING HERE
+        
+        //obj->filt->processSamples(input, 10);
+        
+        // END FILTERING HERE
+        
+        for(int x = 0; x < tempptr-1; x++){
+            obj->queuewrite++;
+            if(obj->queuewrite>=obj->bufflen){
+                obj->queuewrite = 0;
+            }
+            //std::cout<<input<<newLine;
+            obj->queue[obj->queuewrite] = temp[x];
+            
+        }
+        
+        for(int x = 0; x < 10; x++){
+            obj->queuewrite++;
+            if(obj->queuewrite>=obj->bufflen){
+                obj->queuewrite = 0;
+            }
+            //std::cout<<input[x]<<newLine;
+            obj->queue[obj->queuewrite] = input[x];
+        }
+        
+        
+    }
+    std::cout<<"End Queue Input"<<newLine;
+    */
+    return 0;
+}
+
 //[/MiscUserCode]
 
 
@@ -234,15 +345,14 @@ BEGIN_JUCER_METADATA
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="800" initialHeight="600">
   <BACKGROUND backgroundColour="ffffff"/>
-  <TEXTBUTTON name="bt_AddBoard" id="7ca5f026f03eb2e0" memberName="textButton"
+  <TEXTBUTTON name="bt_Connect" id="7ca5f026f03eb2e0" memberName="textButton"
               virtualName="" explicitFocusOrder="0" pos="-75C -12C 150 24"
               bgColOff="ff311e1e" bgColOn="ff000000" textCol="ffffffff" textColOn="ffffffff"
-              buttonText="ADD BOARD" connectedEdges="15" needsCallback="1"
-              radioGroupId="0"/>
-  <TEXTBUTTON name="bt_RemBoard" id="4f8034ba0a97717c" memberName="textButton2"
-              virtualName="" explicitFocusOrder="0" pos="-75C 100R 150 24"
+              buttonText="CONNECT" connectedEdges="15" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="bt_Disconnect" id="4f8034ba0a97717c" memberName="textButton2"
+              virtualName="" explicitFocusOrder="0" pos="-80C 536R 150 24"
               bgColOff="ff311e1e" bgColOn="ff000000" textCol="ffffffff" textColOn="ffffffff"
-              buttonText="REMOVE BOARD" connectedEdges="15" needsCallback="1"
+              buttonText="DISCONNECT" connectedEdges="15" needsCallback="1"
               radioGroupId="0"/>
   <LABEL name="title_PAWS" id="a67ff662710583a9" memberName="label" virtualName=""
          explicitFocusOrder="0" pos="16 8 120 56" textCol="ffffffff" outlineCol="b71616"
