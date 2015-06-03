@@ -161,16 +161,20 @@ void MainUI::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == textButton)
     {
         //[UserButtonCode_textButton] -- add your button handler code here..
-        for(int x = 0; x < maxBoards; x++){
-            boardUI[x] = new Board();
-            addAndMakeVisible(boardUI[x]);
-        }
-        numBoards = 3;
-        slider->setVisible(1);
-        textButton2->setVisible(1);
-        resized();
+        // CONNECT TO ARDUINO
         connectPort((char*)ard);
-        pthread_create(&queue_t, NULL,queueInput,(void*)this);
+        if(serport != -1){
+            for(int x = 0; x < maxBoards; x++){
+                boardUI[x] = new Board();
+                addAndMakeVisible(boardUI[x]);
+            }
+            numBoards = 3;
+            slider->setVisible(1);
+            textButton2->setVisible(1);
+            resized();
+            pthread_create(&queue_t, NULL,queueInput,(void*)this);
+        }
+        
         //[/UserButtonCode_textButton]s
     }
     else if (buttonThatWasClicked == textButton2)

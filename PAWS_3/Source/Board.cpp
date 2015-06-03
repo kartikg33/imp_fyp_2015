@@ -212,11 +212,14 @@ void Board::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_toggleButton2] -- add your button handler code here..
         VoiceFl = false;
         SampleFl = true;
-
+        
         //std::cout<<(&threads[1])<<newLine;
         if(threads[1]!=nullptr)
             pthread_cancel(threads[1]);
         pthread_create(&threads[1], NULL,playSample,(void*)this);
+        
+        loadSample("afrimid");
+        comboBox->setSelectedItemIndex(1);
         comboBox->setVisible(1);
         //[/UserButtonCode_toggleButton2]
     }
@@ -310,9 +313,6 @@ void *playVoice_basic(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     Board *obj = (Board *) dummy;
 
-    //pthread_t t;
-    //pthread_create(&t, NULL,queueInput,(void*)obj);
-
     float *chunk;
     float val, prev, delta;
     int inter = 7;
@@ -370,8 +370,8 @@ void *playVoice_basic(void* dummy){
 
     } //while(obj->VoiceFl){
 
-    //pthread_cancel(t);
-    //std::cout<<"End Voice Function"<<newLine;
+
+    std::cout<<"End Voice Function"<<newLine;
     return 0;
 }
 
@@ -380,14 +380,12 @@ void *playVoice_basic(void* dummy){
 void *playSample(void* dummy){
     std::cout<<"Sample Function"<<newLine;
     Board *obj = (Board *) dummy;
-    obj->loadSample("afrimid");
-
-    static const int len = 500;
+    static const int len = 50;
     int tempbuff[len] = {512};
     int tempptr = 0;
     int diff = 0;
     int change = 0;
-    int thresh = 150;
+    int thresh = 140;
 
     obj->playSamp = false;
 
