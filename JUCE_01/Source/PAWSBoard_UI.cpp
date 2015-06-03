@@ -384,8 +384,8 @@ void *playVoice(void* dummy){
     while(obj->VoiceFl){
         
         while(obj->queueread != obj->queuewrite){ //POSSIBLE BREAKING POINT
-            //val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
-            val = obj->queue[obj->queueread];
+            val = (obj->queue[obj->queueread]-512)*0.00195f*obj->amplitude;
+            //val = obj->queue[obj->queueread];
             delta = float((val - prev)/inter);
         
             for(int x = 1; x < inter; x++){
@@ -540,12 +540,12 @@ void *queueInput(void* dummy){
         
         for(int x = 0; x < 10; x++){
             read(obj->serport, &c, 1);
-            input[x] = ((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
+            input[x] = Byte(c)*4.0f;//((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
         }
         
         // FILTERING HERE
         
-        obj->filt->processSamples(input, 10);
+        //obj->filt->processSamples(input, 10);
         
         // END FILTERING HERE
         
