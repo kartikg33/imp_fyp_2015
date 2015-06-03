@@ -108,7 +108,10 @@ private:
 };
 
 //[EndFile] You can add extra defines here...
-#define drum "/Users/kartikgohil/Documents/Imperial/Year4/Project/Test Audio/afrimid.wav"
+#define drummid "/Users/kartikgohil/Documents/Imperial/Year4/Project/PAWS_3/SampleFiles/afrimid.wav"
+#define drumhi "/Users/kartikgohil/Documents/Imperial/Year4/Project/PAWS_3/SampleFiles/afrihi.wav"
+#define drumlo "/Users/kartikgohil/Documents/Imperial/Year4/Project/PAWS_3/SampleFiles/afrilo.wav"
+#define samppath "/Users/kartikgohil/Documents/Imperial/Year4/Project/PAWS_3/SampleFiles/"
 void *playVoice_basic(void*);
 void *playVoice(void*);
 void *playSample(void*);

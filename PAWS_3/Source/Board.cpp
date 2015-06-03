@@ -181,6 +181,7 @@ void Board::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
     if (comboBoxThatHasChanged == comboBox)
     {
         //[UserComboBoxCode_comboBox] -- add your combo box handling code here..
+        loadSample((char*)static_cast<const char*>(comboBox->getText().toUTF8()));
         //[/UserComboBoxCode_comboBox]
     }
 
@@ -233,7 +234,6 @@ void Board::sliderValueChanged (Slider* sliderThatWasMoved)
     {
         //[UserSliderCode_slider] -- add your slider handling code here..
         amplitude = (float)slider->getValue();
-        //std::cout<<amplitude<<newLine;
         //[/UserSliderCode_slider]
     }
 
@@ -247,9 +247,9 @@ void Board::sliderValueChanged (Slider* sliderThatWasMoved)
 
 void Board::listSamples(){
     
-    comboBox->addItem(drum, 1);
-    //comboBox->addItem(blu,2);
-    //comboBox->addItem("NULL", 3);
+    comboBox->addItem("afrilo", 1);
+    comboBox->addItem("afrimid", 2);
+    comboBox->addItem("afrihi", 3);
 }
 
 
@@ -380,7 +380,7 @@ void *playVoice_basic(void* dummy){
 void *playSample(void* dummy){
     std::cout<<"Sample Function"<<newLine;
     Board *obj = (Board *) dummy;
-    obj->loadSample(drum);
+    obj->loadSample("afrimid");
 
     static const int len = 500;
     int tempbuff[len] = {512};
@@ -435,6 +435,9 @@ void *playSample(void* dummy){
 
 
 void Board::loadSample(String samp){
+    
+    samp = samppath + samp + ".wav";
+    
     if(storedsamp != samp){
         File _file = File(samp);
         WavAudioFormat _wavAudioFormat;
