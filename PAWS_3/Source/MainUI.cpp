@@ -281,10 +281,10 @@ void *queueInput(void* dummy){
     
     
     //std::cout<< obj->filt->getCoefficients()<< newLine;
-    
-    float temp[11];
+    int num = 2;
+    float temp[num+1];
     int tempptr = 0;
-    float *input = new float[10];
+    float *input = new float[num];
     char c;
     
     
@@ -293,12 +293,12 @@ void *queueInput(void* dummy){
         tempptr = 0;
         do{
             read(obj->serport, &c, 1);
-            temp[tempptr] = ((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
+            temp[tempptr] = Byte(c)*4.0f;//((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
             ++tempptr;
         } while (c!='\n');
         
         
-        for(int x = 0; x < 10; x++){
+        for(int x = 0; x < num; x++){
             read(obj->serport, &c, 1);
             input[x] = Byte(c)*4.0f;//((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
         }
@@ -308,24 +308,25 @@ void *queueInput(void* dummy){
         //obj->filt->processSamples(input, 10);
         
         // END FILTERING HERE
-        
+        int i = num+1-tempptr;
         for(int x = 0; x < tempptr-1; x++){
-            obj->boardUI[0]->queuewrite++;
-            if(obj->boardUI[0]->queuewrite>=obj->boardUI[0]->bufflen){
-                obj->boardUI[0]->queuewrite = 0;
+            obj->boardUI[i]->queuewrite++;
+            if(obj->boardUI[i]->queuewrite>=obj->boardUI[i]->bufflen){
+                obj->boardUI[i]->queuewrite = 0;
             }
             //std::cout<<input<<newLine;
-            obj->boardUI[0]->queue[obj->boardUI[0]->queuewrite] = temp[x];
+            obj->boardUI[i]->queue[obj->boardUI[i]->queuewrite] = temp[x];
+            i++;
             
         }
         
-        for(int x = 0; x < 10; x++){
-            obj->boardUI[0]->queuewrite++;
-            if(obj->boardUI[0]->queuewrite>=obj->boardUI[0]->bufflen){
-                obj->boardUI[0]->queuewrite = 0;
+        for(int x = 0; x < num; x++){
+            obj->boardUI[x]->queuewrite++;
+            if(obj->boardUI[x]->queuewrite>=obj->boardUI[x]->bufflen){
+                obj->boardUI[x]->queuewrite = 0;
             }
             //std::cout<<input[x]<<newLine;
-            obj->boardUI[0]->queue[obj->boardUI[0]->queuewrite] = input[x];
+            obj->boardUI[x]->queue[obj->boardUI[x]->queuewrite] = input[x];
         }
         
         
