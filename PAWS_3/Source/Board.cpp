@@ -253,14 +253,6 @@ void Board::changeName(String name){
     label->setText(name, dontSendNotification);
 }
 
-void Board::listSamples(){
-    
-    comboBox->addItem("afrilo", 1);
-    comboBox->addItem("afrimid", 2);
-    comboBox->addItem("afrihi", 3);
-}
-
-
 void Board::initBuffer(){
     int i;
     for(i = 0; i < bufflen; i++){
@@ -268,6 +260,37 @@ void Board::initBuffer(){
         buffR[i] = 0;
     }
 }
+
+void Board::listSamples(){
+    
+    comboBox->addItem("afrilo", 1);
+    comboBox->addItem("afrimid", 2);
+    comboBox->addItem("afrihi", 3);
+    
+}
+
+void Board::loadSample(String samp){
+    
+    samp = samppath + samp + ".wav";
+    
+    if(storedsamp != samp){
+        File _file = File(samp);
+        WavAudioFormat _wavAudioFormat;
+        ScopedPointer<AudioFormatReader> _audioFormatReader = _wavAudioFormat.createReaderFor(_file.createInputStream(), 0);
+        
+        samplebuff->clear();
+        samplebuff = nullptr;
+        samplebuff = new AudioSampleBuffer();
+        
+        samplebuff->setSize(2, _audioFormatReader->lengthInSamples);
+        _audioFormatReader->read(samplebuff, (int)0, _audioFormatReader->lengthInSamples, (int64)0, true, true);
+        storedsamp = samp;
+        _audioFormatReader = nullptr;
+    }
+}
+
+
+
 
 
 void *playVoice(void* dummy){
@@ -437,25 +460,7 @@ void *playSample(void* dummy){
 }
 
 
-void Board::loadSample(String samp){
-    
-    samp = samppath + samp + ".wav";
-    
-    if(storedsamp != samp){
-        File _file = File(samp);
-        WavAudioFormat _wavAudioFormat;
-        ScopedPointer<AudioFormatReader> _audioFormatReader = _wavAudioFormat.createReaderFor(_file.createInputStream(), 0);
 
-        samplebuff->clear();
-        samplebuff = nullptr;
-        samplebuff = new AudioSampleBuffer();
-
-        samplebuff->setSize(2, _audioFormatReader->lengthInSamples);
-        _audioFormatReader->read(samplebuff, (int)0, _audioFormatReader->lengthInSamples, (int64)0, true, true);
-        storedsamp = samp;
-        _audioFormatReader = nullptr;
-    }
-}
 
 //[/MiscUserCode]
 
