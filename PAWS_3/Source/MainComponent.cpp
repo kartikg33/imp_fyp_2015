@@ -121,11 +121,11 @@ public:
                             
                             while (i < bufferToFill.numSamples && !end)
                             {
-                                waveformL[waveptr] += overlay->boardUI[n]->samplebuff->getSample(0, ptr);
-                                waveformR[waveptr] += overlay->boardUI[n]->samplebuff->getSample(1, ptr);
+                                waveformL[waveptr] += overlay->boardUI[n]->samplebuff->getSample(0, ptr)*overlay->boardUI[n]->amplitude;
+                                waveformR[waveptr] += overlay->boardUI[n]->samplebuff->getSample(1, ptr)*overlay->boardUI[n]->amplitude;
                             
                                 ++ptr;
-                                if(ptr>=len){
+                                 if(ptr>=len){
                                     end = true;
                                     overlay->boardUI[n]->sampPlaying = false;
                                     ptr = 0;
@@ -242,7 +242,6 @@ public:
         // This is called when the MainContentComponent is resized.
         // If you add any child components, this is where you should
         // update their positions.);
-        //liveAudioDisplayComp.setBounds (0, 0, getWidth(), getHeight());
         if (overlay != nullptr){
             overlay->setBounds(getBounds());
         }
@@ -256,7 +255,6 @@ private:
     //==============================================================================
 
     // Your private member variables go here...
-    //float buffer[512];
     ScopedPointer<float> waveformL = nullptr;
     ScopedPointer<float> waveformR = nullptr;
     int waveptr = 0;

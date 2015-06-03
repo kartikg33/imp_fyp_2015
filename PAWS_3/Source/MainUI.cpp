@@ -166,6 +166,11 @@ void MainUI::buttonClicked (Button* buttonThatWasClicked)
         if(serport != -1){
             for(int x = 0; x < maxBoards; x++){
                 boardUI[x] = new Board();
+                switch(x){
+                    case 0: boardUI[x]->changeName("One"); break;
+                    case 1: boardUI[x]->changeName("Two"); break;
+                    case 2: boardUI[x]->changeName("Three"); break;
+                }
                 addAndMakeVisible(boardUI[x]);
             }
             numBoards = 3;

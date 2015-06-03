@@ -54,12 +54,14 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    // DATA
     int numBoards = 0;
     static const int maxBoards = 3;
     float amplitude = 0.0f;
     ScopedPointer<Board> boardUI[maxBoards];
     int serport = -1;
     
+    // FUNCTIONS
     void connectPort(char*);
     int closePort(int);
     

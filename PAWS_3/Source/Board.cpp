@@ -218,9 +218,10 @@ void Board::buttonClicked (Button* buttonThatWasClicked)
             pthread_cancel(threads[1]);
         pthread_create(&threads[1], NULL,playSample,(void*)this);
         
-        loadSample("afrimid");
+        
         comboBox->setSelectedItemIndex(1);
         comboBox->setVisible(1);
+        loadSample("afrimid");
         //[/UserButtonCode_toggleButton2]
     }
 
@@ -247,6 +248,10 @@ void Board::sliderValueChanged (Slider* sliderThatWasMoved)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+
+void Board::changeName(String name){
+    label->setText(name, dontSendNotification);
+}
 
 void Board::listSamples(){
     

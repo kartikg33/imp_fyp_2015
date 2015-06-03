@@ -59,25 +59,36 @@ public:
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
     static const int bufflen = 2000;
+    // AUDIO DATA
     float buffL[bufflen];
     float buffR[bufflen];
-    float queue[bufflen];
     int buffptr = 0;
+    
+    // QUEUE
+    float queue[bufflen];
     int queueread = 0;
     int queuewrite = 0;
+    
+    //FUNCTION FLAGS
     bool VoiceFl = false;
     bool SampleFl = false;
-    float amplitude = 0.0f;
+    
+    // SAMPLE DATA
     ScopedPointer<AudioSampleBuffer> samplebuff = nullptr;
     int sampBuffPtr = 0;
     String storedsamp = "NULL";
-    ScopedPointer<IIRFilter> filt = nullptr;
     bool playSamp = false;
     bool sampPlaying = false;
-
+    
+    //MISC DATA
+    float amplitude = 0.0f;
+    ScopedPointer<IIRFilter> filt = nullptr;
+    
+    // FUNCTIONS
     void initBuffer();
     void listSamples();
     void loadSample(String);
+    void changeName(String);
 
     //[/UserMethods]
 
@@ -108,9 +119,6 @@ private:
 };
 
 //[EndFile] You can add extra defines here...
-#define drummid "/Users/kartikgohil/Documents/Imperial/Year4/Project/PAWS_3/SampleFiles/afrimid.wav"
-#define drumhi "/Users/kartikgohil/Documents/Imperial/Year4/Project/PAWS_3/SampleFiles/afrihi.wav"
-#define drumlo "/Users/kartikgohil/Documents/Imperial/Year4/Project/PAWS_3/SampleFiles/afrilo.wav"
 #define samppath "/Users/kartikgohil/Documents/Imperial/Year4/Project/PAWS_3/SampleFiles/"
 void *playVoice_basic(void*);
 void *playVoice(void*);
