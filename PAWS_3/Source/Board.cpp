@@ -299,7 +299,7 @@ void *playVoice(void* dummy){
 
 
     float val, prev, delta;
-    int inter = 7;
+    int inter = 11;
     prev = obj->buffL[obj->buffptr];
 
     while(obj->VoiceFl){
