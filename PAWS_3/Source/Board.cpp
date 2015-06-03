@@ -87,11 +87,10 @@ Board::Board ()
     comboBox->setVisible(0);
     slider->setValue(0.5);
     int i;
-    for(i = 0; i< 3; i++){
+    for(i = 0; i< 2; i++){
         threads[i] = nullptr;
     }
     initBuffer();
-    //pthread_create(&threads[2], NULL,initBuff,(void*)this);
     listSamples();
     toggleButton->setRadioGroupId(1,(NotificationType)0);
     toggleButton2->setRadioGroupId(1,(NotificationType)0);
@@ -114,17 +113,15 @@ Board::~Board()
     //[Destructor_pre]. You can add your own custom destruction code here..
 
     int i;
-    for(i = 0; i <3; i++){
+    for(i = 0; i <2; i++){
         if(threads[i] != nullptr){
             pthread_cancel(threads[i]);
             threads[i] = nullptr;
         }
     }
 
-    alive = false;
     VoiceFl = false;
     SampleFl = false;
-    //serport = closePort(serport);
     samplebuff = nullptr;
 
     //[/Destructor_pre]
@@ -250,9 +247,9 @@ void Board::sliderValueChanged (Slider* sliderThatWasMoved)
 
 void Board::listSamples(){
     
-    comboBox->addItem(ard, 1);
-    comboBox->addItem(blu,2);
-    comboBox->addItem("NULL", 3);
+    comboBox->addItem(drum, 1);
+    //comboBox->addItem(blu,2);
+    //comboBox->addItem("NULL", 3);
 }
 
 
@@ -264,80 +261,11 @@ void Board::initBuffer(){
     }
 }
 
-void *initBuff(void * dummy){
-    Board *obj = (Board *) dummy;
-    float t = 29/512;
-    while (obj->alive) {
-        obj->buffL[obj->buffptr] = 0;
-        obj->buffR[obj->buffptr] = 0;
-
-        obj->buffptr++;
-        if(obj->buffptr>=obj->bufflen)
-            obj->buffptr = 0;
-
-        sleep(t);
-    }
-    return 0;
-}
-
-void *playVoice2(void* dummy){
-    std::cout<<"Voice Function"<<newLine;
-    Board *obj = (Board *) dummy;
-    static const int len = 30;
-    float val, prev, delta;
-    int i;
-    char c;
-    int inter = 19;
-    prev = obj->buffL[obj->buffptr];
-    while(obj->VoiceFl && obj->serport!=-1){
-        char ascii_int[len] = {0};
-        c = NULL;
-        i = 0;
-        //std::cout<<"reading\n";
-        read(obj->serport, &c, 1);
-        //std::cout<<c<<newLine;
-        while ((c != '\n')&&(i<len)){
-            ascii_int[i++] = c;
-            read(obj->serport, &c, 1);
-            //std::cout<<c<<newLine;
-        }
-        //std::cout<<"read\n";
-
-
-
-        val = (atof(ascii_int)-512)*0.00195f*obj->amplitude;
-        delta = float((val - prev)/inter);
-
-        for(int x = 1; x < inter; x++){
-            obj->buffptr++;
-            if(obj->buffptr>=obj->bufflen)
-                obj->buffptr = 0;
-
-            obj->buffL[obj->buffptr] = prev + float(x*delta);
-            obj->buffR[obj->buffptr] = obj->buffL[obj->buffptr];
-        }
-
-        obj->buffptr++;
-        if(obj->buffptr>=obj->bufflen)
-            obj->buffptr = 0;
-
-        obj->buffL[obj->buffptr] = val;
-        obj->buffR[obj->buffptr] = val;
-
-        prev = val;
-
-        //std::cout<<obj->buffL[obj->buffptr]<<newLine;
-    }
-    std::cout<<"End Voice Function"<<newLine;
-    return 0;
-}
 
 void *playVoice(void* dummy){
     std::cout<<"Voice Function"<<newLine;
     Board *obj = (Board *) dummy;
 
-    //pthread_t t;
-    //pthread_create(&t, NULL,queueInput,(void*)obj);
 
     float val, prev, delta;
     int inter = 7;
@@ -374,7 +302,6 @@ void *playVoice(void* dummy){
         }
     }
 
-    //pthread_cancel(t);
     std::cout<<"End Voice Function"<<newLine;
     return 0;
 }
@@ -450,48 +377,10 @@ void *playVoice_basic(void* dummy){
 
 
 
-void *playVoice3(void* dummy){
-    std::cout<<"Voice Function"<<newLine;
-    Board *obj = (Board *) dummy;
-    static const int len = 30;
-    float val;
-    int i;
-    char c;
-    while(obj->VoiceFl && obj->serport!=-1){
-        char ascii_int[len] = {0};
-        c = NULL;
-        i = 0;
-        //std::cout<<"reading\n";
-        read(obj->serport, &c, 1);
-        //std::cout<<c<<newLine;
-        while ((c != '\n')&&(i<len)){
-            ascii_int[i++] = c;
-            read(obj->serport, &c, 1);
-            //std::cout<<c<<newLine;
-        }
-        //std::cout<<"read\n";
-        val = (atof(ascii_int)-512)*0.00195f*obj->amplitude;
-        obj->buffL[obj->buffptr] = val;
-        obj->buffR[obj->buffptr] = val;
-
-
-        obj->buffptr++;
-        if(obj->buffptr>=obj->bufflen)
-            obj->buffptr = 0;
-
-        //std::cout<<obj->buffL[obj->buffptr]<<newLine;
-    }
-    std::cout<<"End Voice Function"<<newLine;
-    return 0;
-}
-
 void *playSample(void* dummy){
     std::cout<<"Sample Function"<<newLine;
     Board *obj = (Board *) dummy;
     obj->loadSample(drum);
-
-    //pthread_t t;
-    //pthread_create(&t, NULL,queueInput,(void*)obj);
 
     static const int len = 500;
     int tempbuff[len] = {512};
@@ -501,28 +390,9 @@ void *playSample(void* dummy){
     int thresh = 150;
 
     obj->playSamp = false;
-    //pthread_t t = nullptr;
-    /*
-    pthread_t t;
-    pthread_create(&t, NULL,initSamp,(void*)obj);
-     */
-
-    //static const int dist = 30;
-    //int i;
-    //char c;
 
     while(obj->SampleFl){
 
-        /*
-        char ascii_int[dist] = {0};
-        c = NULL;
-        i = 0;
-        read(obj->serport, &c, 1);
-        while ((c != '\n')&&(i<dist)){
-            ascii_int[i++] = c;
-            read(obj->serport, &c, 1);
-        }
-         */
         while(obj->queueread != obj->queuewrite){
         tempbuff[tempptr] = obj->queue[obj->queueread];
         //std::cout<<tempptr<<" "<<tempbuff[tempptr]<<newLine;
@@ -545,20 +415,6 @@ void *playSample(void* dummy){
             obj->playSamp = true;
         }
 
-/*
-            //t_active = true;
-            if(t!=nullptr){
-                pthread_cancel(t);
-            }
-            pthread_create(&t, NULL,addSamp,(void*)obj);
-*/
-
-            /*
-            obj->buffL[obj->buffptr] = 1;
-            obj->buffR[obj->buffptr] = 1;
-             */
-
-
         //std::cout<<obj->playSamp<<newLine;
 
         ++tempptr;
@@ -572,36 +428,9 @@ void *playSample(void* dummy){
 
     }
 
-    //pthread_cancel(t);
-
     std::cout<<"End Sample Function"<<newLine;
     return 0;
 
-}
-
-void *addSamp(void* dummy){
-    Board *obj = (Board *) dummy;
-    float tim = (float)1/50;
-    for(int i = 0; i < obj->samplebuff->getNumSamples(); i++){
-        obj->buffL[obj->buffptr] = obj->samplebuff->getSample(0, i)*obj->amplitude;
-        obj->buffR[obj->buffptr] = obj->samplebuff->getSample(1, i)*obj->amplitude;
-        //std::cout<<obj->buffL[ptr]<<newLine;
-
-        obj->buffptr++;
-        if(obj->buffptr>=obj->bufflen)
-            obj->buffptr = 0;
-        sleep(tim);
-    }
-    return 0;
-}
-
-void *initSamp(void*dummy){
-    Board *obj = (Board *) dummy;
-    obj->initBuffer();
-    pthread_t t;
-    sleep(1);
-    pthread_create(&t, NULL,initSamp,(void*)obj);
-    return 0;
 }
 
 

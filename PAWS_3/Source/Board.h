@@ -65,16 +65,13 @@ public:
     int buffptr = 0;
     int queueread = 0;
     int queuewrite = 0;
-    int serport = -1;
     bool VoiceFl = false;
     bool SampleFl = false;
     float amplitude = 0.0f;
     ScopedPointer<AudioSampleBuffer> samplebuff = nullptr;
-    //ScopedPointer<IIRCoefficients> coeffs;
-    ScopedPointer<IIRFilter> filt = nullptr;
     int sampBuffPtr = 0;
     String storedsamp = "NULL";
-    bool alive = true;
+    ScopedPointer<IIRFilter> filt = nullptr;
     bool playSamp = false;
     bool sampPlaying = false;
 
@@ -94,7 +91,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    pthread_t threads[3];
+    pthread_t threads[2];
     //[/UserVariables]
 
     //==============================================================================
@@ -111,17 +108,10 @@ private:
 };
 
 //[EndFile] You can add extra defines here...
-#define ard "/dev/tty.usbmodem1d1121"
-#define blu "/dev/tty.HC-06-DevB"
 #define drum "/Users/kartikgohil/Documents/Imperial/Year4/Project/Test Audio/afrimid.wav"
 void *playVoice_basic(void*);
 void *playVoice(void*);
-//void *queueInput(void*);
-void *playVoice2(void*);
 void *playSample(void*);
-void *initSamp(void*);
-void *addSamp(void*);
-void *initBuff(void*);
 //[/EndFile]
 
 #endif   // __JUCE_HEADER_A3003833A5CF4C38__

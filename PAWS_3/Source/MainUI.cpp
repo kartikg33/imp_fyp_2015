@@ -98,6 +98,7 @@ MainUI::MainUI ()
 MainUI::~MainUI()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+    pthread_cancel(queue_t);
     //[/Destructor_pre]
 
     textButton = nullptr;
@@ -166,6 +167,7 @@ void MainUI::buttonClicked (Button* buttonThatWasClicked)
         }
         numBoards = 3;
         slider->setVisible(1);
+        textButton2->setVisible(1);
         resized();
         connectPort((char*)ard);
         pthread_create(&queue_t, NULL,queueInput,(void*)this);
@@ -174,11 +176,16 @@ void MainUI::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == textButton2)
     {
         //[UserButtonCode_textButton2] -- add your button handler code here..
-        if(numBoards>0){
+        pthread_cancel(queue_t);
+        while(numBoards>0){
             numBoards--;
             removeChildComponent(boardUI[numBoards]);
             boardUI[numBoards] = nullptr;
         }
+        serport = closePort(serport);
+        textButton2->setVisible(0);
+        slider->setVisible(0);
+        textButton->setVisible(1);
         //[/UserButtonCode_textButton2]
     }
 
@@ -237,17 +244,17 @@ int MainUI::closePort(int fd){
 
 
 void *queueInput(void* dummy){
-    /*
+    
     std::cout<<"Queue Input"<<newLine;
-    //PAWSBoard_UI *obj = (PAWSBoard_UI *) dummy;
+    MainUI *obj = (MainUI *) dummy;
     //static const int len = 30;
     
     
     //coeffs.makeLowPass(6300.0, 3100.0);
-    IIRCoefficients * coeffs = new IIRCoefficients(0.0345944930030068,	0.0455180742182364,	0.0626818320117175,	0.0728764050076197,	0.0728764050076197, 0.0626818320117175);
+    //IIRCoefficients * coeffs = new IIRCoefficients(0.0345944930030068,	0.0455180742182364,	0.0626818320117175,	0.0728764050076197,	0.0728764050076197, 0.0626818320117175);
     
     //IIRCoefficients * coeffs = new IIRCoefficients(double(0.0004116),double(0.0007137),double(0.0012791),double(0.0020807),double(0.0031537),double(0.0045223));
-    */
+    
     
         /*
      IIRCoefficients * coeffs = new IIRCoefficients(0.122831334667863,
@@ -268,9 +275,9 @@ void *queueInput(void* dummy){
      std::cout<<coeffs.coefficients[x]<<newLine;
      }
      */
-    /*
-    obj->filt->setCoefficients(*coeffs);
-    IIRCoefficients stuff = obj->filt->getCoefficients();
+    
+    //obj->filt->setCoefficients(*coeffs);
+    //IIRCoefficients stuff = obj->filt->getCoefficients();
     
     
     //std::cout<< obj->filt->getCoefficients()<< newLine;
@@ -303,28 +310,28 @@ void *queueInput(void* dummy){
         // END FILTERING HERE
         
         for(int x = 0; x < tempptr-1; x++){
-            obj->queuewrite++;
-            if(obj->queuewrite>=obj->bufflen){
-                obj->queuewrite = 0;
+            obj->boardUI[0]->queuewrite++;
+            if(obj->boardUI[0]->queuewrite>=obj->boardUI[0]->bufflen){
+                obj->boardUI[0]->queuewrite = 0;
             }
             //std::cout<<input<<newLine;
-            obj->queue[obj->queuewrite] = temp[x];
+            obj->boardUI[0]->queue[obj->boardUI[0]->queuewrite] = temp[x];
             
         }
         
         for(int x = 0; x < 10; x++){
-            obj->queuewrite++;
-            if(obj->queuewrite>=obj->bufflen){
-                obj->queuewrite = 0;
+            obj->boardUI[0]->queuewrite++;
+            if(obj->boardUI[0]->queuewrite>=obj->boardUI[0]->bufflen){
+                obj->boardUI[0]->queuewrite = 0;
             }
             //std::cout<<input[x]<<newLine;
-            obj->queue[obj->queuewrite] = input[x];
+            obj->boardUI[0]->queue[obj->boardUI[0]->queuewrite] = input[x];
         }
         
         
     }
     std::cout<<"End Queue Input"<<newLine;
-    */
+    
     return 0;
 }
 
