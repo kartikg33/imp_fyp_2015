@@ -202,7 +202,6 @@ public:
         // (Our component is opaque, so we must completely fill the background with a solid colour)
         g.fillAll (Colours::black);
         
-        
         const int centreY = getHeight() / 2;
         
         Path wavePathL;
@@ -225,8 +224,6 @@ public:
         g.setColour (Colours::red);
         g.setOpacity(0.5f);
         g.strokePath (wavePathL, PathStrokeType (3.0f));
-        
-        
 
         // You can add your drawing code here!
     }
