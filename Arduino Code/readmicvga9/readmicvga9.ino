@@ -28,8 +28,6 @@
 #define readsec 0.1 //no. of seconds of input values
 
 //variables
-unsigned long time; 
-int iter = 0;
 int temp;
 /*
 0 = off
@@ -87,29 +85,21 @@ void setup(){
   analogWrite(gain2,gain);
   analogWrite(gain3,gain);
   
-  Serial.begin(115200);
-//  Serial.begin(230400);
-  time = millis();
+  Serial.begin(230400);
+
 }//end setup
 
 void loop(){
-  iter++;
  
   Serial.write('\n');
   read = analogRead(board1)*0.25;
   Serial.write(byte(read));
-  //read = analogRead(board2)*0.25;
-  //Serial.write(byte(read));
+  read = analogRead(board2)*0.25;
+  Serial.write(byte(read));
   //read = analogRead(board3)*0.25;
   //Serial.write(byte(read));
 
     
   //Serial.write(byte(read>>8));
-  if(iter>=500){
-    time = millis()-time;
-    Serial.print("Time: ");
-    Serial.println(time);
-    iter = 0;
-    time = millis();
-  }
+
 }

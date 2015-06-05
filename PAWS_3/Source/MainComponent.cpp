@@ -12,6 +12,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Board.cpp"
 #include "MainUI.cpp"
+#include <chrono>
 
 
 
@@ -86,6 +87,8 @@ public:
     {
         // Your audio-processing code goes here!
         // For more details, see the help for AudioProcessor::getNextAudioBlock()
+        //TIMING FUNCTIONS
+        //auto time = std::chrono::high_resolution_clock::now();
         
         bufferToFill.clearActiveBufferRegion();
         
@@ -183,7 +186,9 @@ public:
             bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, &waveformR[start], bufferToFill.numSamples,overlay->amplitude);
             
         } //if(overlay != nullptr)
-        
+        // TIMING FUNCTIONS
+        //auto time2 = std::chrono::high_resolution_clock::now();
+        //std::cout<<std::chrono::duration_cast<std::chrono::microseconds>(time2-time).count()<<newLine;
     }
 
     void releaseResources() override

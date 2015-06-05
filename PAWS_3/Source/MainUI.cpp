@@ -298,6 +298,8 @@ void *queueInput(void* dummy){
     
     
     while(obj->serport!=-1){
+        // TIMING FUNCTIONS
+        //auto time = std::chrono::high_resolution_clock::now();
         
         tempptr = 0;
         do{
@@ -338,6 +340,9 @@ void *queueInput(void* dummy){
             obj->boardUI[x]->queue[obj->boardUI[x]->queuewrite] = input[x];
         }
         
+        // TIMING FUNCTIONS
+        //auto time2 = std::chrono::high_resolution_clock::now();
+        //std::cout<<std::chrono::duration_cast<std::chrono::microseconds>(time2-time).count()<<newLine;
         
     }
     std::cout<<"End Queue Input"<<newLine;
