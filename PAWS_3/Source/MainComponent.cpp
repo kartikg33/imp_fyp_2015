@@ -45,7 +45,8 @@ public:
         //setSampleRate ();
         
         addAndMakeVisible (overlay = new MainUI());
-        startTimerHz (75); // use a timer to keep repainting this component
+        //startTimerHz (75); // use a timer to keep repainting this component
+        startTimerHz (200); // use a timer to keep repainting this component
 
     }
 
