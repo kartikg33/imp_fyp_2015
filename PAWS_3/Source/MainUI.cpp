@@ -235,7 +235,6 @@ void MainUI::connectPort(char* ser){
     } else {
         std::cout<<"Connected to Arduino\n";
         tcgetattr(serport, &options);   // read serial port options
-        //options.c_lflag |= ICANON; //CANONICAL MODE
         cfsetospeed(&options,B230400); // B115200 baud // B230400
         cfsetispeed(&options,B230400); // B115200 baud
         tcsetattr(serport,TCSANOW, &options);
@@ -315,7 +314,7 @@ void *queueInput(void* dummy){
         }
         
         // FILTERING HERE
-        
+        std::cout<<"whatever";
         //obj->filt->processSamples(input, 10);
         
         // END FILTERING HERE
