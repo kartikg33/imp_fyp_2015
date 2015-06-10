@@ -272,6 +272,9 @@ INPUT ./Images/SystemLevelLo.pdf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/vf/public/fourier/futb8t.vf
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/fourier/futb8r.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/fourier/fourier-alt-bold.tfm
+INPUT Images/SystemLevelImp.pdf
+INPUT ./Images/SystemLevelImp.pdf
+INPUT ./Images/SystemLevelImp.pdf
 INPUT Images/ArduinoUno.jpg
 INPUT ./Images/ArduinoUno.jpg
 INPUT ./Images/ArduinoUno.jpg
@@ -327,6 +330,9 @@ INPUT ./Images/ad605_circuit.JPG
 INPUT Images/ad605_circuit2.JPG
 INPUT ./Images/ad605_circuit2.JPG
 INPUT ./Images/ad605_circuit2.JPG
+INPUT Images/JuceFlow.pdf
+INPUT ./Images/JuceFlow.pdf
+INPUT ./Images/JuceFlow.pdf
 INPUT Images/JuceConcept.pdf
 INPUT ./Images/JuceConcept.pdf
 INPUT ./Images/JuceConcept.pdf
@@ -406,6 +412,9 @@ INPUT ./Images/interfacevoiceflow.pdf
 INPUT Images/interfacesampleflow.pdf
 INPUT ./Images/interfacesampleflow.pdf
 INPUT ./Images/interfacesampleflow.pdf
+INPUT Images/PyFlow.pdf
+INPUT ./Images/PyFlow.pdf
+INPUT ./Images/PyFlow.pdf
 INPUT Images/mic_pcb_02.png
 INPUT ./Images/mic_pcb_02.png
 INPUT ./Images/mic_pcb_02.png

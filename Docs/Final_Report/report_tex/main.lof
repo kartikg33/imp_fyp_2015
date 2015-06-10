@@ -17,30 +17,29 @@
 \contentsline {figure}{\numberline {13}{\ignorespaces Photograph of Prototype 0.1.01 setup\relax }}{14}
 \contentsline {figure}{\numberline {14}{\ignorespaces Prototype 0.1.01 - PAWS Board Circuit\relax }}{14}
 \contentsline {figure}{\numberline {15}{\ignorespaces Prototype 0.1.02 - wxPython GUI\relax }}{15}
-\contentsline {figure}{\numberline {16}{\ignorespaces Flow Diagram for Python Program, Prototype 0.1.02\relax }}{16}
-\contentsline {figure}{\numberline {17}{\ignorespaces Prototype 0.1.03 - Improved Op Amp Circuit\relax }}{16}
-\contentsline {figure}{\numberline {18}{\ignorespaces Programmable Gain Amplifier Circuit implemented on Breadboard\relax }}{17}
-\contentsline {figure}{\numberline {19}{\ignorespaces System Diagram for JUCE Program, Prototype 0.2.01\relax }}{18}
+\contentsline {figure}{\numberline {16}{\ignorespaces Prototype 0.1.03 - Improved Op Amp Circuit\relax }}{16}
+\contentsline {figure}{\numberline {17}{\ignorespaces Programmable Gain Amplifier Circuit implemented on Breadboard\relax }}{17}
+\contentsline {figure}{\numberline {18}{\ignorespaces System Diagram of Audio Transfer between storage buffers for each connected Board and the audio device, Prototype 0.2.01\relax }}{18}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {AD605 Circuit}}}{18}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {AD605 Circuit with Microphone on Veroboard}}}{18}
-\contentsline {figure}{\numberline {20}{\ignorespaces Initial Sketches of new Juce GUI\relax }}{19}
-\contentsline {figure}{\numberline {21}{\ignorespaces Multiple Boards Added in PAWS Application\relax }}{20}
-\contentsline {figure}{\numberline {22}{\ignorespaces Triggering a Sample in PAWS Interface\relax }}{20}
-\contentsline {figure}{\numberline {23}{\ignorespaces Capturing the Microphone Signal in PAWS GUI\relax }}{21}
-\contentsline {figure}{\numberline {24}{\ignorespaces Printed Circuit Boards for Prototype 0.2.03\relax }}{22}
-\contentsline {figure}{\numberline {25}{\ignorespaces Fingerboard Ring 3D Model - Version 1\relax }}{23}
-\contentsline {figure}{\numberline {26}{\ignorespaces Fingerboard Ring 3D Model - Version 2\relax }}{23}
+\contentsline {figure}{\numberline {19}{\ignorespaces Initial Sketches of new Juce GUI\relax }}{19}
+\contentsline {figure}{\numberline {20}{\ignorespaces Multiple Boards Added in PAWS Application\relax }}{20}
+\contentsline {figure}{\numberline {21}{\ignorespaces Triggering a Sample in PAWS Interface\relax }}{20}
+\contentsline {figure}{\numberline {22}{\ignorespaces Capturing the Microphone Signal in PAWS GUI\relax }}{21}
+\contentsline {figure}{\numberline {23}{\ignorespaces Printed Circuit Boards for Prototype 0.2.03\relax }}{22}
+\contentsline {figure}{\numberline {24}{\ignorespaces Fingerboard Ring 3D Model - Version 1\relax }}{23}
+\contentsline {figure}{\numberline {25}{\ignorespaces Fingerboard Ring 3D Model - Version 2\relax }}{23}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Finger Board PCB}}}{23}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Arduino Shield PCB}}}{23}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Top View}}}{23}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Side View}}}{23}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Top View}}}{23}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Side View}}}{23}
-\contentsline {figure}{\numberline {27}{\ignorespaces Dimensioned Sketches of Rings Version 3 - Finger (Left) and Thumb (Right)\relax }}{24}
-\contentsline {figure}{\numberline {28}{\ignorespaces 1 Thumb Ring and 2 Finger Rings worn by a user\relax }}{24}
-\contentsline {figure}{\numberline {29}{\ignorespaces Prototype 0.2.04 - Interface\relax }}{25}
-\contentsline {figure}{\numberline {30}{\ignorespaces Prototype 0.3.xx - System Design\relax }}{31}
-\contentsline {figure}{\numberline {31}{\ignorespaces Opening Screen of PAWS Application\relax }}{35}
-\contentsline {figure}{\numberline {32}{\ignorespaces PAWS Program displaying controls for 3 Finger Boards\relax }}{36}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Voice Function Program}}}{41}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sample Function Program}}}{41}
+\contentsline {figure}{\numberline {26}{\ignorespaces Dimensioned Sketches of Rings Version 3 - Finger (Left) and Thumb (Right)\relax }}{24}
+\contentsline {figure}{\numberline {27}{\ignorespaces 1 Thumb Ring and 2 Finger Rings worn by a user\relax }}{24}
+\contentsline {figure}{\numberline {28}{\ignorespaces Prototype 0.2.04 - Interface\relax }}{25}
+\contentsline {figure}{\numberline {29}{\ignorespaces Prototype 0.3.xx - System Design\relax }}{31}
+\contentsline {figure}{\numberline {30}{\ignorespaces Opening Screen of PAWS Application\relax }}{34}
+\contentsline {figure}{\numberline {31}{\ignorespaces PAWS Program displaying controls for 3 Finger Boards\relax }}{35}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Voice Function Program}}}{40}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sample Function Program}}}{40}

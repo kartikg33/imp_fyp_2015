@@ -51,24 +51,22 @@
 \contentsline {subsubsection}{\numberline {9.1.2}Creative Functionalities}{31}
 \contentsline {subsection}{\numberline {9.2}Marketability}{32}
 \contentsline {section}{\numberline {10}Finances}{33}
-\contentsline {section}{\numberline {11}User Manual For Prototype 0.2.04}{35}
-\contentsline {subsection}{\numberline {11.1}Parts of the Instrument}{35}
-\contentsline {subsection}{\numberline {11.2}Setting Up the Hardware}{35}
-\contentsline {subsection}{\numberline {11.3}Using the Software}{35}
-\contentsline {subsection}{\numberline {11.4}Disconnecting the Hardware}{36}
-\contentsline {section}{\numberline {12}References}{37}
-\contentsline {section}{\numberline {13}Appendices}{39}
-\contentsline {section}{\numberline {A}Circuit Diagrams}{39}
-\contentsline {subsection}{\numberline {A.1}Circuit Diagram for HC-06 to Arduino Connection}{39}
-\contentsline {subsection}{\numberline {A.2}Circuit Diagram for Prototype 0.2.03 - Finger Board}{39}
-\contentsline {subsection}{\numberline {A.3}Circuit Diagram for Prototype 0.2.03 - Arduino Shield}{40}
-\contentsline {section}{\numberline {B}Flowchart Diagrams}{40}
-\contentsline {subsection}{\numberline {B.1}Flowchart for Microcontroller Program, Prototype 0.1.01}{40}
-\contentsline {subsection}{\numberline {B.2}Flowcharts for Interface Program, Prototype 0.1.01}{41}
-\contentsline {subsection}{\numberline {B.3}Flowchart \& Class Diagram for Interface Program, Prototype 0.2.01}{41}
-\contentsline {subsection}{\numberline {B.4}Flowchart for Microcontroller Program, Prototype 0.2.02}{41}
-\contentsline {subsection}{\numberline {B.5}Flowchart \& Class Diagram for Interface Program, Prototype 0.2.04}{41}
+\contentsline {section}{\numberline {11}User Manual For Prototype 0.2.04}{34}
+\contentsline {subsection}{\numberline {11.1}Parts of the Instrument}{34}
+\contentsline {subsection}{\numberline {11.2}Setting Up the Hardware}{34}
+\contentsline {subsection}{\numberline {11.3}Using the Software}{34}
+\contentsline {subsection}{\numberline {11.4}Disconnecting the Hardware}{35}
+\contentsline {section}{\numberline {12}References}{36}
+\contentsline {section}{\numberline {13}Appendices}{38}
+\contentsline {section}{\numberline {A}Circuit Diagrams}{38}
+\contentsline {subsection}{\numberline {A.1}Circuit Diagram for HC-06 to Arduino Connection}{38}
+\contentsline {subsection}{\numberline {A.2}Circuit Diagram for Prototype 0.2.03 - Finger Board}{38}
+\contentsline {subsection}{\numberline {A.3}Circuit Diagram for Prototype 0.2.03 - Arduino Shield}{39}
+\contentsline {section}{\numberline {B}Flow Diagrams}{39}
+\contentsline {subsection}{\numberline {B.1}Flow Diagram for Microcontroller Program, Prototype 0.1.01}{39}
+\contentsline {subsection}{\numberline {B.2}Flow Diagram for Interface Program, Prototype 0.1.01}{40}
+\contentsline {subsection}{\numberline {B.3}Flow Diagram for Interface Program, Prototype 0.1.02}{41}
 \contentsline {section}{\numberline {C}PCB Design for Prototype 0.2.03}{42}
 \contentsline {subsection}{\numberline {C.1}Finger Board}{42}
-\contentsline {subsection}{\numberline {C.2}Arduino Shield version 1}{42}
-\contentsline {subsection}{\numberline {C.3}Arduino Shield version 2}{43}
+\contentsline {subsection}{\numberline {C.2}Arduino Shield Version 1}{42}
+\contentsline {subsection}{\numberline {C.3}Arduino Shield Version 2}{43}

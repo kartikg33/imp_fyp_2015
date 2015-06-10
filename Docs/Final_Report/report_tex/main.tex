@@ -177,7 +177,7 @@ In this initial system design, the Motion function serves to control particular 
 %\newpage
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/SystemLevelLo}
+\includegraphics[scale=0.65]{Images/SystemLevelLo}
 \caption{Concept System Design - Low Level}
 \label{fig:syslvllo}
 \end{figure}
@@ -189,8 +189,7 @@ For implementation purposes, the PAWS Board concept design will feature two sepa
 
 \begin{figure}[H]
 \centering
-! MISSING FIGURE !
-%\includegraphics[scale=1.2]{Images/SystemLevelLo}
+\includegraphics[scale=0.65]{Images/SystemLevelImp}
 \caption{Implementable System Design}
 \label{fig:syslvl_imp}
 \end{figure}
@@ -307,8 +306,6 @@ The raw recording was of a rhythm being tapped into the microphone of my smartph
 \end{figure}
 
 
-
-
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementation} \label{Implementation}
@@ -372,15 +369,7 @@ Prototype 0.1.02 involved the creation of a Graphical User Interface (GUI) to co
 
 The GUI was built using a library called \textit{wxPython}\textsuperscript{\cite{wxpython}}, and as seen in Figure~\ref{fig:pyblue_play} features top level buttons to 'Add' and 'Remove' boards. Each addition generates a drop-down list of serial ports that can be connected to, and once connected to the Arduino, radio buttons for selecting the required function are shown. 
 
-The program to work with the GUI was trickier to implement. Figure~\ref{fig:pyblue_flow} shows a flow chart to demonstrate the workings of the code. Upon startup, the audio server and GUI are set up. The 'Add PAWS Board' button creates a \textit{Bus} which is in control of storing information on the selected serial port and function flags to determine whether the program should be in 'Voice' mode or 'Sample' mode. When a serial port is chosen from the drop-down list on the GUI, a function is called to open the port and ready it for data transfer. The function-selection radio buttons call the respective 'Voice' or 'Sample' functions in a new processing thread to simultaneously process the incoming audio data while continuously listening for events on the GUI. The 'Voice' and 'Sample' functions run endlessly based on their respective flags. Only one flag can be active at any time and the dropping of a flag will cause the respective function to exit. Upon quitting the program, all Busses are disconnected and closed and all flags are dropped to allow all running threads to finish correctly. 
-
-\begin{figure}
-\centering
-! MISSING IMAGE !
-%\includegraphics{}
-\caption{Flow Diagram for Python Program, Prototype 0.1.02}
-\label{fig:pyblue_flow}
-\end{figure}
+The program to work with the GUI was trickier to implement. Appendix~\ref{pyblue_flow} shows a flow chart to demonstrate the workings of the code. Upon startup, the audio server and GUI are set up. The 'Add PAWS Board' button creates a \textit{Bus} which is in control of storing information on the selected serial port and function flags to determine whether the program should be in 'Voice' mode or 'Sample' mode. When a serial port is chosen from the drop-down list on the GUI, a function is called to open the port and ready it for data transfer. The function-selection radio buttons call the respective 'Voice' or 'Sample' functions in a new processing thread to simultaneously process the incoming audio data while continuously listening for events on the GUI. The 'Voice' and 'Sample' functions run endlessly based on their respective flags. Only one flag can be active at any time and the dropping of a flag will cause the respective function to exit. Upon quitting the program, all Busses are disconnected and closed and all flags are dropped to allow all running threads to finish correctly. 
 
 The GUI itself uses Sizers, a \textit{wxPython} functionality, that allows for elements to be dynamically grouped together. This meant that I was able to simply display the 'Add PAWS Board' button upon startup, which when pressed would create a 'Select Serial Port' drop down list on the GUI and a corresponding Bus in the back end. A function to read all available serial ports was also called to populate the drop down list on the GUI. Adding more boards would result in the creation of more Busses and Serial Port lists for the user to interact with. If a valid Serial Port was selected, the radio buttons for selection the required function would then display. Also, pressing the 'Remove PAWS Board' button would delete the GUI elements related to the last open Bus and would also call a function to reset the data stored in that Bus. 
 
@@ -426,7 +415,7 @@ When designing the AD605 circuit, the input pins required decoupling capacitors 
 \label{fig:ad605}
 \end{wrapfigure}
 
-To set the gain of the AD605 once its circuit had been designed the Arduino was to be programmed to output an analogue voltage. However, the Arduino Uno that I was using could only output PWM (Pulse-Width-Modulated) signals, meaning that the amplifier was receiving pulses of 5V and 0V rather than a constant particular voltage. In order to fix this, the PWM signal from the Arduino was low pass filtered with a series resistance of 68k$\Omega$ and a 10$\mu$F capacitor to ground, which was required to obtain a DC voltage from the Arduino's 490Hz PWM signal. This voltage could then be set between 1.25 and 2.5V, which would correspond to gains of 0dB and 96dB respectively, by assigning a number between 63 and 127 to the relevant output pin on the Arduino. Setting the Gain Voltage Signal to zero would turn the amplifier off. 
+To set the gain of the AD605 once its circuit had been designed the Arduino was to be programmed to output an analogue voltage. However, the Arduino Uno that I was using could only output PWM (Pulse-Width-Modulated) signals, meaning that the amplifier was receiving pulses of 5V and 0V rather than a constant particular voltage. In order to fix this, the PWM signal from the Arduino was low pass filtered\textsuperscript{\cite{interpolation}} with a series resistance of 68k$\Omega$ and a 10$\mu$F capacitor to ground, which was required to obtain a DC voltage from the Arduino's 490Hz PWM signal. This voltage could then be set between 1.25 and 2.5V, which would correspond to gains of 0dB and 96dB respectively, by assigning a number between 63 and 127 to the relevant output pin on the Arduino. Setting the Gain Voltage Signal to zero would turn the amplifier off. 
 
 Appendix~\ref{fingerboardsch} shows the full circuit diagram for Prototype 0.2.03, including the pin connections for the AD605 chip to implement the discussed circuit with all decoupling capacitors, output lowpass filter and PWM-Analogue filter. The diagram also shows a potential divider connected to the Voltage Reference pin using two 10k$\Omega$ resistors to give the 20dB/V scaling that maps the Gain Voltage Signal to the generated gain of the amplifier. After implementing this circuit, I decided to use it over the two-stage TL072 amplifier since I had the ability to control the gain digitally through the Arduino.
 
@@ -447,13 +436,12 @@ Prototype 0.2.01 involved a significant development in the Software Application 
 
 I found a library called JUCE\textsuperscript{\cite{juce}} which was designed to code audio-based applications in C++. Introjucer\textsuperscript{\cite{introjucer}}, a program for setting up a JUCE application, provided me with skeleton code and allowed me to create GUI elements as classes which I could instantiate from the main application. The skeleton code automatically generated two running threads: one to manage audio samples based on a hidden recurring timer, and one to listen for events in the GUI. The interfacing of the application with my computer's Core Audio Device was hidden and I simply had to write code to provide the program with audio samples upon request. 
 
-I used Introjucer to develop two GUI classes to run under the main application: an \textit{Overlay} class to show the 'Add Board' and 'Remove Board' buttons as before, and a \textit{Board} class to display the elements for selecting a serial port and the required function. The main application instantiates a single \textit{Overlay} object, which can then spawn as many \textit{Board} objects as are required. This in fact allows me to integrate the 'Bus' functionality from Python into the Board class, to perform functions and display the GUI elements all from the same class. Figure~\ref{fig:juceflow} shows a system diagram of the JUCE application. Like the Python program it still utilises threading (using the C++ library \textit{pthread}\textsuperscript{\cite{pthread}}) to call the 'Voice' and 'Sample' functions, only this time the produced audio samples are pulled into the main application's audio request thread and pushed into the audio device from there. 
+I used Introjucer to develop two GUI classes to run under the main application: an \textit{Overlay} class to show the 'Add Board' and 'Remove Board' buttons as before, and a \textit{Board} class to display the elements for selecting a serial port and the required function. The main application instantiates a single \textit{Overlay} object, which can then spawn as many \textit{Board} objects as are required. This in fact allows me to integrate the 'Bus' functionality from Python into the Board class, to perform functions and display the GUI elements all from the same class. Figure~\ref{fig:juceflow} shows a flow diagram of the main function in the JUCE application that controls the transfer of audio data from temporary storage buffers to the output audio device. Like the Python program shown in Appendix~\ref{pyblue_flow} it still utilises threading (using the C++ library \textit{pthread}\textsuperscript{\cite{pthread}}) to call the 'Voice' and 'Sample' functions, only this time the produced audio samples are pulled into the main application's audio request thread and pushed into the audio device from there. 
 
 \begin{figure}[H]
 \centering
-! MISSING IMAGE !
-%\includegraphics[scale=0.5]{}
-\caption{System Diagram for JUCE Program, Prototype 0.2.01}
+\includegraphics[scale=0.6]{Images/JuceFlow}
+\caption{System Diagram of Audio Transfer between storage buffers for each connected Board and the audio device, Prototype 0.2.01}
 \label{fig:juceflow}
 \end{figure}
 
@@ -956,8 +944,12 @@ This section discusses the costs of developing Prototype 0.2.04 and the expected
 
 Table~\ref{tab:costs0204} shows a breakdown of the costs of the components used to build the three Finger Boards and the Arduino Shield. The cost of Arduino Uno itself and the cost to print the PCBs and Finger Rings have not been taken into account. 
 
+If we were to consider the costs of printing the PCBs and the Arduino Uno, the total cost of Prototype 0.2.04 would come to at least \pounds200. The most expensive components are the Programmable Gain Amplifier and the PCB headers for slotting the Arduino Shield into the Uno. If we were to remove the need for the amplifier and the Arduino then we could greatly reduce these costs. Table~\ref{tab:costs03xx} shows the expected costs of the new design for Prototype 0.3.xx. The Analogue-to-Digital Converter found is a Silicon Labs \textit{TS7001}\textsuperscript{\cite{ts7001}}, a 12-bit surface mountable ADC with serial interfacing capabilities. The Finger Board would also include a micro-USB female header\textsuperscript{\cite{microusbconnector}} to connect to a computer via a type A/micro-B USB cable\textsuperscript{\cite{microusbcable}}. Arbitrary components were found in order to determine a rough cost breakdown for the future design. All quoted prices are trade values if the components were bought in bulk. 
+
 \begin{table}[H]
 \begin{center}
+
+\subfloat[Prototype 0.2.04]{
 \begin{tabular}{|l c| r}
 \multicolumn{3}{|l}{\textit{Finger Board}} \\
  \hline
@@ -986,15 +978,10 @@ Component   &   Qty.    &   Cost (\pounds) \\ \hline
 \multicolumn{2}{r|}{Cost of 1 Arduino Shield}    & \pounds31.286\\ \cline{3-3}
 \multicolumn{2}{r|}{Total Cost of Prototype}    & \pounds116.980\\
 \end{tabular}
-\end{center}
-\caption{Breakdown of Development Cost of Prototype 0.2.04}
 \label{tab:costs0204}
-\end{table}
-
-If we were to consider the costs of printing the PCBs and the Arduino Uno, the total cost of Prototype 0.2.04 would come to at least £200. The most expensive components are the Programmable Gain Amplifier and the PCB headers for slotting the Arduino Shield into the Uno. If we were to remove the need for the amplifier and the Arduino then we could greatly reduce these costs. Table~\ref{tab:costs03xx} shows the expected costs of the new design for Prototype 0.3.xx. The Analogue-to-Digital Converter found is a Silicon Labs \textit{TS7001}\textsuperscript{\cite{ts7001}}, a 12-bit surface mountable ADC with serial interfacing capabilities. The Finger Board would also include a micro-USB female header\textsuperscript{\cite{microusbconnector}} to connect to a computer via a type A/micro-B USB cable\textsuperscript{\cite{microusbcable}}. Arbitrary components were found in order to determine a rough cost breakdown for the future design. All quoted prices are trade values if the components were bought in bulk. 
-
-\begin{table}[H]
-\begin{center}
+}%end subfloat
+%DONT ADD SPACE FOR SIDEBYSIDE ALIGNMENT
+\subfloat[Prototype 0.3.xx]{
 \begin{tabular}{|l c| r}
 \multicolumn{3}{|l}{\textit{Finger Board}} \\
  \hline
@@ -1005,12 +992,13 @@ Component   &   Qty.    &   Cost (\pounds) \\ \hline
     USB Cable A/micro-B   &   1   &   2.710 \\
 \hline \hline
 \multicolumn{2}{r|}{Cost of 1 Finger Board}    & \pounds5.174\\
-\multicolumn{2}{r|}{Cost of 3 Finger Boards}    & \pounds15.522\\
+\multicolumn{2}{r|}{Cost of 3 Finger Boards}    & \pounds15.522\\ \cline{3-3}
 \multicolumn{2}{r|}{Total Cost of Prototype}    & \pounds15.522\\
 \end{tabular}
-\end{center}
-\caption{Breakdown of Development Cost of Prototype 0.3.xx}
 \label{tab:costs03xx}
+}%end subfloat
+\end{center}
+\caption{Breakdown of Development Costs for Prototypes 0.2.04 (a) and 0.3.xx (b)}
 \end{table}
 
 We can see that the expected cost of the new Prototype is ten times smaller than that of Prototype 0.2.04, even if we were to take the cost of printing the PCBs and 3D printed Rings into account. Of course the price would change if we wished to purchase components with higher specifications or wished to implement functionalities such as dynamic audio filtering in hardware or user feedback tools such as the ability to 'Blink', as described in Section~\ref{Further Developments} Further Developments. 
