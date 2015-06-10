@@ -1,0 +1,1216 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.10)  10 JUN 2015 15:39
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/fourier/fourier.sty
+Package: fourier 2005/01/01 1.4 fourier-GUTenberg package
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/fourier/fourier-orns.sty
+Package: fourier-orns 2004/01/30 1.1 fourier-ornaments package
+)
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 50.
+LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `normal' on input line 50.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> T1/futs/m/n on input line 50.
+LaTeX Font Info:    Encoding `OT1' has changed to `T1' for symbol font
+(Font)              `operators' in the math version `bold' on input line 50.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> T1/futs/m/n on input line 50.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  T1/futs/m/n --> T1/futs/b/n on input line 51.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 59.
+LaTeX Font Info:    Encoding `OML' has changed to `FML' for symbol font
+(Font)              `letters' in the math version `normal' on input line 59.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> FML/futmi/m/it on input line 59.
+LaTeX Font Info:    Encoding `OML' has changed to `FML' for symbol font
+(Font)              `letters' in the math version `bold' on input line 59.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> FML/futmi/m/it on input line 59.
+\symotherletters=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  FML/futmi/m/it --> FML/futmi/b/it on input line 61.
+LaTeX Font Info:    Overwriting symbol font `otherletters' in version `bold'
+(Font)                  FML/futm/m/it --> FML/futm/b/it on input line 62.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 63.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 64.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 65.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 66.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 67.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 68.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 69.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 70.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 71.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 72.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 73.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 113.
+LaTeX Font Info:    Encoding `OMS' has changed to `FMS' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 113.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> FMS/futm/m/n on input line 113.
+LaTeX Font Info:    Encoding `OMS' has changed to `FMS' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 113.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> FMS/futm/m/n on input line 113.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 114.
+LaTeX Font Info:    Encoding `OMX' has changed to `FMX' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 1
+14.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> FMX/futm/m/n on input line 114.
+LaTeX Font Info:    Encoding `OMX' has changed to `FMX' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 114
+.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> FMX/futm/m/n on input line 114.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 115.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> T1/futs/bx/n on input line 115.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> T1/futs/bx/n on input line 115.
+LaTeX Font Info:    Redeclaring math alphabet \mathrm on input line 116.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 117.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> T1/futs/m/it on input line 117.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> T1/futs/m/it on input line 117.
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 118.
+LaTeX Font Info:    Redeclaring math symbol \parallel on input line 134.
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 148.
+LaTeX Font Info:    Redeclaring math symbol \varkappa on input line 186.
+LaTeX Font Info:    Redeclaring math symbol \varvarrho on input line 187.
+LaTeX Font Info:    Redeclaring math delimiter \Vert on input line 210.
+LaTeX Font Info:    Redeclaring math delimiter \vert on input line 215.
+LaTeX Font Info:    Redeclaring math delimiter \Downarrow on input line 225.
+LaTeX Font Info:    Redeclaring math delimiter \backslash on input line 227.
+LaTeX Font Info:    Redeclaring math delimiter \rangle on input line 229.
+LaTeX Font Info:    Redeclaring math delimiter \langle on input line 231.
+LaTeX Font Info:    Redeclaring math delimiter \rbrace on input line 233.
+LaTeX Font Info:    Redeclaring math delimiter \lbrace on input line 235.
+LaTeX Font Info:    Redeclaring math delimiter \rceil on input line 237.
+LaTeX Font Info:    Redeclaring math delimiter \lceil on input line 239.
+LaTeX Font Info:    Redeclaring math delimiter \rfloor on input line 241.
+LaTeX Font Info:    Redeclaring math delimiter \lfloor on input line 243.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 247.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 248.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 249.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 250.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 251.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 252.
+LaTeX Font Info:    Redeclaring math accent \check on input line 253.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 254.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 255.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 256.
+\symUfutm=\mathgroup5
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count90
+\float@exts=\toks16
+\float@box=\box26
+\@float@everytoks=\toks17
+\@floatcapt=\box27
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen111
+\WF@size=\dimen112
+\c@WF@wrappedlines=\count91
+\WF@box=\box28
+\WF@everypar=\toks18
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen113
+\captionmargin@=\dimen114
+\captionwidth=\dimen115
+\caption@tempdima=\dimen116
+\caption@indent=\dimen117
+\caption@parindent=\dimen118
+\caption@hangindent=\dimen119
+)
+\c@ContinuedFloat=\count92
+Package caption Info: float package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+\c@KVtest=\count93
+\sf@farskip=\skip43
+\sf@captopadj=\dimen120
+\sf@capskip=\skip44
+\sf@nearskip=\skip45
+\c@subfigure=\count94
+\c@subfigure@save=\count95
+\c@lofdepth=\count96
+\c@subtable=\count97
+\c@subtable@save=\count98
+\c@lotdepth=\count99
+\sf@top=\skip46
+\sf@bottom=\skip47
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count100
+))
+\Gin@req@height=\dimen121
+\Gin@req@width=\dimen122
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks19
+\symAMSa=\mathgroup6
+\symAMSb=\mathgroup7
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+LaTeX Font Info:    Redeclaring math symbol \square on input line 141.
+)
+LaTeX Font Info:    Redeclaring math symbol \blacksquare on input line 48.
+LaTeX Font Info:    Redeclaring math symbol \vDash on input line 60.
+LaTeX Font Info:    Redeclaring math symbol \leftleftarrows on input line 63.
+LaTeX Font Info:    Redeclaring math symbol \rightrightarrows on input line 64.
+
+LaTeX Font Info:    Redeclaring math symbol \leqslant on input line 101.
+LaTeX Font Info:    Redeclaring math symbol \geqslant on input line 108.
+LaTeX Font Info:    Redeclaring math symbol \blacktriangleright on input line 1
+20.
+LaTeX Font Info:    Redeclaring math symbol \blacktriangleleft on input line 12
+1.
+LaTeX Font Info:    Redeclaring math symbol \complement on input line 165.
+LaTeX Font Info:    Redeclaring math symbol \intercal on input line 166.
+LaTeX Font Info:    Redeclaring math symbol \nleqslant on input line 181.
+LaTeX Font Info:    Redeclaring math symbol \ngeqslant on input line 182.
+LaTeX Font Info:    Redeclaring math symbol \varsubsetneq on input line 203.
+LaTeX Font Info:    Redeclaring math symbol \subsetneqq on input line 207.
+LaTeX Font Info:    Redeclaring math symbol \nparallel on input line 215.
+LaTeX Font Info:    Redeclaring math symbol \nvDash on input line 221.
+LaTeX Font Info:    Redeclaring math symbol \nexists on input line 235.
+LaTeX Font Info:    Redeclaring math symbol \smallsetminus on input line 251.
+LaTeX Font Info:    Redeclaring math symbol \curvearrowleft on input line 257.
+LaTeX Font Info:    Redeclaring math symbol \curvearrowright on input line 258.
+
+LaTeX Font Info:    Redeclaring math symbol \varkappa on input line 260.
+LaTeX Font Info:    Redeclaring math symbol \hslash on input line 262.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip48
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks20
+\ex@=\dimen123
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen124
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count101
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count102
+\leftroot@=\count103
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count104
+\DOTSCASE@=\count105
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen125
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count106
+\c@MaxMatrixCols=\count107
+\dotsspace@=\muskip10
+\c@parentequation=\count108
+\dspbrk@lvl=\count109
+\tag@help=\toks21
+\row@=\count110
+\column@=\count111
+\maxfields@=\count112
+\andhelp@=\toks22
+\eqnshift@=\dimen126
+\alignsep@=\dimen127
+\tagshift@=\dimen128
+\tagwidth@=\dimen129
+\totwidth@=\dimen130
+\lineht@=\dimen131
+\@envbody=\toks23
+\multlinegap=\skip49
+\multlinetaggap=\skip50
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count113
+) (./mcode.sty
+-- Package: `mcode' 2.3 <2012/08/31> --
+Package: mcode 2012/08/31 2.3
+ - settings optimized for display (colour formating)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count114
+\lst@gtempboxa=\box31
+\lst@token=\toks25
+\lst@length=\count115
+\lst@currlwidth=\dimen132
+\lst@column=\count116
+\lst@pos=\count117
+\lst@lostspace=\dimen133
+\lst@width=\dimen134
+\lst@newlines=\count118
+\lst@lineno=\count119
+\lst@maxwidth=\dimen135
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+\c@lstnumber=\count120
+\lst@skipnumbers=\count121
+\lst@framebox=\box32
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/03/04 1.5c listings configuration
+))
+Package: listings 2014/03/04 1.5c (Carsten Heinz)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip51
+\f@ncyO@elh=\skip52
+\f@ncyO@erh=\skip53
+\f@ncyO@olh=\skip54
+\f@ncyO@orh=\skip55
+\f@ncyO@elf=\skip56
+\f@ncyO@erf=\skip57
+\f@ncyO@olf=\skip58
+\f@ncyO@orf=\skip59
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has section divisions on input line 50.
+
+
+Package tocbibind Note: Using section or other style headings.
+
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/tablefootnote/tablefootnote.sty
+Package: tablefootnote 2014/01/26 v1.1c Table foot notes (HMM)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/letltxmacro.sty
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/xifthen/xifthen.sty
+Package: xifthen 2009/04/17 v1.3 Extended ifthen features
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/etex-pkg/etex.sty
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count122
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count123
+\calc@Bcount=\count124
+\calc@Adimen=\dimen136
+\calc@Bdimen=\dimen137
+\calc@Askip=\skip60
+\calc@Bskip=\skip61
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count125
+\calc@Cskip=\skip62
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
+Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
+\etb@tempcnta=\count126
+))
+(./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 34.
+LaTeX Font Info:    Try loading font information for FML+futm on input line 34.
+
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/fourier/fmlfutm.fd
+File: fmlfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futm.
+)
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 34.
+LaTeX Font Info:    Try loading font information for FMS+futm on input line 34.
+
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/fourier/fmsfutm.fd
+File: fmsfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FMS/futm.
+)
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 34.
+LaTeX Font Info:    Try loading font information for FMX+futm on input line 34.
+
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/fourier/fmxfutm.fd
+File: fmxfutm.fd futm-extension
+)
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 34.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Try loading font information for T1+futs on input line 34.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/fourier/t1futs.fd
+File: t1futs.fd 2004/03/02 Fontinst v1.926 font definitions for T1/futs.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+(/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count127
+\scratchdimen=\dimen138
+\scratchbox=\box33
+\nofMPsegments=\count128
+\nofMParguments=\count129
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count130
+\MPscratchDim=\dimen139
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
+\everyMPtoPDFconversion=\toks27
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count133
+LaTeX Font Info:    Try loading font information for FML+futmi on input line 35
+.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/fourier/fmlfutmi.fd
+File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
+)
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 35.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 35.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 35.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 11.03998pt on input line 35.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 35.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 35.
+LaTeX Font Info:    Try loading font information for U+msa on input line 35.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 35.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(./frontpage.tex
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 22.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 39.
+ [1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./mai
+n.toc
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 7.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 7.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 7.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 7.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 7.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 7.
+ [2])
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [3] (./main.lof)
+\tf@lof=\write4
+\openout4 = `main.lof'.
+
+ (./main.lot)
+\tf@lot=\write5
+\openout5 = `main.lot'.
+
+ [4] [5]
+<Images/MiMuGloves.jpg, id=21, 301.125pt x 301.125pt>
+File: Images/MiMuGloves.jpg Graphic file (type jpg)
+
+<use Images/MiMuGloves.jpg>
+Package pdftex.def Info: Images/MiMuGloves.jpg used on input line 82.
+(pdftex.def)             Requested size: 90.33818pt x 90.33818pt.
+
+<Images/drumpantsbasic.jpg, id=22, 722.7pt x 406.51875pt>
+File: Images/drumpantsbasic.jpg Graphic file (type jpg)
+
+<use Images/drumpantsbasic.jpg>
+Package pdftex.def Info: Images/drumpantsbasic.jpg used on input line 93.
+(pdftex.def)             Requested size: 144.53743pt x 81.3023pt.
+
+<Images/gesturering.jpg, id=23, 746.79pt x 367.3725pt>
+File: Images/gesturering.jpg Graphic file (type jpg)
+
+<use Images/gesturering.jpg>
+Package pdftex.def Info: Images/gesturering.jpg used on input line 102.
+(pdftex.def)             Requested size: 149.35535pt x 73.47319pt.
+
+Overfull \hbox (13.46361pt too wide) in paragraph at lines 102--103
+ [][] 
+ []
+
+
+Underfull \hbox (badness 2735) in paragraph at lines 107--108
+[][]\T1/futs/m/n/10 A third prod-uct, not specif-i-cally de-signed for mu-sic b
+ut im-por-tant
+ []
+
+[6 <./Images/MiMuGloves.jpg> <./Images/drumpantsbasic.jpg> <./Images/gesturerin
+g.jpg>] <Images/UserLevelDia.pdf, id=27, 277.035pt x 159.59625pt>
+File: Images/UserLevelDia.pdf Graphic file (type pdf)
+
+<use Images/UserLevelDia.pdf>
+Package pdftex.def Info: Images/UserLevelDia.pdf used on input line 116.
+(pdftex.def)             Requested size: 221.6283pt x 127.67715pt.
+
+<Images/conceptphoneinterface3.pdf, id=28, 225.84375pt x 402.50375pt>
+File: Images/conceptphoneinterface3.pdf Graphic file (type pdf)
+
+<use Images/conceptphoneinterface3.pdf>
+Package pdftex.def Info: Images/conceptphoneinterface3.pdf used on input line 1
+26.
+(pdftex.def)             Requested size: 158.08954pt x 281.7507pt.
+ [7 <./Images/UserLevelDia.pdf> <./Images/conceptphoneinterface3.pdf>]
+<Images/conceptsketchesleft.pdf, id=74, 293.00249pt x 239.96892pt>
+File: Images/conceptsketchesleft.pdf Graphic file (type pdf)
+
+<use Images/conceptsketchesleft.pdf>
+Package pdftex.def Info: Images/conceptsketchesleft.pdf used on input line 145.
+
+(pdftex.def)             Requested size: 205.10034pt x 167.97708pt.
+
+<Images/conceptsketchesright.pdf, id=75, 277.5426pt x 226.18301pt>
+File: Images/conceptsketchesright.pdf Graphic file (type pdf)
+
+<use Images/conceptsketchesright.pdf>
+Package pdftex.def Info: Images/conceptsketchesright.pdf used on input line 149
+.
+(pdftex.def)             Requested size: 194.27849pt x 158.32701pt.
+ [8 <./Images/conceptsketchesleft.pdf> <./Images/conceptsketchesright.pdf>]
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 160.
+
+<Images/SystemLevelHi.pdf, id=89, 344.33533pt x 252.55043pt>
+File: Images/SystemLevelHi.pdf Graphic file (type pdf)
+
+<use Images/SystemLevelHi.pdf>
+Package pdftex.def Info: Images/SystemLevelHi.pdf used on input line 166.
+(pdftex.def)             Requested size: 206.60278pt x 151.53142pt.
+
+<Images/SystemLevelLo.pdf, id=90, 663.76712pt x 362.99113pt>
+File: Images/SystemLevelLo.pdf Graphic file (type pdf)
+
+<use Images/SystemLevelLo.pdf>
+Package pdftex.def Info: Images/SystemLevelLo.pdf used on input line 180.
+(pdftex.def)             Requested size: 464.63382pt x 254.09206pt.
+
+Overfull \hbox (11.66592pt too wide) in paragraph at lines 180--181
+ [][] 
+ []
+
+[9 <./Images/SystemLevelHi.pdf> <./Images/SystemLevelLo.pdf>] [10] [11]
+<Images/ArduinoUno.jpg, id=118, 1606.0pt x 1055.945pt>
+File: Images/ArduinoUno.jpg Graphic file (type jpg)
+
+<use Images/ArduinoUno.jpg>
+Package pdftex.def Info: Images/ArduinoUno.jpg used on input line 271.
+(pdftex.def)             Requested size: 144.53377pt x 95.03094pt.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 271.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.25598pt on input line 271.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 271.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.25598pt on input line 271.
+
+Overfull \hbox (12.78201pt too wide) in paragraph at lines 271--271
+ [][] 
+ []
+
+<Images/hc06pic.jpg, id=119, 1606.0pt x 1606.0pt>
+File: Images/hc06pic.jpg Graphic file (type jpg)
+ <use Images/hc06pic.jpg>
+Package pdftex.def Info: Images/hc06pic.jpg used on input line 275.
+(pdftex.def)             Requested size: 112.43149pt x 112.43149pt.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 28
+0.
+
+[12 <./Images/ArduinoUno.jpg> <./Images/hc06pic.jpg>]
+Package epstopdf Info: Source file: <Images/slaptodrum.eps>
+(epstopdf)                    date: 2015-06-10 14:04:08
+(epstopdf)                    size: 529314 bytes
+(epstopdf)             Output file: <Images/slaptodrum-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-06-10 15:04:51
+(epstopdf)                    size: 106494 bytes
+(epstopdf)             Command: <repstopdf --outfile=Images/slaptodrum-eps-conv
+erted-to.pdf Images/slaptodrum.eps>
+(epstopdf)             \includegraphics on input line 303.
+Package epstopdf Info: Output file is already uptodate.
+
+<Images/slaptodrum-eps-converted-to.pdf, id=123, 562.1pt x 421.575pt>
+File: Images/slaptodrum-eps-converted-to.pdf Graphic file (type pdf)
+
+<use Images/slaptodrum-eps-converted-to.pdf>
+Package pdftex.def Info: Images/slaptodrum-eps-converted-to.pdf used on input l
+ine 303.
+(pdftex.def)             Requested size: 420.30458pt x 280.20233pt.
+ [13 <./Images/slaptodrum-eps-converted-to.pdf>] <Images/prototype101board.JPG,
+ id=140, 5267.68pt x 3950.76pt>
+File: Images/prototype101board.JPG Graphic file (type jpg)
+
+<use Images/prototype101board.JPG>
+Package pdftex.def Info: Images/prototype101board.JPG used on input line 321.
+(pdftex.def)             Requested size: 237.03537pt x 177.77652pt.
+
+<Images/mic0101.pdf, id=141, 171.64125pt x 91.34125pt>
+File: Images/mic0101.pdf Graphic file (type pdf)
+
+<use Images/mic0101.pdf>
+Package pdftex.def Info: Images/mic0101.pdf used on input line 333.
+(pdftex.def)             Requested size: 171.64081pt x 91.34102pt.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 33
+8.
+
+[14 <./Images/prototype101board.JPG> <./Images/mic0101.pdf>]
+<Images/pyblue_play.png, id=149, 403.5075pt x 200.75pt>
+File: Images/pyblue_play.png Graphic file (type png)
+
+<use Images/pyblue_play.png>
+Package pdftex.def Info: Images/pyblue_play.png used on input line 365.
+(pdftex.def)             Requested size: 201.75325pt x 100.37474pt.
+
+
+Package wrapfig Warning: Stationary wrapfigure forced to float on input line 37
+0.
+
+[15 <./Images/pyblue_play.png>]
+<Images/TL072circuit_2.pdf, id=155, 452.54161pt x 217.4796pt>
+File: Images/TL072circuit_2.pdf Graphic file (type pdf)
+
+<use Images/TL072circuit_2.pdf>
+Package pdftex.def Info: Images/TL072circuit_2.pdf used on input line 395.
+(pdftex.def)             Requested size: 181.01343pt x 86.99028pt.
+ [16 <./Images/TL072circuit_2.pdf>]
+<Images/ad605_circuit.JPG, id=170, 3854.4pt x 2168.1pt>
+File: Images/ad605_circuit.JPG Graphic file (type jpg)
+
+<use Images/ad605_circuit.JPG>
+Package pdftex.def Info: Images/ad605_circuit.JPG used on input line 419.
+(pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
+
+<Images/ad605_circuit2.JPG, id=171, 3854.4pt x 2168.1pt>
+File: Images/ad605_circuit2.JPG Graphic file (type jpg)
+
+<use Images/ad605_circuit2.JPG>
+Package pdftex.def Info: Images/ad605_circuit2.JPG used on input line 423.
+(pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
+ [17 <./Images/ad605_circuit.JPG> <./Images/ad605_circuit2.JPG>] <Images/JuceCo
+ncept.pdf, id=175, 476.11424pt x 440.5438pt>
+File: Images/JuceConcept.pdf Graphic file (type pdf)
+
+<use Images/JuceConcept.pdf>
+Package pdftex.def Info: Images/JuceConcept.pdf used on input line 463.
+(pdftex.def)             Requested size: 476.11308pt x 440.54271pt.
+
+Overfull \hbox (23.14519pt too wide) in paragraph at lines 463--464
+ [][] 
+ []
+
+[18] <Images/paws_3boards.png, id=179, 1284.8pt x 803.0pt>
+File: Images/paws_3boards.png Graphic file (type png)
+
+<use Images/paws_3boards.png>
+Package pdftex.def Info: Images/paws_3boards.png used on input line 476.
+(pdftex.def)             Requested size: 256.95544pt x 160.59715pt.
+ [19 <./Images/JuceConcept.pdf>]
+Underfull \hbox (badness 1394) in paragraph at lines 481--482
+\T1/futs/m/n/10 were added to both the \T1/futs/m/it/10 Board \T1/futs/m/n/10 c
+lass
+ []
+
+
+Underfull \hbox (badness 1194) in paragraph at lines 481--482
+\T1/futs/m/n/10 and \T1/futs/m/it/10 Over-lay \T1/futs/m/n/10 class, the for-me
+r to set
+ []
+
+<Images/paws_sample.png, id=189, 1284.8pt x 803.0pt>
+File: Images/paws_sample.png Graphic file (type png)
+
+<use Images/paws_sample.png>
+Package pdftex.def Info: Images/paws_sample.png used on input line 496.
+(pdftex.def)             Requested size: 256.95544pt x 160.59715pt.
+
+Underfull \hbox (badness 5189) in paragraph at lines 501--502
+\T1/futs/m/n/10 dig-i-tal noise and the ar-duino only
+ []
+
+
+Overfull \hbox (32.46031pt too wide) in paragraph at lines 506--506
+[]\T1/futs/b/n/10 Implementing Sam-ple Func-tion 
+ []
+
+[20 <./Images/paws_3boards.png> <./Images/paws_sample.png>]
+<Images/paws_voice.png, id=195, 1284.8pt x 803.0pt>
+File: Images/paws_voice.png Graphic file (type png)
+
+<use Images/paws_voice.png>
+Package pdftex.def Info: Images/paws_voice.png used on input line 523.
+(pdftex.def)             Requested size: 256.95544pt x 160.59715pt.
+
+Underfull \hbox (badness 2635) in paragraph at lines 532--533
+[]\T1/futs/m/n/10 When out-putting the in-put sam-ples
+ []
+
+[21 <./Images/paws_voice.png>]
+<Images/fingerboard_pcb.JPG, id=200, 2565.585pt x 1046.91125pt>
+File: Images/fingerboard_pcb.JPG Graphic file (type jpg)
+
+<use Images/fingerboard_pcb.JPG>
+Package pdftex.def Info: Images/fingerboard_pcb.JPG used on input line 552.
+(pdftex.def)             Requested size: 179.6093pt x 73.29128pt.
+
+<Images/ardshield_pcb.JPG, id=201, 3594.42876pt x 3594.42876pt>
+File: Images/ardshield_pcb.JPG Graphic file (type jpg)
+
+<use Images/ardshield_pcb.JPG>
+Package pdftex.def Info: Images/ardshield_pcb.JPG used on input line 555.
+(pdftex.def)             Requested size: 179.73196pt x 179.73196pt.
+ [22 <./Images/fingerboard_pcb.JPG> <./Images/ardshield_pcb.JPG>] <Images/fngrb
+rdmod1_top.png, id=205, 383.4325pt x 407.5225pt>
+File: Images/fngrbrdmod1_top.png Graphic file (type png)
+
+<use Images/fngrbrdmod1_top.png>
+Package pdftex.def Info: Images/fngrbrdmod1_top.png used on input line 594.
+(pdftex.def)             Requested size: 76.68513pt x 81.50305pt.
+
+<Images/fngrbrdmod1_side.png, id=206, 519.9425pt x 414.54875pt>
+File: Images/fngrbrdmod1_side.png Graphic file (type png)
+
+<use Images/fngrbrdmod1_side.png>
+Package pdftex.def Info: Images/fngrbrdmod1_side.png used on input line 597.
+(pdftex.def)             Requested size: 101.39235pt x 80.83983pt.
+
+<Images/fngrbrdmod2_top.png, id=207, 382.42876pt x 407.5225pt>
+File: Images/fngrbrdmod2_top.png Graphic file (type png)
+
+<use Images/fngrbrdmod2_top.png>
+Package pdftex.def Info: Images/fngrbrdmod2_top.png used on input line 615.
+(pdftex.def)             Requested size: 76.48439pt x 81.50305pt.
+
+<Images/fngrbrdmod2_side.png, id=208, 519.9425pt x 414.54875pt>
+File: Images/fngrbrdmod2_side.png Graphic file (type png)
+
+<use Images/fngrbrdmod2_side.png>
+Package pdftex.def Info: Images/fngrbrdmod2_side.png used on input line 618.
+(pdftex.def)             Requested size: 101.39235pt x 80.83983pt.
+ [23 <./Images/fngrbrdmod1_top.png> <./Images/fngrbrdmod1_side.png> <./Images/f
+ngrbrdmod2_top.png> <./Images/fngrbrdmod2_side.png>] <Images/fngrbrdfinal_dim.p
+ng, id=216, 1284.8pt x 681.54625pt>
+File: Images/fngrbrdfinal_dim.png Graphic file (type png)
+
+<use Images/fngrbrdfinal_dim.png>
+Package pdftex.def Info: Images/fngrbrdfinal_dim.png used on input line 628.
+(pdftex.def)             Requested size: 385.44298pt x 204.46545pt.
+
+<Images/fingerrings_3.jpeg, id=217, 2845.63126pt x 2061.7025pt>
+File: Images/fingerrings_3.jpeg Graphic file (type jpg)
+
+<use Images/fingerrings_3.jpeg>
+Package pdftex.def Info: Images/fingerrings_3.jpeg used on input line 635.
+(pdftex.def)             Requested size: 284.57979pt x 206.18233pt.
+ [24 <./Images/fngrbrdfinal_dim.png (PNG copy)> <./Images/fingerrings_3.jpeg>] 
+[25] [26] [27] [28] [29] [30]
+<Images/FutureDesign.pdf, id=241, 170.18874pt x 70.93863pt>
+File: Images/FutureDesign.pdf Graphic file (type pdf)
+
+<use Images/FutureDesign.pdf>
+Package pdftex.def Info: Images/FutureDesign.pdf used on input line 924.
+(pdftex.def)             Requested size: 340.37662pt x 141.87689pt.
+ [31 <./Images/FutureDesign.pdf>] [32] [33]
+[34] <Images/paws_open.png, id=264, 1284.8pt x 803.0pt>
+File: Images/paws_open.png Graphic file (type png)
+
+<use Images/paws_open.png>
+Package pdftex.def Info: Images/paws_open.png used on input line 1056.
+(pdftex.def)             Requested size: 256.95544pt x 160.59715pt.
+ [35 <./Images/paws_open.png>] [36] (./bib.tex
+Underfull \hbox (badness 2913) in paragraph at lines 26--27
+[]\T1/futs/m/n/10 Ebay. \T1/futs/m/it/10 5V JY-MCU HC-06 V1.04 Blue-tooth Tran-
+seiver RF Mod-ule Se-rial Port 51 AVR MCU ARM
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 26--27
+\T1/futs/m/n/10 [On-line] http://www.ebay.com/itm/5V-JY-MCU-HC-06-V1-04-Bluetoo
+th-Transeiver-RF-Module-Serial-
+ []
+
+
+Underfull \hbox (badness 7308) in paragraph at lines 36--37
+[]\T1/futs/m/n/10 Premier Far-nell plc. \T1/futs/m/it/10 Spec-i-fi-ca-tion for 
+Ap-proval - KINGSTATE, Elec-tret Con-denser Mi-cro-phone,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--42
+[]\T1/futs/m/n/10 Efstathios Chatzikyr-i-akidis. \T1/futs/m/it/10 QueueList Li-
+brary for Ar-duino\T1/futs/m/n/10 . [On-line] Avail-able from:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
+[]\T1/futs/m/n/10 Efstathios Chatzikyr-i-akidis. \T1/futs/m/it/10 QueueAr-ray L
+i-brary for Ar-duino\T1/futs/m/n/10 . [On-line] Avail-able from:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--49
+[]\T1/futs/m/n/10 Chris Liechti, Source-Forge. \T1/futs/m/it/10 Wel-come to py-
+Se-rial's doc-u-men-ta-tion\T1/futs/m/n/10 . [On-line] Avail-able from:
+ []
+
+
+Underfull \hbox (badness 2343) in paragraph at lines 54--55
+[]\T1/futs/m/n/10 Hubert Pham. \T1/futs/m/it/10 PyAu-dio 0.2.8 doc-u-men-ta-tio
+n > PyAu-dio Doc-u-men-ta-tion\T1/futs/m/n/10 . [On-line] Avail-able from:
+ []
+
+
+Underfull \hbox (badness 3439) in paragraph at lines 64--65
+[]\T1/futs/m/n/10 Ferruccio Bettarelli, Emanuele Cia-vat-tini, Ar-i-ano Lat-tan
+zi, Francesco Pi-azza, Ste-fano Squar-tini,
+ []
+
+
+Underfull \hbox (badness 6252) in paragraph at lines 64--65
+\T1/futs/m/n/10 Diego Za-l-locco. NU-Tech: Im-ple-ment-ing DSP Al-go-rithms in 
+a Plug-in Based Soft-ware Plat-
+ []
+
+
+Underfull \hbox (badness 5756) in paragraph at lines 64--65
+\T1/futs/m/n/10 form for Real time Au-dio Ap-pli-ca-tions. [On-line] 2005. Avai
+l-able from: http://www.aes.org/e-
+ []
+
+
+Underfull \hbox (badness 4531) in paragraph at lines 67--68
+[]\T1/futs/m/n/10 Scott B. Wil-son, Ronald Emer-son. Spike de-tec-tion: a re-vi
+ew and com-par-i-son of al-go-rithms.
+ []
+
+
+Underfull \hbox (badness 1852) in paragraph at lines 67--68
+\T1/futs/m/it/10 Clin-i-cal Neu-ro-phys-i-ol-ogy\T1/futs/m/n/10 . Vol-ume 113, 
+Is-sue 12, Pages 1873-1881. [On-line] 2002. Avail-able from:
+ []
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+[]\T1/futs/m/n/10 Available from: http://docs-europe.electrocomponents.com/webd
+ocs/125b/0900766b8125b918.pdf
+ []
+
+) [38] (./appendix.tex
+<Images/arduinobluetooth.jpg, id=279, 298.716pt x 155.6214pt>
+File: Images/arduinobluetooth.jpg Graphic file (type jpg)
+
+<use Images/arduinobluetooth.jpg>
+Package pdftex.def Info: Images/arduinobluetooth.jpg used on input line 12.
+(pdftex.def)             Requested size: 298.71526pt x 155.621pt.
+
+<Images/mic_schematic_01.png, id=280, 314.6154pt x 174.4116pt>
+File: Images/mic_schematic_01.png Graphic file (type png)
+
+<use Images/mic_schematic_01.png>
+Package pdftex.def Info: Images/mic_schematic_01.png used on input line 20.
+(pdftex.def)             Requested size: 314.61462pt x 174.41118pt.
+
+<Images/ard_schematic_01.png, id=281, 304.2567pt x 255.5949pt>
+File: Images/ard_schematic_01.png Graphic file (type png)
+
+<use Images/ard_schematic_01.png>
+Package pdftex.def Info: Images/ard_schematic_01.png used on input line 27.
+(pdftex.def)             Requested size: 304.25595pt x 255.59427pt.
+ [39 <./Images/arduinobluetooth.jpg> <./Images/mic_schematic_01.png>] <Images/m
+c0101.pdf, id=285, 208.78pt x 290.08376pt>
+File: Images/mc0101.pdf Graphic file (type pdf)
+
+<use Images/mc0101.pdf>
+Package pdftex.def Info: Images/mc0101.pdf used on input line 38.
+(pdftex.def)             Requested size: 208.77946pt x 290.08304pt.
+ [40 <./Images/ard_schematic_01.png> <./Images/mc0101.pdf>] <Images/interfacevo
+iceflow.pdf, id=292, 108.405pt x 298.11375pt>
+File: Images/interfacevoiceflow.pdf Graphic file (type pdf)
+
+<use Images/interfacevoiceflow.pdf>
+Package pdftex.def Info: Images/interfacevoiceflow.pdf used on input line 49.
+(pdftex.def)             Requested size: 108.40472pt x 298.11302pt.
+
+<Images/interfacesampleflow.pdf, id=293, 187.70125pt x 443.6575pt>
+File: Images/interfacesampleflow.pdf Graphic file (type pdf)
+
+<use Images/interfacesampleflow.pdf>
+Package pdftex.def Info: Images/interfacesampleflow.pdf used on input line 53.
+(pdftex.def)             Requested size: 187.70079pt x 443.6564pt.
+ [41 <./Images/interfacevoiceflow.pdf> <./Images/interfacesampleflow.pdf>]
+<Images/mic_pcb_02.png, id=315, 153.6942pt x 58.2978pt>
+File: Images/mic_pcb_02.png Graphic file (type png)
+
+<use Images/mic_pcb_02.png>
+Package pdftex.def Info: Images/mic_pcb_02.png used on input line 69.
+(pdftex.def)             Requested size: 307.3876pt x 116.5953pt.
+
+<Images/ard_pcb_01.png, id=316, 206.08995pt x 155.50095pt>
+File: Images/ard_pcb_01.png Graphic file (type png)
+
+<use Images/ard_pcb_01.png>
+Package pdftex.def Info: Images/ard_pcb_01.png used on input line 77.
+(pdftex.def)             Requested size: 309.13414pt x 233.25084pt.
+
+<Images/ard_pcb_02.png, id=317, 207.174pt x 156.585pt>
+File: Images/ard_pcb_02.png Graphic file (type png)
+
+<use Images/ard_pcb_02.png>
+Package pdftex.def Info: Images/ard_pcb_02.png used on input line 85.
+(pdftex.def)             Requested size: 310.76021pt x 234.8769pt.
+ [42 <./Images/mic_pcb_02.png> <./Images/ard_pcb_01.png>]) [43 <./Images/ard_pc
+b_02.png>] (./main.aux) ) 
+Here is how much of TeX's memory you used:
+ 8145 strings out of 493117
+ 117692 string characters out of 6135433
+ 275968 words of memory out of 5000000
+ 11351 multiletter control sequences out of 15000+600000
+ 102749 words of font info for 121 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 44i,14n,47p,1322b,405s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/ba
+se/8r.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourie
+r-ml.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourier
+-mlit.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourie
+r-ms.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putb8a.pf
+b></usr/local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on main.pdf (43 pages, 20057318 bytes).
+PDF statistics:
+ 350 PDF objects out of 1000 (max. 8388607)
+ 220 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,6 @@
+PWD /Users/kartikgohil/Documents/Imperial/Year4/Project/Docs/Final Report/report_tex
+INPUT /usr/local/texlive/2014/texmf.cnf
+INPUT /usr/local/texlive/2014/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT frontpage.tex
+OUTPUT frontpage.log
