@@ -677,7 +677,9 @@ Figure~\ref{ardshieldpcb2} shows the PCB Layout for version 2 of the Arduino Shi
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{|l l l}
-Circuit   &   Rail Voltage (V) &    Noise Ripple (V$_{p-p}$)\\ \hline \hline
+Circuit   &   Rail Voltage (V) &    Noise Ripple (V$_{p-p}$)\\ \hline 
+
+
 
 \end{tabular}
 \end{center}
@@ -760,8 +762,8 @@ It cannot send captured data to the Interface via wireless transmission\\
 It is not very comfortable to wear\\
 It cannot be switched on and off\\
 It cannot remind the user of its functionality\\
-It cannot be carried in a pocket or bag \\
-\hline \hline
+It cannot be carried in a pocket or bag\\
+\hline  \hline 
 \textit{The Interface} \\ \hline \hline
 The Interface is available on a computer \\
 It can connect to PAWS Boards \\
@@ -902,7 +904,6 @@ Much of my project was dedicated to optimising audio processing code, in the sam
 \section{Improvements \& Enhancements} \label{Further Developments}
 
 \subsection{Future Design (Prototype 0.3.xx)}
-\subsubsection{Technical Specifications}
 
 Prototype 0.2.04 was fairly bulky in design relative to the concept design and any further developments would need to remedy this. I realised that the only need for the Arduino Uno was to sample the connected microphone signals and transmit the captured data to the Interface where all of the processing was done. It was of course also used to set the gain of the microphone circuit's amplifier but this function was not used in the initially intended way and was in fact set to a value which remained constant during run-time. 
 
@@ -920,7 +921,7 @@ The inclusion of a battery would clean up the rail noise significantly compared 
 Other improvements could involve oversampling\textsuperscript{\cite{oversampling}} methods to allow for a well-defined signal that is more robust to transmission errors. The coding of data for transmission could also be looked into further to increase the transmission rate by first analysing the sent signals in terms of entropy and defining smaller codewords\textsuperscript{\cite{codewords}}. In this case, a trade-off would have to be found between oversampling, which corresponds to more data per second, and coding, which aims for less data per second. 
 
 
-\subsubsection{Creative Functionalities}
+\subsection{Enhancing Creative Functionalities}
 
 The embedding of accelerometers would vastly increase the functional range of the instrument. Accelerometers are able to detect acceleration, and so they could be used to map movements or motion gestures to perform tasks. 
 
@@ -1001,7 +1002,7 @@ Component   &   Qty.    &   Cost (\pounds) \\ \hline
 \caption{Breakdown of Development Costs for Prototypes 0.2.04 (a) and 0.3.xx (b)}
 \end{table}
 
-We can see that the expected cost of the new Prototype is ten times smaller than that of Prototype 0.2.04, even if we were to take the cost of printing the PCBs and 3D printed Rings into account. Of course the price would change if we wished to purchase components with higher specifications or wished to implement functionalities such as dynamic audio filtering in hardware or user feedback tools such as the ability to 'Blink', as described in Section~\ref{Further Developments} Further Developments. 
+We can see that the expected cost of the new Prototype is ten times smaller than that of Prototype 0.2.04, even if we were to take the cost of printing the PCBs and 3D printed Rings into account. Of course the price would change if we wished to purchase components with higher specifications or wished to implement functionalities such as dynamic audio filtering in hardware or user feedback tools such as the ability to 'Blink', as described in Section~\ref{Further Developments} Improvements \& Enhancements.
 
 
 

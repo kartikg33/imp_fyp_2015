@@ -47,9 +47,8 @@
 \contentsline {subsection}{\numberline {8.2}Progress Evaluation}{30}
 \contentsline {section}{\numberline {9}Improvements \& Enhancements}{31}
 \contentsline {subsection}{\numberline {9.1}Future Design (Prototype 0.3.xx)}{31}
-\contentsline {subsubsection}{\numberline {9.1.1}Technical Specifications}{31}
-\contentsline {subsubsection}{\numberline {9.1.2}Creative Functionalities}{31}
-\contentsline {subsection}{\numberline {9.2}Marketability}{32}
+\contentsline {subsection}{\numberline {9.2}Enhancing Creative Functionalities}{31}
+\contentsline {subsection}{\numberline {9.3}Marketability}{32}
 \contentsline {section}{\numberline {10}Finances}{33}
 \contentsline {section}{\numberline {11}User Manual For Prototype 0.2.04}{34}
 \contentsline {subsection}{\numberline {11.1}Parts of the Instrument}{34}
