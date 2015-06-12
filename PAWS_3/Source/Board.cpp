@@ -408,12 +408,12 @@ void *playVoice_basic(void* dummy){
 void *playSample(void* dummy){
     std::cout<<"Sample Function"<<newLine;
     Board *obj = (Board *) dummy;
-    static const int len = 50;
+    static const int len = 30;
     int tempbuff[len] = {512};
     int tempptr = 0;
     int diff = 0;
     int change = 0;
-    int thresh = 140;
+    int thresh = 80;
 
     obj->playSamp = false;
 

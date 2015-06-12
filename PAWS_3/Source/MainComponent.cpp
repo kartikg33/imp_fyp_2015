@@ -45,8 +45,8 @@ public:
         //setSampleRate ();
         
         addAndMakeVisible (overlay = new MainUI());
-        //startTimerHz (75); // use a timer to keep repainting this component
-        startTimerHz (200); // use a timer to keep repainting this component
+        startTimerHz (75); // use a timer to keep repainting this component
+        //startTimerHz (200); // use a timer to keep repainting this component
 
     }
 
@@ -106,7 +106,7 @@ public:
             if(overlay->numBoards != 0){
                 int num = overlay->numBoards;
                 
-                for(int n = 0; n<num;++n){
+                for(int n = 0; n<num;n++){
                     waveptr = start;
                     if(overlay->boardUI[n]->SampleFl){
                         

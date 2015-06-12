@@ -72,9 +72,9 @@ void setPwmFrequency(int pin, int divisor) {
 }
 
 void setup(){
-  //setPwmFrequency(3, 32);
-  //setPwmFrequency(5, 128);
-  //setPwmFrequency(6, 128);
+  setPwmFrequency(3, 1024);
+  setPwmFrequency(5, 1024);
+  setPwmFrequency(6, 1024);
   pinMode(gain1, OUTPUT);
   pinMode(gain2, OUTPUT);
   pinMode(gain3, OUTPUT);
@@ -96,8 +96,8 @@ void loop(){
   Serial.write(byte(read));
   read = analogRead(board2)*0.25;
   Serial.write(byte(read));
-  //read = analogRead(board3)*0.25;
-  //Serial.write(byte(read));
+  read = analogRead(board3)*0.25;
+  Serial.write(byte(read));
 
     
   //Serial.write(byte(read>>8));

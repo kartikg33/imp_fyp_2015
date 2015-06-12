@@ -289,7 +289,7 @@ void *queueInput(void* dummy){
     
     
     //std::cout<< obj->filt->getCoefficients()<< newLine;
-    int num = 2;
+    int num = 3;
     float temp[num+1];
     int tempptr = 0;
     float *input = new float[num];
@@ -314,7 +314,7 @@ void *queueInput(void* dummy){
         }
         
         // FILTERING HERE
-        std::cout<<"whatever";
+        //std::cout<<"whatever";
         //obj->filt->processSamples(input, 10);
         
         // END FILTERING HERE
