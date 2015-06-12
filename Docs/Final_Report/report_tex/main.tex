@@ -656,11 +656,17 @@ I also found that each \textit{Board}'s amplitude control was not applied correc
 I also renamed the text at the top of each \textit{Board} object to display "One", "Two" and "Three" as opposed to just "Board", to further improve the user's interactive experience. 
 
 \subsubsection{Filtering the Audio Signal}
-Filtered input signal using matlab analyses. Can stick graphs and plots in this section if manage to do this. 
-filtering sample function to only hear lip smack from finger ring. 
+
 filtering out the pwm noise - not working in software so have designed new shield
 
 Figure~\ref{ardshieldpcb2} shows the PCB Layout for version 2 of the Arduino Shield.
+
+testing of pwm frequencies vs noise bed levels, shown in evaluation section
+
+
+Filtered input signal using matlab analyses. Can stick graphs and plots in this section if manage to do this. 
+filtering sample function to only hear lip smack from finger ring. 
+
 
 
 
@@ -740,18 +746,18 @@ We can see that even though it takes longer to process larger packets, the effec
 
 We can also see that the signal sample rates are very low, even worse than a telephone line, which is sampled at 8kHz or 16kHz. This means that the intelligibility of any voice information captured will almost non-present, however, the signal will still be able to pick up 'tapping' sounds, which usually feature high energies at 200 or 500Hz. Also, the calculated upsampling ratios directly correspond to the values I used in Prototype 0.2.02, detailed in Section~\ref{0202}, which I settled upon simply through trial and error and matching the frequency of my voice with what was being played back through the Interface from the microphone. 
 
-\subsection{User Evaluation}
-user impressions
-musicality
-how easy
-how fun
-
 
 \subsubsection{Requirements Analysis}
 
 Prototype 0.2.04 was evaluated against the specifications detailed in Section~\ref{Requirements} Product Requirements to determine how much of the concept design was implemented and to highlight the areas where further development is necessary. 
 
 Table~\ref{tab:specifications} listed specifications for both the concept PAWS Board and the Interface. Table~\ref{tab:specificationsmet} answers these specification questions to determine what the Finger Board, coupled with the Arduino, and the JUCE Interface can and cannot do. 
+
+\subsubsection{User Evaluation}
+user impressions
+musicality
+how easy
+how fun
 
 \begin{table}[H]
 \centering
