@@ -38,8 +38,16 @@
 \contentsline {figure}{\numberline {26}{\ignorespaces Dimensioned Sketches of Rings Version 3 - Finger (Left) and Thumb (Right)\relax }}{24}
 \contentsline {figure}{\numberline {27}{\ignorespaces 1 Thumb Ring and 2 Finger Rings worn by a user\relax }}{24}
 \contentsline {figure}{\numberline {28}{\ignorespaces Prototype 0.2.04 - Interface\relax }}{25}
-\contentsline {figure}{\numberline {29}{\ignorespaces Prototype 0.3.xx - System Design\relax }}{31}
-\contentsline {figure}{\numberline {30}{\ignorespaces Opening Screen of PAWS Application\relax }}{34}
-\contentsline {figure}{\numberline {31}{\ignorespaces PAWS Program displaying controls for 3 Finger Boards\relax }}{35}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Voice Function Program}}}{40}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sample Function Program}}}{40}
+\contentsline {figure}{\numberline {29}{\ignorespaces Arduino 5V Power Rail measured on the Arduino Shield\relax }}{26}
+\contentsline {figure}{\numberline {30}{\ignorespaces Microphone Signal (idle state) from a Finger Board, measured at the Arduino input pin\relax }}{27}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {No Finger Boards attached}}}{27}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {1 Finger Board attached}}}{27}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {3 Finger Boards attached}}}{27}
+\contentsline {figure}{\numberline {30}{\ignorespaces Microphone Signal from a Finger Board with PWM Frequency = 30Hz, measured at the Arduino input pin\relax }}{28}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Idle State (no deliberate input)}}}{28}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tapping the Finger Ring against a table}}}{28}
+\contentsline {figure}{\numberline {31}{\ignorespaces Prototype 0.3.xx - System Design\relax }}{33}
+\contentsline {figure}{\numberline {32}{\ignorespaces Opening Screen of PAWS Application\relax }}{36}
+\contentsline {figure}{\numberline {33}{\ignorespaces PAWS Program displaying controls for 3 Finger Boards\relax }}{37}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Voice Function Program}}}{42}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sample Function Program}}}{42}

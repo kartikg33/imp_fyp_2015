@@ -18,8 +18,8 @@
 % HEAD & FOOT
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{Kartiksinh K. Gohil - CID: 00692607}
-\lhead{Final Year Project - Final Report 2015}
+\rhead{K. K. GOHIL - CID: 00692607}
+\lhead{Final Year Project Report 2015}
 \cfoot{\thepage}
 
 \renewcommand
@@ -682,58 +682,63 @@ This section aims to analyse and critique Prototype 0.2.04 in terms of its hardw
 
 \subsubsection{Hardware Analysis}
 
-The evaluation was conducted using one Finger Board connected to Version 1 of the Arduino Shield circuit board since Version 2 was not available for testing. The tests involved looking at the noise ripple across the power rails of the Arduino and in the microphone signal coming in to the Arduino's analog input pin. 
+\begin{wrapfigure}{r}{0.37\textheight}
+\centering
+\subfloat[No Finger Boards attached]{
+\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_noboards.eps}
+\label{fig:rail_noboards}
+}
+\\
+\subfloat[1 Finger Board attached]{
+\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_1board.eps}
+\label{fig:rail_1board}
+}
+\\
+\subfloat[3 Finger Boards attached]{
+\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_3boards.eps}
+\label{fig:rail_3boards}
+}
+\caption{Arduino 5V Power Rail measured on the Arduino Shield}
+\end{wrapfigure}
+
+The evaluation was conducted using one Finger Board connected to Version 1 of the Arduino Shield circuit board since Version 2 was not available for testing. The tests involved looking at the noise ripple across the power rails of the Arduino and in the microphone signal coming in to the Arduino's analog input pin. All measurements were taken with a digital oscilloscope and plotted using Matlab. 
+
+Figure~\ref{fig:rail_noboards} shows the power rail measured on the Arduino Shield with no Finger Boards connected. We can see that it is centred around 4.97V, instead of the expected 5V, and features approximately 20mV of digital noise ripple. After connecting one Finger Board to the Arduino, I found that the rail voltage dropped further to around 4.91V, a drop of 60mV, with the same noise ripple of 20mV. Figure~\ref{fig:rail_1board} shows the waveform of the rail voltage. We also see a periodic ripple overlaid onto the waveform with a frequency determined to be 490Hz. This is in fact the frequency of the PWM signal sent by the Arduino to the Finger Board to produce an analogue voltage that can control the gain of the Board's amplifier. This frequency has been induced onto the power rails, most likely through the cable that attaches the Arduino Shield to the Finger Board. 
+
+Figure~\ref{fig:rail_3boards} shows the power rail with three Finger Boards connected. The voltage dropped significantly to 4.78V but the noise ripple remained constant at 20mV. For this measurement, the PWM frequency was changed down to 30Hz for the first Finger Board, and 61Hz for the second and third Finger Boards. The waveform does not show it but there is in fact an overlaid periodicity corresponding to approximately 60Hz. The power required by the three Finger Boards' microphones and amplifiers causes a large drain on the Arduino, resulting in the voltage drop of the power rail. 
+
+Figure~\ref{fig:sig_1} shows the microphone signal from a Finger Board, measured at the analogue input pin on the Arduino Shield. The signal has been listed as being in an \textit{idle state}, meaning that no deliberate sounds were made so the microphone was only capturing the background noise (audio) of the labs and the electrical noise of the circuitry. The signal is centred around 2.41V as opposed to the expected 2.5V. We can see large spikes in the waveform due to the induction of the PWM signal. The frequency response plot confirms that the periodic spikes do in fact correspond to the 490Hz of the PWM signal. We can also see a high amount of energy around the 10kHz mark, most likely corresponding to thermal noise, which was previously found to be present and was dealt with using a simple low pass filter with a cut-off of 20kHz. Of course, the best solution to remove this noise would be isolating the microphone to reduce its thermal sensitivity. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textheight, height=0.45\textheight]{Images/sig_1.eps}
+\caption{Microphone Signal (idle state) from a Finger Board, measured at the Arduino input pin}
+\label{fig:sig_1}
+\end{figure}
+
+\begin{wrapfigure}{r}{0.4\textheight}
+\centering
+\subfloat[Idle State (no deliberate input)]{
+\includegraphics[width=0.4\textheight, height=0.3\textheight]{Images/sig_2_idle.eps}
+\label{fig:sig_2_idle}
+}
+\end{wrapfigure}
 
 
-\includegraphics[]{Images/rail_1board.eps}
-\includegraphics[]{Images/rail_3boards.eps}
-\includegraphics[]{Images/rail_noboards.eps}
-\includegraphics[]{Images/sig_1.eps}
-\includegraphics[]{Images/sig_2_idle.eps}
-\includegraphics[]{Images/sig_2_tap.eps}
+Figure~\ref{fig:sig_2} shows the same microphone signal but with the PWM Frequency changed to 30Hz. We can see that the waveform is more stable in the idle state, Figure~\ref{fig:sig_2_idle}, and the frequency response much flatter. The noise ripple has been greatly reduced to a maximum of 100mV, as opposed to 700mV with the PWM at 490Hz. Figure~\ref{fig:sig_2_tap} shows the microphone picking up the sound of a Finger Ring, with the Board attached, tapped against a wooden table. The analogue signal is clearly visible amongst the noise ripple and we can see the increase in energy at frequencies of 600Hz and around the 1kHz mark as compared to the idle state. 30Hz is the lowest PWM frequency producible by the Arduino Uno but only for a select few of the analogue output pins. The way in which Prototype 0.2.04 has been wired limits the lower bound of the PWM frequency of the second and third Boards to 61Hz, and therefore the first Board must also be set to this value to ensure the Interface's processing code works in the same way for each of the Boards. The reason for the induced PWM signal having a smaller effect at lower frequencies could be because of the programmable gain amplifier's high pass filtering at each of its input pins. I designed it such that the high pass cutoffs were at 90Hz, meaning that frequencies lower than this would be attenuated by an order of 2 (since the amplifier consists of two stages). 
+
+\begin{figure}[H]
+\ContinuedFloat
+\centering
+\subfloat[Tapping the Finger Ring against a table]{
+\includegraphics[width=0.6\textheight, height=0.45\textheight]{Images/sig_2_tap.eps}
+\label{fig:sig_2_tap}
+}
+\caption{Microphone Signal from a Finger Board with PWM Frequency = 30Hz, measured at the Arduino input pin}
+\label{fig:sig_2}
+\end{figure}
 
 
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{|l l l}
-Circuit   &   Rail Voltage (V) &    Noise Ripple (V$_{p-p}$)\\ \hline 
-
-
-
-\end{tabular}
-\end{center}
-\caption{Noise Levels In Circuitry}
-\label{tab:noise}
-\end{table}
-
-1) rail noise
-\\new fingerboard without extra electro cap
-\\- rail noise on board
-\\- rail noise on shield
-\\old board with extra electro cap
-\\- rail noise on board
-\\- rail noise on shield
-\\stick electro cap on shield
-\\- rail noise on board
-\\- rail noise on shield
-
-2) freq response
-\\fft of signal from mic
-\\- on board
-\\- on shield
-\\- screenshots of scope response
-\\fft of signal received by app
-\\- chuck values to text file
-\\fft of upsampled signal in app
-\\- chuck values to text file
-
-3) filter
-\\design LPF in matlab for upsampled signal
-\\- graphs of signal before and after
-\\save coeffs to text file and implement in app
-
-4) profiling
-\\- Calculate time taken to execute getnextaudioblock vs. output rate (44.1k)
 
 \subsubsection{Software Analysis}
 
@@ -765,12 +770,6 @@ We can also see that the signal sample rates are very low, even worse than a tel
 Prototype 0.2.04 was evaluated against the specifications detailed in Section~\ref{Requirements} Product Requirements to determine how much of the concept design was implemented and to highlight the areas where further development is necessary. 
 
 Table~\ref{tab:specifications} listed specifications for both the concept PAWS Board and the Interface. Table~\ref{tab:specificationsmet} answers these specification questions to determine what the Finger Board, coupled with the Arduino, and the JUCE Interface can and cannot do. 
-
-\subsubsection{User Evaluation}
-user impressions
-musicality
-how easy
-how fun
 
 \begin{table}[H]
 \centering
@@ -872,6 +871,15 @@ from each of the Boards individually as well as a global amplitude control.\\
 \caption{Criteria Met by Prototype 0.2.04}
 \label{tab:criteriamet}
 \end{table}
+
+
+
+\subsubsection{User Evaluation}
+user impressions\\
+musicality\\
+how easy\\
+how fun
+
 
 
 \newpage

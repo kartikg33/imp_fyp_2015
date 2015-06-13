@@ -42,31 +42,31 @@
 \contentsline {section}{\numberline {8}Evaluation}{26}
 \contentsline {subsection}{\numberline {8.1}Prototype 0.2.04 Evaluation}{26}
 \contentsline {subsubsection}{\numberline {8.1.1}Hardware Analysis}{26}
-\contentsline {subsubsection}{\numberline {8.1.2}Software Analysis}{26}
-\contentsline {subsubsection}{\numberline {8.1.3}Requirements Analysis}{27}
-\contentsline {subsubsection}{\numberline {8.1.4}User Evaluation}{27}
-\contentsline {subsection}{\numberline {8.2}Progress Evaluation}{30}
-\contentsline {section}{\numberline {9}Improvements \& Enhancements}{31}
-\contentsline {subsection}{\numberline {9.1}Future Design (Prototype 0.3.xx)}{31}
-\contentsline {subsection}{\numberline {9.2}Enhancing Creative Functionalities}{31}
-\contentsline {subsection}{\numberline {9.3}Marketability}{32}
-\contentsline {section}{\numberline {10}Finances}{33}
-\contentsline {section}{\numberline {11}User Manual For Prototype 0.2.04}{34}
-\contentsline {subsection}{\numberline {11.1}Parts of the Instrument}{34}
-\contentsline {subsection}{\numberline {11.2}Setting Up the Hardware}{34}
-\contentsline {subsection}{\numberline {11.3}Using the Software}{34}
-\contentsline {subsection}{\numberline {11.4}Disconnecting the Hardware}{35}
-\contentsline {section}{\numberline {12}References}{36}
-\contentsline {section}{\numberline {13}Appendices}{38}
-\contentsline {section}{\numberline {A}Circuit Diagrams}{38}
-\contentsline {subsection}{\numberline {A.1}Circuit Diagram for HC-06 to Arduino Connection}{38}
-\contentsline {subsection}{\numberline {A.2}Circuit Diagram for Prototype 0.2.03 - Finger Board}{38}
-\contentsline {subsection}{\numberline {A.3}Circuit Diagram for Prototype 0.2.03 - Arduino Shield}{39}
-\contentsline {section}{\numberline {B}Flow Diagrams}{39}
-\contentsline {subsection}{\numberline {B.1}Flow Diagram for Microcontroller Program, Prototype 0.1.01}{39}
-\contentsline {subsection}{\numberline {B.2}Flow Diagram for Interface Program, Prototype 0.1.01}{40}
-\contentsline {subsection}{\numberline {B.3}Flow Diagram for Interface Program, Prototype 0.1.02}{41}
-\contentsline {section}{\numberline {C}PCB Design for Prototype 0.2.03}{42}
-\contentsline {subsection}{\numberline {C.1}Finger Board}{42}
-\contentsline {subsection}{\numberline {C.2}Arduino Shield Version 1}{42}
-\contentsline {subsection}{\numberline {C.3}Arduino Shield Version 2}{43}
+\contentsline {subsubsection}{\numberline {8.1.2}Software Analysis}{28}
+\contentsline {subsubsection}{\numberline {8.1.3}Requirements Analysis}{29}
+\contentsline {subsubsection}{\numberline {8.1.4}User Evaluation}{31}
+\contentsline {subsection}{\numberline {8.2}Progress Evaluation}{32}
+\contentsline {section}{\numberline {9}Improvements \& Enhancements}{33}
+\contentsline {subsection}{\numberline {9.1}Future Design (Prototype 0.3.xx)}{33}
+\contentsline {subsection}{\numberline {9.2}Enhancing Creative Functionalities}{33}
+\contentsline {subsection}{\numberline {9.3}Marketability}{34}
+\contentsline {section}{\numberline {10}Finances}{35}
+\contentsline {section}{\numberline {11}User Manual For Prototype 0.2.04}{36}
+\contentsline {subsection}{\numberline {11.1}Parts of the Instrument}{36}
+\contentsline {subsection}{\numberline {11.2}Setting Up the Hardware}{36}
+\contentsline {subsection}{\numberline {11.3}Using the Software}{36}
+\contentsline {subsection}{\numberline {11.4}Disconnecting the Hardware}{37}
+\contentsline {section}{\numberline {12}References}{38}
+\contentsline {section}{\numberline {13}Appendices}{40}
+\contentsline {section}{\numberline {A}Circuit Diagrams}{40}
+\contentsline {subsection}{\numberline {A.1}Circuit Diagram for HC-06 to Arduino Connection}{40}
+\contentsline {subsection}{\numberline {A.2}Circuit Diagram for Prototype 0.2.03 - Finger Board}{40}
+\contentsline {subsection}{\numberline {A.3}Circuit Diagram for Prototype 0.2.03 - Arduino Shield}{41}
+\contentsline {section}{\numberline {B}Flow Diagrams}{41}
+\contentsline {subsection}{\numberline {B.1}Flow Diagram for Microcontroller Program, Prototype 0.1.01}{41}
+\contentsline {subsection}{\numberline {B.2}Flow Diagram for Interface Program, Prototype 0.1.01}{42}
+\contentsline {subsection}{\numberline {B.3}Flow Diagram for Interface Program, Prototype 0.1.02}{43}
+\contentsline {section}{\numberline {C}PCB Design for Prototype 0.2.03}{44}
+\contentsline {subsection}{\numberline {C.1}Finger Board}{44}
+\contentsline {subsection}{\numberline {C.2}Arduino Shield Version 1}{44}
+\contentsline {subsection}{\numberline {C.3}Arduino Shield Version 2}{45}

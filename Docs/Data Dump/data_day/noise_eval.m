@@ -25,40 +25,21 @@ ylabel('Amplitude (dB)');
 %% RAIL NOISE 1
 %COLUMN 1: SECONDS
 %COLUMN 2: VOLTS
-B = csvread('scope_5.csv');
+B = csvread('scope_6.csv');
 A = B; %everything
 numsamp = size(A,1);
 T = (A(end,1)-A(1,1))/numsamp;
 fs = 1/T;
 
-subplot(2,1,1)
+
 plot(A(:,1),A(:,2))
 xlim([A(1,1),A(end,1)]);
-ylim([4.85 4.95]);
+ylim([4.88 4.94]);
 grid minor;
 xlabel('Time (seconds)');
 ylabel('Amplitude (Volts)');
 
-subplot(2,1,2)
-freqlim = [50:fs/numsamp:fs/2];
-freqax = round(freqlim*numsamp/fs);
-I = find(freqax==0);
-freqax(I) = 1;
-A_freq = abs(fft(A(:,2)));
-loglog(freqlim,A_freq(freqax));
-hold on;
-temp = zeros(1,length(freqlim));
-temp(round(490*numsamp/fs)) = 100;
-stem(freqlim,temp,'LineStyle','--','Marker', 'none');
-str1 = '490Hz';
-text(350,0.1,str1,'Color','r')
-hold off;
-%ylim([0,5]);
-xlim([freqlim(1), freqlim(end)]);
-ylim([1e-2 1e2]);
-grid minor;
-xlabel('Frequency (Hz)');
-ylabel('Amplitude (dB)');
+
 %% RAIL NOISE 2
 %COLUMN 1: SECONDS
 %COLUMN 2: VOLTS
@@ -102,7 +83,7 @@ A_freq = abs(fft(A(:,2)));
 loglog(freqlim,A_freq(freqax));
 hold on;
 temp = zeros(1,length(freqlim));
-temp(round(490*numsamp/fs)) = 100;
+temp(max(find(freqlim<500))) = 100;
 stem(freqlim,temp,'LineStyle','--','Marker', 'none');
 str1 = '490Hz';
 text(350,0.1,str1,'Color','r')
@@ -139,7 +120,7 @@ A_freq = abs(fft(A(:,2)));
 loglog(freqlim,A_freq(freqax));
 %hold on;
 %temp = zeros(1,length(freqlim));
-%temp(round(30*numsamp/fs)) = 100;
+temp(max(find(freqlim<500))) = 100;
 %stem(freqlim,temp,'LineStyle','--','Marker', 'none');
 %str1 = '490Hz';
 %text(350,0.1,str1,'Color','r')
