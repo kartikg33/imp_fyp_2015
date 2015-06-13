@@ -26,11 +26,12 @@ ylabel('Amplitude (dB)');
 %COLUMN 1: SECONDS
 %COLUMN 2: VOLTS
 B = csvread('scope_6.csv');
-A = B; %everything
+start = min(find(B(:,1)==-4e-3));
+last = max(find(B(:,1)==4e-3));
+A = B(start:last,:); %everything
 numsamp = size(A,1);
 T = (A(end,1)-A(1,1))/numsamp;
 fs = 1/T;
-
 
 plot(A(:,1),A(:,2))
 xlim([A(1,1),A(end,1)]);
@@ -44,7 +45,10 @@ ylabel('Amplitude (Volts)');
 %COLUMN 1: SECONDS
 %COLUMN 2: VOLTS
 B = csvread('scope_10.csv');
-A = B(100:900,:); %everything
+start = min(find(B(:,1)>-4e-3));
+last = max(find(B(:,1)<4e-3));
+A = B(start:last,:); %everything
+%A = B(100:900,:); %everything
 numsamp = size(A,1);
 T = (A(end,1)-A(1,1))/numsamp;
 fs = 1/T;
