@@ -124,9 +124,9 @@ Based on these new products, I aim to produce a musical instrument that heads in
 The musical instrument I will be building will be based around the concept of programmable, wearable sensors. Firstly, the instrument shall use an array of sensors, such as audio (microphone) or motion (accelerometer/gyroscope), to capture and control sound. These sensors should be wearable by the user, most likely through bespoke 3D printed housings so as to meet that particular aspect of the project brief. The ability to wear these sensors in any location will increase the adaptability of their use, as well as removing the restrictions of a fixed physical environment. These sensors should also be programmable by the user in order to complete any given task. The user should be able to perform functions such as recording their voice, emulating a real live drum kit, mapping a tempo, and even harmonising their singing with virtual instruments, all by programming the sensors in various ways. Figure~\ref{fig:userlvl} shows a user-level diagram of a sensor array (PAWS Board) sending information wirelessly to an interface on either a computer or a smartphone and consequently producing audio.
 
 
-\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{wrapfigure}{r}{0.55\textwidth}
 \centering
-\includegraphics[scale=0.7]{Images/conceptphoneinterface3}
+\includegraphics[scale=0.7]{Images/conceptphoneinterface_annotated}
 \caption{Concept Design for a smartphone-based Interface}
 \label{fig:conceptphoneinterface}
 \end{wrapfigure}
@@ -167,7 +167,7 @@ Figure~\ref{fig:syslvlhi} shows the high-level system design of the instrument. 
 \begin{wrapfigure}{r}{0.3\textheight}
 \centering
 \includegraphics[scale=0.6]{Images/SystemLevelHi}
-\caption{Concept System Design - High Level}
+\caption{System Design for Concept Product - High Level}
 \label{fig:syslvlhi}
 \end{wrapfigure}
 
@@ -181,7 +181,7 @@ In this initial system design, the Motion function serves to control particular 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.65]{Images/SystemLevelLo}
-\caption{Concept System Design - Low Level}
+\caption{System Design for Concept Product - Low Level}
 \label{fig:syslvllo}
 \end{figure}
 
@@ -193,7 +193,7 @@ For implementation purposes, the PAWS Board concept design will feature two sepa
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.65]{Images/SystemLevelImp}
-\caption{Implementable System Design}
+\caption{System Design for Implementation of Product}
 \label{fig:syslvl_imp}
 \end{figure}
 
@@ -262,9 +262,9 @@ Simplicity Of Use & How easily can the user program PAWS Boards? \\
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Initial Testing for Implementation} \label{Proof of Concept}
+\section{Product Analysis} \label{Proof of Concept}
 
-Before starting on the implementation of the product, I tested several necessary elements of the Implementation Design, Figure~\ref{fig:syslvl_imp}, such as using a microcontroller to transmit audio data to a computer, various methods for processing audio in the Interface, and I simulated the concept of Sample Triggering using \emph{Matlab}.
+Before starting on the implementation of the product, I analysed and tested several necessary elements of the Implementable System Design, Figure~\ref{fig:syslvl_imp}, such as using a microcontroller to transmit audio data to a computer, various methods for processing audio in the Interface, and I simulated the concept of Sample Triggering using \emph{Matlab}. I then used these initial findings to produce a rough Implementation Plan.
 
 \begin{wrapfigure}{r}{0.3\textwidth}
 \centering
@@ -280,7 +280,7 @@ Before starting on the implementation of the product, I tested several necessary
 \label{fig:btarduino}
 \end{wrapfigure}
 
-\subsection{Data Transmission}
+\subsubsection{Data Transmission}
 
 The purpose of the microcontroller is to sample the audio signal from the microphone circuitry in the PAWS Board design, and transmit the data to the Interface. The data transmission could be done through a wired USB cable or wirelessly using Bluetooth, with both methods using standard serial transmission protocols. 
 
@@ -292,28 +292,86 @@ The ATMEGA microcontroller can be programmed through Arduino's IDE to read analo
 Certain elements of the Interface design were first tested using Matlab before implementing them in Python. I wrote Matlab scripts that would connect to the Arduino's serial bus (via USB) and read the incoming data from the Arduino Uno. I tested various methods to read in data, using infinite read and store loops for asynchronous input, and timed interrupts for a fixed data reception rate. I was not able to connect to the Arduino through Bluetooth using Matlab, so after initially testing data transmission, I quickly moved on to the implementation of the Interface in Python.
 
 
-\subsection{Programming the Interface}
+\subsubsection{Programming the Software Interface}
 
-The Interface will initially be implemented as a computer application. It is required to provide a graphical user interface (GUI) to allow the user to control the signal processing chain. The easiest way to implement this program would be using the \emph{Python} programming language. Python is an incredibly high-level language that is simple to write and can be used with a variety of signal processing and user-interface libraries. Libraries such as \emph{Pydub}\textsuperscript{\cite{pydub}} and \emph{PyAudio}\textsuperscript{\cite{pyaudio}} were found to integrate the ability to manipulate audio with the Python programming language but did not specifically meet the requirements of the Interface software, since they were designed more for handling files than real-time signals. The \emph{PyO}\textsuperscript{\cite{pyolibrary}} library is specifically designed for digital signal processing (DSP) in Python and will allow the Interface to be able to process audio signals in order to complete the user's tasks. The article \emph{Python For Audio Signal Processing}\textsuperscript{\cite{pyasparticle}}, Glover et al., demonstrates the use of other libraries for manipulating audio using Python, which may be useful when attempting to find the best solution to programming the Interface. 
+The Interface will initially be implemented as a computer application for the user to graphically control the functionality of a connected PAWS Board or, in the case of this implementation, the microcontroller. It is required to provide a graphical user interface (GUI) to allow the user to control the signal processing chain. The easiest way to implement this program would be using the \emph{Python} programming language. Python is an incredibly high-level language that is simple to write and can be used with a variety of signal processing and user-interface libraries. Libraries such as \emph{Pydub}\textsuperscript{\cite{pydub}} and \emph{PyAudio}\textsuperscript{\cite{pyaudio}} were found to integrate the ability to manipulate audio with the Python programming language but did not specifically meet the requirements of the Interface software, since they were designed more for handling files than real-time signals. The \emph{PyO}\textsuperscript{\cite{pyolibrary}} library is specifically designed for digital signal processing (DSP) in Python and will allow the Interface to be able to process audio signals in order to complete the user's tasks. The article \emph{Python For Audio Signal Processing}\textsuperscript{\cite{pyasparticle}}, Glover et al., demonstrates the use of other libraries for manipulating audio using Python, which may be useful when attempting to find the best solution to programming the Interface. 
 
-\subsection{Sample Triggering Simulation}
+\subsubsection{Sample File Triggering Simulation}
 
 Figure~\ref{fig:samptrigmatlab} shows the various processing stages of a simulation of triggering a pre-recorded drum sample from recorded audio. 
 The raw recording was of a rhythm being tapped into the microphone of my smartphone. The recording then underwent very basic filtering and transient detection processes to produce spikes that were used to finally trigger the chosen drum sample. As we can see, the \textit{microphone taps} were recognised correctly as triggers by the system and therefore produced a drum beat of the same rhythm, although slightly latent than the original recording. In this instance, the raw recording was very clean, which may not be the case with the PAWS Board, and was processed offline whereas the PAWS Board's audio stream will be processed in real-time and thus will be prone to more computational complications. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width = 0.6\textheight, height = 0.4\textheight]{Images/slaptodrum}
+\includegraphics[width = 0.6\textheight, height = 0.4\textheight]{Images/slaptodrum.pdf}
 \caption{Simulation of Sample Triggering}
 \label{fig:samptrigmatlab}
 \end{figure}
+
+\newpage
+\section{Implementation Plan} \label{Implementation Plan}
+
+After testing the various technologies I would require for each part of the System Design, I produced a plan to guide and direct the Implementation process. 
+Table~\ref{tab:listofprototypes} details the successive development of prototypes and their key features, with each subsequent prototype building upon the previous in terms of functionality or user experience. Each version of Prototype 0.1.xx was given a week to be tested and implemented, and the rest were given a fortnight, although this would of course change depending on further analyses of what their implementations would require in terms of research and resources. 
+
+Prototype 0.1.xx has been designed to be a fully functioning program with digital gain control, wireless transmission and a separate power source for the PAWS Board. All following prototypes focus on the implementation of specific features such as a Quantisation function to quantise any incoming 'taps' to a discrete time grid, or a Harmonisation function to trigger background harmonies depending on the primary audio generated by the user. 
+
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|l l}
+Prototype  &   Features \\ \hline \hline
+0.1.01 &    Basic output of microphone and simple Sample Triggering function \\
+0.1.02 &    Cleaner microphone signal, single GUI\tablefootnote{GUI: Graphical User Interface} for Interface with both Voice and Sample functions     \\
+0.1.03 &  PGA\tablefootnote{PGA: Programmable Gain Amplifier} in circuit for digital gain control   \\
+0.1.04 &  Bluetooth transmission  \\
+0.1.05 &  A fully featured GUI for user control   \\ \hline
+0.2.xx &  All hardware on PCBs\tablefootnote{PCB: Printed Circuit Board} and 3D printed wearable housings    \\
+0.3.xx &  Integration of SP\tablefootnote{SP: Signal Processing} functions such as Gain, EQ\tablefootnote{EQ: Equalisation}, Pitch Detection \& Correction     \\
+0.4.xx &  Quantisation Function\tablefootnote{Quantisation Function: User can tap a tempo to quantise all produced sample sounds}    \\
+0.5.xx &  Harmonisation Function\tablefootnote{Harmonisation Function: User can trigger virtual instrument samples to harmonise with their singing}    \\
+0.6.xx &  Integrate Accelerometer onto PAWS Board and develop Motion feature on Interface    \\
+\end{tabular}
+\end{center}
+\caption{Implementation Plan as a List of Prototypes and their Features}
+\label{tab:listofprototypes}
+\end{table}
+
+\begin{wraptable}[16]{r}{0.3\textheight}
+\begin{center}
+\begin{tabular}{|l r}
+Prototype   &   Projected Completion \\
+& Date (2015)\\ \hline
+0.1.01  &   20 Jan \\ \hline
+\hline \emph{Interim Report} & 2 Feb \\ \hline \hline
+0.1.02  & 11 Feb\\ 
+0.1.03  & 17 Feb\\ 
+0.1.04  & 20 Feb\\ 
+0.1.05  & 28 Feb\\ \hline
+0.2.xx  & 18 Mar\\
+0.3.xx  & 1 Apr\\
+0.4.xx  & 17 Apr\\
+0.5.xx  & 1 May\\
+0.6.xx  & 15 May\\ \hline
+\hline \emph{Abstract} & 8 Jun \\ \hline
+\hline \emph{Final Report} & 17 Jun \\ \hline
+\hline \emph{Presentation} & 24 Jun \\ \hline
+\end{tabular}
+\end{center}
+\caption{Implementation Plan as a Timetable of Deliverables}
+\label{tab:implementationplan}
+\end{wraptable}
+
+Table~\ref{tab:implementationplan} shows the estimated completion dates for each Prototype, alongside the submission dates for all reports and the final presentation. 
+
+Prototype 0.1.01 was completed before the Interim Report and Prototype 0.1.05 was determined to be functioning by the end of February 2015. This prototype was designed to meet all of the basic specifications of the concept PAWS instrument. The months of March to May were dedicated to improvements and enhancements upon either the functionality, what the user can do with the instrument, or usability, how the user can interact with the instrument. This production plan where each iteration of prototype built upon the previous, ensured that, no matter the progress, there would always be a version of the musical instrument that was functional across all of its basic requirements.
 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementation} \label{Implementation}
 
-This section entails the implementation of the PAWS Board and counterpart Interface as a series of prototypes, with each version building upon the previous in terms of system design or aesthetics.
+This section describes the full implementation of the PAWS Board, starting with an Arduino Uno and a microphone circuit on breadboard, and ending with three microphone circuits on Printed Circuit Boards worn on a user's fingers with 3D printed Rings, all connected to a software Interface application that undergoes a vast evolution in terms of functionality and interactivity. This section summarises the steps taken to get from the starting stage to the final prototype and provides details on the key features of each developed prototype and how they build upon their predecessors. 
 
 \subsection{Prototype 0.1.01} \label{0101}
 
@@ -329,7 +387,7 @@ Prototype 0.1.01 is the very first realisation of the PAWS musical instrument. F
 
 This prototype is able to play the audio captured by the microphone, although it is fairly distorted. The prototype is also able to trigger drum sounds when the microphone is slapped. However, the interface is not yet programmed to filter the raw input and detect the transients in a clean manner and therefore the drum sounds have a slight latency and sometimes misfire.
 
-\begin{wrapfigure}{r}{0.25\textheight}
+\begin{wrapfigure}[10]{r}{0.25\textheight}
 \centering
 \includegraphics[scale=1]{Images/mic0101}
 \caption{Prototype 0.1.01 - PAWS Board Circuit}
@@ -466,13 +524,11 @@ The main application continuously runs a 'paint' function to re-generate the bac
 \begin{wrapfigure}{r}{0.4\textheight}
 \centering
 \includegraphics[scale = 0.2]{Images/paws_3boards}
-\caption{Multiple Boards Added in PAWS Application}
+\caption{Multiple Boards Added in PAWS Interface}
 \label{fig:paws_3boards}
 \end{wrapfigure}
 
 As an extra addition, volume controls were added to both the \textit{Board} class and \textit{Overlay} class, the former to set the gains of each individual board, and the latter as an overall amplitude control. These were also coloured in red and blue and were visualised as rotary faders to mimic what one would find on an audio mixing desk or professional studio equipment. Figure~\ref{fig:paws_3boards} shows the produced GUI with controls for three boards and the waveform in the background shows the signal being received by one of the \textit{Board} objects connected to the Arduino with the 'Voice' function active. 
-
-
 
 
 \subsection{Prototype 0.2.02} \label{0202}
@@ -689,10 +745,9 @@ Filtering in software is a good idea to do, especially since I am upsampling the
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Evaluation} \label{Evaluation}
+\section{Testing} \label{Evaluation}
 
-This section aims to analyse and critique Prototype 0.2.04 both quantitavely by looking at the hardware and software, and qualitatively in how it stands up to the requirements of the Product Concept and user testing. The progress of the entire project is then evaluated against the initial Implementation Plan detailed in the Interim Report, February 2015. 
-
+This section aims to analyse and critique Prototype 0.2.04 both quantitavely by looking at the hardware and software, and qualitatively in how it stands up to the requirements of the Product Concept and user testing. 
 
 \begin{wrapfigure}[35]{r}{0.37\textheight}
 \centering
@@ -795,6 +850,7 @@ Figure~\ref{fig:sig_samp}
 \label{fig:sig_samp}
 \end{figure}
 
+\newpage
 \subsection{Prototype 0.2.04 - Evaluation} \label{Prototype Evaluation 2}
 
 This section qualitatively evaluates the prototype through comparison with the Product Requirements and User Testing.
@@ -898,8 +954,8 @@ They currently do not have the ability to add their own files. \\
 The programmability of the Interface is incredibly simple. The user only has to select which function \\
 they require, 'Voice' or 'Sample' and the program will automatically do what is required of it. If the \\
 'Sample' function is selected, the Interface will display a drop down list for the user to choose which \\
-sample sound file gets triggered. Volume pots are available to change the amplitudes of the signals \\
-from each of the Boards individually as well as a global amplitude control.\\
+sample sound file gets triggered. This selection has been implemented deliberately as a drop down \\list to allow for the user to add as many sample sound files as they wish. Volume pots are available to \\
+change the amplitudes of the signals from each of the Boards individually as well as a global \\amplitude control.\\
 
 \end{tabular}
 \caption{Criteria Met by Prototype 0.2.04}
@@ -917,36 +973,12 @@ how fun
 
 
 \newpage
-\subsection{Progress Evaluation} \label{Progress Evaluation}
- 
-Table~\ref{tab:listofprototypes} shows a list I developed for the Interim of my project detailing a plan of the successive development of prototypes. Table~\ref{tab:listofprogress} shows the actual progress I made over the duration of the project as a list of prototypes and their key features. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Evaluation} \label{Progress Evaluation}
 
-I initially planned for Prototype 0.1.xx to be a fully functioning program with digital gain control, wireless transmission and a separate power source for the PAWS Board. The following prototypes were then going to be focused on the implementation of specific features such as a Quantisation function to quantise any incoming 'taps' to a discrete time grid, or a Harmonisation function to trigger background harmonies depending on the primary audio generated by the user. 
+This section aims to evaluate the progress of the entire project against the initial Implementation Plans. Table~\ref{tab:listofprototypes} from Section~\ref{Implementation Plan} Implementation Plan shows a list detailing a plan of the successive development of prototypes. Table~\ref{tab:listofprogress} shows the actual progress I made over the duration of the project as a list of prototypes and their key features. 
 
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{|l l}
-Prototype  &   Features \\ \hline \hline
-0.1.01 &    Basic output of microphone and simple Sample Triggering function \\
-0.1.02 &    Cleaner microphone signal, single GUI\tablefootnote{GUI: Graphical User Interface} for Interface with both Voice and Sample functions     \\
-0.1.03 &  PGA\tablefootnote{PGA: Programmable Gain Amplifier} in circuit for digital gain control   \\
-0.1.04 &  Bluetooth transmission  \\
-0.1.05 &  A fully featured GUI for user control   \\ \hline
-0.2.xx &  All hardware on PCBs\tablefootnote{PCB: Printed Circuit Board} and 3D printed wearable housings    \\
-0.3.xx &  Integration of SP\tablefootnote{SP: Signal Processing} functions such as Gain, EQ\tablefootnote{EQ: Equalisation}, Pitch Detection \& Correction     \\
-0.4.xx &  Quantisation Function\tablefootnote{Quantisation Function: User can tap a tempo to quantise all produced sample sounds}    \\
-0.5.xx &  Harmonisation Function\tablefootnote{Harmonisation Function: User can trigger virtual instrument samples to harmonise with their singing}    \\
-0.6.xx &  Integrate Accelerometer onto PAWS Board and develop Motion feature on Interface    \\
-\end{tabular}
-\end{center}
-\caption{Interim Implementation Plan as a List of Prototypes and their Features}
-\label{tab:listofprototypes}
-\end{table}
-
-
-The actual progress varied quite significantly, mainly due to the initial Python program not being able to handle audio processing code quickly enough. As discussed in Section~\ref{0201}, Prototype 0.2.xx involved a changeover to the JUCE library in C++, for which I had to completely restructure my program and re-implement everything I had done in Python. I also spent more time on making the GUI more engaging with an end-user oriented design and modern visuals. I was able to implement the Programmable Gain Amplifier, as planned, but it was mostly used for its cleaner signal over the Operational Amplifier circuit rather than its gain control capabilities. Printed Circuit Boards and 3D Printed wearable Rings were also produced later on, as wished for in the plan. 
-
-
+The actual progress varied quite significantly from the projected plan, mainly due to the initial Python program not being able to handle audio processing code quickly enough. As discussed in Section~\ref{0201}, Prototype 0.2.xx involved a changeover to the JUCE library in C++, for which I had to completely restructure my program and re-implement everything I had done in Python. I also spent more time on making the GUI more engaging with an end-user oriented design and modern visuals. I was able to implement the Programmable Gain Amplifier, as planned, but it was mostly used for its cleaner signal over the Operational Amplifier circuit rather than its gain control capabilities. Printed Circuit Boards and 3D Printed wearable Rings were also produced later on, as wished for in the plan. 
 
 \begin{table}[H]
 \begin{center}
@@ -965,7 +997,31 @@ Prototype  &   Features \\ \hline \hline
 \label{tab:listofprogress}
 \end{table}
 
-Much of my project was dedicated to optimising audio processing code, in the sampling stage at the Arduino, the transmission between it and the computer, and all of the processing and data transfer within the Interface itself. The algorithms to upsample the input signals and to trigger sample sound files took the most time to code and improve, in order to ensure robustness and accuracy. The User Interface was focused upon with great detail too to ensure easy usability and an appealing look.
+Much of my project was dedicated to optimising audio processing code: in the sampling stage at the Arduino, the transmission between it and the computer, and all of the processing and data handling within the Interface itself. The algorithms to upsample the input signals and to trigger sample sound files took the most time to code and improve, in order to ensure robustness and accuracy. The User Interface was focused upon with great detail too to ensure easy usability and an appealing look.
+
+\begin{wraptable}{r}{0.3\textheight}
+\begin{center}
+\begin{tabular}{| l r r}
+Prototype   &  Start Date &  Completion \\
+& (2015) & Date (2015)\\ \hline
+0.1.01  & - & 20 Jan \\ \hline
+\hline \emph{Interim Report} & -&2 Feb \\ \hline \hline
+0.1.02  & 2 Feb &20 Feb\\ 
+0.1.03  &  20 Feb		&14 Mar\\  \hline
+0.2.01  & 	14 Mar	&19 Mar\\
+0.2.02  & 	22 Mar	&14 May\\
+0.2.03  & 	20 Mar	&8 Jun\\ \hline
+\hline \emph{Abstract} & 1 Jun &8 Jun \\ \hline \hline
+0.2.04  & 	25 May	&12 Jun\\ \hline
+\hline \emph{Final Report} & 5 May & 17 Jun \\ \hline
+\hline \emph{Presentation} & - &24 Jun \\ \hline
+\end{tabular}
+\end{center}
+\caption{Actual Implementation Progress as a Timetable of Deliverables}
+\label{tab:progressplan}
+\end{wraptable}
+
+Table~\ref{tab:progressplan} shows how long it took to implement each of the prototypes, in order of their completion dates. These dates have been pulled from my project logbook and we can see that work for the earlier prototypes was linear whereas later work was done almost simultaneously. For example, I began designing the PCBs for Prototype 0.2.03 near the end of March, even before work on 0.2.02 properly began, but I did not finish printing the final batch of 3D printed Rings until 8th June. There was a large gap in implementation between the end of March and the end of May due to exams but I continued to make small amounts of progress in different areas, sometimes working on 3D sketches for the Finger Rings, ensuring that my PCBs were printed and soldered, and I even began typing up the report early on. 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1144,6 +1200,8 @@ To shut down the program, the normal forms of quitting can be used (red button o
 \subsection{Disconnecting the Hardware}
 
 When the instrument has been finished with, the PAWS software must be closed first. Then the hardware is dismantled in the reverse order to setting it up: the usb cable is unplugged from the computer first, then from the Arduino. The Arduino Shield may be kept connected to the Arduino Uno but the Finger Boards must be disconnected from the Uno and all cable rolled away neatly for storage. The Finger Boards may be removed from the Ring housings if necessary. 
+
+The order of disassembly is important as the Interface will crash if the Arduino is unplugged during run-time, and the Arduino must be disconnected from the computer before removing the Finger Boards to ensure that there is no power surging through the cables during this process. 
 
 
 \newpage

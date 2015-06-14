@@ -7,50 +7,50 @@
 \contentsline {figure}{\numberline {7}{\ignorespaces Concept Sketch of Usage\relax }}{9}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {PAWS Board: Motion Function}}}{9}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {PAWS Board: Sample Function}}}{9}
-\contentsline {figure}{\numberline {8}{\ignorespaces Concept System Design - High Level\relax }}{10}
-\contentsline {figure}{\numberline {9}{\ignorespaces Concept System Design - Low Level\relax }}{10}
-\contentsline {figure}{\numberline {10}{\ignorespaces Implementable System Design\relax }}{11}
+\contentsline {figure}{\numberline {8}{\ignorespaces System Design for Concept Product - High Level\relax }}{10}
+\contentsline {figure}{\numberline {9}{\ignorespaces System Design for Concept Product - Low Level\relax }}{10}
+\contentsline {figure}{\numberline {10}{\ignorespaces System Design for Implementation of Product\relax }}{11}
 \contentsline {figure}{\numberline {11}{\ignorespaces Arduino Development Kit used for Prototyping\relax }}{13}
 \contentsline {figure}{\numberline {12}{\ignorespaces Simulation of Sample Triggering\relax }}{14}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Arduino Uno Development Board\nobreakspace {}\textsuperscript {\cite {arduinopic}}}}}{14}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {HC-06 Bluetooth Module for Arduino\nobreakspace {}\textsuperscript {\cite {hc06ebay}}}}}{14}
-\contentsline {figure}{\numberline {13}{\ignorespaces Photograph of Prototype 0.1.01 setup\relax }}{15}
-\contentsline {figure}{\numberline {14}{\ignorespaces Prototype 0.1.01 - PAWS Board Circuit\relax }}{15}
-\contentsline {figure}{\numberline {15}{\ignorespaces Prototype 0.1.02 - wxPython GUI\relax }}{16}
-\contentsline {figure}{\numberline {16}{\ignorespaces Prototype 0.1.03 - Improved Op Amp Circuit\relax }}{17}
-\contentsline {figure}{\numberline {17}{\ignorespaces Programmable Gain Amplifier Circuit implemented on Breadboard\relax }}{18}
-\contentsline {figure}{\numberline {18}{\ignorespaces System Diagram of Audio Transfer between storage buffers for each connected Board and the audio device, Prototype 0.2.01\relax }}{19}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {AD605 Circuit}}}{19}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {AD605 Circuit with Microphone on Veroboard}}}{19}
-\contentsline {figure}{\numberline {19}{\ignorespaces Initial Sketches of new Juce GUI\relax }}{20}
-\contentsline {figure}{\numberline {20}{\ignorespaces Multiple Boards Added in PAWS Application\relax }}{21}
-\contentsline {figure}{\numberline {21}{\ignorespaces Triggering a Sample in PAWS Interface\relax }}{21}
-\contentsline {figure}{\numberline {22}{\ignorespaces Capturing the Microphone Signal in PAWS GUI\relax }}{22}
-\contentsline {figure}{\numberline {23}{\ignorespaces Printed Circuit Boards for Prototype 0.2.03\relax }}{23}
-\contentsline {figure}{\numberline {24}{\ignorespaces Fingerboard Ring 3D Model - Version 1\relax }}{24}
-\contentsline {figure}{\numberline {25}{\ignorespaces Fingerboard Ring 3D Model - Version 2\relax }}{24}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Finger Board PCB}}}{24}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Arduino Shield PCB}}}{24}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Top View}}}{24}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Side View}}}{24}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Top View}}}{24}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Side View}}}{24}
-\contentsline {figure}{\numberline {26}{\ignorespaces Dimensioned Sketches of Rings Version 3 - Finger (Left) and Thumb (Right)\relax }}{25}
-\contentsline {figure}{\numberline {27}{\ignorespaces 1 Thumb Ring and 2 Finger Rings worn by a user\relax }}{25}
-\contentsline {figure}{\numberline {28}{\ignorespaces Prototype 0.2.04 - Assignment of received Sample Data to the relevant queue buffers by the Interface's \textit {queueInput( )} function\relax }}{26}
-\contentsline {figure}{\numberline {29}{\ignorespaces Prototype 0.2.04 - Interface\relax }}{26}
-\contentsline {figure}{\numberline {30}{\ignorespaces Prototype 0.2.04 - Instability caused by Filtering in Interface\relax }}{27}
-\contentsline {figure}{\numberline {31}{\ignorespaces Arduino 5V Power Rail, measured on the Arduino Shield\relax }}{28}
-\contentsline {figure}{\numberline {32}{\ignorespaces Microphone Signal (idle state) with PWM Frequency at 490Hz, measured at the Arduino input pin\relax }}{29}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {No Finger Boards attached}}}{29}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {1 Finger Board attached}}}{29}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {3 Finger Boards attached}}}{29}
-\contentsline {figure}{\numberline {32}{\ignorespaces Microphone Signal with PWM Frequency at 30Hz, measured at the Arduino input pin\relax }}{30}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Idle State (no deliberate input)}}}{30}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tapping the Finger Ring against a table}}}{30}
-\contentsline {figure}{\numberline {33}{\ignorespaces Microphone Signal with PWM Frequency at 30Hz, received by the Interface program\relax }}{31}
-\contentsline {figure}{\numberline {34}{\ignorespaces Prototype 0.3.xx - System Design\relax }}{35}
-\contentsline {figure}{\numberline {35}{\ignorespaces Opening Screen of PAWS Application\relax }}{38}
-\contentsline {figure}{\numberline {36}{\ignorespaces PAWS Program displaying controls for 3 Finger Boards\relax }}{39}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Voice Function Program}}}{44}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sample Function Program}}}{44}
+\contentsline {figure}{\numberline {13}{\ignorespaces Photograph of Prototype 0.1.01 setup\relax }}{16}
+\contentsline {figure}{\numberline {14}{\ignorespaces Prototype 0.1.01 - PAWS Board Circuit\relax }}{16}
+\contentsline {figure}{\numberline {15}{\ignorespaces Prototype 0.1.02 - wxPython GUI\relax }}{17}
+\contentsline {figure}{\numberline {16}{\ignorespaces Prototype 0.1.03 - Improved Op Amp Circuit\relax }}{18}
+\contentsline {figure}{\numberline {17}{\ignorespaces Programmable Gain Amplifier Circuit implemented on Breadboard\relax }}{19}
+\contentsline {figure}{\numberline {18}{\ignorespaces System Diagram of Audio Transfer between storage buffers for each connected Board and the audio device, Prototype 0.2.01\relax }}{20}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {AD605 Circuit}}}{20}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {AD605 Circuit with Microphone on Veroboard}}}{20}
+\contentsline {figure}{\numberline {19}{\ignorespaces Initial Sketches of new Juce GUI\relax }}{21}
+\contentsline {figure}{\numberline {20}{\ignorespaces Multiple Boards Added in PAWS Interface\relax }}{22}
+\contentsline {figure}{\numberline {21}{\ignorespaces Triggering a Sample in PAWS Interface\relax }}{22}
+\contentsline {figure}{\numberline {22}{\ignorespaces Capturing the Microphone Signal in PAWS GUI\relax }}{23}
+\contentsline {figure}{\numberline {23}{\ignorespaces Printed Circuit Boards for Prototype 0.2.03\relax }}{24}
+\contentsline {figure}{\numberline {24}{\ignorespaces Fingerboard Ring 3D Model - Version 1\relax }}{25}
+\contentsline {figure}{\numberline {25}{\ignorespaces Fingerboard Ring 3D Model - Version 2\relax }}{25}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Finger Board PCB}}}{25}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Arduino Shield PCB}}}{25}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Top View}}}{25}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Side View}}}{25}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Top View}}}{25}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Side View}}}{25}
+\contentsline {figure}{\numberline {26}{\ignorespaces Dimensioned Sketches of Rings Version 3 - Finger (Left) and Thumb (Right)\relax }}{26}
+\contentsline {figure}{\numberline {27}{\ignorespaces 1 Thumb Ring and 2 Finger Rings worn by a user\relax }}{26}
+\contentsline {figure}{\numberline {28}{\ignorespaces Prototype 0.2.04 - Assignment of received Sample Data to the relevant queue buffers by the Interface's \textit {queueInput( )} function\relax }}{27}
+\contentsline {figure}{\numberline {29}{\ignorespaces Prototype 0.2.04 - Interface\relax }}{27}
+\contentsline {figure}{\numberline {30}{\ignorespaces Prototype 0.2.04 - Instability caused by Filtering in Interface\relax }}{28}
+\contentsline {figure}{\numberline {31}{\ignorespaces Arduino 5V Power Rail, measured on the Arduino Shield\relax }}{29}
+\contentsline {figure}{\numberline {32}{\ignorespaces Microphone Signal (idle state) with PWM Frequency at 490Hz, measured at the Arduino input pin\relax }}{30}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {No Finger Boards attached}}}{30}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {1 Finger Board attached}}}{30}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {3 Finger Boards attached}}}{30}
+\contentsline {figure}{\numberline {32}{\ignorespaces Microphone Signal with PWM Frequency at 30Hz, measured at the Arduino input pin\relax }}{31}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Idle State (no deliberate input)}}}{31}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tapping the Finger Ring against a table}}}{31}
+\contentsline {figure}{\numberline {33}{\ignorespaces Microphone Signal with PWM Frequency at 30Hz, received by the Interface program\relax }}{32}
+\contentsline {figure}{\numberline {34}{\ignorespaces Prototype 0.3.xx - System Design\relax }}{36}
+\contentsline {figure}{\numberline {35}{\ignorespaces Opening Screen of PAWS Application\relax }}{39}
+\contentsline {figure}{\numberline {36}{\ignorespaces PAWS Program displaying controls for 3 Finger Boards\relax }}{40}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Voice Function Program}}}{45}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sample Function Program}}}{45}
