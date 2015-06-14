@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.10)  14 JUN 2015 01:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.10)  14 JUN 2015 03:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -700,156 +700,155 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 35.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-(./frontpage.tex
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 22.
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 39.
- [1
+(./frontpage.tex [1
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./mai
-n.toc
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./sec
+ondpage.tex
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 7.
+(Font)              scaled to size 9.19998pt on input line 4.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 7.
+(Font)              scaled to size 6.99199pt on input line 4.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 7.
+(Font)              scaled to size 5.51999pt on input line 4.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 7.
+(Font)              scaled to size 9.19998pt on input line 4.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 7.
+(Font)              scaled to size 6.99199pt on input line 4.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 7.
- [2])
+(Font)              scaled to size 5.51999pt on input line 4.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 22.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 31.
+ [2]) (./main.toc [3])
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [3] (./main.lof)
+ [4] (./main.lof)
 \tf@lof=\write4
 \openout4 = `main.lof'.
 
- (./main.lot)
+
+(./main.lot)
 \tf@lot=\write5
 \openout5 = `main.lot'.
 
- [4] [5]
-<Images/MiMuGloves.jpg, id=21, 301.125pt x 301.125pt>
+ [5] [6] <Images/MiMuGloves.jpg, id=24, 301.125pt x 301.125pt>
 File: Images/MiMuGloves.jpg Graphic file (type jpg)
 
 <use Images/MiMuGloves.jpg>
-Package pdftex.def Info: Images/MiMuGloves.jpg used on input line 83.
+Package pdftex.def Info: Images/MiMuGloves.jpg used on input line 84.
 (pdftex.def)             Requested size: 150.56212pt x 150.56212pt.
 
-<Images/drumpantsbasic.jpg, id=22, 722.7pt x 281.05pt>
+<Images/drumpantsbasic.jpg, id=25, 722.7pt x 281.05pt>
 File: Images/drumpantsbasic.jpg Graphic file (type jpg)
 
 <use Images/drumpantsbasic.jpg>
-Package pdftex.def Info: Images/drumpantsbasic.jpg used on input line 93.
+Package pdftex.def Info: Images/drumpantsbasic.jpg used on input line 94.
 (pdftex.def)             Requested size: 252.94878pt x 98.36896pt.
 
-Overfull \hbox (3.20528pt too wide) in paragraph at lines 98--99
+Overfull \hbox (3.20528pt too wide) in paragraph at lines 99--100
 [][]\T1/futs/m/n/10 DrumPants is an-other prod-uct that utilises
  []
 
 
-Underfull \hbox (badness 2142) in paragraph at lines 98--99
+Underfull \hbox (badness 2142) in paragraph at lines 99--100
 \T1/futs/m/n/10 troller, which can be pro-grammed by
  []
 
-<Images/gesturering.jpg, id=23, 579.16376pt x 308.15125pt>
+<Images/gesturering.jpg, id=26, 579.16376pt x 308.15125pt>
 File: Images/gesturering.jpg Graphic file (type jpg)
 
 <use Images/gesturering.jpg>
-Package pdftex.def Info: Images/gesturering.jpg used on input line 102.
+Package pdftex.def Info: Images/gesturering.jpg used on input line 103.
 (pdftex.def)             Requested size: 173.75046pt x 92.44608pt.
- [6 <./Images/MiMuGloves.jpg> <./Images/drumpantsbasic.jpg> <./Images/gestureri
+ [7 <./Images/MiMuGloves.jpg> <./Images/drumpantsbasic.jpg> <./Images/gestureri
 ng.jpg>]
-<Images/UserLevelDia.pdf, id=27, 277.035pt x 159.59625pt>
+<Images/UserLevelDia.pdf, id=31, 277.035pt x 159.59625pt>
 File: Images/UserLevelDia.pdf Graphic file (type pdf)
 
 <use Images/UserLevelDia.pdf>
-Package pdftex.def Info: Images/UserLevelDia.pdf used on input line 118.
+Package pdftex.def Info: Images/UserLevelDia.pdf used on input line 119.
 (pdftex.def)             Requested size: 221.6283pt x 127.67715pt.
 
-<Images/conceptphoneinterface3.pdf, id=28, 225.84375pt x 402.50375pt>
+<Images/conceptphoneinterface3.pdf, id=32, 225.84375pt x 402.50375pt>
 File: Images/conceptphoneinterface3.pdf Graphic file (type pdf)
 
 <use Images/conceptphoneinterface3.pdf>
 Package pdftex.def Info: Images/conceptphoneinterface3.pdf used on input line 1
-28.
+29.
 (pdftex.def)             Requested size: 158.08954pt x 281.7507pt.
- [7 <./Images/UserLevelDia.pdf> <./Images/conceptphoneinterface3.pdf>]
-<Images/conceptsketchesleft.pdf, id=74, 293.00249pt x 239.96892pt>
+ [8 <./Images/UserLevelDia.pdf> <./Images/conceptphoneinterface3.pdf>]
+<Images/conceptsketchesleft.pdf, id=77, 293.00249pt x 239.96892pt>
 File: Images/conceptsketchesleft.pdf Graphic file (type pdf)
 
 <use Images/conceptsketchesleft.pdf>
-Package pdftex.def Info: Images/conceptsketchesleft.pdf used on input line 147.
+Package pdftex.def Info: Images/conceptsketchesleft.pdf used on input line 148.
 
 (pdftex.def)             Requested size: 205.10034pt x 167.97708pt.
 
-<Images/conceptsketchesright.pdf, id=75, 277.5426pt x 226.18301pt>
+<Images/conceptsketchesright.pdf, id=78, 277.5426pt x 226.18301pt>
 File: Images/conceptsketchesright.pdf Graphic file (type pdf)
 
 <use Images/conceptsketchesright.pdf>
-Package pdftex.def Info: Images/conceptsketchesright.pdf used on input line 151
+Package pdftex.def Info: Images/conceptsketchesright.pdf used on input line 152
 .
 (pdftex.def)             Requested size: 194.27849pt x 158.32701pt.
- [8 <./Images/conceptsketchesleft.pdf> <./Images/conceptsketchesright.pdf>]
+ [9 <./Images/conceptsketchesleft.pdf> <./Images/conceptsketchesright.pdf>]
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 162.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 163.
 
-<Images/SystemLevelHi.pdf, id=89, 344.33533pt x 252.55043pt>
+<Images/SystemLevelHi.pdf, id=92, 344.33533pt x 252.55043pt>
 File: Images/SystemLevelHi.pdf Graphic file (type pdf)
 
 <use Images/SystemLevelHi.pdf>
-Package pdftex.def Info: Images/SystemLevelHi.pdf used on input line 168.
+Package pdftex.def Info: Images/SystemLevelHi.pdf used on input line 169.
 (pdftex.def)             Requested size: 206.60278pt x 151.53142pt.
 
-<Images/SystemLevelLo.pdf, id=90, 663.76712pt x 362.99113pt>
+<Images/SystemLevelLo.pdf, id=93, 663.76712pt x 362.99113pt>
 File: Images/SystemLevelLo.pdf Graphic file (type pdf)
 
 <use Images/SystemLevelLo.pdf>
-Package pdftex.def Info: Images/SystemLevelLo.pdf used on input line 182.
+Package pdftex.def Info: Images/SystemLevelLo.pdf used on input line 183.
 (pdftex.def)             Requested size: 431.44351pt x 235.94144pt.
- [9 <./Images/SystemLevelHi.pdf> <./Images/SystemLevelLo.pdf>] <Images/SystemLe
-velImp.pdf, id=112, 659.65605pt x 330.53186pt>
+ [10 <./Images/SystemLevelHi.pdf> <./Images/SystemLevelLo.pdf>] <Images/SystemL
+evelImp.pdf, id=115, 659.65605pt x 330.53186pt>
 File: Images/SystemLevelImp.pdf Graphic file (type pdf)
 
 <use Images/SystemLevelImp.pdf>
-Package pdftex.def Info: Images/SystemLevelImp.pdf used on input line 194.
+Package pdftex.def Info: Images/SystemLevelImp.pdf used on input line 195.
 (pdftex.def)             Requested size: 428.77136pt x 214.84315pt.
- [10 <./Images/SystemLevelImp.pdf>] [11]
-<Images/ArduinoUno.jpg, id=128, 1606.0pt x 1055.945pt>
+ [11 <./Images/SystemLevelImp.pdf>] [12]
+<Images/ArduinoUno.jpg, id=131, 1606.0pt x 1055.945pt>
 File: Images/ArduinoUno.jpg Graphic file (type jpg)
 
 <use Images/ArduinoUno.jpg>
-Package pdftex.def Info: Images/ArduinoUno.jpg used on input line 273.
+Package pdftex.def Info: Images/ArduinoUno.jpg used on input line 274.
 (pdftex.def)             Requested size: 144.53377pt x 95.03094pt.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 273.
+(Font)              scaled to size 7.35999pt on input line 274.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 273.
+(Font)              scaled to size 6.25598pt on input line 274.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 273.
+(Font)              scaled to size 7.35999pt on input line 274.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 273.
+(Font)              scaled to size 6.25598pt on input line 274.
 
-Overfull \hbox (12.78201pt too wide) in paragraph at lines 273--273
+Overfull \hbox (12.78201pt too wide) in paragraph at lines 274--274
  [][] 
  []
 
-<Images/hc06pic.jpg, id=129, 1606.0pt x 1606.0pt>
+<Images/hc06pic.jpg, id=132, 1606.0pt x 1606.0pt>
 File: Images/hc06pic.jpg Graphic file (type jpg)
  <use Images/hc06pic.jpg>
-Package pdftex.def Info: Images/hc06pic.jpg used on input line 277.
+Package pdftex.def Info: Images/hc06pic.jpg used on input line 278.
 (pdftex.def)             Requested size: 112.43149pt x 112.43149pt.
 
 
 Package wrapfig Warning: Stationary wrapfigure forced to float on input line 28
-2.
+3.
 
-[12 <./Images/ArduinoUno.jpg> <./Images/hc06pic.jpg>]
+[13 <./Images/ArduinoUno.jpg> <./Images/hc06pic.jpg>]
 Package epstopdf Info: Source file: <Images/slaptodrum.eps>
 (epstopdf)                    date: 2015-06-10 14:04:08
 (epstopdf)                    size: 529314 bytes
@@ -858,204 +857,204 @@ Package epstopdf Info: Source file: <Images/slaptodrum.eps>
 (epstopdf)                    size: 106494 bytes
 (epstopdf)             Command: <repstopdf --outfile=Images/slaptodrum-eps-conv
 erted-to.pdf Images/slaptodrum.eps>
-(epstopdf)             \includegraphics on input line 305.
+(epstopdf)             \includegraphics on input line 306.
 Package epstopdf Info: Output file is already uptodate.
 
-<Images/slaptodrum-eps-converted-to.pdf, id=133, 562.1pt x 421.575pt>
+<Images/slaptodrum-eps-converted-to.pdf, id=137, 562.1pt x 421.575pt>
 File: Images/slaptodrum-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Images/slaptodrum-eps-converted-to.pdf>
 Package pdftex.def Info: Images/slaptodrum-eps-converted-to.pdf used on input l
-ine 305.
+ine 306.
 (pdftex.def)             Requested size: 420.30458pt x 280.20233pt.
- [13 <./Images/slaptodrum-eps-converted-to.pdf>] <Images/prototype101board.JPG,
- id=150, 5267.68pt x 3950.76pt>
+ [14 <./Images/slaptodrum-eps-converted-to.pdf>] <Images/prototype101board.JPG,
+ id=153, 5267.68pt x 3950.76pt>
 File: Images/prototype101board.JPG Graphic file (type jpg)
 
 <use Images/prototype101board.JPG>
-Package pdftex.def Info: Images/prototype101board.JPG used on input line 321.
+Package pdftex.def Info: Images/prototype101board.JPG used on input line 322.
 (pdftex.def)             Requested size: 237.03537pt x 177.77652pt.
 
-<Images/mic0101.pdf, id=151, 171.64125pt x 91.34125pt>
+<Images/mic0101.pdf, id=154, 171.64125pt x 91.34125pt>
 File: Images/mic0101.pdf Graphic file (type pdf)
 
 <use Images/mic0101.pdf>
-Package pdftex.def Info: Images/mic0101.pdf used on input line 333.
+Package pdftex.def Info: Images/mic0101.pdf used on input line 334.
 (pdftex.def)             Requested size: 171.64081pt x 91.34102pt.
 
 
 Package wrapfig Warning: Stationary wrapfigure forced to float on input line 33
-8.
+9.
 
-[14 <./Images/prototype101board.JPG> <./Images/mic0101.pdf>]
-<Images/pyblue_play.png, id=159, 403.5075pt x 200.75pt>
+[15 <./Images/prototype101board.JPG> <./Images/mic0101.pdf>]
+<Images/pyblue_play.png, id=163, 403.5075pt x 200.75pt>
 File: Images/pyblue_play.png Graphic file (type png)
 
 <use Images/pyblue_play.png>
-Package pdftex.def Info: Images/pyblue_play.png used on input line 365.
+Package pdftex.def Info: Images/pyblue_play.png used on input line 366.
 (pdftex.def)             Requested size: 201.75325pt x 100.37474pt.
 
 
 Package wrapfig Warning: Stationary wrapfigure forced to float on input line 37
-0.
+1.
 
-[15 <./Images/pyblue_play.png>]
-<Images/TL072circuit_2.pdf, id=166, 452.54161pt x 217.4796pt>
+[16 <./Images/pyblue_play.png>]
+<Images/TL072circuit_2.pdf, id=169, 452.54161pt x 217.4796pt>
 File: Images/TL072circuit_2.pdf Graphic file (type pdf)
 
 <use Images/TL072circuit_2.pdf>
-Package pdftex.def Info: Images/TL072circuit_2.pdf used on input line 387.
+Package pdftex.def Info: Images/TL072circuit_2.pdf used on input line 388.
 (pdftex.def)             Requested size: 181.01343pt x 86.99028pt.
- [16 <./Images/TL072circuit_2.pdf>]
-<Images/ad605_circuit.JPG, id=180, 3854.4pt x 2168.1pt>
+ [17 <./Images/TL072circuit_2.pdf>]
+<Images/ad605_circuit.JPG, id=183, 3854.4pt x 2168.1pt>
 File: Images/ad605_circuit.JPG Graphic file (type jpg)
 
 <use Images/ad605_circuit.JPG>
-Package pdftex.def Info: Images/ad605_circuit.JPG used on input line 411.
+Package pdftex.def Info: Images/ad605_circuit.JPG used on input line 412.
 (pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
 
-<Images/ad605_circuit2.JPG, id=181, 3854.4pt x 2168.1pt>
+<Images/ad605_circuit2.JPG, id=184, 3854.4pt x 2168.1pt>
 File: Images/ad605_circuit2.JPG Graphic file (type jpg)
 
 <use Images/ad605_circuit2.JPG>
-Package pdftex.def Info: Images/ad605_circuit2.JPG used on input line 415.
+Package pdftex.def Info: Images/ad605_circuit2.JPG used on input line 416.
 (pdftex.def)             Requested size: 192.7313pt x 108.41135pt.
- [17 <./Images/ad605_circuit.JPG> <./Images/ad605_circuit2.JPG>] <Images/JuceFl
-ow.pdf, id=185, 610.42813pt x 500.61661pt>
+ [18 <./Images/ad605_circuit.JPG> <./Images/ad605_circuit2.JPG>] <Images/JuceFl
+ow.pdf, id=188, 610.42813pt x 500.61661pt>
 File: Images/JuceFlow.pdf Graphic file (type pdf)
 
 <use Images/JuceFlow.pdf>
-Package pdftex.def Info: Images/JuceFlow.pdf used on input line 445.
+Package pdftex.def Info: Images/JuceFlow.pdf used on input line 446.
 (pdftex.def)             Requested size: 366.2597pt x 300.37227pt.
 
-<Images/JuceConcept.pdf, id=186, 476.11424pt x 440.5438pt>
+<Images/JuceConcept.pdf, id=189, 476.11424pt x 440.5438pt>
 File: Images/JuceConcept.pdf Graphic file (type pdf)
 
 <use Images/JuceConcept.pdf>
-Package pdftex.def Info: Images/JuceConcept.pdf used on input line 454.
+Package pdftex.def Info: Images/JuceConcept.pdf used on input line 455.
 (pdftex.def)             Requested size: 476.11308pt x 440.54271pt.
 
-Overfull \hbox (23.14519pt too wide) in paragraph at lines 454--455
+Overfull \hbox (23.14519pt too wide) in paragraph at lines 455--456
  [][] 
  []
 
-[18 <./Images/JuceFlow.pdf>]
-<Images/paws_3boards.png, id=199, 1284.8pt x 803.0pt>
+[19 <./Images/JuceFlow.pdf>]
+<Images/paws_3boards.png, id=203, 1284.8pt x 803.0pt>
 File: Images/paws_3boards.png Graphic file (type png)
 
 <use Images/paws_3boards.png>
-Package pdftex.def Info: Images/paws_3boards.png used on input line 467.
+Package pdftex.def Info: Images/paws_3boards.png used on input line 468.
 (pdftex.def)             Requested size: 256.95544pt x 160.59715pt.
- [19 <./Images/JuceConcept.pdf>]
-Underfull \hbox (badness 1394) in paragraph at lines 472--473
+ [20 <./Images/JuceConcept.pdf>]
+Underfull \hbox (badness 1394) in paragraph at lines 473--474
 \T1/futs/m/n/10 were added to both the \T1/futs/m/it/10 Board \T1/futs/m/n/10 c
 lass
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 472--473
+Underfull \hbox (badness 1194) in paragraph at lines 473--474
 \T1/futs/m/n/10 and \T1/futs/m/it/10 Over-lay \T1/futs/m/n/10 class, the for-me
 r to set
  []
 
-<Images/paws_sample.png, id=209, 1284.8pt x 803.0pt>
+<Images/paws_sample.png, id=212, 1284.8pt x 803.0pt>
 File: Images/paws_sample.png Graphic file (type png)
 
 <use Images/paws_sample.png>
-Package pdftex.def Info: Images/paws_sample.png used on input line 487.
+Package pdftex.def Info: Images/paws_sample.png used on input line 488.
 (pdftex.def)             Requested size: 256.95544pt x 160.59715pt.
 
-Underfull \hbox (badness 5189) in paragraph at lines 492--493
+Underfull \hbox (badness 5189) in paragraph at lines 493--494
 \T1/futs/m/n/10 dig-i-tal noise and the ar-duino only
  []
 
 
-Overfull \hbox (32.46031pt too wide) in paragraph at lines 497--497
+Overfull \hbox (32.46031pt too wide) in paragraph at lines 498--498
 []\T1/futs/b/n/10 Implementing Sam-ple Func-tion 
  []
 
-[20 <./Images/paws_3boards.png> <./Images/paws_sample.png>]
-<Images/paws_voice.png, id=215, 1284.8pt x 803.0pt>
+[21 <./Images/paws_3boards.png> <./Images/paws_sample.png>]
+<Images/paws_voice.png, id=218, 1284.8pt x 803.0pt>
 File: Images/paws_voice.png Graphic file (type png)
 
 <use Images/paws_voice.png>
-Package pdftex.def Info: Images/paws_voice.png used on input line 514.
+Package pdftex.def Info: Images/paws_voice.png used on input line 515.
 (pdftex.def)             Requested size: 256.95544pt x 160.59715pt.
 
-Underfull \hbox (badness 2635) in paragraph at lines 523--524
+Underfull \hbox (badness 2635) in paragraph at lines 524--525
 []\T1/futs/m/n/10 When out-putting the in-put sam-ples
  []
 
-[21 <./Images/paws_voice.png>]
-<Images/fingerboard_pcb.JPG, id=220, 2565.585pt x 1046.91125pt>
+[22 <./Images/paws_voice.png>]
+<Images/fingerboard_pcb.JPG, id=223, 2565.585pt x 1046.91125pt>
 File: Images/fingerboard_pcb.JPG Graphic file (type jpg)
 
 <use Images/fingerboard_pcb.JPG>
-Package pdftex.def Info: Images/fingerboard_pcb.JPG used on input line 543.
+Package pdftex.def Info: Images/fingerboard_pcb.JPG used on input line 544.
 (pdftex.def)             Requested size: 179.6093pt x 73.29128pt.
 
-<Images/ardshield_pcb.JPG, id=221, 3594.42876pt x 3594.42876pt>
+<Images/ardshield_pcb.JPG, id=224, 3594.42876pt x 3594.42876pt>
 File: Images/ardshield_pcb.JPG Graphic file (type jpg)
 
 <use Images/ardshield_pcb.JPG>
-Package pdftex.def Info: Images/ardshield_pcb.JPG used on input line 546.
+Package pdftex.def Info: Images/ardshield_pcb.JPG used on input line 547.
 (pdftex.def)             Requested size: 179.73196pt x 179.73196pt.
- [22 <./Images/fingerboard_pcb.JPG> <./Images/ardshield_pcb.JPG>] <Images/fngrb
-rdmod1_top.png, id=225, 383.4325pt x 407.5225pt>
+ [23 <./Images/fingerboard_pcb.JPG> <./Images/ardshield_pcb.JPG>] <Images/fngrb
+rdmod1_top.png, id=228, 383.4325pt x 407.5225pt>
 File: Images/fngrbrdmod1_top.png Graphic file (type png)
 
 <use Images/fngrbrdmod1_top.png>
-Package pdftex.def Info: Images/fngrbrdmod1_top.png used on input line 585.
+Package pdftex.def Info: Images/fngrbrdmod1_top.png used on input line 586.
 (pdftex.def)             Requested size: 76.68513pt x 81.50305pt.
 
-<Images/fngrbrdmod1_side.png, id=226, 519.9425pt x 414.54875pt>
+<Images/fngrbrdmod1_side.png, id=229, 519.9425pt x 414.54875pt>
 File: Images/fngrbrdmod1_side.png Graphic file (type png)
 
 <use Images/fngrbrdmod1_side.png>
-Package pdftex.def Info: Images/fngrbrdmod1_side.png used on input line 588.
+Package pdftex.def Info: Images/fngrbrdmod1_side.png used on input line 589.
 (pdftex.def)             Requested size: 101.39235pt x 80.83983pt.
 
-<Images/fngrbrdmod2_top.png, id=227, 382.42876pt x 407.5225pt>
+<Images/fngrbrdmod2_top.png, id=230, 382.42876pt x 407.5225pt>
 File: Images/fngrbrdmod2_top.png Graphic file (type png)
 
 <use Images/fngrbrdmod2_top.png>
-Package pdftex.def Info: Images/fngrbrdmod2_top.png used on input line 606.
+Package pdftex.def Info: Images/fngrbrdmod2_top.png used on input line 607.
 (pdftex.def)             Requested size: 76.48439pt x 81.50305pt.
 
-<Images/fngrbrdmod2_side.png, id=228, 519.9425pt x 414.54875pt>
+<Images/fngrbrdmod2_side.png, id=231, 519.9425pt x 414.54875pt>
 File: Images/fngrbrdmod2_side.png Graphic file (type png)
 
 <use Images/fngrbrdmod2_side.png>
-Package pdftex.def Info: Images/fngrbrdmod2_side.png used on input line 609.
+Package pdftex.def Info: Images/fngrbrdmod2_side.png used on input line 610.
 (pdftex.def)             Requested size: 101.39235pt x 80.83983pt.
- [23 <./Images/fngrbrdmod1_top.png> <./Images/fngrbrdmod1_side.png> <./Images/f
+ [24 <./Images/fngrbrdmod1_top.png> <./Images/fngrbrdmod1_side.png> <./Images/f
 ngrbrdmod2_top.png> <./Images/fngrbrdmod2_side.png>] <Images/fngrbrdfinal_dim.p
-ng, id=236, 1284.8pt x 681.54625pt>
+ng, id=239, 1284.8pt x 681.54625pt>
 File: Images/fngrbrdfinal_dim.png Graphic file (type png)
 
 <use Images/fngrbrdfinal_dim.png>
-Package pdftex.def Info: Images/fngrbrdfinal_dim.png used on input line 619.
+Package pdftex.def Info: Images/fngrbrdfinal_dim.png used on input line 620.
 (pdftex.def)             Requested size: 385.44298pt x 204.46545pt.
 
-<Images/fingerrings_3.jpeg, id=237, 2845.63126pt x 2061.7025pt>
+<Images/fingerrings_3.jpeg, id=240, 2845.63126pt x 2061.7025pt>
 File: Images/fingerrings_3.jpeg Graphic file (type jpg)
 
 <use Images/fingerrings_3.jpeg>
-Package pdftex.def Info: Images/fingerrings_3.jpeg used on input line 626.
+Package pdftex.def Info: Images/fingerrings_3.jpeg used on input line 627.
 (pdftex.def)             Requested size: 284.57979pt x 206.18233pt.
- [24 <./Images/fngrbrdfinal_dim.png (PNG copy)> <./Images/fingerrings_3.jpeg>]
-<Images/sampleassignment.pdf, id=241, 375.4058pt x 320.2921pt>
+ [25 <./Images/fngrbrdfinal_dim.png (PNG copy)> <./Images/fingerrings_3.jpeg>]
+<Images/sampleassignment.pdf, id=245, 375.4058pt x 320.2921pt>
 File: Images/sampleassignment.pdf Graphic file (type pdf)
 
 <use Images/sampleassignment.pdf>
-Package pdftex.def Info: Images/sampleassignment.pdf used on input line 641.
+Package pdftex.def Info: Images/sampleassignment.pdf used on input line 642.
 (pdftex.def)             Requested size: 187.70244pt x 160.14565pt.
 
-Underfull \hbox (badness 1062) in paragraph at lines 646--647
+Underfull \hbox (badness 1062) in paragraph at lines 647--648
 []\T1/futs/m/n/10 To al-low the In-ter-face to con-trol each of the Fin-ger
  []
 
-[25 <./Images/sampleassignment.pdf>] [26]
+[26 <./Images/sampleassignment.pdf>] [27]
 Package epstopdf Info: Source file: <Images/rail_noboards.eps>
 (epstopdf)                    date: 2015-06-13 17:06:29
 (epstopdf)                    size: 99392 bytes
@@ -1065,18 +1064,18 @@ Package epstopdf Info: Source file: <Images/rail_noboards.eps>
 (epstopdf)                    size: 9667 bytes
 (epstopdf)             Command: <repstopdf --outfile=Images/rail_noboards-eps-c
 onverted-to.pdf Images/rail_noboards.eps>
-(epstopdf)             \includegraphics on input line 701.
+(epstopdf)             \includegraphics on input line 702.
 Package epstopdf Info: Output file is already uptodate.
 
-<Images/rail_noboards-eps-converted-to.pdf, id=258, 640.3925pt x 260.975pt>
+<Images/rail_noboards-eps-converted-to.pdf, id=261, 640.3925pt x 260.975pt>
 File: Images/rail_noboards-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Images/rail_noboards-eps-converted-to.pdf>
 Package pdftex.def Info: Images/rail_noboards-eps-converted-to.pdf used on inpu
-t line 701.
+t line 702.
 (pdftex.def)             Requested size: 280.20033pt x 105.07307pt.
 
-Overfull \hbox (25.1562pt too wide) in paragraph at lines 701--702
+Overfull \hbox (25.1562pt too wide) in paragraph at lines 702--703
  [][] 
  []
 
@@ -1088,17 +1087,17 @@ Package epstopdf Info: Source file: <Images/rail_1board.eps>
 (epstopdf)                    size: 9705 bytes
 (epstopdf)             Command: <repstopdf --outfile=Images/rail_1board-eps-con
 verted-to.pdf Images/rail_1board.eps>
-(epstopdf)             \includegraphics on input line 706.
+(epstopdf)             \includegraphics on input line 707.
 Package epstopdf Info: Output file is already uptodate.
-<Images/rail_1board-eps-converted-to.pdf, id=259, 561.09625pt x 250.9375pt>
+<Images/rail_1board-eps-converted-to.pdf, id=262, 561.09625pt x 250.9375pt>
 File: Images/rail_1board-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Images/rail_1board-eps-converted-to.pdf>
 Package pdftex.def Info: Images/rail_1board-eps-converted-to.pdf used on input 
-line 706.
+line 707.
 (pdftex.def)             Requested size: 280.19641pt x 105.07138pt.
 
-Overfull \hbox (25.15228pt too wide) in paragraph at lines 706--707
+Overfull \hbox (25.15228pt too wide) in paragraph at lines 707--708
  [][] 
  []
 
@@ -1110,30 +1109,30 @@ Package epstopdf Info: Source file: <Images/rail_3boards.eps>
 (epstopdf)                    size: 9154 bytes
 (epstopdf)             Command: <repstopdf --outfile=Images/rail_3boards-eps-co
 nverted-to.pdf Images/rail_3boards.eps>
-(epstopdf)             \includegraphics on input line 711.
+(epstopdf)             \includegraphics on input line 712.
 Package epstopdf Info: Output file is already uptodate.
-<Images/rail_3boards-eps-converted-to.pdf, id=260, 514.92375pt x 226.8475pt>
+<Images/rail_3boards-eps-converted-to.pdf, id=263, 514.92375pt x 226.8475pt>
 File: Images/rail_3boards-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Images/rail_3boards-eps-converted-to.pdf>
 Package pdftex.def Info: Images/rail_3boards-eps-converted-to.pdf used on input
- line 711.
+ line 712.
 (pdftex.def)             Requested size: 280.19966pt x 105.07108pt.
 
-Overfull \hbox (25.15553pt too wide) in paragraph at lines 711--712
+Overfull \hbox (25.15553pt too wide) in paragraph at lines 712--713
  [][] 
  []
 
 
 Package wrapfig Warning: Stationary wrapfigure forced to float on input line 71
-5.
+6.
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 721--722
+Underfull \hbox (badness 1286) in paragraph at lines 722--723
 \T1/futs/m/n/10 The eval-u-a-tion was con-ducted us-ing one
  []
 
-[27 <./Images/rail_noboards-eps-converted-to.pdf> <./Images/rail_1board-eps-con
+[28 <./Images/rail_noboards-eps-converted-to.pdf> <./Images/rail_1board-eps-con
 verted-to.pdf> <./Images/rail_3boards-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Images/sig_1.eps>
 (epstopdf)                    date: 2015-06-13 17:27:18
@@ -1143,15 +1142,15 @@ Package epstopdf Info: Source file: <Images/sig_1.eps>
 (epstopdf)                    size: 17309 bytes
 (epstopdf)             Command: <repstopdf --outfile=Images/sig_1-eps-converted
 -to.pdf Images/sig_1.eps>
-(epstopdf)             \includegraphics on input line 731.
+(epstopdf)             \includegraphics on input line 732.
 Package epstopdf Info: Output file is already uptodate.
 
-<Images/sig_1-eps-converted-to.pdf, id=287, 537.00626pt x 400.49625pt>
+<Images/sig_1-eps-converted-to.pdf, id=290, 537.00626pt x 400.49625pt>
 File: Images/sig_1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Images/sig_1-eps-converted-to.pdf>
 Package pdftex.def Info: Images/sig_1-eps-converted-to.pdf used on input line 7
-31.
+32.
 (pdftex.def)             Requested size: 420.30534pt x 315.24579pt.
 Package epstopdf Info: Source file: <Images/sig_2_idle.eps>
 (epstopdf)                    date: 2015-06-13 17:32:26
@@ -1161,47 +1160,47 @@ Package epstopdf Info: Source file: <Images/sig_2_idle.eps>
 (epstopdf)                    size: 8362 bytes
 (epstopdf)             Command: <repstopdf --outfile=Images/sig_2_idle-eps-conv
 erted-to.pdf Images/sig_2_idle.eps>
-(epstopdf)             \includegraphics on input line 741.
+(epstopdf)             \includegraphics on input line 742.
 Package epstopdf Info: Output file is already uptodate.
 
-<Images/sig_2_idle-eps-converted-to.pdf, id=288, 589.20125pt x 367.3725pt>
+<Images/sig_2_idle-eps-converted-to.pdf, id=291, 589.20125pt x 367.3725pt>
 File: Images/sig_2_idle-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Images/sig_2_idle-eps-converted-to.pdf>
 Package pdftex.def Info: Images/sig_2_idle-eps-converted-to.pdf used on input l
-ine 741.
+ine 742.
 (pdftex.def)             Requested size: 280.19714pt x 210.15564pt.
 
-Overfull \hbox (4.13867pt too wide) in paragraph at lines 741--742
+Overfull \hbox (4.13867pt too wide) in paragraph at lines 742--743
  [][] 
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 745--746
+Underfull \hbox (badness 1377) in paragraph at lines 746--747
 \T1/futs/m/n/10 sig-nal but with the PWM Fre-quency
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 745--746
+Underfull \hbox (badness 1371) in paragraph at lines 746--747
 \T1/futs/m/n/10 changed to 30Hz. We can see that
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 745--746
+Underfull \hbox (badness 2073) in paragraph at lines 746--747
 \T1/futs/m/n/10 ble. The ana-logue sig-nal is clearly
  []
 
 
-Underfull \hbox (badness 1565) in paragraph at lines 745--746
+Underfull \hbox (badness 1565) in paragraph at lines 746--747
 \T1/futs/m/n/10 1kHz mark as com-pared to the idle
  []
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 745--746
+Underfull \hbox (badness 1092) in paragraph at lines 746--747
 \T1/futs/m/n/10 state. 30Hz is the low-est PWM fre-
  []
 
-[28 <./Images/sig_1-eps-converted-to.pdf> <./Images/sig_2_idle-eps-converted-to
+[29 <./Images/sig_1-eps-converted-to.pdf> <./Images/sig_2_idle-eps-converted-to
 .pdf>]
 Package epstopdf Info: Source file: <Images/sig_2_tap.eps>
 (epstopdf)                    date: 2015-06-13 17:37:35
@@ -1211,31 +1210,31 @@ Package epstopdf Info: Source file: <Images/sig_2_tap.eps>
 (epstopdf)                    size: 9399 bytes
 (epstopdf)             Command: <repstopdf --outfile=Images/sig_2_tap-eps-conve
 rted-to.pdf Images/sig_2_tap.eps>
-(epstopdf)             \includegraphics on input line 753.
+(epstopdf)             \includegraphics on input line 754.
 Package epstopdf Info: Output file is already uptodate.
 
-<Images/sig_2_tap-eps-converted-to.pdf, id=306, 599.23875pt x 412.54124pt>
+<Images/sig_2_tap-eps-converted-to.pdf, id=309, 599.23875pt x 412.54124pt>
 File: Images/sig_2_tap-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Images/sig_2_tap-eps-converted-to.pdf>
 Package pdftex.def Info: Images/sig_2_tap-eps-converted-to.pdf used on input li
-ne 753.
+ne 754.
 (pdftex.def)             Requested size: 420.31462pt x 315.22792pt.
- [29 <./Images/sig_2_tap-eps-converted-to.pdf>] [30] [31] [32] [33]
-<Images/FutureDesign.pdf, id=329, 170.18874pt x 70.93863pt>
+ [30 <./Images/sig_2_tap-eps-converted-to.pdf>] [31] [32] [33] [34]
+<Images/FutureDesign.pdf, id=333, 170.18874pt x 70.93863pt>
 File: Images/FutureDesign.pdf Graphic file (type pdf)
 
 <use Images/FutureDesign.pdf>
-Package pdftex.def Info: Images/FutureDesign.pdf used on input line 981.
+Package pdftex.def Info: Images/FutureDesign.pdf used on input line 982.
 (pdftex.def)             Requested size: 340.37662pt x 141.87689pt.
- [34 <./Images/FutureDesign.pdf>] [35] [36]
-<Images/paws_open.png, id=349, 1284.8pt x 803.0pt>
+ [35 <./Images/FutureDesign.pdf>] [36] [37]
+<Images/paws_open.png, id=353, 1284.8pt x 803.0pt>
 File: Images/paws_open.png Graphic file (type png)
  <use Images/paws_open.png>
-Package pdftex.def Info: Images/paws_open.png used on input line 1113.
+Package pdftex.def Info: Images/paws_open.png used on input line 1114.
 (pdftex.def)             Requested size: 256.95544pt x 160.59715pt.
 
-[37 <./Images/paws_open.png>] [38] (./bib.tex
+[38 <./Images/paws_open.png>] [39] (./bib.tex
 Underfull \hbox (badness 2913) in paragraph at lines 26--27
 []\T1/futs/m/n/10 Ebay. \T1/futs/m/it/10 5V JY-MCU HC-06 V1.04 Blue-tooth Tran-
 seiver RF Mod-ule Se-rial Port 51 AVR MCU ARM
@@ -1319,7 +1318,7 @@ Underfull \hbox (badness 3240) in paragraph at lines 73--74
 -u-men-ta-tion\T1/futs/m/n/10 . [On-line] 6 Oct 2014. Avail-able from:
  []
 
-[39]
+[40]
 Underfull \hbox (badness 10000) in paragraph at lines 76--77
 \T1/futs/m/n/10 Center/Technical-Documents/Hall-Effect-Sensor-IC-Publications/M
 ethod-for-Converting-a-PWM-
@@ -1343,86 +1342,86 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--101
 Other\T1/futs/m/n/10 . [On-line] 2015. Avail-able from:
  []
 
-) [40] (./appendix.tex
-<Images/arduinobluetooth.jpg, id=364, 298.716pt x 155.6214pt>
+) [41] (./appendix.tex
+<Images/arduinobluetooth.jpg, id=367, 298.716pt x 155.6214pt>
 File: Images/arduinobluetooth.jpg Graphic file (type jpg)
 
 <use Images/arduinobluetooth.jpg>
 Package pdftex.def Info: Images/arduinobluetooth.jpg used on input line 12.
 (pdftex.def)             Requested size: 298.71526pt x 155.621pt.
 
-<Images/mic_schematic_01.png, id=365, 314.6154pt x 174.4116pt>
+<Images/mic_schematic_01.png, id=368, 314.6154pt x 174.4116pt>
 File: Images/mic_schematic_01.png Graphic file (type png)
 
 <use Images/mic_schematic_01.png>
 Package pdftex.def Info: Images/mic_schematic_01.png used on input line 20.
 (pdftex.def)             Requested size: 314.61462pt x 174.41118pt.
 
-<Images/ard_schematic_01.png, id=366, 304.2567pt x 255.5949pt>
+<Images/ard_schematic_01.png, id=369, 304.2567pt x 255.5949pt>
 File: Images/ard_schematic_01.png Graphic file (type png)
 
 <use Images/ard_schematic_01.png>
 Package pdftex.def Info: Images/ard_schematic_01.png used on input line 27.
 (pdftex.def)             Requested size: 304.25595pt x 255.59427pt.
- [41 <./Images/arduinobluetooth.jpg> <./Images/mic_schematic_01.png>] <Images/m
-c0101.pdf, id=370, 208.78pt x 290.08376pt>
+ [42 <./Images/arduinobluetooth.jpg> <./Images/mic_schematic_01.png>] <Images/m
+c0101.pdf, id=373, 208.78pt x 290.08376pt>
 File: Images/mc0101.pdf Graphic file (type pdf)
 
 <use Images/mc0101.pdf>
 Package pdftex.def Info: Images/mc0101.pdf used on input line 38.
 (pdftex.def)             Requested size: 208.77946pt x 290.08304pt.
- [42 <./Images/ard_schematic_01.png> <./Images/mc0101.pdf>] <Images/interfacevo
-iceflow.pdf, id=377, 108.405pt x 298.11375pt>
+ [43 <./Images/ard_schematic_01.png> <./Images/mc0101.pdf>] <Images/interfacevo
+iceflow.pdf, id=381, 108.405pt x 298.11375pt>
 File: Images/interfacevoiceflow.pdf Graphic file (type pdf)
 
 <use Images/interfacevoiceflow.pdf>
 Package pdftex.def Info: Images/interfacevoiceflow.pdf used on input line 49.
 (pdftex.def)             Requested size: 108.40472pt x 298.11302pt.
 
-<Images/interfacesampleflow.pdf, id=378, 187.70125pt x 443.6575pt>
+<Images/interfacesampleflow.pdf, id=382, 187.70125pt x 443.6575pt>
 File: Images/interfacesampleflow.pdf Graphic file (type pdf)
 
 <use Images/interfacesampleflow.pdf>
 Package pdftex.def Info: Images/interfacesampleflow.pdf used on input line 53.
 (pdftex.def)             Requested size: 187.70079pt x 443.6564pt.
 
-<Images/PyFlow.pdf, id=379, 645.26207pt x 977.27481pt>
+<Images/PyFlow.pdf, id=383, 645.26207pt x 977.27481pt>
 File: Images/PyFlow.pdf Graphic file (type pdf)
  <use Images/PyFlow.pdf>
 Package pdftex.def Info: Images/PyFlow.pdf used on input line 60.
 (pdftex.def)             Requested size: 451.68036pt x 684.0877pt.
 
-[43 <./Images/interfacevoiceflow.pdf> <./Images/interfacesampleflow.pdf>]
+[44 <./Images/interfacevoiceflow.pdf> <./Images/interfacesampleflow.pdf>]
 Overfull \vbox (13.88681pt too high) has occurred while \output is active []
 
 
-[44 <./Images/PyFlow.pdf>]
-<Images/mic_pcb_02.png, id=414, 153.6942pt x 58.2978pt>
+[45 <./Images/PyFlow.pdf>]
+<Images/mic_pcb_02.png, id=417, 153.6942pt x 58.2978pt>
 File: Images/mic_pcb_02.png Graphic file (type png)
 
 <use Images/mic_pcb_02.png>
 Package pdftex.def Info: Images/mic_pcb_02.png used on input line 70.
 (pdftex.def)             Requested size: 307.3876pt x 116.5953pt.
 
-<Images/ard_pcb_01.png, id=415, 206.08995pt x 155.50095pt>
+<Images/ard_pcb_01.png, id=418, 206.08995pt x 155.50095pt>
 File: Images/ard_pcb_01.png Graphic file (type png)
 
 <use Images/ard_pcb_01.png>
 Package pdftex.def Info: Images/ard_pcb_01.png used on input line 78.
 (pdftex.def)             Requested size: 309.13414pt x 233.25084pt.
 
-<Images/ard_pcb_02.png, id=416, 207.174pt x 156.585pt>
+<Images/ard_pcb_02.png, id=419, 207.174pt x 156.585pt>
 File: Images/ard_pcb_02.png Graphic file (type png)
 
 <use Images/ard_pcb_02.png>
 Package pdftex.def Info: Images/ard_pcb_02.png used on input line 86.
 (pdftex.def)             Requested size: 310.76021pt x 234.8769pt.
- [45 <./Images/mic_pcb_02.png> <./Images/ard_pcb_01.png>]) [46 <./Images/ard_pc
+ [46 <./Images/mic_pcb_02.png> <./Images/ard_pcb_01.png>]) [47 <./Images/ard_pc
 b_02.png>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 8217 strings out of 493117
- 119697 string characters out of 6135433
- 277118 words of memory out of 5000000
+ 8220 strings out of 493117
+ 119737 string characters out of 6135433
+ 277122 words of memory out of 5000000
  11413 multiletter control sequences out of 15000+600000
  102749 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1434,10 +1433,10 @@ r-ml.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/fourier/fourier
 r-ms.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putb8a.pf
 b></usr/local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr
 /local/texlive/2014/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on main.pdf (46 pages, 20663207 bytes).
+Output written on main.pdf (47 pages, 20663514 bytes).
 PDF statistics:
- 447 PDF objects out of 1000 (max. 8388607)
- 291 compressed objects within 3 object streams
+ 450 PDF objects out of 1000 (max. 8388607)
+ 293 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  256 words of extra memory for PDF output out of 10000 (max. 10000000)
 
