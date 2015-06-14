@@ -70,41 +70,43 @@ This report begins with some research into the current market for wearable techn
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Market Research} \label{Background}
-This final year project's original brief was \textit{'The development and evaluation of a novel and unusual musical instrument to be constructed using a 3D printer'}, which was fairly open-ended, relying more on a creative musically-oriented approach rather than the usual best-fit engineering solution.  
+\section{Background} \label{Background}
+This project's original brief was \textit{'The development and evaluation of a novel and unusual musical instrument to be constructed using a 3D printer'}, which was fairly open-ended, relying more on a creative user-oriented approach rather than the usual best-fit engineering solution. This section outlines the current state of the musical instrument market and a few products I researched and analysed in order to design my own concept.
 
-The definition of a 'musical instrument' has evolved drastically over the years, ranging from traditional acoustic instruments (\textit{piano, violin}) to electrical (\textit{guitars, keyboards}), electronic (\textit{synthesisers, Theremin}), and even virtual instruments that exist purely as software models in computer-based audio production tools.
+The definition of a 'musical instrument' has evolved drastically over the years, ranging from traditional acoustic instruments (\textit{piano, violin}) to electrical (\textit{guitars, keyboards}), electronic (\textit{synthesisers, Theremin}), and even to virtual instruments that exist purely as software models in computer-based audio production tools.
 
-The current music market has been overtaken by new computer vision and wearable technologies, giving way to innovative products such as the \emph{Mi.Mu}\textsuperscript{\cite{mimu}} gloves and \emph{DrumPants}\textsuperscript{\cite{drumpants}}. The idea of capturing motion through worn sensors or distant cameras allows the user to integrate their bodies with electronic systems. Musicians can make sweeping gestures to produce and control sounds, much like was traditionally done with mechanical instruments. With the initial introduction of electronic instruments, musicians became confined to button-based keyboards and drum machines, and later to point-and-click software on computers. 
+With the initial introduction of electronic instruments, musicians became confined to button-based keyboards and drum machines, and later to point-and-click software on computers. 
+It is only now that we are beginning to see computer vision and wearable technologies penetrating the market, giving way to innovative products such as the \emph{Mi.Mu}\textsuperscript{\cite{mimu}} gloves and \emph{DrumPants}\textsuperscript{\cite{drumpants}}. The idea of capturing motion through worn sensors or distant cameras allows users to integrate their bodies with electronic systems. Musicians can make sweeping gestures to produce and control sounds, much like was traditionally done with mechanical instruments. 
 
-\begin{wrapfigure}{r}{0.25\textwidth}
+\begin{wrapfigure}[16]{r}{0.37\textwidth}
 \centering
-\includegraphics[scale=0.3]{Images/MiMuGloves}
+\includegraphics[scale=0.5]{Images/MiMuGloves}
 \caption{Mi.Mu Gloves\textsuperscript{\cite{mimugloves}}}
 \label{fig:mimugloves}
 \end{wrapfigure}
 
-New technologies have allowed the modern musician to let the motion of their body contribute to their overall sound but they still seem to be fairly restrictive. The Mi.Mu gloves, as shown in Figure~\ref{fig:mimugloves}, allow the user to generate music simply by moving their hands. They can emulate playing a drum kit with their hands and the gloves will send MIDI signals to a digital audio workstation (DAW), which will produce the correct sounds in response to the user's 'air-drumming'. The gloves can also be used to control functions on sound, such as altering amplitude, filtering and even adding effects like Reverb, all through a pre-determined hand motion. This technology, however, is incredibly expensive. Provisionally selling at nearly \pounds 5000\textsuperscript{\cite{mimugloves}}, these gloves are not accessible to the average person. It also requires other software tools for it to interact with, meaning that the user is in fact confined to a particular physical workspace, be it a studio or a live stage. 
+New technologies have allowed the modern musician to let the motion of their body contribute to their overall sound but they still seem to be fairly restrictive. The Mi.Mu gloves, as shown in Figure~\ref{fig:mimugloves}, allow users to generate music simply by moving their hands. The gloves feature motion sensors and a battery-powered microcontroller to transmit generated signals as MIDI data to control audio sequences pre-programmed on a software application. For example, a user could emulate playing a drum kit with their hands and the gloves would send MIDI signals to a digital audio workstation (DAW) to produce the correct sounds in response to the user's 'air-drumming'. The gloves can also be used to control functions on sound, such as altering amplitude, filtering and even adding effects like Reverb, all through a pre-determined hand motion. This technology, however, is incredibly expensive. Provisionally selling at nearly \pounds 5000\textsuperscript{\cite{mimugloves}}, these gloves are not accessible to the average person. The fact that these gloves require supplementary software tools to interact with confines the user to a particular physical workspace, be it a studio or a live stage, which requires an extraordinary amount of setting up and calibration before use. 
 
 
-
-\begin{wrapfigure}{r}{0.35\textwidth}
+\begin{wrapfigure}[12]{r}{0.6\textwidth}
 \centering
-\includegraphics[scale=0.2]{Images/drumpantsbasic}
+\includegraphics[scale=0.35]{Images/drumpantsbasic}
 \caption{DrumPants Basic Kit\textsuperscript{\cite{drumpantsprice}}}
 \label{fig:drumpants}
 \end{wrapfigure}
 
-DrumPants is another product that utilises wearable sensors to control sounds. The instrument, shown in Figure~\ref{fig:drumpants}, uses sensor strips that attach to your clothes and connect wirelessly to a central controller. The strips contain pressure sensors that, when hit, send MIDI data to the controller, which can be set by the user to play any virtual sound in response, such as a drum kit or a piano. This controller can output audio directly to a speaker or can send the raw MIDI data to a compatible computer program. Currently on pre-order from \$129.99\textsuperscript{\cite{drumpantsprice}}, this instrument allows the user to program each sensor to play any pre-recorded sample sound, and is also being marketed to be able to remotely control video games. The functionality, however, is limited to contact via pressure, and slightly malforms the user's experience by again restricting them to a particular physical area at any given instance in time. Even though this physical workspace, or the area where the sensor is located, is movable between instances of use, it still limits the musician's ability to improvise and requires an inordinate amount of setup time before playing can commence.
+DrumPants is another product that utilises wearable sensors to control sounds. The instrument, shown in Figure~\ref{fig:drumpants}, uses sensor strips that attach to your clothes and connect wirelessly to a central controller. The strips contain pressure sensors that, when hit, send MIDI data to the controller, which can be programmed by the user to play any virtual sound in response, such as a drum kit or a piano. This controller can output audio directly to a speaker or can send the raw MIDI data to a compatible computer program. Currently on pre-order from \$129.99\textsuperscript{\cite{drumpantsprice}}, this instrument allows the user to program each sensor to play any pre-recorded sample sound, and is also being marketed to be able to remotely control video games. The functionality, however, is limited to contact via pressure, and slightly malforms the user's experience by again restricting them to a particular physical area. Even though this physical workspace, or the area where the sensor is located, is movable between instances of use, it still limits the musician's ability to improvise and requires an inordinate amount of setup time before playing can commence. 
 
-\begin{wrapfigure}{r}{0.3\textwidth}
+\begin{wrapfigure}{r}{0.4\textwidth}
 \centering
-\includegraphics[scale=0.2]{Images/gesturering}
+\includegraphics[scale=0.3]{Images/gesturering}
 \caption{Ring by Logbar Inc.\textsuperscript{\cite{gesturering}}}
 \label{fig:gesturering}
 \end{wrapfigure}
 
 A third product, not specifically designed for music but important nonetheless, is the \emph{Ring}\textsuperscript{\cite{gesturering}} by Logbar Inc. The Ring has the capability of controlling any web-linked interface with gestures through an Android or iOS App. It is designed for the user to assign gestures to specific features, from controlling music play-out on a smartphone to opening a set of shower curtains (provided they have internet connectivity). The idea behind the Ring is that it allows a user to directly interact with the world around them through a portable wearable sensor with apparently no physical limitations. The concept of this device, in its functionality and freedom of use, would greatly enhance a musician's creativity if applied to the world of sound. 
+
+/////////// !! DIGITAL DRUM PAN !!
 
 Based on these new products, I aim to produce a musical instrument that heads in the direction of user-programmable electronics that is portable and not restricted to a physical workspace in the way that most other motion-based products (especially computer-vision related) are. The musical instrument should allow the user to define the manner in which they wish to produce sounds and should allow them to use the range of their entire bodies in the process without introducing any physical or mental limitations. 
 
@@ -634,9 +636,27 @@ The previous prototypes have all been designed with the idea of connecting to PA
 
 \subsubsection{Connecting Multiple Boards}
 
+\begin{wrapfigure}{r}{0.3\textheight}
+\centering
+\includegraphics[scale = 0.5]{Images/sampleassignment}
+\caption{Prototype 0.2.04 - Assignment of received Sample Data to the relevant queue buffers by the Interface's \textit{queueInput( )} function}
+\label{fig:sampassign}
+\end{wrapfigure}
+
 To allow the Interface to control each of the Finger Boards attached to the Arduino Uno separately, I had to make several changes to the functions of the two main classes that controlled the GUI. The \textit{Overlay} class was previously in charge of adding and removing \textit{Board} objects. For this prototype, I required the \textit{Overlay} class to perform the connection to the Arduino Uno immediately; the user would not be able to select the serial port at which the Arduino was located. This was simply to make the entire experience easier, and once the Arduino was connected to, three \textit{Board} objects would be immediately spawned. The \textit{queueInput( )} function that was used to receive samples from the Arduino was moved to the \textit{Overlay} class and was set running as soon as the Arduino was connected to. This function was also modified to place the samples it received into the buffers of the respective \textit{Board} objects. Because these functionalities were moved away from the \textit{Board} class, the dropdown list to select the serial port was entirely removed from this class. 
 
-The Arduino code was then modified to be able to read the sample values of the three Finger Boards and transmit them serially to the Interface. As before, I used a new line character to notify the Interface of the start of a 'packet' of data, and then proceeded to sample each of the three microphone signals in turn and transmit them. This packetisation technique helped to make the transmission robust as the \textit{queueInput( )} function on the Interface side could calculate exactly which received sample corresponded to which Finger Board. 
+The Arduino code was then modified to be able to read the sample values of the three Finger Boards and transmit them serially to the Interface. As before, I used a new line character to notify the Interface of the start of a 'packet' of data, and then proceeded to sample each of the three microphone signals in turn and transmit them. This packetisation technique helped to make the transmission robust as the \textit{queueInput( )} function on the Interface side could calculate exactly which received sample corresponded to which Finger Board. Figure~\ref{fig:sampassign} shows an example where the Interface reads part of an incoming packet before reading a full packet, and then assigns the received samples to the correct Board's queue using the newline character for synchronisation. 
+
+
+
+
+\subsubsection{Enhancing User Control}
+
+To enhance the user's control over the sample sounds triggered with each Finger Board, I implemented a drop down list in the \textit{Board} Interface to display available sound files and allow the user to select one on the fly. This element was programmed to trigger a function that would load the correct file into the respective \textit{Board} object's sample buffer, which the Interface would read from during playback. 
+
+I also found that each \textit{Board}'s amplitude control was not applied correctly to the 'Sample' function, and that it only affected the volume of the 'Voice' function. Therefore, I made a few minor adjustments to ensure that the user could set the volume of each selected sample sound relative to the others for better control over their musical production.  
+
+I also renamed the text at the top of each \textit{Board} object to display "One", "Two" and "Three" as opposed to just "Board", to further improve the user's interactive experience. Figure~\ref{fig:paws_3boards_final} shows the new GUI controls once establishing a connection with the Arduino. 
 
 \begin{figure}[H]
 \centering
@@ -646,29 +666,25 @@ The Arduino code was then modified to be able to read the sample values of the t
 \label{fig:paws_3boards_final}
 \end{figure}
 
-
-\subsubsection{Enhancing User Control}
-
-To enhance the user's control over the sample sounds triggered with each Finger Board, I implemented a drop down list in the \textit{Board} Interface to display available sound files and allow the user to select one on the fly. This element was programmed to trigger a function that would load the correct file into the respective \textit{Board} object's sample buffer, which the Interface would read from during playback. 
-
-I also found that each \textit{Board}'s amplitude control was not applied correctly to the 'Sample' function, and that it only affected the volume of the 'Voice' function. Therefore, I made a few minor adjustments to ensure that the user could set the volume of each selected sample sound relative to the others for better control over their musical production.  
-
-I also renamed the text at the top of each \textit{Board} object to display "One", "Two" and "Three" as opposed to just "Board", to further improve the user's interactive experience. 
-
 \subsubsection{Filtering the Audio Signal}
 
-filtering out the pwm noise - not working in software so have designed new shield
+This section summarises the various attempts I made to modify the frequency content of the various signals in my prototype
 
-Figure~\ref{ardshieldpcb2} shows the PCB Layout for version 2 of the Arduino Shield.
+Firstly, the Arduino Shield I designed in Section~\ref{0203} Prototype 0.2.03 was made to provide analogue voltages from the Arduino to control the gains of the amplifiers on the Finger Boards. I realised that the Resistor-Capacitor filters for converting the Arduino's PWM (Pulse-Width-Modulation) signals to analogue voltages were placed on the Finger Boards instead of on the Shield itself. This meant that the PWM signal was being transmitted down the connecting cable between the Shield and each of the Finger Boards, and was therefore affecting the microphone signal being transmitted back down the cable. In order to remedy this as quickly as possible, I designed a new printed circuit board for the Arduino Shield, which filtered the PWM signals before sending them to their respective Finger Boards. The transmission of a constant analogue voltage down the cable would therefore not induce any noise onto the microphone signal as it would not host any high frequency waves. Figure~\ref{ardshieldpcb2} shows the PCB Layout for Version 2 of the Arduino Shield.
 
-testing of pwm frequencies vs noise bed levels, shown in evaluation section
+Since Version 2 of the Arduino Shield was not printed in time for the report, Prototype 0.2.04 continued using Version 1 and the induced PWM noise was the main source of distortion in the resultant microphone signal. 
 
+I also attempted to implement software filtering of the microphone signal, firstly to try to reduce the effects of the PWM on the signal, and secondly to isolate the frequencies related to 'tapping' a Finger Ring against a surface for robust sample triggering. JUCE contains libraries for determining filter coefficients and applying them to a chunk of samples. In order to conform to this library's requirements, I briefly modified my Arduino's code to read and transmit an entire chunk of data (arbitrarily set to ten samples), which the Interface would read and store into a temporary buffer and filter before adding them to the queue as before. However, I had troubles with determining filter coefficients for the low pass filtering I wished to do with a cutoff around 500Hz to ensure that only 'tapping' energy was kept in the spectrum. In order to workaround this problem, I used Matlab to determine coefficients and then imported them into my program to implement them and hence filter the input chunk. I found that for each set of coefficients I tried (with various cut off frequencies and roll offs) my microphone signal became unstable, producing sample values of the thirty-second order sometimes. Considering that audio signals are normally defined as float-type variables within the range of -1 to 1, this instability was either a result of badly defined coefficients, since JUCE implemented all filters as Infinite Impulse Response filters, which have the ability to become unstable, or that the already small sample values were wrapping around to become incredibly large and therefore not producible by the system. 
 
-Filtered input signal using matlab analyses. Can stick graphs and plots in this section if manage to do this. 
-filtering sample function to only hear lip smack from finger ring. 
+Filtering in software is a good idea to do, especially since I am upsampling the microphone signal to match the output sample rate of the program, which introduces spectral images that need to be removed. However, I had to stop testing software filtering as I was not able to produce a stable result within a reasonable amount of time . More testing could be done using a bespoke filtering function rather than JUCE's methods. I was also only filtering a chunk of samples at a time, which first of all were very small at only 10 samples per chunk, and I was not using correct Digital Signal Processing methods for filtering in real-time such as the Overlap-Save or Overlap-Add methods. Further testing of software filtering would require implementing these well-documented methods to ensure stability and accuracy. 
 
-
-
+\begin{figure}[H]
+\centering
+! MISSING !
+%\includegraphics[scale = 0.2]{Images/paws_3boards_final}
+\caption{Prototype 0.2.04 - Instability caused by Filtering in Interface}
+\label{fig:badfilt}
+\end{figure}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -713,7 +729,7 @@ Figure~\ref{fig:sig_1} shows the microphone signal from a Finger Board, measured
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textheight, height=0.45\textheight]{Images/sig_1.eps}
-\caption{Microphone Signal (idle state), measured at the Arduino input pin}
+\caption{Microphone Signal (idle state) with PWM Frequency at 490Hz, measured at the Arduino input pin}
 \label{fig:sig_1}
 \end{figure}
 
@@ -735,7 +751,7 @@ Figure~\ref{fig:sig_2} shows the same microphone signal but with the PWM Frequen
 \includegraphics[width=0.6\textheight, height=0.45\textheight]{Images/sig_2_tap.eps}
 \label{fig:sig_2_tap}
 }
-\caption{Microphone Signal with PWM Frequency = 30Hz, measured at the Arduino input pin}
+\caption{Microphone Signal with PWM Frequency at 30Hz, measured at the Arduino input pin}
 \label{fig:sig_2}
 \end{figure}
 
@@ -773,8 +789,8 @@ Figure~\ref{fig:sig_samp}
 \begin{figure}[H]
 \centering
 !! MISSING IMAGE !!
-%\includegraphics[width=0.6\textheight, height=0.45\textheight]{Images/sig_2_tap.eps}
-\caption{Microphone Signal with PWM Frequency = 30Hz, received by the Interface program}
+%\includegraphics[width=0.6\textheight, height=0.45\textheight]{Images/sig_samp.eps}
+\caption{Microphone Signal with PWM Frequency at 30Hz, received by the Interface program}
 \label{fig:sig_samp}
 \end{figure}
 
