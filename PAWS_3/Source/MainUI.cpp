@@ -319,6 +319,11 @@ void *queueInput(void* dummy){
         //obj->filt->processSamples(input, 10);
         
         // END FILTERING HERE
+        /*
+        if(tempptr==3)
+            std::cout<<temp[0]<<newLine;
+        std::cout<<input[0]<<newLine;
+        */
         int i = num+1-tempptr;
         for(int x = 0; x < tempptr-1; x++){
             obj->boardUI[i]->queuewrite++;

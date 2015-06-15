@@ -170,17 +170,20 @@ ylabel('Amplitude (dB)');
 %% SIGNAL NOISE 3
 %COLUMN 1: SECONDS
 %COLUMN 2: VOLTS
-B = csvread('scope_14.csv');
+B = csvread('sig_samp.csv');
 %A = B(800:900,:);%idle
-A = B(82240:82500);%ringtap
+%A = B(82240:82500);%ringtap
+A=B(96575:96645);
+%A=B(96400:96800);
 numsamp = size(A,1);
-fs = 44100/16;
+%fs = 2381;
+fs = 44100/12;
 T = 1/fs;
 
 subplot(2,1,1)
-time = [0:T:numsamp/fs];
+time = [0:T:(numsamp/fs)-T];
 plot(time,A)
-%xlim([A(1,1),A(end,1)]);
+xlim([time(1),time(end)]);
 %ylim([1 4]);
 grid minor;
 xlabel('Time (seconds)');
@@ -191,7 +194,7 @@ freqlim = [50:fs/numsamp:fs/2];
 freqax = round(freqlim*numsamp/fs);
 I = find(freqax==0);
 freqax(I) = 1;
-A_freq = abs(fft(A(:,2)));
+A_freq = abs(fft(A));
 loglog(freqlim,A_freq(freqax));
 %hold on;
 %temp = zeros(1,length(freqlim));
@@ -201,9 +204,8 @@ temp(max(find(freqlim<500))) = 100;
 %text(350,0.1,str1,'Color','r')
 %hold off;
 %ylim([0,5]);
-xlim([freqlim(1), freqlim(end)]);
-ylim([1e-2 1e2]);
+xlim([freqlim(1), 5026.63115845539/2]);
+ylim([1e1 5e3]);
 grid minor;
 xlabel('Frequency (Hz)');
 ylabel('Amplitude (dB)');
-5026.63115845539
