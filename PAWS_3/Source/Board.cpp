@@ -266,6 +266,11 @@ void Board::listSamples(){
     comboBox->addItem("afrilo", 1);
     comboBox->addItem("afrimid", 2);
     comboBox->addItem("afrihi", 3);
+    comboBox->addItem("Analog Kick", 4);
+    comboBox->addItem("Analog Clap", 5);
+    comboBox->addItem("Snap", 6);
+    comboBox->addItem("Clap", 7);
+    
     
 }
 
@@ -408,12 +413,12 @@ void *playVoice_basic(void* dummy){
 void *playSample(void* dummy){
     std::cout<<"Sample Function"<<newLine;
     Board *obj = (Board *) dummy;
-    static const int len = 30;
+    static const int len = 50;
     int tempbuff[len] = {512};
     int tempptr = 0;
     int diff = 0;
     int change = 0;
-    int thresh = 80;
+    int thresh = 135;
 
     obj->playSamp = false;
 

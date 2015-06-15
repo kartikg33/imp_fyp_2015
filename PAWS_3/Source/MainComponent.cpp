@@ -45,8 +45,8 @@ public:
         //setSampleRate ();
         
         addAndMakeVisible (overlay = new MainUI());
-        startTimerHz (75); // use a timer to keep repainting this component
-        //startTimerHz (200); // use a timer to keep repainting this component
+        //startTimerHz (75); // use a timer to keep repainting this component
+        startTimerHz (300); // use a timer to keep repainting this component
 
     }
 
@@ -97,7 +97,7 @@ public:
             waveptr = 0;
         int start = waveptr;
         
-        for(int x = 0; x<bufferToFill.numSamples;++x){
+        for(int x = 0; x<bufferToFill.numSamples;x++){
             waveformL[x+start] = 0;
             waveformR[x+start] = 0;
         }
@@ -128,15 +128,15 @@ public:
                                 waveformL[waveptr] += overlay->boardUI[n]->samplebuff->getSample(0, ptr)*overlay->boardUI[n]->amplitude;
                                 waveformR[waveptr] += overlay->boardUI[n]->samplebuff->getSample(1, ptr)*overlay->boardUI[n]->amplitude;
                             
-                                ++ptr;
+                                ptr++;
                                  if(ptr>=len){
                                     end = true;
                                     overlay->boardUI[n]->sampPlaying = false;
                                     ptr = 0;
                                 }
                             
-                                ++waveptr;
-                                ++i;
+                                waveptr++;
+                                i++;
                             
                             }
                            
@@ -145,13 +145,19 @@ public:
                                 waveformL[waveptr] += 0;
                                 waveformR[waveptr] += 0;
                                     
-                                ++waveptr;
-                                ++i;
+                                waveptr++;
+                                i++;
                             }
                             
                             
                             overlay->boardUI[n]->sampBuffPtr = ptr;
                             
+                        } else { //if(overlay->boardUI[n]->sampPlaying)
+                            for(int x = 0; x<bufferToFill.numSamples;x++){
+                                waveformL[waveptr] += 0;
+                                waveformR[waveptr] += 0;
+                                waveptr++;
+                            }
                         }
                     
                     } else { //if(overlay->boardUI[n]->SampleFl)
@@ -164,7 +170,7 @@ public:
                         float *bufferL = overlay->boardUI[n]->buffL;
                         float *bufferR = overlay->boardUI[n]->buffR;
                     
-                        for (int i = 0; i < bufferToFill.numSamples ; ++i)
+                        for (int i = 0; i < bufferToFill.numSamples ; i++)
                         {
                         
                             waveformL[waveptr] += float(bufferL[ptr]);//*overlay->amplitude);
@@ -264,7 +270,7 @@ private:
     ScopedPointer<float> waveformL = nullptr;
     ScopedPointer<float> waveformR = nullptr;
     int waveptr = 0;
-    const int wavelen = 1024;
+    const int wavelen = 1536;
     
     double sampleRate;
     int expectedSamplesPerBlock;

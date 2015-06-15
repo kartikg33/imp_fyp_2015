@@ -143,7 +143,7 @@ void MainUI::resized()
     label2->setBounds (getWidth() - 128, getHeight() - 24, 126, 24);
     slider->setBounds ((getWidth() / 2) - (100 / 2), getHeight() - 140 - (80 / 2), 100, 80);
     //[UserResized] Add your own custom resize handling here..
-
+    textButton2->setBounds ((getWidth()/2) + -75, getHeight() - 536, 150, 24);
     for(int i=0;i<numBoards;i++){
         x = boardUI[i]->getWidth();
         y = boardUI[i]->getHeight();
@@ -305,6 +305,7 @@ void *queueInput(void* dummy){
             read(obj->serport, &c, 1);
             temp[tempptr] = Byte(c)*4.0f;//((float(Byte(c))*4.0f)-512)*0.00195f*obj->amplitude;
             ++tempptr;
+
         } while (c!='\n');
         
         
