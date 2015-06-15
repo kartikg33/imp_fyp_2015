@@ -53,10 +53,9 @@
 
 The aim of this project is to design a modern musical instrument that gives a user the freedom to use their environment as part of their sound production process. I will be designing and implementing an instrument that consists of a microphone on a wearable circuit board that, when tapped against any surface, will trigger a sample sound file selected by the user through a software interface. In other words, the user will potentially be able to play an entire drum kit simply by tapping a rhythm with their fingers. The instrument will be limited to this functionality for this project but has a large future scope, in that it could integrate motion gesture control to allow a user to, for example, generate synthesised sounds and modify the amplitudes and pitches in real-time using spatial positioning, or to generate the sounds of guitar chords when mimicking the action of playing one (the air guitar concept). 
 
-\begin{wrapfigure}{r}{0.35\textheight}
+\begin{wrapfigure}{r}{0.4\textheight}
 \centering
-{\color{red}! MISSING IMAGE !}
-%\includegraphics[scale=0.2]{Images/paws_final}
+\includegraphics[scale=0.08]{Images/paws_0204}
 \caption{PAWS Prototype 0.2.04}
 \label{fig:paws_final}
 \end{wrapfigure}
@@ -514,14 +513,15 @@ I used Introjucer to develop two GUI classes to run under the main application: 
 Appendix~\ref{juceflow} shows a flow diagram of the \textit{getNextAudioBlock( )} in the JUCE application that controls the transfer of audio data from the temporary storage Buffers to the output audio device. Like the Python program shown in Appendix~\ref{pyblue_flow} it still utilises threading (using the C++ library \textit{pthread}\textsuperscript{\cite{pthread}}) to call the 'Voice' and 'Sample' functions, only this time the received audio samples are pulled into the main application's audio request thread, using the algorithm described by the flow diagram, and pushed into the audio device from there. 
 
 
+
 \subsubsection{Designing the GUI}
 
-\begin{figure}[H]
+\begin{wrapfigure}{r}{0.4\textheight}
 \centering
-\includegraphics[scale=1]{Images/JuceConcept}
-\caption{Initial Sketches of new Juce GUI}
+\includegraphics[scale=0.9]{Images/JuceConcept2}
+\caption{Concept Sketches for new Juce GUI}
 \label{fig:juceguisketches}
-\end{figure}
+\end{wrapfigure}
 
 Figure~\ref{fig:juceguisketches} shows concept sketches for the JUCE GUI. Upon startup, the application will show only the 'Add Board' button, as was the case with the Python GUI. However, this GUI will be more eye-friendly than the Python one in that it will look much prettier. When a new board is added, the 'Add Board' button will shift to the top of the screen and the centre will be populated by a box with all the necessary elements, such as selecting the serial port and function, as defined by the \textit{Board} class. The 'Remove Board' button will then also appear below the \textit{Board} object. The addition of more boards will result in more of these objects being spawned and they will collectively be centred on the screen. 
 
@@ -529,9 +529,9 @@ Figure~\ref{fig:juceguisketches} shows concept sketches for the JUCE GUI. Upon s
 
 The main application continuously runs a 'paint' function to re-generate the background of the main frame as part of its GUI management thread. I exploited this function to display a waveform of the audio signal being processed behind the User Interface elements. This would provide visual feedback of the time-domain signal being sent to the audio device. Since the output signal is stereo or dual-channel (even though the microphone signal from my Boards are in mono or single-channel), I decided to overlay the Left and Right signals in red and blue respectively, which would show up as separate signals if the channels were different but would appear as a combined purple waveform if they were the same. This red and blue theme was used for the colour scheme of the entire application.
 
-\begin{wrapfigure}{r}{0.4\textheight}
+\begin{wrapfigure}{r}{0.45\textheight}
 \centering
-\includegraphics[scale = 0.2]{Images/paws_3boards}
+\includegraphics[scale = 0.35]{Images/paws_1_3}
 \caption{Multiple Boards Added in PAWS Interface}
 \label{fig:paws_3boards}
 \end{wrapfigure}
@@ -547,9 +547,9 @@ In order to connect to the Arduino using serial communication, I used a C++ libr
 
 I found that if my computer was paired with the HC-06 bluetooth module, it could be connected to as a serial device. After ensuring that I was able to read in values accurately through the usb cable, I attempted to test connecting to the bluetooth module. Connecting to the HC-06 was straightforward enough but I found that the module itself was affecting the microphone circuitry. The power rails were being distorted by a steady square wave, most likely due to the bluetooth module's change in power consumption as it pooled and transmitted data. 
 
-\begin{wrapfigure}{r}{0.4\textheight}
+\begin{wrapfigure}{r}{0.45\textheight}
 \centering
-\includegraphics[scale=0.2]{Images/paws_sample}
+\includegraphics[scale=0.35]{Images/paws_1_sample}
 \caption{Triggering a Sample in PAWS Interface}
 \label{fig:paws_sample}
 \end{wrapfigure}
@@ -574,9 +574,9 @@ All in all, it took some time to implement this function but I was able to play 
 
 As discussed previously, the Arduino reads a sample value and then writes it to the serial bus as quickly as it possibly can. The Arduino Uno's \textit{analogRead( )} function is rated at being able to read 10,000 samples per second (i.e. a 10kHz sample rate) but since the function that writes values to the serial bus is so processor intensive, the effective sample rate is in fact much lower. 
 
-\begin{wrapfigure}{r}{0.4\textheight}
+\begin{wrapfigure}{r}{0.45\textheight}
 \centering
-\includegraphics[scale=0.2]{Images/paws_voice}
+\includegraphics[scale=0.35]{Images/paws_1_voice}
 \caption{Capturing the Microphone Signal in PAWS GUI}
 \label{fig:paws_voice}
 \end{wrapfigure}
@@ -725,8 +725,7 @@ I also renamed the text at the top of each \textit{Board} object to display "One
 
 \begin{figure}[H]
 \centering
-{\color{red}! MISSING IMAGE !}
-%\includegraphics[scale = 0.2]{Images/paws_3boards_final}
+\includegraphics[scale = 0.4]{Images/paws_3_single}
 \caption{Prototype 0.2.04 - Interface}
 \label{fig:paws_3boards_final}
 \end{figure}
@@ -735,21 +734,13 @@ I also renamed the text at the top of each \textit{Board} object to display "One
 
 This section summarises the various attempts I made to modify the frequency content of the various signals in my prototype
 
-Firstly, the Arduino Shield I designed in Section~\ref{0203} Prototype 0.2.03 was made to provide analogue voltages from the Arduino to control the gains of the amplifiers on the Finger Boards. I realised that the Resistor-Capacitor filters for converting the Arduino's PWM (Pulse-Width-Modulation) signals to analogue voltages were placed on the Finger Boards instead of on the Shield itself. This meant that the PWM signal was being transmitted down the connecting cable between the Shield and each of the Finger Boards, and was therefore affecting the microphone signal being transmitted back down the cable. In order to remedy this as quickly as possible, I designed a new printed circuit board for the Arduino Shield, which filtered the PWM signals before sending them to their respective Finger Boards. The transmission of a constant analogue voltage down the cable would therefore not induce any noise onto the microphone signal as it would not host any high frequency waves. Figure~\ref{ardshieldpcb2} shows the PCB Layout for Version 2 of the Arduino Shield.
+Firstly, the Arduino Shield I designed in Section~\ref{0203} Prototype 0.2.03 was made to provide analogue voltages from the Arduino to control the gains of the amplifiers on the Finger Boards. I realised that the Resistor-Capacitor filters for converting the Arduino's PWM (Pulse-Width-Modulation) signals to analogue voltages were placed on the Finger Boards instead of on the Shield itself. This meant that the PWM signal was being transmitted down the connecting cable between the Shield and each of the Finger Boards, and was therefore affecting the microphone signal being transmitted back down the cable. In order to remedy this as quickly as possible, I designed a new printed circuit board for the Arduino Shield, which filtered the PWM signals before sending them to their respective Finger Boards. The transmission of a constant analogue voltage down the cable would therefore not induce any noise onto the microphone signal as it would not host any high frequency waves. Appendix~\ref{ardshieldpcb2} shows the PCB Layout for Version 2 of the Arduino Shield.
 
 Since Version 2 of the Arduino Shield was not printed in time for the report, Prototype 0.2.04 continued using Version 1 and the induced PWM noise was the main source of distortion in the resultant microphone signal. 
 
 I also attempted to implement software filtering of the microphone signal, firstly to try to reduce the effects of the PWM on the signal, and secondly to isolate the frequencies related to 'tapping' a Finger Ring against a surface for robust sample triggering. JUCE contains libraries for determining filter coefficients and applying them to a chunk of samples. In order to conform to this library's requirements, I briefly modified my Arduino's code to read and transmit an entire chunk of data (arbitrarily set to ten samples), which the Interface would read and store into a temporary buffer and filter before adding them to the queue as before. However, I had troubles with determining filter coefficients for the low pass filtering I wished to do with a cutoff around 500Hz to ensure that only 'tapping' energy was kept in the spectrum. In order to workaround this problem, I used Matlab to determine coefficients and then imported them into my program to implement them and hence filter the input chunk. I found that for each set of coefficients I tried (with various cut off frequencies and roll offs) my microphone signal became unstable, producing sample values of the thirty-second order sometimes. Considering that audio signals are normally defined as float-type variables within the range of -1 to 1, this instability was either a result of badly defined coefficients, since JUCE implemented all filters as Infinite Impulse Response filters, which have the ability to become unstable, or that the already small sample values were wrapping around to become incredibly large and therefore not producible by the system. 
 
 Filtering in software is a good idea to do, especially since I am upsampling the microphone signal to match the output sample rate of the program, which introduces spectral images that need to be removed. However, I had to stop testing software filtering as I was not able to produce a stable result within a reasonable amount of time . More testing could be done using a bespoke filtering function rather than JUCE's methods. I was also only filtering a chunk of samples at a time, which first of all were very small at only 10 samples per chunk, and I was not using correct Digital Signal Processing methods for filtering in real-time such as the Overlap-Save or Overlap-Add methods. Further testing of software filtering would require implementing these well-documented methods to ensure stability and accuracy. 
-
-\begin{figure}[H]
-\centering
-{\color{red}! MISSING IMAGE !}
-%\includegraphics[scale = 0.2]{Images/paws_3boards_final}
-\caption{Prototype 0.2.04 - Instability caused by Filtering in Interface}
-\label{fig:badfilt}
-\end{figure}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -818,10 +809,6 @@ Figure~\ref{fig:sig_2} shows the same microphone signal but with the PWM Frequen
 \caption{Microphone Signal with PWM Frequency at 30Hz, measured at the Arduino input pin}
 \label{fig:sig_2}
 \end{figure}
-
-\subsubsection{Power Consumption}
-
-{\color{red} //////////////// !!!!FILL UP!!!!!}
 
 \subsubsection{Sample Rates}
 
@@ -985,6 +972,14 @@ musicality\\
 how easy\\
 how fun}
 
+test rig developed for testing Figure~\ref{fig:testrig}
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[scale=0.2]{Images/paws_testrig} 
+   \caption{Finger Boards arranged on workbench for User Testing}
+   \label{fig:testrig}
+\end{figure}
 
 
 \newpage
@@ -1043,7 +1038,7 @@ Table~\ref{tab:progressplan} shows how long it took to implement each of the pro
 \section{Improvements \& Enhancements} \label{Further Developments}
 
 \subsection{Future Design (Prototype 0.3.xx)}
-
+\subsubsection{Technical Implementation}
 Prototype 0.2.04 was fairly bulky in design relative to the concept design and any further developments would need to remedy this. I realised that the only need for the Arduino Uno was to sample the connected microphone signals and transmit the captured data to the Interface where all of the processing was done. It was of course also used to set the gain of the microphone circuit's amplifier but this function was not used in the initially intended way and was in fact set to a value which remained constant during run-time. 
 
 Therefore, the Arduino Uno could be deemed to be a redundant component for what it was used to do, and could simply be replaced by an Analogue-to-Digital Converter (ADC) and a serial interface. This would mean that the entire circuitry could be contained on a single Finger Board, which would connect directly to a computer. A good enough ADC would also be able to detect the microphone signal's dynamic range and map the incoming voltages to the entire digital range of values, thereby removing the need for a bespoke amplifier as well. Some surrounding digital circuitry may also be required such as a clock, and Figure~\ref{fig:0304_circuit} shows a mock-up system design for the Finger Board.
@@ -1059,6 +1054,9 @@ The inclusion of a battery would clean up the rail noise significantly compared 
 
 Other improvements could involve oversampling\textsuperscript{\cite{oversampling}} methods to allow for a well-defined signal that is more robust to transmission errors. The coding of data for transmission could also be looked into further to increase the transmission rate by first analysing the sent signals in terms of entropy and defining smaller codewords\textsuperscript{\cite{codewords}}. In this case, a trade-off would have to be found between oversampling, which corresponds to more data per second, and coding, which aims for less data per second. 
 
+\subsubsection{Graphical Interface}
+
+{\color{red} /////IMAGES OF INTERFACE BETTERMENT}
 
 \subsection{Enhancing Creative Functionalities}
 
@@ -1070,6 +1068,7 @@ Other functions could be introduced, like using motion to control parameters suc
 
 Some functionalities to increase user feedback would probably be much appreciated. For example, a 'Blink' function could be added whereby the user could tell a particular Board to 'Blink' or identify itself through the Interface, and the Board would host an LED or some such device to respond to the command. Thus, the user would be able to quickly and easily map the physical location of a PAWS Board to its respective controls on the Interface. 
 
+{\color{red} ///// FILL UP WITH EVERY SINGLE ENHANCEMENT }
 
 \subsection{Marketability}
 
@@ -1160,23 +1159,32 @@ This section details how to setup the PAWS instrument and use the counterpart so
 
 The PAWS instrument is comprised of three hardware components and a software application. Table~\ref{tab:listofparts} provides a list of all the hardware parts of the instrument. 
 
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{|l  c c}
-Part  & Quantity  &   Image \\
- \hline
- Finger Ring & 2 &   {\color{red}! MISSING IMAGE !}\\
- Thumb Ring & 1  &   {\color{red}! MISSING IMAGE !}  \\
- Finger Board &3   &    {\color{red}! MISSING IMAGE !}\\
- 4-way Jack Cable &3   &      {\color{red}! MISSING IMAGE !}\\
- Arduino Shield &1 &          {\color{red}! MISSING IMAGE !}\\
- Arduino Uno &1    &          !{\color{red}! MISSING IMAGE !}\\
- USB Type A/B Cable &1 &          {\color{red}! MISSING IMAGE !}\\
-\end{tabular}
-\end{center}
+\begin{figure}[H]
+\centering
+\subfloat[Finger Ring x2]{
+\includegraphics[width=0.12\textheight,height=0.12\textheight]{Images/0204_finger}
+}
+\subfloat[Thumb Ring x1]{
+\includegraphics[width=0.12\textheight,height=0.12\textheight]{Images/0204_thumb}
+}
+\subfloat[Finger Board x3]{
+\includegraphics[width=0.36\textheight,height=0.12\textheight]{Images/0204_board}
+}\\
+\subfloat[Arduino Shield x1]{
+\includegraphics[width=0.25\textheight,height=0.20\textheight]{Images/0204_shield}
+}
+\subfloat[Arduino Uno x1]{
+\includegraphics[width=0.25\textheight,height=0.20\textheight]{Images/0204_arduino}
+}\\
+\subfloat[4-way Jack Cable x3]{
+\includegraphics[width=0.25\textheight,height=0.20\textheight]{Images/0204_jackcable}
+}
+\subfloat[USB Type A/B Cable x1]{
+\includegraphics[width=0.25\textheight,height=0.20\textheight]{Images/0204_usbcable}
+}
 \caption{List of hardware parts for PAWS instrument}
-\label{tab:listofparts}
-\end{table}
+\label{fig:listofparts}
+\end{figure}
 
 
 \subsection{Setting Up the Hardware}
@@ -1187,25 +1195,38 @@ Firstly, the Finger Boards must be connected using the 4-way Jack Cables to the 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.2]{Images/paws_open}
-\caption{Opening Screen of PAWS Application}
+\subfloat[Opening Screen]{
+\includegraphics[scale = 0.25]{Images/paws_3_open}
 \label{fig:paws_open}
+}
+\subfloat[Controls for 3 Finger Boards]{
+\includegraphics[scale = 0.25]{Images/paws_3_connect}
+\label{fig:paws_3controls}
+}
+\caption{PAWS Interface on Opening and Connecting to Arduino}
+
 \end{figure}
 
 Upon starting the PAWS application, the user is greeted with a thin purplish red line across the centre of the screen and a single 'Connect' button. When the 'Connect' button is pressed, provided that the Arduino has been connected to the correct USB port, the program will open three control interfaces for each of the three Finger Boards, as displayed in Figure~\ref{fig:paws_3controls}. A 'Disconnect' button will appear at the top of the program above the Board controls. 
-
-\begin{wrapfigure}{r}{0.35\textheight}
-\centering
-{\color{red}! MISSING IMAGE !}
-%\includegraphics[scale = 0.2]{}
-\caption{PAWS Program displaying controls for 3 Finger Boards}
-\label{fig:paws_3controls}
-\end{wrapfigure}
 
 
 The control interfaces, labelled 'One', 'Two', and 'Three, consist of buttons to select whether the user would like the corresponding Finger Board to operate in 'Voice' mode or 'Sample' mode. Each interface also hosts a blue dial to control the amplitude of the resulting signal from the respective Finger Board, and a large red dial below these controls the overall volume for the entire program.
 
 When 'Voice' is selected for any Board, the sound captured by the Board's microphone will be played through the computer's output audio device. The thin line in the background of the display will also transform dynamically to display the waveform of the output sound for visual feedback.
+
+\begin{figure}[H]
+\centering
+\subfloat[All Boards in 'Voice' mode]{
+\includegraphics[scale = 0.25]{Images/paws_3_voice}
+\label{fig:paws_open}
+}
+\subfloat[All Boards in 'Sample' mode]{
+\includegraphics[scale = 0.25]{Images/paws_3_sample}
+\label{fig:paws_3controls}
+}
+\caption{PAWS Interface in different modes}
+
+\end{figure}
 
 When 'Sample' is selected for any Board, a drop down list appears below the mode selection buttons to allow the user to choose a sample sound file. When the user taps a Finger Board against a surface, the program will play back the chosen sample sound file in response to the 'tap'. This mode allows for the user to convert a rhythm they play into a series of pre-recorded sounds, as determined by the sample sound files in the list. Since these sample files are in stereo, the thin line in the background of the display will transform into two separate waveforms: a red line to represent the left channel of the played sound, and a blue line to represent the right channel. When both of the stereo channels are identical, the two lines will converge and  return to its original purplish colour. 
 
