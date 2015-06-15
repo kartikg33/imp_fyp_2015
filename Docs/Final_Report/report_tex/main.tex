@@ -751,17 +751,17 @@ This section aims to analyse and critique Prototype 0.2.04 both quantitavely by 
 \begin{wrapfigure}[35]{r}{0.37\textheight}
 \centering
 \subfloat[No Finger Boards attached]{
-\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_noboards.eps}
+\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_noboards2.eps}
 \label{fig:rail_noboards}
 }
 \\
 \subfloat[1 Finger Board attached]{
-\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_1board.eps}
+\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_1board2.eps}
 \label{fig:rail_1board}
 }
 \\
 \subfloat[3 Finger Boards attached]{
-\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_3boards.eps}
+\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_3boards2.eps}
 \label{fig:rail_3boards}
 }
 \caption{Arduino 5V Power Rail, measured on the Arduino Shield}
@@ -775,7 +775,7 @@ This section quantitatively analyses particular specifications of the Prototype 
 
 The evaluation was conducted using one Finger Board connected to Version 1 of the Arduino Shield circuit board since Version 2 was not available for testing. The tests involved looking at the noise ripple across the power rails of the Arduino and in the microphone signal coming in to the Arduino's analog input pin. All measurements were taken with a digital oscilloscope and plotted using Matlab. 
 
-Figure~\ref{fig:rail_noboards} shows the power rail measured on the Arduino Shield with no Finger Boards connected. We can see that it is centred around 4.97V, instead of the expected 5V, and features approximately 20mV of digital noise ripple. After connecting one Finger Board to the Arduino, I found that the rail voltage dropped further to around 4.91V, a drop of 60mV, with the same noise ripple of 20mV. Figure~\ref{fig:rail_1board} shows the waveform of the rail voltage. We also see a periodic ripple overlaid onto the waveform with a frequency determined to be 490Hz. This is in fact the frequency of the PWM signal sent by the Arduino to the Finger Board to produce an analogue voltage that can control the gain of the Board's amplifier. This frequency has been induced onto the power rails, most likely through the cable that attaches the Arduino Shield to the Finger Board. 
+Figure~\ref{fig:rail_noboards} shows the power rail measured on the Arduino Shield with no Finger Boards connected. We can see that it is centred around 4.97V, instead of the expected 5V, and features approximately 20mV of digital noise ripple. After connecting one Finger Board to the Arduino, I found that the rail voltage dropped further to around 4.91V, a drop of 60mV, with the same noise ripple of 20mV. Figure~\ref{fig:rail_1board} shows the waveform of the rail voltage. We also see a periodic ripple overlaid onto the waveform with a frequency determined to be {\color{red}490Hz}. This is in fact the frequency of the PWM signal sent by the Arduino to the Finger Board to produce an analogue voltage that can control the gain of the Board's amplifier. This frequency has been induced onto the power rails, most likely through the cable that attaches the Arduino Shield to the Finger Board. 
 
 Figure~\ref{fig:rail_3boards} shows the power rail with three Finger Boards connected. The voltage dropped significantly to 4.78V but the noise ripple remained constant at 20mV. For this measurement, the PWM frequency was changed down to 30Hz for the first Finger Board, and 61Hz for the second and third Finger Boards. The waveform does not show it but there is in fact an overlaid periodicity corresponding to approximately 60Hz. The power required by the three Finger Boards' microphones and amplifiers causes a large drain on the Arduino, resulting in the voltage drop of the power rail. 
 
