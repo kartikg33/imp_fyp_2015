@@ -215,3 +215,62 @@ xlim([freqlim(1), 5026.63115845539/2]);
 grid minor;
 xlabel('Frequency (Hz)');
 ylabel('Amplitude (dB)');
+%% SIGNAL NOISE 4
+%COLUMN 1: SECONDS
+%COLUMN 2: VOLTS
+B = csvread('sig_samp.csv');
+%A = B(800:900,:);%idle
+%A = B(82240:82500);%ringtap
+%A=B(96575:96645)/204.8;
+%figure;
+%plot(B);
+%figure;
+%A=B(96500:96700)/204.8;
+C=B(39505:39700);%/204.8;
+over = round(44100/2381);
+A = [C(1)];
+for x=2:length(C)  
+    inter = (C(x)-C(x-1))/over;
+    for i=1:over-1
+        A = [A, C(x-1)+(inter*i)]; 
+    end
+    A = [A, C(x)];
+end
+numsamp = size(A,2);
+%fs = 2381;
+fs = 44100;
+%fs = 44100/12;
+T = 1/fs;
+
+subplot(2,1,1)
+time = [0:T:(numsamp/fs)-T];
+lime = [70*over:length(A)-(55*over)];
+plot(A(lime))
+%xlim([time(70*over),time(end-(55*over))]);
+xlim([1 length(lime)]);
+ylim([0 1023]);
+grid minor;
+xlabel('Sample Number');
+ylabel('Sample Value [0:1023]');
+
+subplot(2,1,2)
+freqlim = [50:fs/numsamp:fs/2];
+freqax = round(freqlim*numsamp/fs);
+I = find(freqax==0);
+freqax(I) = 1;
+A_freq = abs(fft(A));
+loglog(freqlim,A_freq(freqax));
+%hold on;
+%temp = zeros(1,length(freqlim));
+temp(max(find(freqlim<500))) = 100;
+%stem(freqlim,temp,'LineStyle','--','Marker', 'none');
+%str1 = '490Hz';
+%text(350,0.1,str1,'Color','r')
+%hold off;
+%ylim([0,5]);
+%xlim([freqlim(1), 5026.63115845539/2]);
+xlim([freqlim(1), fs/2]);
+%ylim([1e-2 1e2]);
+grid minor;
+xlabel('Frequency (Hz)');
+ylabel('Amplitude (dB)');

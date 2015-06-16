@@ -455,6 +455,15 @@ INPUT ./Images/sig_samp.eps
 INPUT ./Images/sig_samp-eps-converted-to.pdf
 INPUT ./Images/sig_samp-eps-converted-to.pdf
 INPUT ./Images/sig_samp-eps-converted-to.pdf
+INPUT Images/sig_oversamp.eps
+INPUT ./Images/sig_oversamp.eps
+INPUT ./Images/sig_oversamp.eps
+INPUT ./Images/sig_oversamp-eps-converted-to.pdf
+INPUT ./Images/sig_oversamp-eps-converted-to.pdf
+INPUT ./Images/sig_oversamp.eps
+INPUT ./Images/sig_oversamp-eps-converted-to.pdf
+INPUT ./Images/sig_oversamp-eps-converted-to.pdf
+INPUT ./Images/sig_oversamp-eps-converted-to.pdf
 INPUT Images/paws_testrig3.png
 INPUT ./Images/paws_testrig3.png
 INPUT ./Images/paws_testrig3.png
