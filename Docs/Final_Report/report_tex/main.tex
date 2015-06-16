@@ -532,7 +532,7 @@ I used Introjucer to develop two GUI classes to run under the main application: 
 \begin{wrapfigure}[28]{r}{0.4\textheight}
 \centering
 \includegraphics[scale=0.9]{Images/JuceConcept2}
-\caption{Concept Sketches for new Juce GUI}
+\caption{Concept Sketches for JUCE GUI, Prototype 0.2.01}
 \label{fig:juceguisketches}
 \end{wrapfigure}
 
@@ -548,7 +548,7 @@ Figure~\ref{fig:juceguisketches} shows concept sketches for the JUCE GUI. Upon s
 \begin{wrapfigure}{r}{0.43\textheight}
 \centering
 \includegraphics[scale = 0.35]{Images/paws_1_3}
-\caption{Multiple Boards Added in PAWS Interface}
+\caption{Controls for 3 Boards in Interface, Prototype 0.2.01}
 \label{fig:paws_3boards}
 \end{wrapfigure}
 %\end{figure}
@@ -563,65 +563,61 @@ As an extra addition, volume controls were added to both 'Board' and 'Overlay cl
 
 \subsubsection{Serial Communication and Bluetooth}
 
-In order to connect to the Arduino using serial communication, I used a C++ library called \textit{termios}\textsuperscript{\cite{termios}}. This library allowed me to connect to a serial port and read data as was done in Python. I was not able to find a solution to detecting available ports to display in the GUI's 'Select Serial Port'  drop down list, and therefore pre-specified the Arduino's port name for the time being. 
+In order to connect to the Arduino using serial communication, I used a C++ library called \textit{termios}\textsuperscript{\cite{termios}}. This library allowed me to connect to a serial port and read data as was done in Python. I was not able to find a solution to detect available ports for dynamically updating the 'Select Serial Port' drop down list in the 'Board' class, and therefore had to pre-specify the Arduino's port until a solution could be found.
 
-I found that if my computer was paired with the HC-06 bluetooth module, it could be connected to as a serial device. After ensuring that I was able to read in values accurately through the usb cable, I attempted to test connecting to the bluetooth module. Connecting to the HC-06 was straightforward enough but I found that the module itself was affecting the microphone circuitry. The power rails were being distorted by a steady square wave, most likely due to the bluetooth module's change in power consumption as it pooled and transmitted data. 
+I found that if my computer was paired with the HC-06 Bluetooth module, it could be connected to as a serial device. After ensuring that I was able to read in values accurately through the USB cable, I attempted to test connecting to the Bluetooth module. Connecting to the HC-06 was straightforward enough but I found that the module itself was affecting the microphone circuitry. The power rails were being distorted by a steady square wave, most likely due to the Bluetooth module's change in power consumption as it pooled and transmitted data. 
 
-\begin{wrapfigure}{r}{0.45\textheight}
+\begin{wrapfigure}[19]{r}{0.45\textheight}
 \centering
 \includegraphics[scale=0.35]{Images/paws_1_sample}
-\caption{Triggering a Sample in PAWS Interface}
+\caption{Board connected to Interface in 'Sample' mode, Prototype 0.2.02}
 \label{fig:paws_sample}
 \end{wrapfigure}
 
-Due to this, I stuck to using the usb cable for data transmission as I could also use it to power my arduino and microphone circuit. An independent power source for the microphone circuit would be ideal as the power drawn from the computer is corrupted with digital noise and the arduino only seems to add to that, but this solution seemed to work for the time being and was in fact more reliable than communication via bluetooth. 
+Due to this, I stuck to using the USB cable for data transmission as I could also use it to power my arduino and microphone circuit. An independent power source for the microphone circuit would be ideal as the power drawn from the computer was corrupted with digital noise and the Arduino only seemed to add to that, but this solution worked for the time being and was in fact more reliable than communication via Bluetooth. 
 
 
+\subsubsection{Implementing the 'Sample' Mode}
+
+I was able to program a function to read a sample sound file, for example that of a drum hit, into a buffer but I had to rethink the way the function would trigger the sound because of the architecture of the JUCE program. The top-most 'Main Component' class called a function \textit{getNextAudioBlock( )} to read the sample values stored in the buffer of each 'Board' object, which was of course being populated by the 'Voice' function receiving data from the Arduino. This function also requested 512 data samples with each call, and therefore my code for 'Sample' mode had to take this into account when trying to play a sound file consisting of tens of thousands of data samples. 
+
+In order to implement the 'Sample' function, I used flags to determine whether a peak in the input audio signal had been detected, and the \textit{getNextAudioBlock( )} would check these flags and pull the drum sound samples from a separate sample sound buffer. This meant a lot of processing was involved to ensure that only 512 samples of the drum sound were pulled at a time and that the position of the next samples to be played was recorded. I also enabled the function to reset the next data sample to be pulled if another 'tap' was detected during playback, so as to improve its responsiveness. This meant that the previous drum sound being played would be cut short rather than overlaid onto the new sound but it would react better to the user's performance.
+
+All in all, it took some time to implement this function but I was able to play a sample drum sound by detecting peaks in the input signal from the Arduino. Figure~\ref{fig:paws_sample} shows a screenshot of the GUI during a sample being triggered by a 'tap' on the microphone. However, since the peaks in the microphone signal did not necessarily represent 'taps' and could in fact be artefacts of speech or even noise, I found that the function misfired, or played drum sounds when it was not supposed to. Filtering the input signal was considered to ensure that only the sound of tapping a surface was being processed for peak detection. 
 
 
-\subsubsection{Implementing Sample Function}
+\subsubsection{Upsampling for the 'Voice' Mode}
 
-I was able to program a function to read a sample sound file, for example that of a drum hit, into a buffer but I had to rethink the way the function would trigger the sound because of the architecture of this program. The top-most class, called 'Main Component', was calling a function at a set frequency to request 512 sample values to be sent to the Audio Device. This function, \textit{getNextAudioBlock( )}, was being used to read the sample values stored in the buffer of each 'Board' object, which was of course being populated by the Voice Function receiving data from the Arduino. 
-
-
-In order to implement the Sample Function, I used flags to determine whether a peak in the input audio signal had been detected, and the \textit{getNextAudioBlock( )} would check these flags and pull the drum sound samples from its respective buffer. This meant a lot of processing was involved to ensure that only 512 samples of the drum sound were pulled at a time and that the position of the next samples to be played was recorded. I also enabled the function to reset the next sample to be played if another tap was detected during playback, so as to improve its responsiveness. This meant that the previous drum sound being played would be cut short rather than overlayed onto the new sound but it would react better to the user's performance.
-
-
-All in all, it took some time to implement this function but I was able to play a sample drum sound from detecting peaks in the input signal from the Arduino. Figure~\ref{fig:paws_sample} shows a screenshot of the GUI during a Sample being triggered by a tap on the microphone. However, since the peaks in the microphone signal did not necessarily represent 'taps' and could in fact be artifacts of speech or even noise, I found that the program misfired, or played drum sounds when it was not supposed to. The input signal would have to be filtered to ensure that only the sound of tapping a surface was being processed for peak detection. 
-
-
-\subsubsection{Interpolation for Voice Function}
-
-As discussed previously, the Arduino reads a sample value and then writes it to the serial bus as quickly as it possibly can. The Arduino Uno's \textit{analogRead( )} function is rated at being able to read 10,000 samples per second (i.e. a 10kHz sample rate) but since the function that writes values to the serial bus is so processor intensive, the effective sample rate is in fact much lower. 
+As discussed previously, the Arduino read a data sample and wrote it to the Serial bus as quickly as it possibly could. The Arduino Uno's \textit{analogRead( )} function was rated at being able to read 10,000 samples per second (i.e. a 10kHz sample rate) but since the function that printed values to the Serial bus was so processor intensive, the effective sample rate was in fact much lower. 
 
 \begin{wrapfigure}{r}{0.45\textheight}
 \centering
 \includegraphics[scale=0.35]{Images/paws_1_voice}
-\caption{Capturing the Microphone Signal in PAWS GUI}
+\caption{Board connected to Interface in 'Voice' mode, Prototype 0.2.02}
 \label{fig:paws_voice}
 \end{wrapfigure}
 
 
-Thus, when we read samples in to the Interface on the computer, and output them at the JUCE library's preset rate of 44.1kHz, we cannot hear the audio signal correctly. In order to remedy this change of sample rate, we need to upsample it to 44.1kHz. I used linear interpolation to perform the upsampling, whereby new samples are created in between two read samples that form a linear ramp from the first sample to the last. This increases the number of samples to represent a particular time period (the effective sample rate) while maintaining the waveform to some degree of accuracy. 
+Thus, when we read samples in to the Interface on the computer, and outputted them at the JUCE library's preset rate of 44.1kHz, we could not hear the audio signal correctly. In order to remedy this change in sample rate, we needed to upsample the signal to 44.1kHz. I used linear interpolation to perform the upsampling, whereby new samples were created in between two read samples to formed a linear ramp from the first sample to the last. This increased the number of samples representing a particular time period (the sample rate) while maintaining the waveform to some degree of accuracy. 
 
 
 When outputting the input samples without any upsampling, I found that the input sample rate was approximately 13 times smaller than 44.1kHz. This was determined by calculating that every time the \textit{getNextAudioBlock( )} function requested 512 samples, the program had in fact only read in about 39 samples from the Arduino. Therefore the input signal was interpolated by a factor of 13, that is, twelve new sample values were created and stored in between any two input values in such a way as to form a linear change between them.
 
-By doing this, the output signal was able to produce the correct frequencies and my voice could be heard at the correct pitch, if a bit unclear. The signal was found to be fairly distorted and fuzzy, which I determined to be digital noise from the Arduino. 
+By doing this, the output signal was able to produce the correct frequencies and my voice could be heard at the correct pitch, if a bit unclear. The signal was found to be fairly distorted and fuzzy, which I determined to be digital noise as well as the initial low sampling rate of the Arduino. 
 
-\subsubsection{Coding Serial Transmission}
+\subsubsection{Coding the Serial Transmission}
 
-I attempted to code the serial transmission in order to improve the speed at which samples are written to the serial bus by the Arduino, and thereby reduce the time spent between reading samples.
+I attempted to code the serial transmission in order to improve the speed at which samples were written to the Serial bus by the Arduino, and thereby reduce the time spent between reading samples.
 
-I maximised the transmission baud rate to ensure that data was sent as quickly as possible between the Arduino and the Interface. I was using a 'print line' function to print the sample values to the serial bus followed by a 'new line' character to separate each value. However, I realised that this function was first converting the integer values into a string of characters, where each character was an ASCII representation of a digit, and then transmitting it. This meant that an integer of size two bytes was being transmitted as a maximum of five bytes: a maximum of four to represent each of the digits in the range 0 to 1024, and a final byte for the 'new line' character.
+I maximised the transmission baud rate to 230400 to ensure that data was sent as quickly as possible between the Arduino and the Interface. I was using a \textit{print line} function to print the sample values to the Serial bus followed by a 'new line' character to separate each value. However, I realised that this function was first converting the integer values into a string of characters, where each character was an ASCII representation of a digit, and then transmitting it. This meant that an integer of size two bytes (16 bits) was being transmitted as a maximum of five bytes: a maximum of four to represent each of the digits in the range 0 to 1024, and a final byte for the 'new line' character.
 
-I removed this redundancy by simply writing the two bytes of the integer value directly to the serial bus followed by the 'new line' character, thereby reducing a variable transmission rate of three to five bytes of data to a constant three bytes per sample. I realised that the \textit{analogRead( )} function only produced a 10 bit value, to give the range 0 to 1024, and therefore only occupied a fraction of the upper byte of an integer value. In order to reduce the transmission rate even further, I divided each sample value by 4, to remove the lower 2 bits, and simply transmitted the first byte. The transmission rate was then lowered to two bytes per sample. 
+I removed this redundancy by simply writing the two bytes of the integer value directly to the Serial bus, followed by the 'new line' character, thereby reducing a variable transmission rate of three to five bytes of data to a constant three bytes per sample. I realised that the \textit{analogRead( )} function only produced a 10 bit value, to give the range 0 to 1024, and therefore only occupied a fraction of the upper byte of an integer value. In order to reduce the transmission rate even further, I divided each sample value by 4, to remove the lower 2 bits, and simply transmitted the first byte. The transmission rate was then lowered to a fixed two bytes per sample. 
 
-The Interface was re-programmed to wait for a 'new line' character before reading in a byte of information, parsing it to an integer data type, and then multiplying it by 4 again before saving it to the buffer of samples, which could later be called for upsampling. Another method for reducing the size of a sample from 10 bits to 8 bits was by simply shifting all the bits along by two and then taking the first byte to ensure the most significant bit (MSB) was captured. The bit shifting worked on the same principle as a division by 4 but it was found that the audio quality was somewhat clearer using the division by 4, despite the two methods being absolutely identical in terms of function. 
+The Interface was re-programmed to wait for a 'new line' character before reading in a byte of information, parsing it to an integer data type, and then multiplying it by 4 again, before saving it to the data buffer, which could later be called for upsampling. Another method for reducing the size of a sample from 10 bits to 8 bits was to simply shift all the bits along to the right by two and then taking the first byte to ensure the most significant bit (MSB) was captured. The bit shifting worked on the same principle as a division of 4 but it was found that the audio quality was somewhat clearer using the division, despite the two methods being absolutely identical in terms of function. This comparison was determined qualitatively and could have been utterly dependent on the differences between the signals being captured by the microphone. In any case, I stuck with the division by 4 method. 
 
 \subsection{Prototype 0.2.03} \label{0203}
 
-\begin{wrapfigure}{r}{0.27\textheight}
+\begin{wrapfigure}[27]{r}{0.27\textheight}
 \centering
 \subfloat[Finger Board PCB]{
 \includegraphics[scale=0.07]{Images/fingerboard_pcb}
@@ -633,27 +629,25 @@ The Interface was re-programmed to wait for a 'new line' character before readin
 \label{fig:finalpcbs}
 \end{wrapfigure}
 
-With this prototype, I designed printed circuit boards for the hardware I had implemented on breadboard and 3D printed housings in the shape of rings to allow one to wear the microphone circuit on one's finger. 
-
+With this prototype, I designed Printed Circuit Boards (PCBs) for the microphone circuitry and 3D printed housings in the shape of rings to allow a user to wear the microphone circuit on their finger. This design evolution implemented the microphone circuitry on a Finger Board and created an Arduino Shield to slot directly into the Arduino Uno, and these two PCBs alongside the Arduino formed a PAWS Board. 
 
 \subsubsection{Hardware on Printed Circuit Boards}
 
-I used a software tool called \textit{Eagle}\textsuperscript{\cite{eagle}} to design my circuits and generate layouts for printed circuit boards (PCBs). I designed two circuits: one for the microphone which could physically be worn at your fingertips, and another as a shield to connect with the Arduino Uno. 
+I used a software tool called \textit{Eagle}\textsuperscript{\cite{eagle}} to design my circuits and generate layouts for PCBs. I designed two circuits: a Finger Board for the microphone circuitry which could physically be worn at your fingertips, and another as Shield to slot on top of the Arduino Uno. 
 
+The Finger Board was designed to house the microphone circuit, along with the AD605 programmable gain amplifier. Since the circuitry would require a positive rail voltage from the Arduino of 5V, a ground voltage, and a signal to control the gain of the amplifier, a connector would be required to receive these voltages via a cable from the Arduino. A four way connector was chosen to account for the microphone signal being sent to the Arduino.  
 
-The Finger Board was designed to house the microphone circuit, along with the AD605 programmable gain amplifier. Since the circuitry would require a positive rail voltage from the Arduino of 5V, a ground voltage, and a signal to control the gain of the amplifier, a connector would also be required to receive these voltages via a cable from the Arduino. A four way connector was chosen to account for the microphone signal being outputted to the Arduino.  
-
-The Arduino Shield was designed to be of the same size as the Arduino Uno with connections such that it could simply slot in place. It was designed to connect via a cable to not one but three Finger Boards, for such a time when the software was upgraded to be able to control three microphone inputs all at once. The circuitry for the HC-06 bluetooth module was also included just in case I wished to insert it in the future. 
+The Arduino Shield was designed to be of the same size as the Arduino Uno with connections such that it could simply slot in place. It was designed to connect via a cable to not one but three Finger Boards, for such a time when the software was upgraded to be able to control three microphone inputs all at once. This functionality would preserve the ability to connect to and program multiple sensors independently despite there only being a single microcontroller. The circuitry for the HC-06 bluetooth module was also included just in case I wished to insert it in the future. 
 
 Appendices~\ref{fingerboardsch} and \ref{ardshieldsch} show the drawn circuit schematics for Prototype 0.2.03. 
 
-After drawing the circuit schematics, I designed the PCBs themselves in terms of their size and the layout of all the components. I chose the components to be as small as possible while maintaining the ability to solder them onto the boards easily. I used the same Kingstate Electret Microphones as before but I used a surface mount package of the AD605 chip, which happened to be slightly smaller than its Dual-Inline Package counterpart that I was testing on breadboard. For the resistors and capacitors, I opted for the MELF0204 and C3216 packages respectively as they were also surface mountable but large enough to solder with my hands. I also chose to use a 4-way male-to-male 3.5mm jack audio cable to connect the Arduino Shield to the Finger Boards. This meant that the female connectors required by both boards could be small as they featured concentric connection rings for the 4 signal paths, and I was also able to find them in a surface mountable package. 
+After drawing the circuit schematics, I designed the PCBs in terms of their size and the layout of all the components. I chose the components to be as small as possible while maintaining the ability to solder them myself. I used the same Kingstate Electret Microphones as before but I used a surface mount package for the AD605 chip, which happened to be slightly smaller than its Dual-Inline Package counterpart that I was testing on Breadboard. For the resistors and capacitors, I opted for the MELF0204 and C3216 packages respectively as they were also surface mountable but large enough to solder with my hands. I also chose to use a 4-way male-to-male 3.5mm jack audio cable to connect the Arduino Shield to the Finger Boards. This meant that the female connectors required by both Boards could be small as they featured concentric connection rings for the 4 signal paths, and I was also able to find them in a surface mountable package. 
 
-For the Shield, I used Single-Inline male connectors to slot directly into the pin headers in the Arduino Uno. The connectors for Shield were of course exactly the same as the ones for the Finger Boards. 
+For the Shield, I used Single-Inline male connectors to slot directly into the pin headers in the Arduino Uno. The jack cable connectors for the Shield were of course exactly the same as the ones for the Finger Boards. 
 
-Appendices~\ref{fingerboardpcb} and \ref{ardshieldpcb} show the PCB layouts for each of these boards and Figure~\ref{fig:finalpcbs} shows images of the final PCBs after soldering all the components down. 
+Appendices~\ref{fingerboardpcb} and \ref{ardshieldpcb} show the PCB layouts for each of these Boards and Figure~\ref{fig:finalpcbs} shows images of the final PCBs after soldering all the components down. 
 
-The Arduino Shield was designed to connect to three Finger Boards and provide a separate gain voltage to each of their programmable amplifiers separately. This design was designed to work with the current Interface, which could connect to the Arduino and access a single microphone circuit, and with a future Interface, detailed in Subsection~\ref{0204}, to allow the user to control the functionality of three Finger Boards individually.
+The Arduino Shield was designed to connect to three Finger Boards and provide a separate gain voltage to each of their programmable amplifiers. This was designed to work with the current Interface, which could connect to the Arduino and access a single microphone, and with a future Interface, detailed in Subsection~\ref{0204}, to allow the user to control the functionality of three Finger Boards individually.
 
 
 

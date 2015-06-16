@@ -31,9 +31,9 @@
 \contentsline {subsubsection}{\numberline {7.4.2}Designing the GUI}{22}
 \contentsline {subsection}{\numberline {7.5}Prototype 0.2.02}{23}
 \contentsline {subsubsection}{\numberline {7.5.1}Serial Communication and Bluetooth}{23}
-\contentsline {subsubsection}{\numberline {7.5.2}Implementing Sample Function}{23}
-\contentsline {subsubsection}{\numberline {7.5.3}Interpolation for Voice Function}{24}
-\contentsline {subsubsection}{\numberline {7.5.4}Coding Serial Transmission}{24}
+\contentsline {subsubsection}{\numberline {7.5.2}Implementing the 'Sample' Mode}{23}
+\contentsline {subsubsection}{\numberline {7.5.3}Upsampling for the 'Voice' Mode}{24}
+\contentsline {subsubsection}{\numberline {7.5.4}Coding the Serial Transmission}{24}
 \contentsline {subsection}{\numberline {7.6}Prototype 0.2.03}{25}
 \contentsline {subsubsection}{\numberline {7.6.1}Hardware on Printed Circuit Boards}{25}
 \contentsline {subsubsection}{\numberline {7.6.2}3D Printed Housings}{26}
