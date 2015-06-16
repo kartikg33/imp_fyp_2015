@@ -877,13 +877,13 @@ Upsampling of the signal in the 'Voice' function to 44.1kHz introduces spectral 
 \newpage
 \subsection{Prototype 0.2.04 - Evaluation} \label{Prototype Evaluation 2}
 
-This section qualitatively evaluates the prototype through comparison with the Product Requirements and User Testing.
+This section qualitatively evaluates the Prototype by comparing it against the Product Requirements and through User Testing.
 
 \subsubsection{Requirements Evaluation}
 
-Prototype 0.2.04 was evaluated against the specifications detailed in Section~\ref{Requirements} Product Requirements to determine how much of the concept design was implemented and to highlight the areas where further development is necessary. 
+Prototype 0.2.04 was evaluated against the specifications detailed in Section~\ref{Requirements} Product Requirements to determine which areas of the Concept Design were implemented and to highlight the areas where further development was necessary. 
 
-Table~\ref{tab:specifications} listed specifications for both the concept PAWS Board and the Interface. Table~\ref{tab:specificationsmet} answers these specification questions to determine what the Finger Board, coupled with the Arduino, and the JUCE Interface can and cannot do. 
+Table~\ref{tab:specifications} listed specifications for both a concept PAWS Board and the Interface. Table~\ref{tab:specificationsmet} answers these specification questions to determine what the Finger Board, coupled with the Arduino, and the JUCE Interface for Prototype 0.2.04 can and cannot do. 
 
 \begin{table}[H]
 \centering
@@ -918,14 +918,14 @@ It cannot save the output audio to file\\
 It cannot modify the frequency content of the audio signal from each PAWS Board\\
 It cannot map motion gestures to control parameters\\
 \end{tabular}
-\caption{Specifications Met by Prototype 0.2.04}
+\caption{List of Specifications met by Prototype 0.2.04}
 \label{tab:specificationsmet}
 \end{table}
 
-We can see that the Finger Board and Arduino have not been developed to the same extent that the Interface has, particularly because adding new functionalities in hardware takes much more time and effort than for software. A few of the specifications have been answered vaguely, for instance, the Finger Board does perform low pass filtering on the microphone signal but since the question is asking whether the filtering of the signal can be freely programmed, it has been listed in the 'cannot do' section. Similarly, the question '\textit{Can it remind the user of its functionality}' is open and would probably require further details into how it would do that once a method to do so has been implemented. 
+We can see that the Finger Board and Arduino have not been developed to the same extent that the Interface has, particularly because adding new functionalities in hardware requires much more time and effort than with software. A few of the specifications have been answered vaguely, for instance, the Finger Board does perform low pass filtering on the microphone signal but since the question is asking whether the filtering of the signal can be freely programmed, it has been listed in the 'cannot do' section. Similarly, the question '\textit{Can it remind the user of its functionality?}' is open and would probably require further details into how it would do that once a method to do so has been implemented. 
 
 
-Table~\ref{tab:criteria} from Section~\ref{Requirements} listed a few open-ended questions in an aim to incite a discussion on a prototype's functionality as opposed to a checklist. Table~\ref{tab:criteriamet} provides a summary of how Prototype 0.2.04 has met these criteria. 
+Table~\ref{tab:criteria} from Section~\ref{Requirements} listed a few open-ended questions in an aim to incite a discussion on a Prototype's functionality as opposed to marking off a checklist. Table~\ref{tab:criteriamet} provides a summary of how Prototype 0.2.04 has met these criteria. 
 
 \begin{table}[H]
 \centering
@@ -975,11 +975,11 @@ They currently do not have the ability to add their own files. \\
 \textit{Simplicity Of Use} - How easily can the user program PAWS Boards? \\
 \hline
 
-The programmability of the Interface is incredibly simple. The user only has to select which function \\
-they require, 'Voice' or 'Sample' and the program will automatically do what is required of it. If the \\
+The programmability of the Interface is incredibly simple. The user only has to select which mode \\
+they require, 'Voice' or 'Sample', and the program will automatically do what is required of it. If the \\
 'Sample' function is selected, the Interface will display a drop down list for the user to choose which \\
 sample sound file gets triggered. This selection has been implemented deliberately as a drop down \\list to allow for the user to add as many sample sound files as they wish. Volume pots are available to \\
-change the amplitudes of the signals from each of the Boards individually as well as a global \\amplitude control.\\
+change the amplitudes of the signals from each of the Boards individually as well as a global \\volume control.\\
 
 
 \hline \hline
@@ -988,7 +988,7 @@ change the amplitudes of the signals from each of the Boards individually as wel
 The prototype is in fact extremely restrictive. The Finger Boards, along with the Rings, are large and \\heavy, and the cables attaching them to the Arduino are thick and somewhat impair the user's ability \\to move their hand freely. The user must also remain close to the computer running the Interface \\program since the Arduino is connected to it via a USB cable and must sit comfortably on a surface. 
 
 \end{tabular}
-\caption{Criteria Met by Prototype 0.2.04}
+\caption{Discussion of Criteria met by Prototype 0.2.04}
 \label{tab:criteriamet}
 \end{table}
 
@@ -997,8 +997,7 @@ The prototype is in fact extremely restrictive. The Finger Boards, along with th
 \subsubsection{User Evaluation}
 
 
-
-After performing the Requirements Analysis myself, I sought to find a non-musician potential user to test my prototype. Considering that the 'Sample' function for Prototype 0.2.04 worked to the extent where samples could be triggered by physically tapping the microphone but not through the detection of the Finger Rings impacting upon a surface, I decided to secure my Finger Boards to a workbench for my user to interact with and fully test the functionality of my instrument. Figure~\ref{fig:testrig} is a still frame from video footage of the user testing session, and simultaneously shows the user's interaction with the Boards, held down side by side using electrical tape, and the PAWS Interface. 
+After performing the Requirements Analysis myself, I sought to find a non-musician as a potential user to test my prototype. Considering that the 'Sample' mode for Prototype 0.2.04 worked to the extent where samples could be triggered by physically tapping the microphone but not through the detection of the Finger Rings impacting upon a surface, I decided to secure my Finger Boards to a workbench for my user to interact with and fully test the functionality of my instrument. Figure~\ref{fig:testrig} is a still frame from video footage of the user testing session, and simultaneously shows the user's interaction with the Boards, held down side by side using electrical tape, and the PAWS Interface. 
 
 \begin{figure}[H]
    \centering

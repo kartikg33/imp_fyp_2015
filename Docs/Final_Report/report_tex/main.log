@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.10)  16 JUN 2015 23:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.10)  16 JUN 2015 23:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1424,7 +1424,13 @@ Overfull \hbox (21.01608pt too wide) in paragraph at lines 868--869
  []
 
 [34 <./Images/sig_samp-eps-converted-to.pdf> <./Images/sig_oversamp-eps-convert
-ed-to.pdf>] [35] <Images/paws_testrig3.png, id=392, 1284.8pt x 803.0pt>
+ed-to.pdf>]
+Overfull \hbox (7.54123pt too wide) in paragraph at lines 880--881
+\T1/futs/m/n/10 This sec-tion qual-i-ta-tively eval-u-ates the Pro-to-type by c
+om-par-ing it against the Prod-uct Re-quire-ments and through
+ []
+
+[35] <Images/paws_testrig3.png, id=392, 1284.8pt x 803.0pt>
 File: Images/paws_testrig3.png Graphic file (type png)
 
 <use Images/paws_testrig3.png>
@@ -1749,7 +1755,7 @@ exlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2
 014/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2014/tex
 mf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on main.pdf (53 pages, 38799781 bytes).
+Output written on main.pdf (53 pages, 38799874 bytes).
 PDF statistics:
  551 PDF objects out of 1000 (max. 8388607)
  347 compressed objects within 4 object streams
