@@ -111,36 +111,34 @@ DrumPants is another product that utilises wearable sensors to control sounds. T
 
 A third product, not specifically designed for music but relevant nonetheless, is the \emph{Ring}\textsuperscript{\cite{gesturering}} by Logbar Inc. The Ring has the capability of controlling any web-linked interface through an Android or iOS App using gestures. It is designed for the user to assign gestures to specific features, from controlling music play-out on a smartphone to opening a set of shower curtains (provided they have internet connectivity). The idea behind the Ring is that it allows a user to directly interact with the world around them through a portable wearable sensor with apparently no physical limitations. The concept of this device, in its functionality and freedom of use, would greatly enhance a musician's creativity if applied to the world of sound.
 
-Based on these products, I aim to produce a new musical instrument that heads in the direction of user-programmable electronics that is portable and not restricted to a physical workspace in the way that most other motion-based products (especially computer-vision related) are. The musical instrument should allow the user to define the manner in which they wish to produce sounds and should allow them to use the range of their entire bodies in the process without introducing any physical or mental limitations. 
+Based on these products, I aim to produce a new musical instrument that heads in the direction of user-programmable electronics, which is portable and not restricted to a physical workspace in the way that most other motion-based products are (especially those related to computer-vision). The musical instrument should allow the user to define the manner in which they wish to produce sounds and should allow them to use the range of their entire bodies in the process without introducing any physical or mental limitations. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{A New Concept Instrument} \label{Product Concept}
 
-\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{wrapfigure}[14]{r}{0.5\textwidth}
 \centering
 \includegraphics[scale=0.8]{Images/UserLevelDia}
-\caption{User Level Design}
+\caption{PAWS - Concept User Level Diagram}
 \label{fig:userlvl}
 \end{wrapfigure}
 
-The musical instrument I will be building will be based around the concept of programmable, wearable sensors. Firstly, the instrument shall use an array of sensors, such as audio (microphone) or motion (accelerometer/gyroscope), to capture and control sound. These sensors should be wearable by the user, most likely through bespoke 3D printed housings so as to meet that particular aspect of the project brief. The ability to wear these sensors in any location will increase the adaptability of their use, as well as removing the restrictions of a fixed physical environment. These sensors should also be programmable by the user in order to complete any given task. The user should be able to perform functions such as recording their voice, emulating a real live drum kit, mapping a tempo, and even harmonising their singing with virtual instruments, all by programming the sensors in various ways. Figure~\ref{fig:userlvl} shows a user-level diagram of a sensor array (PAWS Board) sending information wirelessly to an interface on either a computer or a smartphone and consequently producing audio.
+The musical instrument I will be building will feature the concept of Programmable And Wearable Sensors (PAWS). The instrument will consist of a hardware aspect, i.e. wearable sensors, and a software aspect to control the functionality of these circuit boards. The wearable sensors will be small and light to increase the adaptability of their use as well as removing the restrictions of a fixed physical environment. 
 
-\newpage
-\begin{wrapfigure}{r}{0.55\textwidth}
+A PAWS Board, made up of audio and motion sensors, will have the ability to be worn by the user at any location. To do this, plastic housings will be 3D Printed in the shape of clips or rings or wristbands for the user to wear, which PAWS Boards can then be attached to. The ability to allow the user to print their own housings is significant and will allow users in the near future to interact more closely with PAWS Boards. These worn PAWS Boards will then be programmed by the user through a software Interface, hosted on either a computer or a smartphone, to complete any given task. The PAWS Board's generated audio data will then be transmitted back to the Interface for processing and storage. Figure~\ref{fig:userlvl} shows a user-level diagram of a PAWS Board sending information wirelessly to an Interface and consequently producing audio.
+
+The aim of the PAWS instrument is to be fully programmable and flexible in functionality. The user should be able to perform functions such as recording their voice, emulating a real live drum kit, mapping a tempo, and even harmonising their singing with virtual instruments, all by programming the sensors in various ways. The user will have the ability to wear as many PAWS Boards as they like and program each one separately. Figure~\ref{fig:conceptphoneinterface} shows a concept sketch of the Interface on a smartphone. This mockup shows how the user would go about connecting to PAWS Boards and programming them individually. 
+
+\begin{wrapfigure}[26]{r}{0.37\textheight}
 \centering
 \includegraphics[scale=0.7]{Images/conceptphoneinterface_annotated}
-\caption{Concept Design for a smartphone-based Interface}
+\caption{PAWS - Concept Design for a smartphone-based Interface}
 \label{fig:conceptphoneinterface}
 \end{wrapfigure}
 
-My instrument, entitled PAWS (Programmable And Wearable Sound), will in fact have both a hardware and software aspect to it. The hardware shall be a number of standardised sensor arrays that can be attached to any part of the body through custom 3D printed housings, which send their captured data to a software interface. This interface, be it on a laptop or on a smartphone, will allow the user to control the function of each PAWS Board and record the output audio to file, as shown in the concept design in Figure~\ref{fig:conceptphoneinterface}.
+\newpage
+This sketch shows three modes of functionality: 'Voice', 'Sample' and 'Motion'. The 'Voice' mode will simply capture audio from a PAWS Board and output it directly, allowing the user to record themselves or other audio. The 'Sample' mode gives the user the ability to trigger sample sound files based on percussive motion. For example, if the user were wearing PAWS Boards on their fingers and they began to tap a rhythm on a surface, the Interface would play back a sample sound file (for example, of a kick drum) in response. Thus, the user would be able to emulate playing a full drum kit simply by hitting an arbitrary surface. The third 'Motion' mode is by far the most flexible in that it allows the user to map any motion gesture to a particular function. By calibrating motions such as sweeping gestures or pinching their fingers, the user will be able to either synthesise tones with control over pitch and amplitude, or control the parameters of other PAWS Boards such as modulation, filter cutoff frequencies, etc. Figure~\ref{fig:conceptsketch} shows concept sketches for how PAWS Boards could be used in the 'Sample' and 'Motion' modes. 
 
-The focus of this product is not on building perfect sensor arrays with minimum latency, or on developing a new signal processing technology, but rather on conglomerating the various existing ideas on the market into a single instrument that can be used by musicians of all capabilities in any way they like to accomplish any given task. The key features of this instrument, therefore, should be flexibility and simplicity of use.
-
-The current PAWS Board concept has three main functionalities. The first and simplest is to record vocals or any other sound that a PAWS Board may capture through its microphone. The interface should be able to obtain the input from the assigned Board and save it to a file or play it back for the musician to listen to through the interface's built-in audio output. 
-The second functionality the instrument should have is to be able to trigger sample sounds based on percussive motion. Figure~\ref{fig:conceptsketchright} shows a finger with a PAWS Board attached tapping a rhythm on a random surface. If the Board has been programmed to trigger a sample such as a drum sound (as demonstrated in Figure~\ref{fig:conceptphoneinterface}), the user should be able to play a virtual drum kit through any given surface. Figure~\ref{fig:conceptsketchleft} shows a hand with another PAWS Board controlling select parameters of the output audio through motion gestures. This would be achieved by programming a range of motion to adjust a specific parameter such as Amplitude or Pitch.
-
-Further designs for the PAWS Board include allowing a musician to set a particular tempo by tapping their feet (with a PAWS Board attached), which could also aim to quantise any other sounds that they produce, thus improving the playback quality. The sample trigger function could also be used to let a musician harmonise with themselves. For example, if they were singing into one PAWS Board and tapped another onto a surface, as if playing a piano, the instrument would trigger a piano sample at the same pitch as their vocal melody. Multiple PAWS Boards for sample triggering could be used to allow a musician to play entire chords in harmony with their voice.
 
 \begin{figure}[H]
 \centering
@@ -152,19 +150,19 @@ Further designs for the PAWS Board include allowing a musician to set a particul
 \includegraphics[scale=0.7]{Images/conceptsketchesright}
 \label{fig:conceptsketchright}
 }
-\caption{Concept Sketch of Usage}
+\caption{PAWS - Concept Sketch of usage}
 \label{fig:conceptsketch}
 \end{figure}
+
+Further designs for the PAWS Board involve allowing a musician to set a particular tempo by tapping their feet (with a PAWS Board attached), which could also aim to quantise any other sounds that they produce, thus improving the playback quality. The 'Sample' function could also be used to let a musician harmonise with themselves. For example, if they were singing into one PAWS Board and tapped another against a surface, as if playing a piano, the instrument could trigger a piano sample at the same pitch as their vocal melody. Multiple PAWS Boards for sample triggering could be used to allow a musician to play entire chords in harmony with their voice. The possibilities for the PAWS instrument are endless as it is all about giving a user the ability to make sounds as they wish, thereby removing all limitations on their creativity.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Product Design} \label{Concept Design}
 
-This section outlines the design of the concept musical instrument. Section~\ref{System Design} tackles the design of the overall system including its various conceptualised functionalities, while Section~\ref{Implementation Design} talks about the methods in which the system may be implemented. 
+This section outlines the design of the PAWS instrument. Section~\ref{System Design} outlines the design of the overall system with its various conceptualised functionalities, while Section~\ref{Implementation Design} talks about the methods in which the system will be implemented for the purposes of this project. 
 
 \subsection{System Design for Concept}\label{System Design}
-
-Figure~\ref{fig:syslvlhi} shows the high-level system design of the instrument. The instrument consists of multiple hardware PAWS Boards, each with the ability to capture sound and motion data, connected to a central interface which processes the incoming data and produces an audio output. 
 
 \begin{wrapfigure}{r}{0.3\textheight}
 \centering
@@ -173,11 +171,11 @@ Figure~\ref{fig:syslvlhi} shows the high-level system design of the instrument. 
 \label{fig:syslvlhi}
 \end{wrapfigure}
 
-Figure~\ref{fig:syslvllo} gives a more detailed view of the processes involved inside the PAWS Boards and the Interface. The Interface has the ability to receive data wirelessly from any number of PAWS Boards and the function of each can be selected by the user. 
+Figure~\ref{fig:syslvlhi} shows the high-level system design of the instrument, where multiple hardware PAWS Boards, each with the ability to capture sound and motion data, connect to a central interface which processes the incoming data and produces an audio output. 
 
-The Voice function simply routes the captured audio to the output. The Sample function allows the user to select a sample sound file and then processes the input data in order to trigger this sample sound in response to the user's 'tapping' actions. The Motion function allows the user to calibrate a particular gesture (such as sweeping a PAWS Board horizontally through the air) and assign it to change a particular modification parameter. For example, the selected parameter could be the global amplitude of the output audio, and the motion gesture would provide a continuous scale to change the amplitude level. 
+Figure~\ref{fig:syslvllo} gives a more detailed view of the processes involved inside the PAWS Boards and the Interface. A PAWS Board features microphones for capturing sound and accelerometers for capturing motion artefacts. The signals are stored temporarily before being transmitted to the central Interface. Some processing of the audio signal can be accomplished on the PAWS Board itself but has deliberately been left open-ended in the diagram for development as required. The Interface is designed to receive signals from a multitude of PAWS Boards and process them according to user programming. The diagram shows the processing procedure for a single connected Board. 
 
-In this initial system design, the Motion function serves to control particular parameters of the global audio output rather than a sound synthesis tool in itself. The Interface also allows the user to save the produced audio to a file.  
+The user must firstly select the mode for the connected Board to operate in. The 'Voice' mode, if selected, simply routes the sound data to the output. The 'Sample' function allows the user to select a sample sound file and then processes the input motion data in order to trigger this sample sound in response to the user's 'tapping' actions. The 'Motion' mode allows the user to calibrate a particular gesture (such as sweeping a PAWS Board horizontally through the air) and assign it to change a particular modification parameter. For example, the selected parameter could be the global amplitude of the output audio, and the motion gesture would provide a continuous scale to change the amplitude level. 
 
 %\newpage
 \begin{figure}[H]
@@ -187,26 +185,32 @@ In this initial system design, the Motion function serves to control particular 
 \label{fig:syslvllo}
 \end{figure}
 
+In this Concept System Design, the 'Motion' function serves to control particular parameters of the global audio output rather than to synthesise its own tones, in which case the \textit{Select Function} process would instantiate a tone generator controlled by the input motion data and feed the output sound to the final \textit{Play Audio} process. The Interface also allows the user to save the produced audio to a file, and its save location can be selected by the user. 
+
 
 \subsection{System Design for Implementation}\label{Implementation Design}
 
-For implementation purposes, the PAWS Board concept design will feature two separate circuits: a microphone circuit for capturing audio, and a microprocessor circuit to convert the analogue signal to digital and transmit it to the Interface. The Interface will initially be implemented as a computer application (specifically built for Mac OS X). All motion features and accelerometer circuitry will not be included in the implementation until the microphone has been implemented robustly. The two 'Voice' and 'Sample' functions can be designed from the microphone circuit, which will allow for testing the user's ability to switch modes. 
+For implementation purposes, the PAWS Board concept design was separated into two subsystems: a microphone circuit for capturing audio, and a microprocessor circuit to convert the analogue signal to digital and transmit it to the Interface. The Interface was designed to be implemented as a computer application (specifically built for Mac OS X) for proof-of-concept. The fact that the Interface was not designed as a smartphone application severely hampered the concept of the instrument's portability, but it was decided that implementing the entire instrument in a rough manner would prove to be better than designing one particular element incredibly well. 
+
+All motion features and accelerometer circuitry were not included in the implementation until the microphone circuitry was deemed to be working robustly. The 'Sample' function was designed to work by detecting 'tapping' in the audio signal so that the instrument would offer two fully featured modes of functionality. 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.65]{Images/SystemLevelImp}
+\includegraphics[scale=0.5]{Images/SystemLevelImp2}
 \caption{System Design for Implementation of Product}
 \label{fig:syslvl_imp}
 \end{figure}
 
-Figure~\ref{fig:syslvl_imp} shows a system design for implementing a PAWS Board and Interface. The PAWS Board hardware has been defined conceptually as being light, portable, and easily attachable to 3D printed wearable housings, with the Board itself being small enough to be placed anywhere on the body. For the implementation, the microphone circuitry will be tested using Breadboard or Veroboard, and will eventually be printed onto circuit boards with fairly large components for ease of testing. The Interface will be designed using \textit{Python}, which is simple to program but overall fairly bulky in terms of processing time, or \textit{C++} for a much lower-level (and therefore more efficient) implementation of signal manipulation techniques. 
+Figure~\ref{fig:syslvl_imp} shows a system design for implementing a PAWS Board and Interface. The PAWS Board hardware was conceptually defined as being portable, easily attachable to 3D printed wearable housings, and small enough to be placed anywhere on the body. For the implementation, the microphone circuitry was designed and tested using Breadboard and Veroboard, and was eventually printed onto circuit boards with fairly large components for ease of testing. The Interface was designed using \textit{Python}, which is simple to program but overall fairly bulky in terms of processing time, and later in \textit{C++} for a much lower-level (and therefore more efficient) implementation of signal manipulation techniques. All of these design changes meant that the implemented prototypes did not meet some of the ideologies behind the instrument: of being portable and physically non-restrictive, but the design was able to prove the flexibility of the instrument in terms of how the user could program each Board to perform a given function.
+
+The implementable design was therefore not focussed on building perfect sensor arrays with minimum latency, or on developing new signal processing technologies, but rather on conglomerating the various existing ideas on the market into a single instrument that could be used by musicians and non-musicians alike to accomplish any task. The key features of this instrument to be demonstrated through prototyping will be flexibility and simplicity of use.
 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Product Requirements} \label{Requirements}
 
-This section explores what will be required of the implemented product and details the necessary specifications to evaluate each prototype with. The plan to evaluate the success of the musical instrument, and therefore of the project, mainly revolves around its ability to produce sound. There are certain specifications highlighted in Table~\ref{tab:specifications} that must be met in order to enable my musical instrument to contend with the currently developing technologies.
+This section explores what will be required of the implemented product and details the necessary specifications to evaluate each prototype against. The plan to evaluate the success of the musical instrument, and therefore of the project, revolves around its ability to produce whatever sounds the user wishes of it and to give the user an easy and intuitive experience in doing so. The requirements of the instrument specified in Section~\ref{Implementation Design} System Design for Implementation have been listed in Table~\ref{tab:specifications}. Features for future concepts have also been included to ensure that all implementations of the instrument head in the direction of the overall concept.
 
 \begin{table}[H]
 \centering
@@ -243,7 +247,7 @@ Can it save the output audio to file?\\
 \label{tab:specifications}
 \end{table}
 
-The Evaluation Criteria are open-ended questions that can be answered qualitatively to enable a discussion on the objectives a particular prototype has met and how it could be further improved upon. A more detailed set of questions is shown in Table~\ref{tab:criteria} to highlight whether specific functionalities of the concept design have been implemented or not. These questions help to keep in mind the future scope, and hence the overall direction, of the project such that the implementation section does not get stuck on any one aspect of the concept design.
+A more open-ended set of questions is shown in Table~\ref{tab:criteria}, which can be answered qualitatively to enable a discussion on the objectives a particular prototype has met and how they could be further improved upon. These questions also maintain the idea that meeting the requirements of concept design of the PAWS instrument is the final objective, and therefore will highlight the areas where an implementation falls short of these goals.
 
 
 \begin{table}[H]
@@ -267,7 +271,7 @@ Spatial Limitations & Is the instrument physically restrictive in its use?\\
 
 \section{Product Analysis} \label{Proof of Concept}
 
-Before starting on the implementation of the product, I analysed and tested several necessary elements of the Implementable System Design, Figure~\ref{fig:syslvl_imp}, such as using a microcontroller to transmit audio data to a computer, various methods for processing audio in the Interface, and I simulated the concept of Sample Triggering using \emph{Matlab}. I then used these initial findings to produce a rough Implementation Plan.
+Before starting on the implementation of the product, I analysed and tested several necessary elements of the Implementable System Design, Figure~\ref{fig:syslvl_imp}, such as using a microcontroller to transmit audio data to a computer and various methods for processing audio in the Interface. I also simulated the concept of Sample Triggering using \emph{Matlab}, and then used these initial findings to produce a rough Implementation Plan, as described in Section~\ref{Implementation Plan}.
 
 \begin{wrapfigure}{r}{0.3\textwidth}
 \centering
