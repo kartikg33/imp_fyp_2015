@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {1}Introduction}{6}
 \contentsline {section}{\numberline {2}Background}{7}
 \contentsline {subsection}{\numberline {2.1}Market Research}{7}
-\contentsline {subsection}{\numberline {2.2}A New Concept Instrument}{8}
+\contentsline {subsection}{\numberline {2.2}Product Concept for a new Instrument}{8}
 \contentsline {section}{\numberline {3}Product Design}{10}
 \contentsline {subsection}{\numberline {3.1}System Design for Concept}{10}
 \contentsline {subsection}{\numberline {3.2}System Design for Implementation}{11}

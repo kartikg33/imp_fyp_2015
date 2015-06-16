@@ -11,9 +11,9 @@
 \contentsline {figure}{\numberline {9}{\ignorespaces System Design for Concept Product - Low Level\relax }}{10}
 \contentsline {figure}{\numberline {10}{\ignorespaces System Design for Implementation of Product\relax }}{11}
 \contentsline {figure}{\numberline {11}{\ignorespaces Arduino Development Kit used for Prototyping\relax }}{13}
-\contentsline {figure}{\numberline {12}{\ignorespaces Simulation of Sample Triggering\relax }}{14}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Arduino Uno Development Board\nobreakspace {}\textsuperscript {\cite {arduinopic}}}}}{14}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {HC-06 Bluetooth Module for Arduino\nobreakspace {}\textsuperscript {\cite {hc06ebay}}}}}{14}
+\contentsline {figure}{\numberline {12}{\ignorespaces Simulation of Sample Triggering algorithm in Matlab\relax }}{14}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Arduino Uno Development Board\textsuperscript {\cite {arduinopic}}}}}{14}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {HC-06 Bluetooth Module for Arduino\textsuperscript {\cite {hc06ebay}}}}}{14}
 \contentsline {figure}{\numberline {13}{\ignorespaces Photograph of Prototype 0.1.01 setup\relax }}{16}
 \contentsline {figure}{\numberline {14}{\ignorespaces Prototype 0.1.01 - PAWS Board Circuit\relax }}{16}
 \contentsline {figure}{\numberline {15}{\ignorespaces Prototype 0.1.02 - wxPython GUI\relax }}{17}
