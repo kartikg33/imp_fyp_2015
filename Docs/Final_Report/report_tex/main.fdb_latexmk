@@ -1,9 +1,9 @@
 # Fdb version 3
-["cusdep eps pdf Images/slaptodrum"] 0 "Images/slaptodrum.eps" "Images/slaptodrum.pdf" "Images/slaptodrum" 1434407364
+["cusdep eps pdf Images/slaptodrum"] 0 "Images/slaptodrum.eps" "Images/slaptodrum.pdf" "Images/slaptodrum" 1434418706
   "Images/slaptodrum.eps" 1433941448 529314 9d9878d78d87766b50e88aacd4212053 ""
   (generated)
   "Images/slaptodrum.pdf"
-["pdflatex"] 1434407353 "main.tex" "main.pdf" "main" 1434407364
+["pdflatex"] 1434418698 "main.tex" "main.pdf" "main" 1434418706
   "/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
@@ -167,7 +167,7 @@
   "Images/paws_3_single.png" 1434402207 88627 9140ba659c55a8605bdd55453ade0b1e ""
   "Images/paws_3_voice.png" 1434402204 88334 cf19ccc95125e0f5c8b79a99f0778c3f ""
   "Images/paws_full.JPG" 1434383044 3037214 1f3314fb5314b9dd7ef5c4b6b87fa95f ""
-  "Images/paws_testrig.png" 1434402547 3880441 781aafef85a0e94bb8618a48541579c9 ""
+  "Images/paws_testrig3.png" 1434418564 1712118 6fc929a81cb4d704a5208f704d7c283f ""
   "Images/prototype101board.JPG" 1433941448 3822993 8ab2bc2ee8afefffb1a628b06ba96ea0 ""
   "Images/pyblue_play.png" 1433941450 37340 221e12193b9e93598030b8dc280215a1 ""
   "Images/rail_1board2-eps-converted-to.pdf" 1434407360 9710 272a4725313281f0727c953a60a7e3cc ""
@@ -183,21 +183,23 @@
   "Images/sig_2_idle.eps" 1434213146 26703 27c58759d8396a93e62d140bca40586b ""
   "Images/sig_2_tap-eps-converted-to.pdf" 1434220797 9399 c7c6128ad63d364084d9bafdbf9302aa ""
   "Images/sig_2_tap.eps" 1434213455 32959 f3c99f439d6e21def41d9f612fefc139 ""
+  "Images/sig_samp-eps-converted-to.pdf" 1434414169 9562 19cd1587dec04ddbb08d6d482d2bf9c0 ""
+  "Images/sig_samp.eps" 1434414144 29757 48951ef6ac6ae17c6da05dc00060b5e1 ""
   "Images/slaptodrum.pdf" 1434299324 142695 e55e0bc188a9527707e1c71825746d66 "cusdep eps pdf Images/slaptodrum"
   "appendix.tex" 1434320310 2399 4a68071ee98356a003d0b5e717858e20 ""
   "bib.tex" 1433974329 7227 f101fd2dadb05224ec1200ec92dc4c4a ""
   "frontpage.tex" 1434404729 888 79fa2f8ac85e72154d1ee66fe10b34ab ""
-  "main.aux" 1434407364 23450 f5948ac9cc7f5a9778756b85bb23ea9f ""
-  "main.lof" 1434407364 7118 da57be08a152d61e9fcce340ef5cc649 ""
-  "main.lot" 1434407364 1368 35fd5c31ddef7bf946adaca7e557fd93 ""
-  "main.tex" 1434407352 115510 d5295aaa996f566009c629147d0d8aa5 ""
-  "main.toc" 1434407364 5892 1857a8316fa4f0d3e9729a9084b2a7f2 ""
+  "main.aux" 1434418706 23450 f5948ac9cc7f5a9778756b85bb23ea9f ""
+  "main.lof" 1434418706 7118 da57be08a152d61e9fcce340ef5cc649 ""
+  "main.lot" 1434418706 1368 35fd5c31ddef7bf946adaca7e557fd93 ""
+  "main.tex" 1434418698 116495 a18fa8b3bea6ed60303948cc2bf5e498 ""
+  "main.toc" 1434418706 5892 1857a8316fa4f0d3e9729a9084b2a7f2 ""
   "mcode.sty" 1433941448 10446 27c95df50114756b18eaee5d6c6d7e7a ""
   "secondpage.tex" 1434292380 2628 313a0ee3c84e5e5cb935e81e9728dc2d ""
   (generated)
-  "main.toc"
-  "main.aux"
-  "main.pdf"
   "main.lof"
   "main.log"
+  "main.pdf"
   "main.lot"
+  "main.toc"
+  "main.aux"

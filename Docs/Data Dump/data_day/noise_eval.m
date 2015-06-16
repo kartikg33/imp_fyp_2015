@@ -173,21 +173,27 @@ ylabel('Amplitude (dB)');
 B = csvread('sig_samp.csv');
 %A = B(800:900,:);%idle
 %A = B(82240:82500);%ringtap
-A=B(96575:96645);
-%A=B(96400:96800);
+%A=B(96575:96645)/204.8;
+%figure;
+%plot(B);
+%figure;
+%A=B(96500:96700)/204.8;
+A=B(39505:39700);%/204.8;
 numsamp = size(A,1);
-%fs = 2381;
-fs = 44100/12;
+fs = 2381;
+%fs = 44100/12;
 T = 1/fs;
 
 subplot(2,1,1)
 time = [0:T:(numsamp/fs)-T];
-plot(time,A)
-xlim([time(1),time(end)]);
-%ylim([1 4]);
+lime = [70:length(A)-55];
+plot(A(lime))
+%xlim([time(70),time(end-55)]);
+xlim([1 length(lime)]);
+ylim([0 1023]);
 grid minor;
-xlabel('Time (seconds)');
-ylabel('Amplitude (Volts)');
+xlabel('Sample Number');
+ylabel('Sample Value [0:1023]');
 
 subplot(2,1,2)
 freqlim = [50:fs/numsamp:fs/2];
@@ -205,7 +211,7 @@ temp(max(find(freqlim<500))) = 100;
 %hold off;
 %ylim([0,5]);
 xlim([freqlim(1), 5026.63115845539/2]);
-ylim([1e1 5e3]);
+%ylim([1e-2 1e2]);
 grid minor;
 xlabel('Frequency (Hz)');
 ylabel('Amplitude (dB)');

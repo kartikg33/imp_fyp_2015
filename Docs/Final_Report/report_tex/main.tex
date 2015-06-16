@@ -748,7 +748,7 @@ Filtering in software is a good idea to do, especially since I am upsampling the
 
 This section aims to analyse and critique Prototype 0.2.04 both quantitavely by looking at the hardware and software, and qualitatively in how it stands up to the requirements of the Product Concept and user testing. 
 
-\begin{wrapfigure}[35]{r}{0.37\textheight}
+\begin{wrapfigure}[34]{r}{0.37\textheight}
 \centering
 \subfloat[No Finger Boards attached]{
 \includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_noboards2.eps}
@@ -775,11 +775,9 @@ This section quantitatively analyses particular specifications of the Prototype 
 
 The evaluation was conducted using one Finger Board connected to Version 1 of the Arduino Shield circuit board since Version 2 was not available for testing. The tests involved looking at the noise ripple across the power rails of the Arduino and in the microphone signal coming in to the Arduino's analog input pin. All measurements were taken with a digital oscilloscope and plotted using Matlab. 
 
-Figure~\ref{fig:rail_noboards} shows the power rail measured on the Arduino Shield with no Finger Boards connected. We can see that it is centred around 4.97V, instead of the expected 5V, and features approximately 20mV of digital noise ripple. After connecting one Finger Board to the Arduino, I found that the rail voltage dropped further to around 4.91V, a drop of 60mV, with the same noise ripple of 20mV. Figure~\ref{fig:rail_1board} shows the waveform of the rail voltage. We also see a periodic ripple overlaid onto the waveform with a frequency determined to be {\color{red}490Hz}. This is in fact the frequency of the PWM signal sent by the Arduino to the Finger Board to produce an analogue voltage that can control the gain of the Board's amplifier. This frequency has been induced onto the power rails, most likely through the cable that attaches the Arduino Shield to the Finger Board. 
+Figure~\ref{fig:rail_noboards} shows the power rail measured on the Arduino Shield with no Finger Boards connected. We can see that it is centred around 4.97V, instead of the expected 5V, and features approximately 20mV of digital noise ripple. After connecting one Finger Board to the Arduino, I found that the rail voltage dropped further to around 4.9V, a drop of 70mV, with the same noise ripple of 20mV. Figure~\ref{fig:rail_1board} shows the waveform of the rail voltage for one connected Board, and Figure~\ref{fig:rail_3boards} shows the same for three. The voltage dropped significantly to 4.77V but the noise ripple remained constant at 20mV. For this Prototype, the Arduino was producing three PWM signals, all at 61Hz, for the Finger Boards to use as analogue voltages to control their programmable gain amplifiers. In Figure~\ref{fig:rail_3boards}, we can see a red overlay showing the periodicity in the noise ripple corresponding to the PWM signals at 61Hz. This frequency was being induced onto the power rails most likely through the cable  attaching the Arduino Shield to the Finger Boards. 
 
-Figure~\ref{fig:rail_3boards} shows the power rail with three Finger Boards connected. The voltage dropped significantly to 4.78V but the noise ripple remained constant at 20mV. For this measurement, the PWM frequency was changed down to 30Hz for the first Finger Board, and 61Hz for the second and third Finger Boards. The waveform does not show it but there is in fact an overlaid periodicity corresponding to approximately 60Hz. The power required by the three Finger Boards' microphones and amplifiers causes a large drain on the Arduino, resulting in the voltage drop of the power rail. 
-
-Figure~\ref{fig:sig_1} shows the microphone signal from a Finger Board, measured at the analogue input pin on the Arduino Shield. The signal has been listed as being in an \textit{idle state}, meaning that no deliberate sounds were made so the microphone was only capturing the background noise (audio) of the labs and the electrical noise of the circuitry. The signal is centred around 2.41V as opposed to the expected 2.5V. We can see large spikes in the waveform due to the induction of the PWM signal. The frequency response plot confirms that the periodic spikes do in fact correspond to the 490Hz of the PWM signal. We can also see a high amount of energy around the 10kHz mark, most likely corresponding to thermal noise, which was previously found to be present and was dealt with using a simple low pass filter with a cut-off of 20kHz. Of course, the best solution to remove this noise would be isolating the microphone to reduce its thermal sensitivity. 
+Figure~\ref{fig:sig_1} shows the microphone signal from a Finger Board, measured at the analogue input pin on the Arduino Shield. The signal has been listed as being in an \textit{idle state}, meaning that no deliberate sounds were made; the microphone was only capturing the background noise of the labs and the electrical noise of the circuitry. The signal is centred around 2.41V as opposed to the expected 2.5V. We can see large spikes in the waveform due to the induction of the PWM signal, which I temporarily returned to its original 490Hz for graphical clarity. The frequency response plot confirms that the periodic spikes do in fact correspond to the 490Hz of the PWM signal. We can also see a high amount of energy around the 10kHz mark, most likely corresponding to thermal noise, which was previously found to be present and was dealt with using a simple low pass filter with a cut-off of 20kHz. Of course, the best solution to remove this noise would be to thermally isolate the microphone and research
 
 \begin{figure}[H]
 \centering
@@ -797,7 +795,7 @@ Figure~\ref{fig:sig_1} shows the microphone signal from a Finger Board, measured
 \end{wrapfigure}
 
 
-Figure~\ref{fig:sig_2} shows the same microphone signal but with the PWM Frequency changed to 30Hz. We can see that the waveform is more stable in the idle state, Figure~\ref{fig:sig_2_idle}, and the frequency response much flatter. The noise ripple has been greatly reduced to a maximum of 100mV, as opposed to 700mV with the PWM at 490Hz. Figure~\ref{fig:sig_2_tap} shows the microphone picking up the sound of a Finger Ring, with the Board attached, tapped against a wooden table. The analogue signal is clearly visible amongst the noise ripple and we can see the increase in energy at frequencies of 600Hz and around the 1kHz mark as compared to the idle state. 30Hz is the lowest PWM frequency producible by the Arduino Uno but only for a select few of the analogue output pins. The way in which Prototype 0.2.04 has been wired limits the lower bound of the PWM frequency of the second and third Boards to 61Hz, and therefore the first Board must also be set to this value to ensure the Interface's processing code works in the same way for each of the Boards. The reason for the induced PWM signal having a smaller effect at lower frequencies could be because of the programmable gain amplifier's high pass filtering at each of its input pins. I designed it such that the high pass cutoffs were at 90Hz, meaning that frequencies lower than this would be attenuated by an order of 2 (since the amplifier consists of two stages). 
+Figure~\ref{fig:sig_2} shows the same microphone signal but with the PWM Frequency now at 30Hz. We can see that the waveform is more stable in the idle state, Figure~\ref{fig:sig_2_idle}, and the frequency response much flatter. The noise ripple has been greatly reduced to a maximum of 100mV, as opposed to 700mV with the PWM at 490Hz. Figure~\ref{fig:sig_2_tap} shows the microphone picking up the sound of a Finger Ring, with the Board attached, tapped against a wooden table. The analogue signal is clearly visible amongst the noise ripple and we can see the increase in energy at frequencies of 600Hz and around the 1kHz mark as compared to the idle state. 30Hz is the lowest PWM frequency producible by the Arduino Uno but only for a select few of the analogue output pins. The way in which Prototype 0.2.04 has been wired limits the lower bound of the PWM frequency of the second and third Boards to 61Hz, and therefore the first Board must also be set to this value to ensure the Interface's processing code works in the same way for each of the Boards. The reason for the induced PWM signal having a smaller effect at lower frequencies could be because of the programmable gain amplifier's high pass filtering at each of its input pins. I designed it such that the high pass cutoffs were at 90Hz, meaning that frequencies lower than this would be attenuated by an order of 2 (since the amplifier consists of two stages). 
 
 \begin{figure}[H]
 \ContinuedFloat
@@ -834,13 +832,11 @@ We can see that even though it takes longer to process larger packets, the effec
 
 We can also see that the signal sample rates are very low, even worse than a telephone line, which is sampled at 8kHz or 16kHz. This means that the intelligibility of any voice information captured will almost non-present, however, the signal will still be able to pick up 'tapping' sounds, which usually feature high energies at 200 or 500Hz. Also, the calculated upsampling ratios directly correspond to the values I used in Prototype 0.2.02, detailed in Section~\ref{0202}, which I settled upon simply through trial and error and matching the frequency of my voice with what was being played back through the Interface from the microphone. 
 
-Figure~\ref{fig:sig_samp} \\
-{\color{red} ///// sampled signal of idle state and ring tap, take from queueInput}
+Figure~\ref{fig:sig_samp} shows a microphone signal capturing the 'tap' of a Finger Ring against a workbench as data samples received by the \textit{queueInput( )} function of the Interface. We can compare this signal against the continuous-time one in Figure~\ref{fig:sig_2_tap} which was measured at the Arduino's input analogue pin. The discrete-time signal does indeed have a similar waveform but, as we can see, its frequency response is capped due to the previously calculated sampling rate of 2.381kHz. This low sampling rate also causes distortion to the signal's waveform through loss of temporal precision and accuracy. Interpolation of the signal to 44.1kHz introduces spectral images, which will cause distortion since the original signal is bandlimited to only 1.191kHz, and the frequency response will be duplicated every 2.381kHz up to the audible range limit.  
 
 \begin{figure}[H]
 \centering
-{\color{red}! MISSING IMAGE !}
-%\includegraphics[width=0.6\textheight, height=0.45\textheight]{Images/sig_samp.eps}
+\includegraphics[width=0.55\textheight, height=0.40\textheight]{Images/sig_samp.eps}
 \caption{Microphone Signal with PWM Frequency at 30Hz, received by the Interface program}
 \label{fig:sig_samp}
 \end{figure}
@@ -966,17 +962,14 @@ The prototype is in fact extremely restrictive. The Finger Boards, along with th
 
 
 \subsubsection{User Evaluation}
-{\color{red} 
-user impressions\\
-musicality\\
-how easy\\
-how fun}
 
-test rig developed for testing Figure~\ref{fig:testrig}
+
+
+After performing the Requirements Analysis myself, I sought to find a non-musician potential user to test my prototype. Considering that the 'Sample' function for Prototype 0.2.04 worked to the extent where samples could be triggered by physically tapping the microphone but not through the detection of the Finger Rings impacting upon a surface, I decided to secure my Finger Boards to a workbench for my user to interact with and fully test the functionality of my instrument. Figure~\ref{fig:testrig} is a still frame from video footage of the user testing session, and simultaneously shows the user's interaction with the Boards, held down side by side using electrical tape, and the PAWS Interface. 
 
 \begin{figure}[H]
    \centering
-   \includegraphics[scale=0.2]{Images/paws_testrig} 
+   \includegraphics[scale=0.3]{Images/paws_testrig3} 
    \caption{Finger Boards arranged on workbench for User Testing}
    \label{fig:testrig}
 \end{figure}
@@ -1157,7 +1150,7 @@ This section details how to setup the PAWS instrument and use the counterpart so
 
 \subsection{Parts of the Instrument}
 
-The PAWS instrument is comprised of three hardware components and a software application. Table~\ref{tab:listofparts} provides a list of all the hardware parts of the instrument. 
+The PAWS instrument is comprised of three hardware components and a software application. Figure~\ref{fig:listofparts} provides a list of all the hardware parts of the instrument. 
 
 \begin{figure}[H]
 \centering
