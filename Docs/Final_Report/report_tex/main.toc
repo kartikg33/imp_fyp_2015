@@ -36,9 +36,9 @@
 \contentsline {subsubsection}{\numberline {7.5.4}Coding the Serial Transmission}{24}
 \contentsline {subsection}{\numberline {7.6}Prototype 0.2.03}{25}
 \contentsline {subsubsection}{\numberline {7.6.1}Hardware on Printed Circuit Boards}{25}
-\contentsline {subsubsection}{\numberline {7.6.2}3D Printed Housings}{26}
+\contentsline {subsubsection}{\numberline {7.6.2}3D Printed Finger Rings}{26}
 \contentsline {subsection}{\numberline {7.7}Prototype 0.2.04}{28}
-\contentsline {subsubsection}{\numberline {7.7.1}Connecting Multiple Boards}{28}
+\contentsline {subsubsection}{\numberline {7.7.1}Connecting to multiple Finger Boards}{28}
 \contentsline {subsubsection}{\numberline {7.7.2}Enhancing User Control}{28}
 \contentsline {subsubsection}{\numberline {7.7.3}Filtering the Audio Signal}{29}
 \contentsline {section}{\numberline {8}Evaluation of Implemented Product}{31}

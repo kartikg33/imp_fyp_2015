@@ -1,9 +1,9 @@
 # Fdb version 3
-["cusdep eps pdf Images/slaptodrum"] 0 "Images/slaptodrum.eps" "Images/slaptodrum.pdf" "Images/slaptodrum" 1434488230
+["cusdep eps pdf Images/slaptodrum"] 0 "Images/slaptodrum.eps" "Images/slaptodrum.pdf" "Images/slaptodrum" 1434492276
   "Images/slaptodrum.eps" 1433941448 529314 9d9878d78d87766b50e88aacd4212053 ""
   (generated)
   "Images/slaptodrum.pdf"
-["pdflatex"] 1434488222 "main.tex" "main.pdf" "main" 1434488230
+["pdflatex"] 1434492268 "main.tex" "main.pdf" "main" 1434492276
   "/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
@@ -189,19 +189,19 @@
   "Images/sig_samp.eps" 1434414144 29757 48951ef6ac6ae17c6da05dc00060b5e1 ""
   "Images/slaptodrum.pdf" 1434299324 142695 e55e0bc188a9527707e1c71825746d66 "cusdep eps pdf Images/slaptodrum"
   "appendix.tex" 1434320310 2399 4a68071ee98356a003d0b5e717858e20 ""
-  "bib.tex" 1434480934 7223 1d37ae7c7f09974f739c80a105a4cee5 ""
+  "bib.tex" 1434491531 7579 e9310bfe577e1e4d5c0078fce689b4fa ""
   "frontpage.tex" 1434404729 888 79fa2f8ac85e72154d1ee66fe10b34ab ""
-  "main.aux" 1434488230 24006 2cc8c6e10844c7e5175d029e4671a329 ""
-  "main.lof" 1434488230 7588 073ac3d37e38250abbbbe969815c94d7 ""
-  "main.lot" 1434488230 1368 786086cca504cb2cf51c79d8c7507314 ""
-  "main.tex" 1434488222 122144 448fda7219a058caef4c343549b0fe27 ""
-  "main.toc" 1434488230 5915 226c0b8953abba993fa34c3ed4045900 ""
+  "main.aux" 1434492276 24134 7d5220ea8c456c64e458bfa643ee4362 ""
+  "main.lof" 1434492276 7661 07b13f92ed2f666b51fad2dd7cd6a927 ""
+  "main.lot" 1434492276 1368 786086cca504cb2cf51c79d8c7507314 ""
+  "main.tex" 1434492268 122454 57d036a8565285314f97cfb919318c93 ""
+  "main.toc" 1434492276 5929 f9c2f4e24a79e5e63c14cb6e0ba75528 ""
   "mcode.sty" 1433941448 10446 27c95df50114756b18eaee5d6c6d7e7a ""
   "secondpage.tex" 1434292380 2628 313a0ee3c84e5e5cb935e81e9728dc2d ""
   (generated)
   "main.lof"
+  "main.toc"
   "main.log"
+  "main.lot"
   "main.aux"
   "main.pdf"
-  "main.lot"
-  "main.toc"

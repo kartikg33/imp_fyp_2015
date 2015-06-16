@@ -625,7 +625,7 @@ The Interface was re-programmed to wait for a 'new line' character before readin
 \subfloat[Arduino Shield PCB]{
 \includegraphics[scale=0.05]{Images/ardshield_pcb}
 }
-\caption{Printed Circuit Boards for Prototype 0.2.03}
+\caption{PCBs for PAWS Board, Prototype 0.2.03}
 \label{fig:finalpcbs}
 \end{wrapfigure}
 
@@ -651,13 +651,9 @@ The Arduino Shield was designed to connect to three Finger Boards and provide a 
 
 
 
-\subsubsection{3D Printed Housings}
+\subsubsection{3D Printed Finger Rings}
 
-To wear the Finger Boards on your fingers, I required plastic housings that could be 3D printed. The design itself would have to consist a ring to sit around the top knuckle and a support to hold the PCB in place. The measurements I took to design the ring were of the index finger of my right hand.
-
-I used a free software called \textit{SketchUp}\textsuperscript{\cite{sketchup}} to design a model of a Ring to be printed later. The tool itself was easy to learn how to use and the first version of the Ring, Figure~\ref{fig:fngrbrd_1}, was designed as a line sketch which was then extruded by 10mm to form a 3D model. 
-
-\begin{wrapfigure}{r}{0.29\textheight}
+\begin{wrapfigure}[13]{r}{0.29\textheight}
 \centering
 \subfloat[Top View]{
 \includegraphics[scale=0.2]{Images/fngrbrdmod1_top}
@@ -665,20 +661,20 @@ I used a free software called \textit{SketchUp}\textsuperscript{\cite{sketchup}}
 \subfloat[Side View]{
 \includegraphics[scale=0.195]{Images/fngrbrdmod1_side}
 }
-\caption{Fingerboard Ring 3D Model - Version 1}
+\caption{Finger Ring 3D Model - Version 1, Prototype 0.2.03}
 \label{fig:fngrbrd_1}
 \end{wrapfigure}
 
+To make the Finger Boards wearable, I required plastic housings that could be 3D printed. The design itself would have to consist of a ring to sit around the top knuckle and a support to hold the PCB in place. The measurements I took to design the ring were of the index finger of my right hand.
 
+I used a free software called \textit{SketchUp}\textsuperscript{\cite{sketchup}} to design a model of a Ring to be printed later. The tool itself was easy to learn and the first version of the Ring, Figure~\ref{fig:fngrbrd_1}, was designed as a line sketch which was then extruded by 10mm to form a 3D model. 
 
-Once the Ring had been designed, I used \textit{Cura}\textsuperscript{\cite{cura}} to detail how it would be printed using an \textit{Ultimaker 2}\textsuperscript{\cite{ultimaker}}. The tool allowed me to set the fill of the piece (i.e. hollow to solid) and the depth of each printed layer, which would determine the precision of the print. After setting all of the parameters correctly, I was able to print the Ring.
+Once the Ring had been designed, I used \textit{Cura}\textsuperscript{\cite{cura}} to detail how it would be printed using an \textit{Ultimaker 2}\textsuperscript{\cite{ultimaker}} 3D Printer. The tool allowed me to set the fill of the piece (i.e. hollow to solid) and the depth of each printed layer, which would determine the precision of the print. After setting all of the parameters, I was able to print the Ring.
 
+With the first version, I found that I had overestimated the dimensions; the Ring was too large and slid all the way down to the bottom of my index finger, which is not where it should have been, and the support on the top did not hold the PCB in place at all. 
 
-With the first version, I found that I had overestimated the dimensions, The ring was too large and slid all the way down the bottom of my index finger, which is not where it should have been, and the support at the top did not hold the PCB in place at all. 
-
-So, I redetermined the measurements and designed a second version, shown in Figure~\ref{fig:fngrbrd_2}. This version was designed to have less of a curvature around the bottom to prevent it from being as bulky as the first version. I also added a 'lip' like feature to the bottom of the ring, which would sit under the tip of the index finger and produce a loud tone when tapped on a surface. This design would in future help my Interface to better determine whether a surface was being tapped and therefore make my Sample Function a lot more robust. 
-
-\begin{figure}[H]
+%\begin{figure}[H]
+\begin{wrapfigure}[13]{r}{0.29\textheight}
 \centering
 \subfloat[Top View]{
 \includegraphics[scale=0.2]{Images/fngrbrdmod2_top}
@@ -686,17 +682,20 @@ So, I redetermined the measurements and designed a second version, shown in Figu
 \subfloat[Side View]{
 \includegraphics[scale=0.195]{Images/fngrbrdmod2_side}
 }
-\caption{Fingerboard Ring 3D Model - Version 2}
+\caption{Finger Ring 3D Model - Version 2, Prototype 0.2.03}
 \label{fig:fngrbrd_2}
-\end{figure}
+\end{wrapfigure}
+%\end{figure}
+
+I redetermined the measurements and designed a second version, shown in Figure~\ref{fig:fngrbrd_2}. This version was designed to have less of a curvature around the bottom to prevent it from being as bulky as the first version. I also added a 'lip' like feature to the bottom of the Ring, which would sit under the tip of the index finger and produce a loud tone when tapped against a surface. This design would in future help the Interface to better determine whether a surface was being tapped and therefore make the 'Sample' function a lot more robust. 
 
 
-For the final batch of Rings, I realised that the lip from Version 2 had to be much wider in order to sit comfortably around the finger without digging into it. Also, I would need to create another design with sizings to fit my thumb, which of course is slightly larger than my fingers. Figure~\ref{fig:fngrbrd_3} shows dimensioned sketches of the final produced batch of Rings, labelled as Version 3, with both Finger and Thumb variants. Figure~\ref{fig:fingerrings} shows an image of two Finger Rings and one Thumb Ring worn by a user after printing.
+For the final batch of Rings, I realised that the lip from Version 2 had to be much wider in order to sit comfortably around the finger without digging into it. I also created another design with sizings to fit my thumb, which of course is slightly larger than my fingers. Figure~\ref{fig:fngrbrd_3} shows dimensioned sketches of the final produced batch of Rings, labelled as Version 3, with both Finger and Thumb variants. Figure~\ref{fig:fingerrings} shows an image of two Finger Rings and one Thumb Ring being worn.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{Images/fngrbrdfinal_dim}
-\caption{Dimensioned Sketches of Rings Version 3 - Finger (Left) and Thumb (Right)}
+\caption{Dimensioned Sketches of Rings Version 3 - Finger (Left) and Thumb (Right), Prototype 0.2.03}
 \label{fig:fngrbrd_3}
 \end{figure}
 
@@ -710,74 +709,75 @@ For the final batch of Rings, I realised that the lip from Version 2 had to be m
 \newpage
 \subsection{Prototype 0.2.04} \label{0204}
 
-The previous prototypes have all been designed with the idea of connecting to PAWS Boards one by one, with each Board housing a single microphone. This prototype deals with building an Interface for connecting to a single Arduino Uno that can control  three different Finger Boards. The hardware was previously designed to allow for this design and the Interface had to be modified slightly to provide individual control of each Finger Board. 
+The previous prototypes had all been designed with the idea of connecting to PAWS Boards one by one, with each Board housing a single microphone. This prototype designed a new Interface for connecting to a single Arduino Uno that could control three different Finger Boards. The PCBs were previously designed to allow for this functionality and the Interface and Arduino code had to be modified slightly to connect to and control more than one Finger Board. 
 
-
-\subsubsection{Connecting Multiple Boards}
+\subsubsection{Connecting to multiple Finger Boards}
 
 \begin{wrapfigure}{r}{0.3\textheight}
 \centering
 \includegraphics[scale = 0.5]{Images/sampleassignment}
-\caption{Prototype 0.2.04 - Assignment of received Sample Data to the relevant queue buffers by the Interface's \textit{queueInput( )} function}
+\caption{Assignment of received sample data to the relevant Queue buffers by the Interface's \textit{queueInput( )} function, Prototype 0.2.04}
 \label{fig:sampassign}
 \end{wrapfigure}
 
-To allow the Interface to control each of the Finger Boards attached to the Arduino Uno separately, I had to make several changes to the functions of the two main classes that controlled the GUI. The \textit{Overlay} class was previously in charge of adding and removing \textit{Board} objects. For this prototype, I required the \textit{Overlay} class to perform the connection to the Arduino Uno immediately; the user would not be able to select the serial port at which the Arduino was located. This was simply to make the entire experience easier, and once the Arduino was connected to, three \textit{Board} objects would be immediately spawned. The \textit{queueInput( )} function that was used to receive samples from the Arduino, as shown in the class diagram in Figure~\ref{fig:0201UML}, was moved to the \textit{Overlay} class and was set running as soon as the Arduino was connected to. This function was also modified to place the samples it received into the buffers of the respective \textit{Board} objects. Because these functionalities were moved away from the \textit{Board} class, the dropdown list to select the serial port was entirely removed from this class. 
+To allow the Interface to control each of the Finger Boards attached to the Arduino Uno separately, I had to make several changes to the functions of the two main classes that controlled the GUI. The \textit{Overlay} class was previously in charge of adding and removing 'Board' objects. For this prototype, I required the 'Overlay' class to perform the connection to the Arduino Uno immediately; the user would not be able to select the serial port at which the Arduino was located. This was simply to make the entire experience easier, and once the Arduino was connected to, three 'Board' objects would be immediately spawned. The \textit{queueInput( )} function that was used to receive samples from the Arduino, as shown in the class diagram in Figure~\ref{fig:0201UML}, was moved to the 'Overlay' class and was set running as soon as the Arduino was connected to. This function was also modified to place the samples it received into the Queues of the respective 'Board' objects. Because these functionalities were moved away from the \textit{Board} class, the dropdown list to select the serial port was entirely removed from this class. 
 
-The Arduino code was then modified to be able to read the sample values of the three Finger Boards and transmit them serially to the Interface. As before, I used a new line character to notify the Interface of the start of a 'packet' of data, and then proceeded to sample each of the three microphone signals in turn and transmit them. This packetisation technique helped to make the transmission robust as the \textit{queueInput( )} function on the Interface side could calculate exactly which received sample corresponded to which Finger Board. Figure~\ref{fig:sampassign} shows an example where the Interface reads part of an incoming packet before reading a full packet, and then assigns the received samples to the correct Board's queue using the newline character for synchronisation. 
 
+
+The Arduino code was then modified to be able to read the sample values of three Finger Boards and transmit them serially to the Interface. As before, I used a 'new line' character to notify the Interface of the start of a 'packet' of data, and then proceeded to sample each of the three microphone signals in turn and transmit them. This packetisation technique helped to make the transmission robust as the \textit{queueInput( )} function on the Interface side could calculate exactly which received sample corresponded to which Finger Board. Figure~\ref{fig:sampassign} shows an example where the Interface reads part of an incoming packet before reading a full packet, and then assigns the received samples to the correct Board's queue using the 'new line' character for synchronisation. 
 
 
 
 \subsubsection{Enhancing User Control}
 
-To enhance the user's control over the sample sounds triggered with each Finger Board, I implemented a drop down list in the \textit{Board} Interface to display available sound files and allow the user to select one on the fly. This element was programmed to trigger a function that would load the correct file into the respective \textit{Board} object's sample buffer, which the Interface would read from during playback. 
+To enhance the user's control over the sample sounds triggered by each Finger Board, I implemented a drop down list in the 'Board' controls to display available sound files and allow the user to select one on the fly. This element was programmed to trigger a function that would load the correct file into the respective 'Board' object's sample buffer, which the Interface would read from during playback. 
 
-I also found that each \textit{Board}'s amplitude control was not applied correctly to the 'Sample' function, and that it only affected the volume of the 'Voice' function. Therefore, I made a few minor adjustments to ensure that the user could set the volume of each selected sample sound relative to the others for better control over their musical production.  
+I also found that the amplitude control of each 'Board' was not applied correctly to the 'Sample' function, and that it only affected the volume of the 'Voice' function. Therefore, I made a few minor adjustments to ensure that the user could set the volume of each selected sample sound relative to the others for better control over the musical production. 
 
-I also renamed the text at the top of each \textit{Board} object to display "One", "Two" and "Three" as opposed to just "Board", to further improve the user's interactive experience. Figure~\ref{fig:paws_3boards_final} shows the new GUI controls once establishing a connection with the Arduino. 
+I also renamed the text at the top of each 'Board' object to display "One", "Two" and "Three" as opposed to just "Board", to further improve the user's interactive experience. Figure~\ref{fig:paws_3boards_final} shows the new GUI controls once establishing a connection with the Arduino, with the new drop down list functionality to choose a sample sound file.
 
 \begin{figure}[H]
+%\begin{wrapfigure}{r}{0.5\textheight}
 \centering
-\includegraphics[scale = 0.4]{Images/paws_3_single}
-\caption{Prototype 0.2.04 - Interface}
+\includegraphics[scale = 0.5]{Images/paws_3_single}
+\caption{Interface showing controls for 3 Finger Boards, Prototype 0.2.04}
 \label{fig:paws_3boards_final}
+%\end{wrapfigure}
 \end{figure}
 
 \subsubsection{Filtering the Audio Signal}
 
-This section summarises the various attempts I made to modify the frequency content of the various signals in my prototype
+This section summarises the attempts I made to modify the frequency content of the various signals in this Prototype.
 
-Firstly, the Arduino Shield I designed in Section~\ref{0203} Prototype 0.2.03 was made to provide analogue voltages from the Arduino to control the gains of the amplifiers on the Finger Boards. I realised that the Resistor-Capacitor filters for converting the Arduino's PWM (Pulse-Width-Modulation) signals to analogue voltages were placed on the Finger Boards instead of on the Shield itself. This meant that the PWM signal was being transmitted down the connecting cable between the Shield and each of the Finger Boards, and was therefore affecting the microphone signal being transmitted back down the cable. In order to remedy this as quickly as possible, I designed a new printed circuit board for the Arduino Shield, which filtered the PWM signals before sending them to their respective Finger Boards. The transmission of a constant analogue voltage down the cable would therefore not induce any noise onto the microphone signal as it would not host any high frequency waves. Appendix~\ref{ardshieldpcb2} shows the PCB Layout for Version 2 of the Arduino Shield.
+Firstly, the Arduino Shield I designed in Section~\ref{0203} Prototype 0.2.03 was made to provide analogue voltages from the Arduino to control the gains of the amplifiers on the Finger Boards. I realised that the resistor-capacitor filters for converting the Arduino's PWM (Pulse Width Modulated) signals to analogue voltages were placed on the Finger Boards instead of on the Shield. This meant that the PWM signal was being transmitted down the jack cable between the Shield and the Finger Boards, and was therefore affecting the microphone signal coming back down the cable. In order to remedy this as quickly as possible, I designed a new PCB for the Arduino Shield, which filtered the PWM signals first before sending them to their respective Finger Boards. The transmission of a constant analogue voltage down the cable would therefore not induce any noise onto the microphone signal as it would not host any high frequency content. Appendix~\ref{ardshieldpcb2} shows the PCB Layout for Version 2 of the Arduino Shield.
 
 Since Version 2 of the Arduino Shield was not printed in time for the report, Prototype 0.2.04 continued using Version 1 and the induced PWM noise was the main source of distortion in the resultant microphone signal. 
 
-I also attempted to implement software filtering of the microphone signal, firstly to try to reduce the effects of the PWM on the signal, and secondly to isolate the frequencies related to 'tapping' a Finger Ring against a surface for robust sample triggering. JUCE contains libraries for determining filter coefficients and applying them to a chunk of samples. In order to conform to this library's requirements, I briefly modified my Arduino's code to read and transmit an entire chunk of data (arbitrarily set to ten samples), which the Interface would read and store into a temporary buffer and filter before adding them to the queue as before. However, I had troubles with determining filter coefficients for the low pass filtering I wished to do with a cutoff around 500Hz to ensure that only 'tapping' energy was kept in the spectrum. In order to workaround this problem, I used Matlab to determine coefficients and then imported them into my program to implement them and hence filter the input chunk. I found that for each set of coefficients I tried (with various cut off frequencies and roll offs) my microphone signal became unstable, producing sample values of the thirty-second order sometimes. Considering that audio signals are normally defined as float-type variables within the range of -1 to 1, this instability was either a result of badly defined coefficients, since JUCE implemented all filters as Infinite Impulse Response filters, which have the ability to become unstable, or that the already small sample values were wrapping around to become incredibly large and therefore not producible by the system. 
+I also attempted to implement software filtering of the microphone signal, firstly to try to reduce the effects of the PWM on the signal, and secondly to isolate the frequencies related to 'tapping' a Finger Ring against a surface for robust sample triggering. JUCE contains libraries for determining filter coefficients and applying them to a chunk of samples. In order to conform to this library's requirements, I briefly modified my Arduino's code to read and transmit an entire chunk of data (arbitrarily set to ten data samples), which the Interface would read and store into a temporary buffer and filter before adding them to the Queue as before. However, I had troubles with determining filter coefficients for the low pass filtering I wished to do with a cutoff around 500Hz to ensure that only 'tapping' energy was kept in the spectrum. In order to workaround this problem, I used Matlab to determine coefficients and then imported them into my program to implement them and hence filter the input chunk. I found that for each set of coefficients I tried (with various cut off frequencies and roll offs) my microphone signal became unstable, sometimes producing sample values of the thirty-second order. Considering that audio signals are normally defined as float-type variables within the range of -1 to 1, this instability was either a result of poorly defined coefficients, since JUCE implemented all filters as Infinite Impulse Response filters which have the ability to become unstable, or that the already small sample values were wrapping around to become incredibly large and therefore not producible by the system. 
 
-Filtering in software is a good idea to do, especially since I am upsampling the microphone signal to match the output sample rate of the program, which introduces spectral images that need to be removed. However, I had to stop testing software filtering as I was not able to produce a stable result within a reasonable amount of time . More testing could be done using a bespoke filtering function rather than JUCE's methods. I was also only filtering a chunk of samples at a time, which first of all were very small at only 10 samples per chunk, and I was not using correct Digital Signal Processing methods for filtering in real-time such as the Overlap-Save or Overlap-Add methods. Further testing of software filtering would require implementing these well-documented methods to ensure stability and accuracy. 
+Filtering in software was a necessary step, especially since I was upsampling the microphone signal to match the output sample rate of the program, which introduced spectral images that needed to be removed. However, I had to stop testing software filtering as I was not able to produce a stable result within a reasonable amount of time. More testing could be done using a bespoke filtering function rather than JUCE's methods. I was also only filtering a single chunk of samples at a time, which first of all were very small at only 10 samples per chunk, and I was not using correct Digital Signal Processing methods for filtering in real-time such as the Overlap-Save or Overlap-Add\textsuperscript{\cite{overlap}} methods. Further testing of software filtering would require implementing these well-documented methods to ensure stability and accuracy. 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Evaluation of Implemented Product} \label{Evaluation}
 
-This section aims to analyse and critique Prototype 0.2.04 both quantitavely by looking at the hardware and software, and qualitatively in how it stands up to the requirements of the Product Concept and user testing. 
+This section aims to analyse and critique Prototype 0.2.04 both quantitatively by looking at the hardware and software, and qualitatively in how it stands up to the requirements of the Product Concept and through user testing. 
 
 
-
-\begin{wrapfigure}[30]{r}{0.29\textheight}
+\begin{wrapfigure}[33]{r}{0.4\textheight}
 \centering
 \subfloat[No Finger Boards attached]{
-\includegraphics[width=0.3\textheight, height=0.125\textheight]{Images/rail_noboards2.eps}
+\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_noboards2.eps}
 \label{fig:rail_noboards}
 }
 \\
 \subfloat[1 Finger Board attached]{
-\includegraphics[width=0.3\textheight, height=0.125\textheight]{Images/rail_1board2.eps}
+\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_1board2.eps}
 \label{fig:rail_1board}
 }
 \\
 \subfloat[3 Finger Boards attached]{
-\includegraphics[width=0.3\textheight, height=0.125\textheight]{Images/rail_3boards2.eps}
+\includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_3boards2.eps}
 \label{fig:rail_3boards}
 }
 \caption{Arduino 5V Power Rail, measured on the Arduino Shield}
@@ -786,16 +786,15 @@ This section aims to analyse and critique Prototype 0.2.04 both quantitavely by 
 
 \subsection{Prototype 0.2.04 - Analysis} \label{Prototype Evaluation}
 
-This section quantitatively analyses particular specifications of the Prototype such as the effects of noise and changes in sampling rates. 
+This section quantitatively analyses particular data about the Prototype such as the effects of noise and changes in sampling rates. 
 
 \subsubsection{Effects of Noise}
 
+The evaluation was conducted using Finger Boards connected to Version 1 of the Arduino Shield circuit board since Version 2 was not available for testing. The tests involved looking at the noise ripple across the power rails of the Arduino and in the microphone signal coming in to the Arduino's analog input pin. All measurements were taken with a digital oscilloscope and plotted using Matlab. 
 
-The evaluation was conducted using one Finger Board connected to Version 1 of the Arduino Shield circuit board since Version 2 was not available for testing. The tests involved looking at the noise ripple across the power rails of the Arduino and in the microphone signal coming in to the Arduino's analog input pin. All measurements were taken with a digital oscilloscope and plotted using Matlab. 
+Figure~\ref{fig:rail_noboards} shows the power rail measured on the Arduino Shield with no Finger Boards connected. We can see that it is centred around 4.97V, instead of the expected 5V, and features approximately 20mV of digital noise ripple. After connecting one Finger Board to the Arduino, I found that the rail voltage dropped further to 4.9V, a drop of 70mV, with the same noise ripple of 20mV. Figure~\ref{fig:rail_1board} shows the waveform of the rail voltage for one connected Board, and Figure~\ref{fig:rail_3boards} shows the same for three. The voltage dropped significantly to 4.77V with three Boards attached but the noise ripple again remained constant at 20mV. For this Prototype, the Arduino was producing three PWM signals, all at 61Hz, for the Finger Boards to use as analogue voltages to control their programmable gain amplifiers. In Figure~\ref{fig:rail_3boards}, a red overlay has been plotted showing a low frequency periodicity in the noise ripple corresponding to the PWM signals at 61Hz. This frequency was being induced onto the power rails most likely through the jack cable attaching the Arduino Shield to the Finger Boards. 
 
-Figure~\ref{fig:rail_noboards} shows the power rail measured on the Arduino Shield with no Finger Boards connected. We can see that it is centred around 4.97V, instead of the expected 5V, and features approximately 20mV of digital noise ripple. After connecting one Finger Board to the Arduino, I found that the rail voltage dropped further to around 4.9V, a drop of 70mV, with the same noise ripple of 20mV. Figure~\ref{fig:rail_1board} shows the waveform of the rail voltage for one connected Board, and Figure~\ref{fig:rail_3boards} shows the same for three. The voltage dropped significantly to 4.77V but the noise ripple remained constant at 20mV. For this Prototype, the Arduino was producing three PWM signals, all at 61Hz, for the Finger Boards to use as analogue voltages to control their programmable gain amplifiers. In Figure~\ref{fig:rail_3boards}, we can see a red overlay showing the periodicity in the noise ripple corresponding to the PWM signals at 61Hz. This frequency was being induced onto the power rails most likely through the cable  attaching the Arduino Shield to the Finger Boards. 
-
-Figure~\ref{fig:sig_1} shows the microphone signal from a Finger Board, measured at the analogue input pin on the Arduino Shield. The signal has been listed as being in an \textit{idle state}, meaning that no deliberate sounds were made; the microphone was only capturing the background noise of the labs and the electrical noise of the circuitry. The signal is centred around 2.41V as opposed to the expected 2.5V. We can see large spikes in the waveform due to the induction of the PWM signal, which I temporarily returned to its original 490Hz for graphical clarity. The frequency response plot confirms that the periodic spikes do in fact correspond to the 490Hz of the PWM signal. We can also see a high amount of energy around the 10kHz mark, most likely corresponding to thermal noise, which was previously found to be present and was dealt with using a simple low pass filter with a cut-off of 20kHz. Of course, the best solution to remove this noise would be to thermally isolate the microphone and research
+Figure~\ref{fig:sig_1} shows the microphone signal from a Finger Board, measured at the analogue input pin on the Arduino Shield. The signal has been listed as being in an \textit{idle state}, meaning that no deliberate sounds were made; the microphone was only capturing the background noise of the labs and the electrical noise of the circuitry. The signal is centred around 2.41V as opposed to the expected 2.5V, and this is most likely due to the rail voltage not being exactly at 5V. We can see large spikes in the waveform due to the induction of the PWM signal, which I temporarily returned to its original 490Hz for graphical clarity. The frequency response plot confirms that the periodic spikes do in fact correspond to the 490Hz of the PWM signal. We can also see a high amount of energy around the 10kHz mark, most likely corresponding to thermal noise, which was previously found to be present and was temporarily dealt with using a simple low pass filter with a cut-off of 20kHz. Of course, the best solution to remove this noise would be to research further into thermally isolating the microphone and its circuitry. 
 
 \begin{figure}[H]
 \centering
@@ -814,7 +813,7 @@ Figure~\ref{fig:sig_1} shows the microphone signal from a Finger Board, measured
 \end{wrapfigure}
 
 
-Figure~\ref{fig:sig_2} shows the same microphone signal but with the PWM Frequency now at 30Hz. We can see that the waveform is more stable in the idle state, Figure~\ref{fig:sig_2_idle}, and the frequency response much flatter. The noise ripple has been greatly reduced to a maximum of 100mV, as opposed to 700mV with the PWM at 490Hz. Figure~\ref{fig:sig_2_tap} shows the microphone picking up the sound of a Finger Ring, with the Board attached, tapped against a wooden table. The analogue signal is clearly visible amongst the noise ripple and we can see the increase in energy at frequencies of 600Hz and around the 1kHz mark as compared to the idle state. 30Hz is the lowest PWM frequency producible by the Arduino Uno but only for a select few of the analogue output pins. The way in which Prototype 0.2.04 has been wired limits the lower bound of the PWM frequency of the second and third Boards to 61Hz, and therefore the first Board must also be set to this value to ensure the Interface's processing code works in the same way for each of the Boards. The reason for the induced PWM signal having a smaller effect at lower frequencies could be because of the programmable gain amplifier's high pass filtering at each of its input pins. I designed it such that the high pass cutoffs were at 90Hz, meaning that frequencies lower than this would be attenuated by an order of 2 (since the amplifier consists of two stages). 
+Figure~\ref{fig:sig_2} shows the same microphone signal but with the PWM Frequency now at 30Hz, which is the lowest frequency the Arduino was able to produce. We can see that the waveform is more stable in the idle state, Figure~\ref{fig:sig_2_idle}, and the frequency response much flatter. The noise ripple has been greatly reduced to a maximum of 100mV, as opposed to 700mV with the PWM at 490Hz. Figure~\ref{fig:sig_2_tap} shows the microphone picking up the sound of a Finger Ring, with a Board attached, tapped against a wooden table. The analogue signal is clearly visible amongst the noise ripple and we can see the increase in energy at frequencies of 600Hz and around the 1kHz mark as compared to the idle state. 30Hz is the lowest PWM frequency producible by the Arduino Uno but only for a select few of the analogue output pins. The way in which Prototype 0.2.04 has been wired limits the lower bound of the PWM frequency of the second and third Boards to 61Hz, and therefore the first Board must also be set to this value to ensure the Interface's processing code works in the same way for each of the Boards. The reason for the induced PWM signal having a smaller effect at lower frequencies could be because of the Programmable Gain Amplifier's high pass filtering at each of its input pins. I designed it such that the high pass cutoffs were at 90Hz, meaning that frequencies lower than this would be attenuated by an order of 2 (since the amplifier consisted of two gain stages). 
 
 \begin{figure}[H]
 \ContinuedFloat
