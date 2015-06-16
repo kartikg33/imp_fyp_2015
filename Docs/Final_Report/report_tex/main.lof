@@ -39,13 +39,13 @@
 \contentsline {figure}{\numberline {27}{\ignorespaces 1 Thumb Ring and 2 Finger Rings worn by a user\relax }}{27}
 \contentsline {figure}{\numberline {28}{\ignorespaces Assignment of received sample data to the relevant Queue buffers by the Interface's \textit {queueInput( )} function, Prototype 0.2.04\relax }}{28}
 \contentsline {figure}{\numberline {29}{\ignorespaces Interface showing controls for 3 Finger Boards, Prototype 0.2.04\relax }}{29}
-\contentsline {figure}{\numberline {30}{\ignorespaces Arduino 5V Power Rail, measured on the Arduino Shield\relax }}{31}
-\contentsline {figure}{\numberline {31}{\ignorespaces Microphone Signal (idle state) with PWM Frequency at 490Hz, measured at the Arduino input pin\relax }}{32}
+\contentsline {figure}{\numberline {30}{\ignorespaces Arduino 5V Power Rail measured on the Arduino Shield, connected to a different number of Finger Boards\relax }}{31}
+\contentsline {figure}{\numberline {31}{\ignorespaces Microphone Signal (idle state) measured at the Arduino input pin, with PWM Frequency at 490Hz\relax }}{32}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {No Finger Boards attached}}}{32}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {1 Finger Board attached}}}{32}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {3 Finger Boards attached}}}{32}
-\contentsline {figure}{\numberline {32}{\ignorespaces Microphone Signal with PWM Frequency at 30Hz, measured at the Arduino input pin\relax }}{32}
-\contentsline {figure}{\numberline {32}{\ignorespaces Microphone Signal with PWM Frequency at 30Hz, measured at the Arduino input pin\relax }}{33}
+\contentsline {figure}{\numberline {32}{\ignorespaces Microphone Signal measured at the Arduino input pin, with PWM Frequency at 30Hz\relax }}{32}
+\contentsline {figure}{\numberline {32}{\ignorespaces Microphone Signal measured at the Arduino input pin, with PWM Frequency at 30Hz\relax }}{33}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Idle State (no deliberate input)}}}{33}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Tapping the Finger Ring against a table}}}{33}
 \contentsline {figure}{\numberline {33}{\ignorespaces Microphone Signal sampled at 2.381kHz, received by the Interface program\relax }}{34}
