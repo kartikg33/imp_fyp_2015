@@ -512,49 +512,51 @@ I isolated the microphone circuit onto a small piece of Veroboard, as can be see
 \newpage
 \subsection{Prototype 0.2.01} \label{0201}
 
-Prototype 0.2.01 involved a significant development in the Software Application as I shifted from coding in Python to C++. This was after finding that the signal from the microphone was glitched when attempting to play it out of the speakers and this was due to code redundancies in the \textit{PyO} library for audio playback. Essentially, I realised that as much as I developed the User Interface, the audio would not simply be as robust or clean as I would like it to be, and the best way forward would be to switch over to C++ as soon as possible as it provided a much more efficient way of programming despite the fact that I would have to find new libraries and methods for implementing what I already had in Python.
+Prototype 0.2.01 involved a significant development in the software Interface as I shifted from coding in Python to C++. This was after finding that the signal from the microphone was glitching when attempting to play it out of the speakers and this was due to code redundancies in the \textit{PyO} library for audio playback. Essentially, I realised that as much as I developed the User Interface, the audio output would simply not be as clean as I would like it to be, and the best way forward would be to switch over to C++ as soon as possible as it provided a much more efficient way of programming despite the fact that I would have to find new libraries and methods for implementing what I already had in Python. 
 
 \subsubsection{New Program using JUCE in C++}
 
-I found a library called JUCE\textsuperscript{\cite{juce}} which was designed to code audio-based applications in C++. Introjucer\textsuperscript{\cite{introjucer}}, a program for setting up a JUCE application, provided me with skeleton code and allowed me to create GUI elements as classes which I could instantiate from the main application. The skeleton code automatically generated two running threads: one to manage audio samples based on a hidden recurring timer, and one to listen for events in the GUI. The interfacing of the application with my computer's Core Audio Device was hidden and I simply had to write code to provide the program with audio samples upon request. 
+I found a library called JUCE\textsuperscript{\cite{juce}} which was designed to code audio-based applications in C++. Introjucer\textsuperscript{\cite{introjucer}}, a program for instantiating a JUCE application, provided me with skeleton code and allowed me to create GUI elements as classes which I could run from the main application. The skeleton code automatically generated two running threads: one to process audio samples based on a hidden recurring timer, and one to listen for events in the GUI. The interfacing of the application with my computer's audio device was hidden and I simply had to write code to provide the program with audio samples upon request. 
 
-I used Introjucer to develop two GUI classes to run under the main application: an \textit{Overlay} class to show the 'Add Board' and 'Remove Board' buttons as before, and a \textit{Board} class to display the elements for selecting a serial port and the required function. The main application instantiates a single \textit{Overlay} object, which can then spawn as many \textit{Board} objects as are required. This in fact allows me to integrate the 'Bus' functionality from Python into the Board class, to perform functions and display the GUI elements all from the same class. Figure~\ref{fig:0201UML} shows a class diagram of the structure of the Interface program and the function of each class. Each \textit{Board} object is responsible for connecting to a selected serial port, storing received samples in a temporary Queue and then generating samples for the separate Voice and Sample buffers accordingly. The reason for this is that the Sample buffer need only store the loaded sample sound file, which is played when the Queue is processed for 'triggers', and the Voice buffer, as we shall see in the next prototype, will need to store an upsampled version of the Queued signal because of the difference in the Arduino's sample rate and the required output rate of the audio device. 
+I used Introjucer to develop two GUI classes to run under the main application: an 'Overlay' class to show the 'Add Board' and 'Remove Board' buttons as before, and a 'Board' class to display the controls for selecting a serial port and the required mode. The main application would instantiate a single 'Overlay' object, which would then spawn as many 'Board' objects as required. This in fact allowed me to integrate the virtual Bus functionality from Python into the Board class, to process audio and display the GUI elements all from the same class. Figure~\ref{fig:0201UML} shows a class diagram of the structure of the Interface program and a summary of each class. Each 'Board' object was responsible for connecting to a selected serial port, storing received samples in a temporary Queue and then generating samples for the separate Voice and Sample buffers accordingly. The reason for this was that the Sample buffer need only store the loaded sample sound file, which would be played when the Queue was processed for 'triggers', and the Voice buffer, as described in the next Prototype, would need to store an upsampled version of the Queued signal because of the difference in the Arduino's sample rate and the required output rate of the audio device. 
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.65]{Images/0201UML}
-\caption{Class Diagram of Interface, Prototype 0.2.01}
+\caption{Class Diagram of Interface using JUCE, Prototype 0.2.01}
 \label{fig:0201UML}
 \end{figure}
 
 \newpage
-Appendix~\ref{juceflow} shows a flow diagram of the \textit{getNextAudioBlock( )} in the JUCE application that controls the transfer of audio data from the temporary storage Buffers to the output audio device. Like the Python program shown in Appendix~\ref{pyblue_flow} it still utilises threading (using the C++ library \textit{pthread}\textsuperscript{\cite{pthread}}) to call the 'Voice' and 'Sample' functions, only this time the received audio samples are pulled into the main application's audio request thread, using the algorithm described by the flow diagram, and pushed into the audio device from there. 
 
-
-
-\subsubsection{Designing the GUI}
-
-\begin{wrapfigure}{r}{0.4\textheight}
+\begin{wrapfigure}[28]{r}{0.4\textheight}
 \centering
 \includegraphics[scale=0.9]{Images/JuceConcept2}
 \caption{Concept Sketches for new Juce GUI}
 \label{fig:juceguisketches}
 \end{wrapfigure}
 
-Figure~\ref{fig:juceguisketches} shows concept sketches for the JUCE GUI. Upon startup, the application will show only the 'Add Board' button, as was the case with the Python GUI. However, this GUI will be more eye-friendly than the Python one in that it will look much prettier. When a new board is added, the 'Add Board' button will shift to the top of the screen and the centre will be populated by a box with all the necessary elements, such as selecting the serial port and function, as defined by the \textit{Board} class. The 'Remove Board' button will then also appear below the \textit{Board} object. The addition of more boards will result in more of these objects being spawned and they will collectively be centred on the screen. 
+Appendix~\ref{juceflow} shows a flow diagram of the \textit{getNextAudioBlock( )} in the JUCE application, which controlled the transfer of audio data from the temporary storage Buffers to the output audio device. Like the Python program shown in Appendix~\ref{pyblue_flow} it still utilised threading (using the C++ library \textit{pthread}\textsuperscript{\cite{pthread}}) to call the 'Voice' and 'Sample' functions, only this time the received audio samples were pulled into the main application's audio request thread, using the algorithm described by the flow diagram, and pushed into the audio device from there. 
+
+\subsubsection{Designing the GUI}
 
 
 
-The main application continuously runs a 'paint' function to re-generate the background of the main frame as part of its GUI management thread. I exploited this function to display a waveform of the audio signal being processed behind the User Interface elements. This would provide visual feedback of the time-domain signal being sent to the audio device. Since the output signal is stereo or dual-channel (even though the microphone signal from my Boards are in mono or single-channel), I decided to overlay the Left and Right signals in red and blue respectively, which would show up as separate signals if the channels were different but would appear as a combined purple waveform if they were the same. This red and blue theme was used for the colour scheme of the entire application.
+Figure~\ref{fig:juceguisketches} shows concept sketches for the JUCE GUI. Upon startup, the application would show only the 'Add Board' button, as with the Python GUI. However, Introjucer allowed for the creation of a much more user-friendly GUI through simple modern designs. When a new Board was added, the 'Add Board' button would shift to the top of the screen and the centre would be populated by a box with all the necessary controls, such as selecting the serial port and mode, as defined by the 'Board' class. The 'Remove Board' button would then also appear below the 'Board' object. The addition of more Boards would result in more of these objects being spawned and they would collectively be centred on the screen. 
 
-\begin{wrapfigure}{r}{0.45\textheight}
+%\begin{figure}[H]
+\begin{wrapfigure}{r}{0.43\textheight}
 \centering
 \includegraphics[scale = 0.35]{Images/paws_1_3}
 \caption{Multiple Boards Added in PAWS Interface}
 \label{fig:paws_3boards}
 \end{wrapfigure}
+%\end{figure}
 
-As an extra addition, volume controls were added to both the \textit{Board} class and \textit{Overlay} class, the former to set the gains of each individual board, and the latter as an overall amplitude control. These were also coloured in red and blue and were visualised as rotary faders to mimic what one would find on an audio mixing desk or professional studio equipment. Figure~\ref{fig:paws_3boards} shows the produced GUI with controls for three boards and the waveform in the background shows the signal being received by one of the \textit{Board} objects connected to the Arduino with the 'Voice' function active. 
+The main application continuously runs a \textit{paint( )} function to re-generate the background of the main frame as part of its GUI management thread. I exploited this function to display a waveform of the audio signal being processed by painting the the \textit{buffer} variable of the 'Main Component' class as shown in Figure~\ref{fig:0201UML} behind the 'Board' objects. This would provide visual feedback of the time-domain signal being sent to the audio device. Since the output signal was stereo or dual-channel (even though the microphone signal from my Boards were in mono or single-channel), I decided to overlay the Left and Right signals in red and blue respectively, which would show up as separate signals if the channels were different but would appear as a combined purple waveform if they were the same. This red and blue theme was used for the colour scheme of the entire application.
+
+As an extra addition, volume controls were added to both 'Board' and 'Overlay classes, the former to set the gains of each individual Board, and the latter as a global amplitude control. These were also coloured in red and blue and were visualised as rotary faders to mimic what one would find on an audio mixing desk or professional studio equipment. Figure~\ref{fig:paws_3boards} shows the produced GUI with controls for three Boards and the waveform in the background shows the signal being received by one of the 'Board' objects connected to the Arduino in 'Voice' mode. 
+
 
 
 \subsection{Prototype 0.2.02} \label{0202}

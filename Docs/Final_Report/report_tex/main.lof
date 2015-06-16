@@ -19,7 +19,7 @@
 \contentsline {figure}{\numberline {15}{\ignorespaces User Controls developed for the Interface, Prototype 0.1.02\relax }}{17}
 \contentsline {figure}{\numberline {16}{\ignorespaces Microphone Circuit with Improved Op Amp Gain Stage, Prototype 0.1.03\relax }}{18}
 \contentsline {figure}{\numberline {17}{\ignorespaces Programmable Gain Amplifier Circuit implemented on Breadboard, Prototype 0.1.03\relax }}{19}
-\contentsline {figure}{\numberline {18}{\ignorespaces Class Diagram of Interface, Prototype 0.2.01\relax }}{21}
+\contentsline {figure}{\numberline {18}{\ignorespaces Class Diagram of Interface using JUCE, Prototype 0.2.01\relax }}{21}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {AD605 Circuit}}}{21}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {AD605 Circuit and Microphone on Veroboard}}}{21}
 \contentsline {figure}{\numberline {19}{\ignorespaces Concept Sketches for new Juce GUI\relax }}{22}
