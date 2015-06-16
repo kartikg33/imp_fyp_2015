@@ -391,7 +391,7 @@ Prototype 0.1.01 was completed before the Interim Report and Prototype 0.1.05 wa
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Implementation} \label{Implementation}
 
-This section describes the full implementation of the PAWS Board, starting with an Arduino Uno and a microphone circuit on breadboard, and ending with three microphone circuits on Printed Circuit Boards worn on a user's fingers with 3D printed Rings, all connected to a software Interface application that undergoes a vast evolution in terms of functionality and interactivity. This section summarises the steps taken to get from the starting stage to the final prototype and provides details on the key features of each developed prototype and how they build upon their predecessors. 
+This section describes the implementation of a PAWS Board, starting with an Arduino Uno and a microphone circuit on breadboard and ending with three microphone circuits on Printed Circuit Boards worn on a user's fingers with 3D printed Rings, and that of a software Interface application that underwent a vast evolution in terms of functionality and interactivity. This section summarises the steps taken to get from the starting stage to the final prototype and provides details on the key features of each developed prototype and how they build upon their predecessors. 
 
 \subsection{Prototype 0.1.01} \label{0101}
 
@@ -403,111 +403,112 @@ This section describes the full implementation of the PAWS Board, starting with 
 \end{wrapfigure}
 
 
-Prototype 0.1.01 is the very first realisation of the PAWS musical instrument. Figure~\ref{fig:101board} shows the microphone circuit implemented on a breadboard and connected to the Arduino Uno development board. The breadboard also includes connections for a bluetooth module and a programmable gain amplifier (PGA) wired for testing but these have not been utilised for the current prototype. The circuit is comprised of a microphone connected to the Atmel ATMEGA328 microcontroller through a gain stage. The microcontroller is programmed to stream the audio data to the Serial bus, which is currently connected to the Interface on my laptop via a USB cable. The Interface was programmed in Python to read data from the Serial bus and output it to the laptop's core audio device. A library called \emph{PyO}\textsuperscript{\cite{pyolibrary}}, written for implementing digital signal processing (DSP) functions, was used to generate two python scripts: one to play whatever audio the microphone captured, and another to trigger drum samples in response to the microphone being tapped with a finger.
+Prototype 0.1.01 was the very first realisation of the PAWS instrument. Figure~\ref{fig:101board} shows the microphone circuit implemented on Breadboard and connected to the Arduino Uno development board. The Breadboard included connections for a Bluetooth module and a Programmable Gain Amplifier (PGA) wired for testing but these were not utilised for this current prototype. The circuit comprised of a microphone connected to the Atmel ATMEGA328 microcontroller through a gain stage. The microcontroller was programmed to stream the audio data to the Serial bus, which was connected to the Interface on my laptop via a USB cable. The Interface was programmed in Python to read data from the Serial bus and output it to the laptop's audio device, which I could hear through speakers or headphones. A library called \emph{PyO}\textsuperscript{\cite{pyolibrary}}, written for implementing digital signal processing (DSP) functions, was used to generate two Python scripts: one to play whatever audio the microphone captured, the 'Voice' function, and another to trigger drum samples in response to the microphone being tapped with a finger, the 'Sample' function.
 
-This prototype is able to play the audio captured by the microphone, although it is fairly distorted. The prototype is also able to trigger drum sounds when the microphone is slapped. However, the interface is not yet programmed to filter the raw input and detect the transients in a clean manner and therefore the drum sounds have a slight latency and sometimes misfire.
+This prototype was able to play the audio captured by the microphone, although it was fairly distorted due to digital noise from the Arduino feeding into the signal path. The prototype was also able to trigger drum sounds as the microphone was slapped. However, the interface was not yet programmed to filter the raw input and detect the transients in a clean manner and therefore the produced drum sounds had a slight latency and sometimes misfired, i.e. they played when not supposed to.
 
-\begin{wrapfigure}[10]{r}{0.25\textheight}
+\begin{wrapfigure}[13]{r}{0.4\textheight}
 \centering
-\includegraphics[scale=1]{Images/mic0101}
-\caption{Prototype 0.1.01 - PAWS Board Circuit}
+\includegraphics[scale=1.5]{Images/mic0101}
+\caption{Microphone Circuit with Op Amp Gain Stage, Prototype 0.1.01}
 \label{fig:101circuit}
 \end{wrapfigure}
 
 \subsubsection{Microphone Circuit}
 
-Figure~\ref{fig:101circuit} shows the microphone circuit used in Prototype 0.1.01. The first stage, connected as described in the datasheet\textsuperscript{\cite{kingstatedatasheet}}, is fed into a TL072 op-amp with a gain of ten thousand to boost the audio signal to within the dynamic range of the microcontroller's ADC. This prototype uses the 5V power rails provided by the Arduino and is therefore laced with digital noise. Thus, a 100{$\mu$}F electrolytic capacitor was placed across the rails in an attempt to reduce this noise.  
+Figure~\ref{fig:101circuit} shows the microphone circuit designed for this Prototype. The microphone, connected as described in its datasheet\textsuperscript{\cite{kingstatedatasheet}}, was fed into a TL072 Operational Amplifier with a gain of ten thousand to boost the audio signal to within the dynamic range of the microcontroller's Analogue-to-Digital Converter (ADC). This prototype used the 5V power rails provided by the Arduino and was therefore laced with digital noise. Thus, a 100{$\mu$}F electrolytic capacitor was placed across the rails in an attempt to reduce this noise.  
 
+\newpage
 \subsubsection{Microcontroller Program}
 
-The microcontroller program uses a timed interrupt to read a value from its input analogue pin at a set frequency of 8kHz and this value is added to a global circular buffer. In the main program loop, the values in this circular buffer are printed to the Serial bus. The print to Serial cannot be handled inside the interrupt function as it takes much longer to process than the frequency of the function call. Therefore, the print to Serial process is handled in the main loop, however it can lead to inaccuracies due to the two functions writing to and reading from the circular buffer at different frequencies. A dynamically allocated queue would be preferable but the Arduino libraries \emph{QueueList}\textsuperscript{\cite{queuelist}} and \emph{QueueArray}\textsuperscript{\cite{queuearray}} seemed to be unable to cope with the speed at which the data was being read. Appendix~\ref{mcflow} shows a flowchart diagram of the
-microcontroller program.
+The microcontroller program used a timed interrupt to read a value from its input analogue pin at a set frequency of 8kHz and this value was added to a global circular buffer. In the main program loop, the values in this circular buffer were printed to the Serial bus. The printing of sample values to the Serial bus could not be handled inside the interrupt function as it took much longer to process than the frequency of the function call. Therefore, the print to Serial process was handled in the main program loop, which lead to potential inaccuracies due to the two functions writing to and reading from the circular buffer at different frequencies. A dynamically allocated queue was tried and tested with the Arduino libraries \emph{QueueList}\textsuperscript{\cite{queuelist}} and \emph{QueueArray}\textsuperscript{\cite{queuearray}}, but they seemed to be unable to cope with the speed at which the data was being read. Appendix~\ref{mcflow} shows a flowchart diagram of how the microcontroller was programmed.
 
-\subsubsection{Interface - Input and Output}
+\subsubsection{Interface - 'Voice' Mode}
 
-Programming the Interface to read from the Serial bus is well-documented in the \emph{pySerial}\textsuperscript{\cite{pyserial}} library and was therefore very straightforward to implement. Each read sample was appended to a Python list variable, used as a buffer queue, as a \emph{PyO} signal, ready for processing.
+Programming the Python Interface to read from the Serial bus was well-documented in the \emph{pySerial}\textsuperscript{\cite{pyserial}} library and was therefore very straightforward to implement. Each read sample was appended to a Python list variable, used like a buffer queue, as a \emph{PyO} signal, ready for processing.
 
-The first version of the Interface was developed to simply take the input signal buffer and output it to the core audio device, and thereafter clear the samples that had been played from the buffer. The \emph{PyO} library uses an audio server that receives data samples asynchronously and outputs them at the user-defined sampling rate. Therefore, it was simple enough to program an infinite loop to constantly read in samples from the Serial bus and write them to the output server. Appendix~\ref{interfaceflow} shows a flowchart describing the processes involved in this Interface program. 
+The first version of the Interface was developed to simply take the input signal buffer and output it to the core audio device, and thereafter clear the samples that had been played from the buffer. The \emph{PyO} library used an audio server to receive data samples asynchronously and output them at the user-defined sampling rate. Therefore, it was simple enough to program an infinite loop to constantly read in samples from the Serial bus and write them to the output server. Appendix~\ref{interfaceflow} shows a flowchart describing the processes involved in this Interface program. 
 
-\subsubsection{Interface - Sample Triggering}
+\subsubsection{Interface - 'Sample' Mode}
 
-Another version of the Interface was created where data samples were read in chunks from the Serial bus, compared against an intuitively-set threshold value and the generated on/off pulses were used to send the waveform of a drum sound to the output audio server. This method was done in the most basic manner in order to quickly demonstrate that it could indeed be done. The prototype was able to play drum sounds when the microphone was struck but there seemed to be a small delay between the two events. There were also many misfires, or drum sounds being played when they were not supposed to, due to the quickly implemented spike detection method. Appendix~\ref{interfaceflow} shows how this particular prototype implements the sample triggering function.
-
-
+Another version of the Interface was created where data samples were read in chunks from the Serial bus, compared against an intuitively-set threshold value and the generated on/off pulses were used to send the waveform of a drum sound to the output audio server. This method was done in the most basic manner in order to quickly demonstrate that it could indeed be done. The Prototype was able to play drum sounds when the microphone was struck but there seemed to be a small delay between the two events. There were also many misfires, or drum sounds being played when they were not supposed to, due to the roughly implemented spike detection method. Appendix~\ref{interfaceflow} shows how this particular Prototype implemented the sample triggering function.
 
 \subsection{Prototype 0.1.02} \label{0102}
 
-Prototype 0.1.02 involved the creation of a Graphical User Interface (GUI) to control the Direct Read and Sample Triggering functions previously coded. These were respectively labelled as 'Voice' and 'Sample' functions on the interface. 
-
-\begin{wrapfigure}{r}{0.30\textheight}
+\begin{wrapfigure}[12]{r}{0.4\textheight}
 \centering
-\includegraphics[scale=0.5]{Images/pyblue_play}
-\caption{Prototype 0.1.02 - wxPython GUI}
+\includegraphics[scale=0.6]{Images/pyblue_play}
+\caption{User Controls developed for the Interface, Prototype 0.1.02}
 \label{fig:pyblue_play}
 \end{wrapfigure}
 
-\subsubsection{Python Program}
+Prototype 0.1.02 involved the creation of a Graphical User Interface (GUI) to control the 'Voice' and 'Sample' modes previously coded through a single control panel. 
 
-The GUI was built using a library called \textit{wxPython}\textsuperscript{\cite{wxpython}}, and as seen in Figure~\ref{fig:pyblue_play} features top level buttons to 'Add' and 'Remove' boards. Each addition generates a drop-down list of serial ports that can be connected to, and once connected to the Arduino, radio buttons for selecting the required function are shown. 
+\subsubsection{Building a GUI}
 
-The program to work with the GUI was trickier to implement. Appendix~\ref{pyblue_flow} shows a flow chart to demonstrate the workings of the code. Upon startup, the audio server and GUI are set up. The 'Add PAWS Board' button creates a \textit{Bus} which is in control of storing information on the selected serial port and function flags to determine whether the program should be in 'Voice' mode or 'Sample' mode. When a serial port is chosen from the drop-down list on the GUI, a function is called to open the port and ready it for data transfer. The function-selection radio buttons call the respective 'Voice' or 'Sample' functions in a new processing thread to simultaneously process the incoming audio data while continuously listening for events on the GUI. The 'Voice' and 'Sample' functions run endlessly based on their respective flags. Only one flag can be active at any time and the dropping of a flag will cause the respective function to exit. Upon quitting the program, all Busses are disconnected and closed and all flags are dropped to allow all running threads to finish correctly. 
+The GUI was built using a library called \textit{wxPython}\textsuperscript{\cite{wxpython}}, and as seen in Figure~\ref{fig:pyblue_play} featured top level buttons to 'Add' and 'Remove' boards. Each addition of a PAWS Board generated a drop-down list of serial ports to connect to, and once connected to the Arduino, radio buttons for programming the Board in a particular mode were shown. 
 
-The GUI itself uses Sizers, a \textit{wxPython} functionality, that allows for elements to be dynamically grouped together. This meant that I was able to simply display the 'Add PAWS Board' button upon startup, which when pressed would create a 'Select Serial Port' drop down list on the GUI and a corresponding Bus in the back end. A function to read all available serial ports was also called to populate the drop down list on the GUI. Adding more boards would result in the creation of more Busses and Serial Port lists for the user to interact with. If a valid Serial Port was selected, the radio buttons for selection the required function would then display. Also, pressing the 'Remove PAWS Board' button would delete the GUI elements related to the last open Bus and would also call a function to reset the data stored in that Bus. 
+The back end of the program required to work with the GUI was trickier to implement. Appendix~\ref{pyblue_flow} shows a flow chart to demonstrate the workings of the code. Upon startup, the audio server and GUI were set up. The 'Add PAWS Board' button created a virtual \textit{Bus} to store information on the selected serial port and function flags to determine whether the program should be in 'Voice' mode or 'Sample' mode. When a serial port was chosen from the drop-down list on the GUI, a function was called to open the port and ready it for data transfer. The function-selection radio buttons called the respective 'Voice' or 'Sample' functions in a new high-level thread to simultaneously process the incoming audio data while continuously listening for events on the GUI. The 'Voice' and 'Sample' functions ran endlessly based on their respective flags. Only one flag was allowed to be active at any time and the dropping of a flag caused the respective function to exit. The 'Remove PAWS Board' was programmed to reset the data stored in the last created virtual Bus, closing all serial connections and running threads in the process, and would then remove all control elements for that Board from the GUI. Upon quitting the Interface, all Busses were disconnected and closed and all flags were dropped to allow all running threads to finish correctly. 
+
+The GUI itself used Sizers, a \textit{wxPython} functionality, that allowed for elements to be dynamically grouped together. This meant that I was able to simply display the 'Add PAWS Board' button upon startup, which when pressed would make the 'Remove' button visible and then would create a 'Select Serial Port' drop down list on the GUI and a corresponding virtual Bus in the back end. A function to read all available serial ports was also called to populate the drop down lists on the GUI. Adding more Boards would result in the creation of more virtual Busses and Serial Port lists for the user to interact with. If a valid Serial Port was selected, the radio buttons for selecting the required mode would then be displayed. 
 
 
 \subsection{Prototype 0.1.03} \label{0103}
 
-This prototype made significant changes to the hardware. A Programmable Gain Amplifier (PGA) was bought and tested against the previously implemented TL072 operational amplifier for the microphone circuit. The Arduino's functionality was also optimised to remove some of the previously discussed redundancies. 
+This prototype made significant changes to the microphone circuit. A Programmable Gain Amplifier (PGA) was bought and tested against the previously implemented TL072 Operational Amplifier. The Arduino's functionality was also optimised to remove some of the redundancies found in Prototype 0.1.01.
 
 \subsubsection{Improving the Operational Amplifier Circuit}
 
-\begin{wrapfigure}{r}{0.30\textheight}
+\begin{wrapfigure}[15]{r}{0.4\textheight}
 \centering
-\includegraphics[scale=0.4]{Images/TL072circuit_2}
-\caption{Prototype 0.1.03 - Improved Op Amp Circuit}
+\includegraphics[scale=0.6]{Images/TL072circuit_2}
+\caption{Microphone Circuit with Improved Op Amp Gain Stage, Prototype 0.1.03}
 \label{fig:103opamp}
 \end{wrapfigure}
 
-The Operational Amplifier designed in Prototype 0.1.01 (Figure~\ref{fig:101circuit}) was improved for better performance. One of the key problems of the initial circuit was that a single amplifier was being used to amplify the microphone signal by 10,000 or 80dB. Since I was using a dual-TL072 chip, it made sense to use two-stages for amplification, with an overall gain of 96dB but with each stage only providing a fraction of that. This would release the strain on each amplifier and meant that my signal would no longer be inverted at the input to the Arduino's ADC. 
+The Operational Amplifier designed in Prototype 0.1.01 (Figure~\ref{fig:101circuit}) was improved for better performance. One of the key problems of the initial circuit was that a single amplifier was being used to provide a gain of 10,000 or 80dB. Since I was using a dual-TL072 chip, it made sense to use two-stages for amplification, with an overall gain of 80dB but with each stage only providing a fraction of that. This would release the strain on each amplifier and meant that my signal would no longer be inverted at the input to the Arduino's ADC. 
 
-In the first design, the 1$\mu$F decoupling capacitor and the gain resistor at the input of the op amp was generating a high pass pole at 1.5kHz, which was significantly damaging the audio signal but leaving much of the high frequency thermal noise alone. To fix this, the input resistor of each op amp was set to 1k$\Omega$ to create a second order high pass filter at 159Hz such that it did not impact as much upon the audio signal. A first order low pass filter was created using the feedback loop of the first amplifier stage to remove frequencies above 15.9kHz, which ultimately corresponded to thermal noise. 
+In the first design, the 1$\mu$F decoupling capacitor and the gain resistor at the input of the op amp was generating a high pass pole at 1.5kHz, which was significantly damaging the audio signal but leaving much of the high frequency thermal noise alone. To fix this, the input resistor of each op amp was set to 1k$\Omega$ to create a second order high pass filter at 159Hz such that it did not impact as much upon the audio signal. A first order low pass filter was created using the feedback loop of the first amplifier stage to remove frequencies above 15.9kHz, which I found to ultimately correspond to thermal noise. 
 
 After filtering the signal, I found that the overall gain was quite low so I set the feedback resistor of the second amplifier stage to 1M$\Omega$ to produce an overall gain of 100,000 or 100dB. 
-The capacitor across the power rails was also reduced to 10$\mu$F as the previous 100$\mu$F one was somewhat unnecessary. Figure~\ref{fig:103opamp} shows the final op amp circuit.  
+The capacitor across the power rails was also reduced to 10$\mu$F as the previous 100$\mu$F one seemed unnecessarily large. Figure~\ref{fig:103opamp} shows the improved Op Amp circuit.  
 
 
 \subsubsection{Implementing a Programmable Gain Amplifier}
 
-The PGA that I decided to buy was the \textit{AD605} by Analog Devices because its gain could be programmed with a simple analogue voltage and it was available as a Dual-Inline Package, useful for testing on breadboard, as well as in surface mount for final implementation on a printed circuit board. 
+I wished to implement a Programmable Gain Amplifier (PGA), which could be digital controlled to set the gain of the microphone circuit. This would allow for future developments with automatic gain control algorithms should I wish to implement them. The PGA that I decided to buy was the \textit{AD605} by Analog Devices because its gain could be set with a simple analogue voltage and it was available as a Dual-Inline Package, useful for testing on breadboard, as well as in surface mount for final implementation on a Printed Circuit Board. 
 
-The AD605 is a two-stage amplifier with a settable amplification range using feedback resistors and whose gain value is dependent on a dedicated control signal. I was able to set the amplification range by modifying two feedback resistors. Setting both resistors to 0$\Omega$ (i.e. short circuit) would give me a range of -28dB to 68.8dB and setting them to infinite (i.e. open circuit) would correspond to a range of 0dB to 96dB. Of course I opted for the latter as that was more appropriate for my circuit as I did not need to attenuate the microphone signal. I used a DC level capacitor to offset the input signal by 2.5V to ensure that its zero-level fell exactly in the centre of the input range for the Arduino's ADC. 
-When designing the AD605 circuit, the input pins required decoupling capacitors which also set a high pass corner on the signal in conjunction with the pins' internal resistances. The internal resistance of each of the input pins was determined to be 175$\Omega$, and therefore decoupling capacitors no smaller than 9.09$\mu$F were required to ensure a high pass cutoff lower than 100Hz. I decided to set the values of these decoupling capacitors to 10$\mu$F to ensure that most of the audible range of frequencies (20Hz to 20kHz) was preserved. The output of the amplifier was also low pass filtered with a combination of a 82k$\Omega$ series resistor and a 100pF capacitor to ground connected to the Arduino's ADC input in order to remove all instances of thermal noise above a cutoff of 19.4kHz.  
+The AD605 was a two-stage amplifier whose gain value depended on a dedicated control signal. I was also able to set the amplification range by modifying two feedback resistors. Setting both resistors to 0$\Omega$ (i.e. short circuit) would give me a range of -28dB to 68.8dB and setting them to infinite (i.e. open circuit) would correspond to a range of 0dB to 96dB. Of course I opted for the latter as that was more appropriate for my circuit since I did not need to attenuate the microphone signal. I used a DC level capacitor to offset the input signal by 2.5V to ensure that its zero-level fell exactly in the centre of the input range for the Arduino's ADC. 
+When designing the AD605 circuit, the input pins required decoupling capacitors which also set a high pass corner on the signal in conjunction with the pins' internal resistances. The internal resistance of each of the input pins was determined to be 175$\Omega$, and therefore decoupling capacitors no smaller than 9.09$\mu$F were required to ensure a high pass cutoff lower than 100Hz. I decided to set the values of these decoupling capacitors to 10$\mu$F to ensure that most of the audible range of frequencies (20Hz to 20kHz) was preserved. The output of the amplifier was also low pass filtered with a combination of an 82k$\Omega$ series resistor and a 100pF capacitor to ground connected to the Arduino's ADC input in order to remove all instances of thermal noise above a cutoff of 19.4kHz.  
 
 \begin{wrapfigure}{r}{0.3\textheight}
+%\begin{figure}[H]
 \centering
 \subfloat[AD605 Circuit]{
 \includegraphics[scale = 0.05]{Images/ad605_circuit}
 }\\
-\subfloat[AD605 Circuit with Microphone on Veroboard]{
+\subfloat[AD605 Circuit and Microphone on Veroboard]{
 \includegraphics[scale = 0.05]{Images/ad605_circuit2}
 \label{fig:veromic}
 }
-\caption{Programmable Gain Amplifier Circuit implemented on Breadboard}
+\caption{Programmable Gain Amplifier Circuit implemented on Breadboard, Prototype 0.1.03}
 \label{fig:ad605}
+%\end{figure}
 \end{wrapfigure}
 
-To set the gain of the AD605 once its circuit had been designed the Arduino was to be programmed to output an analogue voltage. However, the Arduino Uno that I was using could only output PWM (Pulse-Width-Modulated) signals, meaning that the amplifier was receiving pulses of 5V and 0V rather than a constant particular voltage. In order to fix this, the PWM signal from the Arduino was low pass filtered\textsuperscript{\cite{interpolation}} with a series resistance of 68k$\Omega$ and a 10$\mu$F capacitor to ground, which was required to obtain a DC voltage from the Arduino's 490Hz PWM signal. This voltage could then be set between 1.25 and 2.5V, which would correspond to gains of 0dB and 96dB respectively, by assigning a number between 63 and 127 to the relevant output pin on the Arduino. Setting the Gain Voltage Signal to zero would turn the amplifier off. 
+To set the gain of the AD605 once its circuit had been designed, the Arduino was to be programmed to output an analogue voltage. However, the Arduino Uno that I was using could only output Pulse-Width-Modulated (PWM) signals, meaning that the amplifier was receiving pulses of 5V and 0V rather than a particular constant voltage. In order to fix this, the PWM signal from the Arduino was low pass filtered\textsuperscript{\cite{pwmanalog}} with a series resistance of 68k$\Omega$ and a 10$\mu$F capacitor to ground, to obtain a DC voltage from the Arduino's 490Hz PWM signal. This voltage could then be set between 1.25 and 2.5V, which would correspond to gains of 0dB and 96dB respectively, by assigning a number between 63 and 127 to the relevant output pin on the Arduino. Setting the Gain Voltage Signal to zero would turn the amplifier off. 
 
-Appendix~\ref{fingerboardsch} shows the full circuit diagram for Prototype 0.2.03, including the pin connections for the AD605 chip to implement the discussed circuit with all decoupling capacitors, output lowpass filter and PWM-Analogue filter. The diagram also shows a potential divider connected to the Voltage Reference pin using two 10k$\Omega$ resistors to give the 20dB/V scaling that maps the Gain Voltage Signal to the generated gain of the amplifier. After implementing this circuit, I decided to use it over the two-stage TL072 amplifier since I had the ability to control the gain digitally through the Arduino.
+Appendix~\ref{fingerboardsch} shows the full circuit diagram for a later Prototype but includes the pin connections for the AD605 chip to implement the discussed circuit with all decoupling capacitors, output lowpass filter and PWM-Analogue filter. The diagram also shows a potential divider connected to the Voltage Reference pin using two 10k$\Omega$ resistors to give the 20dB/V scaling that mapped the Gain Voltage Signal to the applied gain of the amplifier. After implementing this circuit, I decided to use it instead of the improved TL072 amplifier since it gave me the ability to control the gain digitally through the Arduino. 
 
-\subsubsection{Arduino Code}
+\subsubsection{Improving the Arduino Code}
 
-The Arduino's code for reading samples and writing them to the serial bus was also modified. Instead of using a circular buffer which introduced redundancies due to differences in its reading and writing speeds, an endless loop was written to read a single sample value and write it to the serial bus iteratively. With this method, the input sample rate was considerably hampered by the \textit{Serial.println( )} function that wrote the sample to the serial bus since another sample could not be read until the previous had been written, but it removed the possibility of inaccuracies in the transmission of data such as repeated or lost sample values. 
+The Arduino's code for reading samples and writing them to the Serial bus was also modified. Instead of using a circular buffer, which introduced redundancies due to differences in its reading and writing speeds, an endless loop was written to iteratively read a single sample value and write it to the Serial bus. With this method, the input sample rate was considerably hampered by the function that printed the sample value to the Serial bus because another sample could not be read until the previous had been written. However, this method did remove the possibility of inaccuracies in the transmission of data such as repeated or lost sample values. 
 
 \subsubsection{Microphone Circuit on Veroboard}
 
-I isolated the microphone circuit onto a small piece of Veroboard, as can be seen in Figure~\ref{fig:veromic}. This allowed me to quickly plug the microphone into whichever amplifier circuit I was testing and I would also be able to emulate the final usage of the microphone by gaining the ability to move it around with my fingers by removing it from the breadboard. 
+I isolated the microphone circuit onto a small piece of Veroboard, as can be seen in Figure~\ref{fig:veromic}. This allowed me to quickly plug the microphone into whichever amplifier circuit I was testing and I would also be able to emulate the final usage of the microphone by removing it from the breadboard and having the ability to move it around with my fingers.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \subsection{Prototype 0.2.01} \label{0201}
 
