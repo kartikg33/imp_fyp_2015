@@ -1082,7 +1082,7 @@ The aim of this project was to implement a version of the conceptualised PAWS in
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Improvements \& Enhancements} \label{Further Developments}
 
-\subsection{Future Design, Prototype 0.3.xx}
+\subsection{Future Design, Prototype 0.3.xx} \label{03xx}
 \subsubsection{The PAWS Board}
 Prototype 0.2.04 was fairly bulky in design relative to the concept design and any further developments would need to remedy this. I realised that the only need for the Arduino Uno was to sample the connected microphone signals and transmit the captured data to the Interface where all of the processing was done. It was of course also used to set the gain of the microphone circuits' amplifiers but this function was not used in the initially intended way and in fact the gain was kept constant during run-time. 
 
@@ -1147,7 +1147,16 @@ Table~\ref{tab:enhancements} shows a list of all possible enhancements to give t
    \label{tab:enhancements}
 \end{table}
 
-Using the complete list of enhancements, Figure~\ref{fig:pawprints} shows a concept design for future PAWS Boards and counterpart Interface. The PAW Prints (stylistically PAWprintS) idea is 
+Using the complete list of enhancements, Figure~\ref{fig:pawprints} shows a concept design for future PAWS Boards and counterpart Interface. The PAW Prints (stylistically PAWprintS) idea stems from the fact that Prototype 0.2.04 could only be used in 'Sample' mode by placing the Finger Boards on a surface and physically hitting the microphones. This could in fact be transformed into a concept design using a foldable layout that held PAWS Boards side by side to be played by striking them as you would a drum. This would in fact provide a different way of using the instrument without having to wear the PAWS Boards, and the Interface could provide a matching visual display of the PAW Prints layout to provide a better connection between the software and hardware as discussed previously. 
+
+\begin{figure}[H]
+   \centering
+%   \includegraphics[scale=0.5]{Images/}
+   \caption{Concept Sketch of PAW Prints Interface and layout for PAWS Boards}
+   \label{fig:pawprints}
+\end{figure}
+
+With a large group of PAWS Boards, the controls for each individual Board could be displayed through selecting that Board, and a 'Blink' function could even be integrated by highlighting a particular Board to ensure that it was placed in the correct location on the layout respective to the Interface. 
 
 
 
@@ -1157,18 +1166,19 @@ highlighting Board shows controls\\
 
 \subsection{Marketability}
 
-A significant increase in the instrument's functionality is necessary before it can be considered to be marketable or ready for consumer usage. The main focus during the Implementation has been on the technical aspects of the 'Sample' function. Some thought to user experience was given by way of the GUI design but more thought needs to be given in future developments to the user's freedom of musical expression and creativity. 
+All of the enhancements detailed in the previous Subsection serve to improve the user experience and how they use the instrument to produce any sound they wish. Developing these functionalities would of course take time, considering that during the scope of this project I was only able to demonstrate a fairly limited implementation, but would in fact make the PAWS instrument highly marketable. 
+
+If a user, musician or not, was able to immediately grasp how to use the Interface to control light and portable PAWS Boards, they would be able to make music anywhere and at anytime. The fact that the concept is designed to have no or very little physical and mental restrictions is a major selling point and would in fact secure the PAWS instrument a space in the market. 
+
 
 
 \newpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Finances} \label{Finances}
 
-This section discusses the costs of developing Prototype 0.2.04 and the expected costs of the new design of Prototype 0.3.xx. 
+This section discusses the costs of developing Prototype 0.2.04 and the expected costs of the high-level design of Prototype 0.3.xx as described in Section~\ref{03xx}. 
 
-Table~\ref{tab:costs0204} shows a breakdown of the costs of the components used to build the three Finger Boards and the Arduino Shield. The cost of Arduino Uno itself and the cost to print the PCBs and Finger Rings have not been taken into account. 
-
-If we were to consider the costs of printing the PCBs and the Arduino Uno, the total cost of Prototype 0.2.04 would come to at least \pounds200. The most expensive components are the Programmable Gain Amplifier and the PCB headers for slotting the Arduino Shield into the Uno. If we were to remove the need for the amplifier and the Arduino then we could greatly reduce these costs. Table~\ref{tab:costs03xx} shows the expected costs of the new design for Prototype 0.3.xx. The Analogue-to-Digital Converter found is a Silicon Labs \textit{TS7001}\textsuperscript{\cite{ts7001}}, a 12-bit surface mountable ADC with serial interfacing capabilities. The Finger Board would also include a micro-USB female header\textsuperscript{\cite{microusbconnector}} to connect to a computer via a type A/micro-B USB cable\textsuperscript{\cite{microusbcable}}. Arbitrary components were found in order to determine a rough cost breakdown for the future design. All quoted prices are trade values if the components were bought in bulk. 
+Table~\ref{tab:costs0204} shows a breakdown of the costs of the components used to build the three Finger Boards and the Arduino Shield. The cost of the Arduino Uno itself and the cost to print the PCBs and Finger Rings have not been taken into account. 
 
 \begin{table}[H]
 \begin{center}
@@ -1213,7 +1223,7 @@ Component   &   Qty.    &   Cost (\pounds) \\ \hline
     Kingstate Microphone &   1   &   1.120 \\
     Silicon Labs TS7001 ADC &   1   &   0.792\\
     Micro-USB Connector &   1   &   0.552 \\
-    USB Cable A/micro-B   &   1   &   2.710 \\
+    USB Cable A/Micro-B   &   1   &   2.710 \\
 \hline \hline
 \multicolumn{2}{r|}{Cost of 1 Finger Board}    & \pounds5.174\\
 \multicolumn{2}{r|}{Cost of 3 Finger Boards}    & \pounds15.522\\ \cline{3-3}
@@ -1225,7 +1235,11 @@ Component   &   Qty.    &   Cost (\pounds) \\ \hline
 \caption{Breakdown of Development Costs for Prototypes 0.2.04 (a) and 0.3.xx (b)}
 \end{table}
 
-We can see that the expected cost of the new Prototype is ten times smaller than that of Prototype 0.2.04, even if we were to take the cost of printing the PCBs and 3D printed Rings into account. Of course the price would change if we wished to purchase components with higher specifications or wished to implement functionalities such as dynamic audio filtering in hardware or user feedback tools such as the ability to 'Blink', as described in Section~\ref{Further Developments} Improvements \& Enhancements.
+If we were to consider the costs of printing the PCBs and the Arduino Uno, the total cost of Prototype 0.2.04 would come to at least \pounds200. The most expensive components are the Programmable Gain Amplifier and the PCB headers for slotting the Arduino Shield into the Uno. If we were to remove the need for the amplifier and the Arduino then we could greatly reduce these costs. Table~\ref{tab:costs03xx} shows the expected costs of the new design for Prototype 0.3.xx. The Analogue-to-Digital Converter found is a Silicon Labs \textit{TS7001}\textsuperscript{\cite{ts7001}}, a 12-bit surface mountable ADC with serial interfacing capabilities. The Finger Board would also include a Micro-USB female header\textsuperscript{\cite{microusbconnector}} to connect to a computer via a Type A/Micro-B USB cable\textsuperscript{\cite{microusbcable}}. Arbitrary components were found in order to determine a rough cost breakdown for the future design. All quoted prices are trade values for buying the components in bulk. 
+
+We can see that the expected cost of the Prototype 0.3.xx is ten times smaller than that of Prototype 0.2.04, even if we were to take the cost of printing the PCBs and 3D printed Rings into account. Of course the price would change if we wished to purchase components with higher specifications or wished to implement functionalities such as programmable audio filtering in hardware or user feedback tools such as the ability to 'Blink', as described in Section~\ref{Further Developments} Improvements \& Enhancements.
+
+The promise of cheaper electronics adds to the marketability of the PAWS instrument, especially considering the fact that rival products such as the Mi.Mu Gloves cost thousands of pounds, as mentioned in Section~\ref{Background}. Cheap hardware also enables the average person to be able to buy many PAWS Boards and use the instrument to its full extent. Prototyping and testing technologies is always very costly but, as designs are refined over time, the implemented product starts to become usable on an everyday basis and affordable, and time dedicated to further development of the PAWS instrument would definitely be worth the end results. 
 
 \newpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

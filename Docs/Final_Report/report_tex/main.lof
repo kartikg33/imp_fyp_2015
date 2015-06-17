@@ -52,7 +52,8 @@
 \contentsline {figure}{\numberline {34}{\ignorespaces Microphone Signal upsampled to 44.1kHz, played by the Interface program\relax }}{35}
 \contentsline {figure}{\numberline {35}{\ignorespaces Prototype 0.2.04 Finger Boards arranged on workbench for User Testing\relax }}{38}
 \contentsline {figure}{\numberline {36}{\ignorespaces High-Level System Design for a PAWS Board, Prototype 0.3.xx\relax }}{40}
-\contentsline {figure}{\numberline {37}{\ignorespaces List of hardware parts for PAWS instrument\relax }}{45}
+\contentsline {figure}{\numberline {37}{\ignorespaces Concept Sketch of PAW Prints Interface and layout for PAWS Boards\relax }}{42}
+\contentsline {figure}{\numberline {38}{\ignorespaces List of hardware parts for PAWS instrument\relax }}{45}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Finger Ring x2}}}{45}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Thumb Ring x1}}}{45}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Finger Board x3}}}{45}
@@ -60,10 +61,10 @@
 \contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Arduino Uno x1}}}{45}
 \contentsline {subfigure}{\numberline {(f)}{\ignorespaces {4-way Jack Cable x3}}}{45}
 \contentsline {subfigure}{\numberline {(g)}{\ignorespaces {USB Type A/B Cable x1}}}{45}
-\contentsline {figure}{\numberline {38}{\ignorespaces PAWS Interface on Opening and Connecting to Arduino\relax }}{46}
+\contentsline {figure}{\numberline {39}{\ignorespaces PAWS Interface on Opening and Connecting to Arduino\relax }}{46}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Opening Screen}}}{46}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Controls for 3 Finger Boards}}}{46}
-\contentsline {figure}{\numberline {39}{\ignorespaces PAWS Interface in different modes\relax }}{46}
+\contentsline {figure}{\numberline {40}{\ignorespaces PAWS Interface in different modes\relax }}{46}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {All Boards in 'Voice' mode}}}{46}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {All Boards in 'Sample' mode}}}{46}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Voice Function Program}}}{52}
