@@ -1029,16 +1029,16 @@ All in all, The User found the PAWS instrument very accessible as a non-musician
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Project Evaluation} \label{Progress Evaluation}
 
-This section aims to evaluate the progress of the entire project against the initial Implementation Plans. Table~\ref{tab:listofprototypes} from Section~\ref{Implementation Plan} Implementation Plan shows a list detailing a plan of the successive development of prototypes. Table~\ref{tab:listofprogress} shows the actual progress I made over the duration of the project as a list of prototypes and their key features. 
+This section aims to evaluate the progress of the entire project against initial expectations. Table~\ref{tab:listofprototypes} from Section~\ref{Implementation Plan} Implementation Plan shows a list detailing a plan of the successive development of prototypes. Table~\ref{tab:listofprogress} shows the actual progress I made over the duration of the project as a list of prototypes and their key features. 
 
-The actual progress varied quite significantly from the projected plan, mainly due to the initial Python program not being able to handle audio processing code quickly enough. As discussed in Section~\ref{0201}, Prototype 0.2.xx involved a changeover to the JUCE library in C++, for which I had to completely restructure my program and re-implement everything I had done in Python. I also spent more time on making the GUI more engaging with an end-user oriented design and modern visuals. I was able to implement the Programmable Gain Amplifier, as planned, but it was mostly used for its cleaner signal over the Operational Amplifier circuit rather than its gain control capabilities. Printed Circuit Boards and 3D Printed wearable Rings were also produced later on, as wished for in the plan. 
+The actual progress varied quite significantly from the projected plan, mainly due to the initial Python program not being able to handle audio processing code quickly enough. As discussed in Section~\ref{0201}, Prototype 0.2.xx involved a changeover to the JUCE library in C++, for which I had to completely restructure my program and re-implement everything I had done in Python. I also spent more time on making the GUI more engaging with an end-user oriented design and modern visuals. I was able to implement the Programmable Gain Amplifier (PGA), as planned, but it was mostly used for its cleaner signal over the Operational Amplifier circuit rather than its gain control capabilities. Printed Circuit Boards and 3D Printed wearable Rings were also produced later on, as wished for in the plan. 
 
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{|l l}
 Prototype  &   Features \\ \hline \hline
 0.1.01 &    Basic microphone circuit and test 'Voice' and 'Sample' functions in Python\\
-0.1.02 &    Full Python Program with GUI to perform 'Voice' and 'Sample' functions \\
+0.1.02 &    Full Python Program with GUI to control 'Voice' and 'Sample' modes \\
 0.1.03 &    PGA in circuit for digital gain control   \\ \hline
 0.2.01 &    New Program Structure and GUI designed using JUCE for C++ \\
 0.2.02 &    Implementation and Optimisation of 'Voice' and 'Sample' functions and data transmission  \\
@@ -1052,7 +1052,7 @@ Prototype  &   Features \\ \hline \hline
 
 Much of my project was dedicated to optimising audio processing code: in the sampling stage at the Arduino, the transmission between it and the computer, and all of the processing and data handling within the Interface itself. The algorithms to upsample the input signals and to trigger sample sound files took the most time to code and improve, in order to ensure robustness and accuracy. The User Interface was focused upon with great detail too to ensure easy usability and an appealing look.
 
-\begin{wraptable}[15]{r}{0.3\textheight}
+\begin{wraptable}[19]{r}{0.3\textheight}
 \begin{center}
 \begin{tabular}{| l r r}
 Prototype   &  Start Date &  Completion \\
@@ -1075,6 +1075,8 @@ Prototype   &  Start Date &  Completion \\
 \end{wraptable}
 
 Table~\ref{tab:progressplan} shows how long it took to implement each of the prototypes, in order of their completion dates. These dates have been pulled from my project logbook and we can see that work for the earlier prototypes was linear whereas later work was done almost simultaneously. For example, I began designing the PCBs for Prototype 0.2.03 near the end of March, even before work on 0.2.02 properly began, but I did not finish printing the final batch of 3D printed Rings until 8th June. There was a large gap in implementation between the end of March and the end of May due to exams but I continued to make small amounts of progress in different areas, sometimes working on 3D sketches for the Finger Rings, ensuring that my PCBs were printed and soldered, and I even began typing up the report early on. 
+
+The aim of this project was to implement a version of the conceptualised PAWS instrument that could demonstrate the 'Voice' and 'Sample' modes and the instrument's flexibility of use. Prototype 0.2.04 was created to demonstrate the programming of multiple Boards independently of each other, despite it being far from the original requirements of being portable and giving the user freedom of musical expression. However, I believe that this Prototype has shown great scope for further development and forms a good starting point as a proof-of-concept of the PAWS concept. 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
