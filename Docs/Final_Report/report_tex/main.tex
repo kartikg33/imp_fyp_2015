@@ -273,7 +273,7 @@ Spatial Limitations & Is the instrument physically restrictive in its use?\\
 
 Before starting on the implementation of the product, I analysed and tested several necessary elements of the Implementable System Design, Figure~\ref{fig:syslvl_imp}, such as using a microcontroller to transmit audio data to a computer and various methods for processing audio in the Interface. I also simulated the concept of Sample Triggering using \emph{Matlab}, and then used these initial findings to produce a rough Implementation Plan, as described in Section~\ref{Implementation Plan}.
 
-\begin{wrapfigure}{r}{0.32\textwidth}
+\begin{wrapfigure}[26]{r}{0.32\textwidth}
 \centering
 \subfloat[Arduino Uno Development Board\textsuperscript{\cite{arduinopic}}]{
 \includegraphics[scale=0.09]{Images/ArduinoUno}
@@ -548,7 +548,7 @@ Figure~\ref{fig:juceguisketches} shows concept sketches for the JUCE GUI. Upon s
 \begin{wrapfigure}{r}{0.43\textheight}
 \centering
 \includegraphics[scale = 0.35]{Images/paws_1_3}
-\caption{Controls for 3 Boards in Interface, Prototype 0.2.01}
+\caption{Controls for 3 PAWS Boards in Interface, Prototype 0.2.01}
 \label{fig:paws_3boards}
 \end{wrapfigure}
 %\end{figure}
@@ -764,7 +764,7 @@ Filtering in software was a necessary step, especially since I was upsampling th
 This section aims to analyse and critique Prototype 0.2.04 both quantitatively by looking at the hardware and software, and qualitatively in how it stands up to the requirements of the Product Concept and through user testing. 
 
 
-\begin{wrapfigure}[33]{r}{0.4\textheight}
+\begin{wrapfigure}[34]{r}{0.4\textheight}
 \centering
 \subfloat[No Finger Boards attached]{
 \includegraphics[width=0.4\textheight, height=0.15\textheight]{Images/rail_noboards2.eps}
@@ -1131,7 +1131,7 @@ Table~\ref{tab:enhancements} shows a list of all possible enhancements to give t
 	Wireless Boards & Removal of wires increases mobility \\
 	Small Boards & Portable and does not physically limit user \\
 	Rubber Housings & Comfortable to wear and one-size-fits-all compared to plastic\\
-	PAWprintS & Foldable case that arranges Boards in piano-style layout for non-worn use\\
+	PAW Prints & Foldable case that arranges Boards in piano-style layout for non-worn use\\
 	On-Board Controls & On/Off switches or Mode Selection done directly from Board\\
 	Variety of Housings & Wristbands, Clips, etc. \\
 	\hline
@@ -1154,19 +1154,19 @@ Table~\ref{tab:enhancements} shows a list of all possible enhancements to give t
    \label{tab:enhancements}
 \end{table}
 
-Using the complete list of enhancements, Figure~\ref{fig:pawprints} shows a concept design for future PAWS Boards and counterpart Interface. The PAW Prints (stylistically PAWprintS) idea stems from the fact that Prototype 0.2.04 could only be used in 'Sample' mode by placing the Finger Boards on a surface and physically hitting the microphones. This could in fact be transformed into a concept design using a foldable layout that held PAWS Boards side by side to be played by striking them as you would a drum. This would in fact provide a different way of using the instrument without having to wear the PAWS Boards, and the Interface could provide a matching visual display of the PAW Prints layout to provide a better connection between the software and hardware as discussed previously. 
+The fact that Prototype 0.2.04 could only be used in 'Sample' mode by placing the Finger Boards on a surface and physically hitting the microphones stemmed a new concept idea as an extension of the PAWS product. PAWS Boards could be arranged side by side in a single large housing, made out of fabric or silicone, called a layout. This layout would be foldable for storage and would allow the PAWS Boards to be played without having to be worn. A user would then strike PAWS Boards like drum pads to produce music. Figure~\ref{fig:pawprints} shows a concept design of the counterpart Interface for this idea, called PAW Prints (stylistically PAW\textit{print}S), and the arrangement of PAWS Boards on the Interface would match the arrangement of the Boards in the layout housing. 
 
 \begin{figure}[H]
    \centering
-   {\color{red} /////PAWS Prints hardware + Matching layout on Interface\\
-highlighting Board shows controls\\
-}
-%   \includegraphics[scale=0.5]{Images/}
-   \caption{Concept Sketch of PAW Prints Interface and layout for PAWS Boards}
+	\includegraphics[scale=0.4]{Images/pawprintsconcept2}
+   \caption{Concept Sketch of PAW Prints Interface, a potential future development}
    \label{fig:pawprints}
 \end{figure}
 
-With a large group of PAWS Boards, the controls for each individual Board could be displayed through selecting that Board, and a 'Blink' function could even be integrated by highlighting a particular Board to ensure that it was placed in the correct location on the layout respective to the Interface. 
+These future PAWS Boards would contain an LED to 'Blink' upon request to allow the user to identify which controls have been mapped to which Boards. The Interface would allow the user to make a visual connection between the physical layout in front of them and the display on the Interface. They could then set the controls for each Board individually, which would appear on the Interface as an expandable menu. 
+
+This is an example of one of the many directions the PAWS instrument could be taken in if it was to be developed further and it forms a good overview of how implementing and evaluating Prototypes has led to refinement of the product's specifications, all for the aim of improving the user experience. 
+
 
 \subsection{Marketability}
 
@@ -1249,13 +1249,13 @@ The promise of cheaper electronics adds to the marketability of the PAWS instrum
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion} \label{Conclusion}
 
-The aim of this project was to design a musical instrument and implement a part of it as a demonstrable proof-of-concept. I developed a Prototype which allowed a user to wear three microphones on their fingers and control the functionality of each individually through a software Interface. This implementation allowed me to prove that my idea for a wearable musical instrument that was flexible in its use and easy and intuitive to program by any type of user, which is quite a significant step. 
+The aim of this project was to design a musical instrument and implement a part of it as a demonstrable proof-of-concept. I developed a Prototype which allowed a user to wear three microphones on their fingers and individually control the functionality of each through a software Interface. This implementation allowed me to prove that my idea for a wearable musical instrument that was flexible in its use and easy and intuitive to program by any type of user could be commercialised. 
 
 As a marketable product, however, the final implementation was far from perfect. It did not meet many of my own set criteria, such as being portable and light and not restricting the user's mobility, but with the further developments listed in the report, the PAWS musical instrument has the potential to take a strong place in the market. 
 
-Time management was a major factor of this project, in that designing and implementing both hardware and software takes a lot of forward planning and a dynamic ability to change directions when an idea is not working out. The implementation of the various Prototypes was the most challenging aspect due to this and the end result was far from what was imagined at the beginning of the project. 
+Time management was a major factor of this project, in that designing and implementing both hardware and software requires much forward planning and an ability to dynamically change directions when an idea is not working out. The implementation of the various Prototypes was the most challenging aspect due to this and the end result was far from what was imagined at the beginning of the project. 
 
-This project has laid down the foundations for a new business venture, that has great scope for introducing non-musicians to world of sound, giving accessibility to those with impairments, and simply introducing a new method in which the average person can create music. The aim of the new culture of wearable instruments, and by extension all electronics, is to reintroduce human motions to technology and give people the ability to interact with the digital world in the same way they do with the natural one. And further development of the PAWS instrument is a step in that direction. 
+This project has laid down the foundations for a new business venture that has great scope for introducing non-musicians to the world of sound, giving accessibility to those with impairments, and simply introducing a new method by which the average person can create music. The aim of the modern culture of wearable instruments, and by extension all electronics, is to reintroduce human motions to technology and give people the ability to interact with the digital world in the same way they do with the natural one. And further development of the PAWS instrument is a step in that direction. 
 
 
 \newpage
