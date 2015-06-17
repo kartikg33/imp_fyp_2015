@@ -1,80 +1,80 @@
+\contentsline {section}{List of Tables}{4}
 \contentsline {section}{List of Figures}{5}
-\contentsline {section}{List of Tables}{5}
-\contentsline {section}{\numberline {1}Introduction}{7}
-\contentsline {section}{\numberline {2}Background}{8}
-\contentsline {subsection}{\numberline {2.1}Market Research}{8}
-\contentsline {subsection}{\numberline {2.2}Product Concept for a new Instrument}{9}
-\contentsline {section}{\numberline {3}Product Design}{11}
-\contentsline {subsection}{\numberline {3.1}System Design for Concept}{11}
-\contentsline {subsection}{\numberline {3.2}System Design for Implementation}{12}
-\contentsline {section}{\numberline {4}Product Requirements}{13}
-\contentsline {section}{\numberline {5}Product Analysis}{14}
-\contentsline {subsubsection}{\numberline {5.0.1}Data Transmission}{14}
-\contentsline {subsubsection}{\numberline {5.0.2}Programming the Software Interface}{14}
-\contentsline {subsubsection}{\numberline {5.0.3}Sample File Triggering Simulation}{15}
-\contentsline {section}{\numberline {6}Implementation Plan}{16}
-\contentsline {section}{\numberline {7}Product Implementation}{17}
-\contentsline {subsection}{\numberline {7.1}Prototype 0.1.01}{17}
-\contentsline {subsubsection}{\numberline {7.1.1}Microphone Circuit}{17}
-\contentsline {subsubsection}{\numberline {7.1.2}Microcontroller Program}{18}
-\contentsline {subsubsection}{\numberline {7.1.3}Interface - 'Voice' Mode}{18}
-\contentsline {subsubsection}{\numberline {7.1.4}Interface - 'Sample' Mode}{18}
-\contentsline {subsection}{\numberline {7.2}Prototype 0.1.02}{18}
-\contentsline {subsubsection}{\numberline {7.2.1}Building a GUI}{18}
-\contentsline {subsection}{\numberline {7.3}Prototype 0.1.03}{19}
-\contentsline {subsubsection}{\numberline {7.3.1}Improving the Operational Amplifier Circuit}{19}
-\contentsline {subsubsection}{\numberline {7.3.2}Implementing a Programmable Gain Amplifier}{20}
-\contentsline {subsubsection}{\numberline {7.3.3}Improving the Arduino Code}{20}
-\contentsline {subsubsection}{\numberline {7.3.4}Microphone Circuit on Veroboard}{21}
-\contentsline {subsection}{\numberline {7.4}Prototype 0.2.01}{22}
-\contentsline {subsubsection}{\numberline {7.4.1}New Program using JUCE in C++}{22}
-\contentsline {subsubsection}{\numberline {7.4.2}Designing the GUI}{23}
-\contentsline {subsection}{\numberline {7.5}Prototype 0.2.02}{24}
-\contentsline {subsubsection}{\numberline {7.5.1}Serial Communication and Bluetooth}{24}
-\contentsline {subsubsection}{\numberline {7.5.2}Implementing the 'Sample' Mode}{24}
-\contentsline {subsubsection}{\numberline {7.5.3}Upsampling for the 'Voice' Mode}{25}
-\contentsline {subsubsection}{\numberline {7.5.4}Coding the Serial Transmission}{25}
-\contentsline {subsection}{\numberline {7.6}Prototype 0.2.03}{26}
-\contentsline {subsubsection}{\numberline {7.6.1}Hardware on Printed Circuit Boards}{26}
-\contentsline {subsubsection}{\numberline {7.6.2}3D Printed Finger Rings}{27}
-\contentsline {subsection}{\numberline {7.7}Prototype 0.2.04}{29}
-\contentsline {subsubsection}{\numberline {7.7.1}Connecting to multiple Finger Boards}{29}
-\contentsline {subsubsection}{\numberline {7.7.2}Enhancing User Control}{29}
-\contentsline {subsubsection}{\numberline {7.7.3}Filtering the Audio Signal}{30}
-\contentsline {section}{\numberline {8}Product Evaluation}{32}
-\contentsline {subsection}{\numberline {8.1}Prototype 0.2.04 - Analysis}{32}
-\contentsline {subsubsection}{\numberline {8.1.1}Effects of Noise}{32}
-\contentsline {subsubsection}{\numberline {8.1.2}Sample Rates}{34}
-\contentsline {subsection}{\numberline {8.2}Prototype 0.2.04 - Evaluation}{36}
-\contentsline {subsubsection}{\numberline {8.2.1}Requirements Evaluation}{36}
-\contentsline {subsubsection}{\numberline {8.2.2}User Testing}{38}
-\contentsline {section}{\numberline {9}Project Evaluation}{39}
-\contentsline {section}{\numberline {10}Improvements \& Enhancements}{40}
-\contentsline {subsection}{\numberline {10.1}Future Design, Prototype 0.3.xx}{40}
-\contentsline {subsubsection}{\numberline {10.1.1}The PAWS Board}{40}
-\contentsline {subsubsection}{\numberline {10.1.2}The Interface}{40}
-\contentsline {subsection}{\numberline {10.2}Further Creative Functionalities}{41}
-\contentsline {subsection}{\numberline {10.3}Marketability}{42}
-\contentsline {section}{\numberline {11}Finances}{43}
-\contentsline {section}{\numberline {12}Conclusion}{44}
-\contentsline {section}{\numberline {13}User Manual For Prototype 0.2.04}{45}
-\contentsline {subsection}{\numberline {13.1}Parts of the Instrument}{45}
-\contentsline {subsection}{\numberline {13.2}Setting Up the Hardware}{45}
-\contentsline {subsection}{\numberline {13.3}Using the Software}{46}
-\contentsline {subsection}{\numberline {13.4}Disconnecting the Hardware}{47}
-\contentsline {section}{\numberline {14}References}{48}
-\contentsline {section}{\numberline {15}Appendices}{50}
-\contentsline {section}{\numberline {A}Circuit Diagrams}{50}
-\contentsline {subsection}{\numberline {A.1}Circuit Diagram for HC-06 to Arduino Connection}{50}
-\contentsline {subsection}{\numberline {A.2}Circuit Diagram for Prototype 0.2.03 - Finger Board}{50}
-\contentsline {subsection}{\numberline {A.3}Circuit Diagram for Prototype 0.2.03 - Arduino Shield}{51}
-\contentsline {section}{\numberline {B}Flow Diagrams}{51}
-\contentsline {subsection}{\numberline {B.1}Flow Diagram for Microcontroller Program, Prototype 0.1.01}{51}
-\contentsline {subsection}{\numberline {B.2}Flow Diagram for Interface Program, Prototype 0.1.01}{52}
-\contentsline {subsection}{\numberline {B.3}Flow Diagram for Interface Program, Prototype 0.1.02}{53}
-\contentsline {subsection}{\numberline {B.4}Flow Diagram for Interface Program, Prototype 0.2.01}{54}
-\contentsline {section}{\numberline {C}PCB Design}{54}
-\contentsline {subsection}{\numberline {C.1}Finger Board}{54}
-\contentsline {subsection}{\numberline {C.2}Arduino Shield Version 1}{55}
-\contentsline {subsection}{\numberline {C.3}Arduino Shield Version 2}{55}
-\contentsline {section}{\numberline {D}GitHub Repository}{55}
+\contentsline {section}{\numberline {1}Introduction}{6}
+\contentsline {section}{\numberline {2}Background}{7}
+\contentsline {subsection}{\numberline {2.1}Market Research}{7}
+\contentsline {subsection}{\numberline {2.2}Product Concept for a new Instrument}{8}
+\contentsline {section}{\numberline {3}Product Design}{10}
+\contentsline {subsection}{\numberline {3.1}System Design for Concept}{10}
+\contentsline {subsection}{\numberline {3.2}System Design for Implementation}{11}
+\contentsline {section}{\numberline {4}Product Requirements}{12}
+\contentsline {section}{\numberline {5}Product Analysis}{13}
+\contentsline {subsubsection}{\numberline {5.0.1}Data Transmission}{13}
+\contentsline {subsubsection}{\numberline {5.0.2}Programming the Software Interface}{13}
+\contentsline {subsubsection}{\numberline {5.0.3}Sample File Triggering Simulation}{14}
+\contentsline {section}{\numberline {6}Implementation Plan}{15}
+\contentsline {section}{\numberline {7}Product Implementation}{16}
+\contentsline {subsection}{\numberline {7.1}Prototype 0.1.01}{16}
+\contentsline {subsubsection}{\numberline {7.1.1}Microphone Circuit}{16}
+\contentsline {subsubsection}{\numberline {7.1.2}Microcontroller Program}{17}
+\contentsline {subsubsection}{\numberline {7.1.3}Interface - 'Voice' Mode}{17}
+\contentsline {subsubsection}{\numberline {7.1.4}Interface - 'Sample' Mode}{17}
+\contentsline {subsection}{\numberline {7.2}Prototype 0.1.02}{17}
+\contentsline {subsubsection}{\numberline {7.2.1}Building a GUI}{17}
+\contentsline {subsection}{\numberline {7.3}Prototype 0.1.03}{18}
+\contentsline {subsubsection}{\numberline {7.3.1}Improving the Operational Amplifier Circuit}{18}
+\contentsline {subsubsection}{\numberline {7.3.2}Implementing a Programmable Gain Amplifier}{19}
+\contentsline {subsubsection}{\numberline {7.3.3}Improving the Arduino Code}{19}
+\contentsline {subsubsection}{\numberline {7.3.4}Microphone Circuit on Veroboard}{20}
+\contentsline {subsection}{\numberline {7.4}Prototype 0.2.01}{21}
+\contentsline {subsubsection}{\numberline {7.4.1}New Program using JUCE in C++}{21}
+\contentsline {subsubsection}{\numberline {7.4.2}Designing the GUI}{22}
+\contentsline {subsection}{\numberline {7.5}Prototype 0.2.02}{23}
+\contentsline {subsubsection}{\numberline {7.5.1}Serial Communication and Bluetooth}{23}
+\contentsline {subsubsection}{\numberline {7.5.2}Implementing the 'Sample' Mode}{23}
+\contentsline {subsubsection}{\numberline {7.5.3}Upsampling for the 'Voice' Mode}{24}
+\contentsline {subsubsection}{\numberline {7.5.4}Coding the Serial Transmission}{24}
+\contentsline {subsection}{\numberline {7.6}Prototype 0.2.03}{25}
+\contentsline {subsubsection}{\numberline {7.6.1}Hardware on Printed Circuit Boards}{25}
+\contentsline {subsubsection}{\numberline {7.6.2}3D Printed Finger Rings}{26}
+\contentsline {subsection}{\numberline {7.7}Prototype 0.2.04}{28}
+\contentsline {subsubsection}{\numberline {7.7.1}Connecting to multiple Finger Boards}{28}
+\contentsline {subsubsection}{\numberline {7.7.2}Enhancing User Control}{28}
+\contentsline {subsubsection}{\numberline {7.7.3}Filtering the Audio Signal}{29}
+\contentsline {section}{\numberline {8}Product Evaluation}{31}
+\contentsline {subsection}{\numberline {8.1}Prototype 0.2.04 - Analysis}{31}
+\contentsline {subsubsection}{\numberline {8.1.1}Effects of Noise}{31}
+\contentsline {subsubsection}{\numberline {8.1.2}Sample Rates}{33}
+\contentsline {subsection}{\numberline {8.2}Prototype 0.2.04 - Evaluation}{35}
+\contentsline {subsubsection}{\numberline {8.2.1}Requirements Evaluation}{35}
+\contentsline {subsubsection}{\numberline {8.2.2}User Testing}{37}
+\contentsline {section}{\numberline {9}Project Evaluation}{38}
+\contentsline {section}{\numberline {10}Improvements \& Enhancements}{39}
+\contentsline {subsection}{\numberline {10.1}Future Design, Prototype 0.3.xx}{39}
+\contentsline {subsubsection}{\numberline {10.1.1}The PAWS Board}{39}
+\contentsline {subsubsection}{\numberline {10.1.2}The Interface}{39}
+\contentsline {subsection}{\numberline {10.2}Further Creative Functionalities}{40}
+\contentsline {subsection}{\numberline {10.3}Marketability}{41}
+\contentsline {section}{\numberline {11}Finances}{42}
+\contentsline {section}{\numberline {12}Conclusion}{43}
+\contentsline {section}{\numberline {13}User Manual For Prototype 0.2.04}{44}
+\contentsline {subsection}{\numberline {13.1}Parts of the Instrument}{44}
+\contentsline {subsection}{\numberline {13.2}Setting Up the Hardware}{44}
+\contentsline {subsection}{\numberline {13.3}Using the Software}{45}
+\contentsline {subsection}{\numberline {13.4}Disconnecting the Hardware}{46}
+\contentsline {section}{\numberline {14}References}{47}
+\contentsline {section}{\numberline {15}Appendices}{49}
+\contentsline {section}{\numberline {A}Circuit Diagrams}{49}
+\contentsline {subsection}{\numberline {A.1}Circuit Diagram for HC-06 to Arduino Connection}{49}
+\contentsline {subsection}{\numberline {A.2}Circuit Diagram for Prototype 0.2.03 - Finger Board}{49}
+\contentsline {subsection}{\numberline {A.3}Circuit Diagram for Prototype 0.2.03 - Arduino Shield}{50}
+\contentsline {section}{\numberline {B}Flow Diagrams}{50}
+\contentsline {subsection}{\numberline {B.1}Flow Diagram for Microcontroller Program, Prototype 0.1.01}{50}
+\contentsline {subsection}{\numberline {B.2}Flow Diagram for Interface Program, Prototype 0.1.01}{51}
+\contentsline {subsection}{\numberline {B.3}Flow Diagram for Interface Program, Prototype 0.1.02}{52}
+\contentsline {subsection}{\numberline {B.4}Flow Diagram for Interface Program, Prototype 0.2.01}{53}
+\contentsline {section}{\numberline {C}PCB Design}{53}
+\contentsline {subsection}{\numberline {C.1}Finger Board}{53}
+\contentsline {subsection}{\numberline {C.2}Arduino Shield Version 1}{54}
+\contentsline {subsection}{\numberline {C.3}Arduino Shield Version 2}{54}
+\contentsline {section}{\numberline {D}GitHub Repository}{54}
