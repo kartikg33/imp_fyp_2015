@@ -1,4 +1,4 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces PAWS Prototype 0.2.04\relax }}{6}
+\contentsline {figure}{\numberline {1}{\ignorespaces Photograph of PAWS Prototype 0.2.04 in action\relax }}{6}
 \contentsline {figure}{\numberline {2}{\ignorespaces Mi.Mu Gloves\textsuperscript {\cite {mimugloves}}\relax }}{7}
 \contentsline {figure}{\numberline {3}{\ignorespaces DrumPants Basic Kit\textsuperscript {\cite {drumpantsprice}}\relax }}{7}
 \contentsline {figure}{\numberline {4}{\ignorespaces Ring by Logbar Inc.\textsuperscript {\cite {gesturering}}\relax }}{8}
@@ -14,7 +14,7 @@
 \contentsline {figure}{\numberline {12}{\ignorespaces Simulation of Sample Triggering algorithm in Matlab\relax }}{14}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Arduino Uno Development Board\textsuperscript {\cite {arduinopic}}}}}{14}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {HC-06 Bluetooth Module for Arduino\textsuperscript {\cite {hc06ebay}}}}}{14}
-\contentsline {figure}{\numberline {13}{\ignorespaces Photograph of Prototype 0.1.01 setup\relax }}{16}
+\contentsline {figure}{\numberline {13}{\ignorespaces Photograph of setup, Prototype 0.1.01\relax }}{16}
 \contentsline {figure}{\numberline {14}{\ignorespaces Microphone Circuit with Op Amp Gain Stage, Prototype 0.1.01\relax }}{16}
 \contentsline {figure}{\numberline {15}{\ignorespaces User Controls developed for the Interface, Prototype 0.1.02\relax }}{17}
 \contentsline {figure}{\numberline {16}{\ignorespaces Microphone Circuit with Improved Op Amp Gain Stage, Prototype 0.1.03\relax }}{18}
@@ -36,7 +36,7 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Side View}}}{27}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Top View}}}{27}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Side View}}}{27}
-\contentsline {figure}{\numberline {27}{\ignorespaces 1 Thumb Ring and 2 Finger Rings worn by a user\relax }}{27}
+\contentsline {figure}{\numberline {27}{\ignorespaces 1 Thumb Ring and 2 Finger Rings worn by a user, Prototype 0.2.03\relax }}{27}
 \contentsline {figure}{\numberline {28}{\ignorespaces Assignment of received sample data to the relevant Queue buffers by the Interface's \textit {queueInput(\nobreakspace {})} function, Prototype 0.2.04\relax }}{28}
 \contentsline {figure}{\numberline {29}{\ignorespaces Interface showing controls for 3 Finger Boards, Prototype 0.2.04\relax }}{29}
 \contentsline {figure}{\numberline {30}{\ignorespaces Arduino 5V Power Rail measured on the Arduino Shield, connected to a different number of Finger Boards\relax }}{31}
@@ -67,5 +67,5 @@
 \contentsline {figure}{\numberline {40}{\ignorespaces PAWS Interface in different modes\relax }}{45}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {All Boards in 'Voice' mode}}}{45}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {All Boards in 'Sample' mode}}}{45}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Voice Function Program}}}{51}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Sample Function Program}}}{51}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {'Voice' Mode Program}}}{51}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {'Sample' Mode Program}}}{51}

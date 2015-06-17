@@ -65,9 +65,9 @@
 \contentsline {section}{\numberline {14}References}{47}
 \contentsline {section}{\numberline {15}Appendices}{49}
 \contentsline {section}{\numberline {A}Circuit Diagrams}{49}
-\contentsline {subsection}{\numberline {A.1}Circuit Diagram for HC-06 to Arduino Connection}{49}
+\contentsline {subsection}{\numberline {A.1}Circuit Diagram for HC-06 Bluetooth Module to Arduino Connection}{49}
 \contentsline {subsection}{\numberline {A.2}Circuit Diagram for Prototype 0.2.03 - Finger Board}{49}
-\contentsline {subsection}{\numberline {A.3}Circuit Diagram for Prototype 0.2.03 - Arduino Shield}{50}
+\contentsline {subsection}{\numberline {A.3}Circuit Diagram for Prototype 0.2.03 - Arduino Shield Version 1}{50}
 \contentsline {section}{\numberline {B}Flow Diagrams}{50}
 \contentsline {subsection}{\numberline {B.1}Flow Diagram for Microcontroller Program, Prototype 0.1.01}{50}
 \contentsline {subsection}{\numberline {B.2}Flow Diagram for Interface Program, Prototype 0.1.01}{51}

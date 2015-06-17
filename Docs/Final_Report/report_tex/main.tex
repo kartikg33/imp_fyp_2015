@@ -51,7 +51,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction} \label{Introduction}
 
-The aim of this project is to design a modern musical instrument that gives a user the freedom to use their environment as part of their sound production process. I will be designing and implementing an instrument that consists of a microphone on a wearable circuit board that, when tapped against any surface, will trigger a sample sound file selected by the user through a software interface. In other words, the user will potentially be able to play an entire drum kit simply by tapping a rhythm with their fingers. The instrument will be limited to this functionality for this project but has a large future scope, in that it could integrate motion gesture control to allow a user to, for example, generate synthesised sounds and modify their amplitudes and pitches in real-time using spatial positioning, or to generate the sounds of guitar chords when mimicking the action of playing one (the air guitar concept). 
+The aim of this project is to design a modern musical instrument that gives a user the freedom to use their environment as part of their sound production process. I designed and implemented an instrument, titled 'PAWS', that consisted of a microphone on a wearable circuit board that, when tapped against any surface, would trigger a sample sound file selected by the user through a software interface. In other words, the user would potentially be able to play an entire drum kit simply by tapping a rhythm with their fingers. The instrument was limited to this functionality for this project but has a large future scope, in that it could integrate motion gesture control to allow a user to, for example, generate synthesised sounds and modify their amplitudes and pitches in real-time using spatial positioning, or to generate the sounds of guitar chords when mimicking the action of playing one (the air guitar concept). 
 
 \begin{wrapfigure}{r}{0.4\textheight}
 \centering
@@ -62,11 +62,11 @@ The aim of this project is to design a modern musical instrument that gives a us
 
 Section~\ref{Implementation} outlines the developments made during implementation. I started by using an Arduino Uno to interface my microphone with my computer's software application, which I initially began to code in Python. Through substantial testing and eventual failures, I switched to an audio library called JUCE in C++. I produced a user-friendly Graphical User Interface (GUI), with two functionalities: a 'Voice' mode to feed the microphone signal through to the computer's audio device, and a 'Sample' mode to trigger a user-selectable sample sound file in response to tapping the microphone. 
 
-Throughout this project, I maintained the full scope of the product, detailed in Section~\ref{Product Concept} Product Concept, in mind. Despite focusing mostly on the 'Sample' function and ensuring that that was ready for a robust demonstration by the end of the project, consideration was always taken into the future development of the product, including the integration of accelerometers for motion control, despite not having had the chance to test them. 
+Throughout this project, I maintained the full scope of the product, detailed in Section~\ref{Product Concept} Product Concept, in mind. Despite focusing mostly on the 'Sample' mode and ensuring that that was ready for a robust demonstration by the end of the project, the future development of the product was always taken into consideration, including the integration of accelerometers for motion control, despite not having had the chance to test them. 
 
-The most difficult part of this project was designing a fast and reliable method of data transmission, from sampling the microphone signal on the Arduino side, to transmitting it via USB to the computer, processing the signal accordingly, and throwing the relevant data to the computer's audio device. Dealing with what was effectively a multirate system, where the sample rates were variable at each stage of data capture or transmission, was challenging but developing a strong data structure for each of these components and optimising the speeds of data transmission and processing at each stage inevitably led to an overall successful system. 
+The most difficult part of this project was designing a fast and reliable method of data transmission, from sampling the microphone signal on the Arduino side, to transmitting it via USB to the computer, processing the signal accordingly, and throwing the relevant data to the computer's audio device. Dealing with what was effectively a multi-rate system, where the sample rates were variable at each stage of data capture or transmission, was challenging but developing a strong data structure for each of these components and optimising the speeds of data transmission and processing at each stage inevitably led to an overall successful system. 
 
-This report begins with some research into the current market for wearable technologies, especially in the field of music production. Section~\ref{Product Concept} Product Concept involves the design of an idea for a musical instrument to fit the original brief: \textit{'The development and evaluation of a novel and unusual musical instrument to be constructed using a 3D printer'}. Section~\ref{Requirements} analyses the requirements the designed product will have to meet, and the following sections detail the design of the product and initial testing of my sample triggering theories and key components such as an Arduino Uno microprocessor. Section~\ref{Implementation} Product Implementation provides a discussion on the development of my various prototypes from the design stage to a working demonstrable product. Subsequently, I evaluate the final prototype and the progress of my project and also detail further developments to be made if the project were to be continued. Section~\ref{Finances} Finances provides a summary of the costs incurred in developing each prototype and the projected costs of future designs, and Section~\ref{User Manual} provides a User Manual on using my final prototype. Appendices have also included at the end with supporting diagrams and schematics. 
+This report begins with some research into the current market for wearable technologies, especially in the field of music production. Section~\ref{Product Concept} Product Concept explains an idea for the PAWS musical instrument and the following sections detail the design of the product and its various requirements in terms of user experience and technologies. Section~\ref{Implementation} Product Implementation provides a summary of the development of the various prototypes from the design stage to a working demonstrable product. The last sections then evaluate the final prototype and the progress of the project, and also detail further developments to be made if the project was to be continued. Section~\ref{Finances} Finances provides a brief overview of the costs incurred in developing the final prototype and the projected costs of future designs, and Section~\ref{User Manual} provides a User Manual for using the final prototype. Appendices have been included at the end with supporting diagrams and schematics and documentation for the entire project can be found at the GitHub Repository listed in Appendix~\ref{GitHub}.
 
 
 \newpage
@@ -1082,18 +1082,25 @@ The aim of this project was to implement a version of the conceptualised PAWS in
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Improvements \& Enhancements} \label{Further Developments}
 
+This section describes further development of the PAWS instrument: the next Prototype to be implemented, and a summary of the future scope of the product. 
+
 \subsection{Future Design, Prototype 0.3.xx} \label{03xx}
+
+A new design must be undertaken to fix the various flaws of Prototype 0.2.04 highlighted in the Evaluation sections. This section provides a high-level description of what Prototype 0.3.xx would entail. 
+
 \subsubsection{The PAWS Board}
 Prototype 0.2.04 was fairly bulky in design relative to the concept design and any further developments would need to remedy this. I realised that the only need for the Arduino Uno was to sample the connected microphone signals and transmit the captured data to the Interface where all of the processing was done. It was of course also used to set the gain of the microphone circuits' amplifiers but this function was not used in the initially intended way and in fact the gain was kept constant during run-time. 
 
 Therefore, the Arduino Uno could be deemed to be a redundant component for what it was used to do, and could simply be replaced by an Analogue-to-Digital Converter (ADC) and a Serial interface. This would mean that the entire circuitry could be contained on a single Finger Board, which would connect directly to a computer. A good enough ADC would also be able to detect the microphone signal's dynamic range and map the incoming voltages to the entire digital range of values, thereby removing the need for a bespoke amplifier. Some surrounding digital circuitry may also be required, such as a clock, and Figure~\ref{fig:0304_circuit} shows a mock-up system design for the Finger Board.
 
-\begin{figure}[H]
+%\begin{figure}[H]
+\begin{wrapfigure}[14]{r}{0.37\textheight}
 \centering
-\includegraphics[scale=2]{Images/FutureDesign}
+\includegraphics[scale=1.5]{Images/FutureDesign}
 \caption{High-Level System Design for a PAWS Board, Prototype 0.3.xx}
 \label{fig:0304_circuit}
-\end{figure}
+\end{wrapfigure}
+%\end{figure}
 
 The inclusion of a battery would clean up the rail noise significantly compared to drawing power from the computer and suffering additive noise from the Arduino. The Serial interface could be a simple Micro-USB connector or even a Bluetooth transmitter. The microphone could also be thermally isolated to remove all thermal noise from the signal path, which is currently only being low pass filtered and therefore remains present in the audio frequency. Ground planing of the PCBs, where the components on the board are surrounded by a layer of silicon at ground potential,  would also aim to reduce reactive noise in the signal path. 
 
@@ -1151,18 +1158,15 @@ Using the complete list of enhancements, Figure~\ref{fig:pawprints} shows a conc
 
 \begin{figure}[H]
    \centering
+   {\color{red} /////PAWS Prints hardware + Matching layout on Interface\\
+highlighting Board shows controls\\
+}
 %   \includegraphics[scale=0.5]{Images/}
    \caption{Concept Sketch of PAW Prints Interface and layout for PAWS Boards}
    \label{fig:pawprints}
 \end{figure}
 
 With a large group of PAWS Boards, the controls for each individual Board could be displayed through selecting that Board, and a 'Blink' function could even be integrated by highlighting a particular Board to ensure that it was placed in the correct location on the layout respective to the Interface. 
-
-
-
-{\color{red} /////PAWS Prints hardware + Matching layout on Interface\\
-highlighting Board shows controls\\
-}
 
 \subsection{Marketability}
 
@@ -1245,7 +1249,13 @@ The promise of cheaper electronics adds to the marketability of the PAWS instrum
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion} \label{Conclusion}
 
-The aim of this project was to design a musical instrument and implement a part of it as a demonstrable proof-of-concept. 
+The aim of this project was to design a musical instrument and implement a part of it as a demonstrable proof-of-concept. I developed a Prototype which allowed a user to wear three microphones on their fingers and control the functionality of each individually through a software Interface. This implementation allowed me to prove that my idea for a wearable musical instrument that was flexible in its use and easy and intuitive to program by any type of user, which is quite a significant step. 
+
+As a marketable product, however, the final implementation was far from perfect. It did not meet many of my own set criteria, such as being portable and light and not restricting the user's mobility, but with the further developments listed in the report, the PAWS musical instrument has the potential to take a strong place in the market. 
+
+Time management was a major factor of this project, in that designing and implementing both hardware and software takes a lot of forward planning and a dynamic ability to change directions when an idea is not working out. The implementation of the various Prototypes was the most challenging aspect due to this and the end result was far from what was imagined at the beginning of the project. 
+
+This project has laid down the foundations for a new business venture, that has great scope for introducing non-musicians to world of sound, giving accessibility to those with impairments, and simply introducing a new method in which the average person can create music. The aim of the new culture of wearable instruments, and by extension all electronics, is to reintroduce human motions to technology and give people the ability to interact with the digital world in the same way they do with the natural one. And further development of the PAWS instrument is a step in that direction. 
 
 
 \newpage
@@ -1256,7 +1266,7 @@ This section details how to setup the PAWS instrument and use the counterpart so
 
 \subsection{Parts of the Instrument}
 
-The PAWS instrument is comprised of three hardware components and a software application. Figure~\ref{fig:listofparts} provides a list of all the hardware parts of the instrument. 
+The PAWS instrument is comprised of various hardware components and a software application. Figure~\ref{fig:listofparts} provides a list of the hardware parts of the instrument. 
 
 \begin{figure}[H]
 \centering
@@ -1288,7 +1298,7 @@ The PAWS instrument is comprised of three hardware components and a software app
 
 \subsection{Setting Up the Hardware}
 
-Firstly, the Finger Boards must be connected using the 4-way Jack Cables to the Arduino Shield. The Arduino can be slotted into the headers of the Arduino Uno to sit neatly on top, and the Uno can be connected via USB to a computer. The two Finger Rings and Thumb Ring can be worn on any hand, with the lip extrusions sitting comfortably under the fingertips, and the three Finger Boards can simply slide into the designated slots. Once this has been done, the instrument is ready to be used.
+Firstly, the Finger Boards must be connected using the 4-way jack cables to the Arduino Shield. The Arduino Shield can be slotted into the headers of the Arduino Uno to sit neatly on top, and the Uno can be connected via the USB cable to a computer. The two Finger Rings and Thumb Ring can be worn on any hand, with the lip extrusions sitting comfortably under the fingertips, and the three Finger Boards can simply slide into their designated slots. Once this has been set up, the instrument is ready to be used.
 
 \subsection{Using the Software}
 
@@ -1306,10 +1316,9 @@ Firstly, the Finger Boards must be connected using the 4-way Jack Cables to the 
 
 \end{figure}
 
-Upon starting the PAWS application, the user is greeted with a thin purplish red line across the centre of the screen and a single 'Connect' button. When the 'Connect' button is pressed, provided that the Arduino has been connected to the correct USB port, the program will open three control interfaces for each of the three Finger Boards, as displayed in Figure~\ref{fig:paws_3controls}. A 'Disconnect' button will appear at the top of the program above the Board controls. 
+Upon starting the PAWS application, the user is greeted with a thin purplish line across the centre of the screen and a single 'Connect' button. When the 'Connect' button is pressed, provided that the Arduino has been connected to the correct USB port, the program will open three control interfaces for each of the three Finger Boards, as displayed in Figure~\ref{fig:paws_3controls}. A 'Disconnect' button will appear at the top of the program above the Board controls. 
 
-
-The control interfaces, labelled 'One', 'Two', and 'Three, consist of buttons to select whether the user would like the corresponding Finger Board to operate in 'Voice' mode or 'Sample' mode. Each interface also hosts a blue dial to control the amplitude of the resulting signal from the respective Finger Board, and a large red dial below these controls the overall volume for the entire program.
+The control interfaces, labelled 'One', 'Two', and 'Three, consist of buttons to select whether the user would like the corresponding Finger Board to operate in 'Voice' mode or 'Sample' mode. Each interface also hosts a blue dial to control the volume of the resulting signal from the respective Finger Board, and a large red dial below these controls the global volume for all Boards.
 
 When 'Voice' is selected for any Board, the sound captured by the Board's microphone will be played through the computer's output audio device. The thin line in the background of the display will also transform dynamically to display the waveform of the output sound for visual feedback.
 
@@ -1317,32 +1326,28 @@ When 'Voice' is selected for any Board, the sound captured by the Board's microp
 \centering
 \subfloat[All Boards in 'Voice' mode]{
 \includegraphics[scale = 0.25]{Images/paws_3_voice}
-\label{fig:paws_open}
+\label{fig:paws_user_voice}
 }
 \subfloat[All Boards in 'Sample' mode]{
 \includegraphics[scale = 0.25]{Images/paws_3_sample}
-\label{fig:paws_3controls}
+\label{fig:paws_user_sample}
 }
 \caption{PAWS Interface in different modes}
 
 \end{figure}
 
-When 'Sample' is selected for any Board, a drop down list appears below the mode selection buttons to allow the user to choose a sample sound file. When the user taps a Finger Board against a surface, the program will play back the chosen sample sound file in response to the 'tap'. This mode allows for the user to convert a rhythm they play into a series of pre-recorded sounds, as determined by the sample sound files in the list. Since these sample files are in stereo, the thin line in the background of the display will transform into two separate waveforms: a red line to represent the left channel of the played sound, and a blue line to represent the right channel. When both of the stereo channels are identical, the two lines will converge and  return to its original purplish colour. 
+When 'Sample' is selected for any Board, a drop down list appears below the mode selection buttons to allow the user to choose a sample sound file, as can be seen in Figure~\ref{fig:paws_user_sample}. When the user taps a Finger Board against a surface, the program will play back the chosen sample sound file in response to the 'tap'. This mode allows for the user to convert a rhythm they play into a series of pre-recorded sounds, as determined by the sample sound files in the list. Since these sample files are in stereo, the thin line in the background of the display will transform into two separate waveforms: a red line to represent the left channel of the played sound, and a blue line to represent the right channel. When both of the stereo channels are identical, the two lines will converge and return to its original purplish colour. 
 
-The sample sound file can be freely chosen when in 'Sample' mode. When switching back to 'Voice' mode, the ability to choose a sample file will disappear from view. The modes can be switched between freely and at any time.
+The sample sound file can be freely chosen when in 'Sample' mode. When switching back to 'Voice' mode, the ability to choose a sample file will disappear from view, as shown in Figure~\ref{fig:paws_user_voice}. The modes can be switched between freely and at any time.
 
-To shut down the program, the normal forms of quitting can be used (red button on top left, or the cmd+Q keyboard shortcut). The 'Disconnect' button can also be pressed before doing so, in which case all of the Board controls and overall volume control dial will disappear and the program will return to its starting screen. 
-
-
-
+To shut down the program, the normal forms of quitting can be used (red button on top left, or the cmd+Q keyboard shortcut). The 'Disconnect' button can also be pressed before doing so, in which case all of the Board controls and global volume control dial will disappear and the program will return to its starting screen. 
 
 
 \subsection{Disconnecting the Hardware}
 
-When the instrument has been finished with, the PAWS software must be closed first. Then the hardware is dismantled in the reverse order to setting it up: the usb cable is unplugged from the computer first, then from the Arduino. The Arduino Shield may be kept connected to the Arduino Uno but the Finger Boards must be disconnected from the Uno and all cable rolled away neatly for storage. The Finger Boards may be removed from the Ring housings if necessary. 
+When the instrument has been finished with, the PAWS software must be closed first. Then the hardware is dismantled in the reverse order to setting it up: the USB cable is unplugged from the computer first, then from the Arduino. The Arduino Shield may be kept slotted into the Arduino Uno but the Finger Boards must be disconnected from the Uno and all jack cables rolled away neatly for storage. The Finger Boards may be removed from the Ring housings if necessary. 
 
 The order of disassembly is important as the Interface will crash if the Arduino is unplugged during run-time, and the Arduino must be disconnected from the computer before removing the Finger Boards to ensure that there is no power surging through the cables during this process. 
-
 
 \newpage
 

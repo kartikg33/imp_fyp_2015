@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.10)  17 JUN 2015 04:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.6.10)  17 JUN 2015 06:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -526,20 +526,7 @@ Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
 Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
 \etb@tempcnta=\count126
 ))
-(./main.aux
-
-LaTeX Warning: Label `fig:paws_open' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:paws_open' multiply defined.
-
-
-LaTeX Warning: Label `fig:paws_3controls' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:paws_3controls' multiply defined.
-
-)
+(./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
@@ -770,13 +757,33 @@ Underfull \hbox (badness 1365) in paragraph at lines 63--64
  []
 
 
-Underfull \hbox (badness 1622) in paragraph at lines 63--64
-\T1/futs/m/n/10 Graph-i-cal User In-ter-face (GUI), with
+Underfull \hbox (badness 1424) in paragraph at lines 63--64
+\T1/futs/m/n/10 be-gan to code in Python. Through
+ []
+
+
+Underfull \hbox (badness 1354) in paragraph at lines 63--64
+\T1/futs/m/n/10 sub-stan-tial test-ing and even-tual fail-
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 63--64
+\T1/futs/m/n/10 ures, I switched to an au-dio li-brary
  []
 
 
 Underfull \hbox (badness 1248) in paragraph at lines 63--64
 \T1/futs/m/n/10 to the com-puter's au-dio de-vice, and
+ []
+
+
+Underfull \hbox (badness 3333) in paragraph at lines 63--64
+\T1/futs/m/n/10 a 'Sam-ple' mode to trig-ger a user-
+ []
+
+
+Underfull \hbox (badness 4303) in paragraph at lines 63--64
+\T1/futs/m/n/10 selectable sam-ple sound file in re-
  []
 
 [6 <./Images/paws_0204.JPG>]
@@ -814,9 +821,9 @@ File: Images/gesturering.jpg Graphic file (type jpg)
 Package pdftex.def Info: Images/gesturering.jpg used on input line 107.
 (pdftex.def)             Requested size: 173.75046pt x 92.44608pt.
 
-Overfull \hbox (1.5347pt too wide) in paragraph at lines 114--115
-\T1/futs/m/n/10 other motion-based prod-ucts are (es-pe-cially those re-lated t
-o computer-vision). The mu-si-cal in-stru-ment should
+Overfull \hbox (7.81088pt too wide) in paragraph at lines 114--115
+[]\T1/futs/m/n/10 Based on these prod-ucts, I pro-duced a new mu-si-cal in-stru
+-ment that heads in the di-rec-tion of user-programmable
  []
 
 <Images/UserLevelDia.pdf, id=33, 277.035pt x 159.59625pt>
@@ -825,6 +832,16 @@ File: Images/UserLevelDia.pdf Graphic file (type pdf)
 <use Images/UserLevelDia.pdf>
 Package pdftex.def Info: Images/UserLevelDia.pdf used on input line 121.
 (pdftex.def)             Requested size: 221.6283pt x 127.67715pt.
+
+Underfull \hbox (badness 2197) in paragraph at lines 126--127
+[]\T1/futs/m/n/10 The mu-si-cal in-stru-ment I de-signed fea-tures the
+ []
+
+
+Underfull \hbox (badness 1264) in paragraph at lines 126--127
+\T1/futs/m/n/10 con-cept of Pro-grammable And Wear-able Sen-sors
+ []
+
 
 <Images/conceptphoneinterface_annotated.pdf, id=34, 343.78949pt x 413.49492pt>
 File: Images/conceptphoneinterface_annotated.pdf Graphic file (type pdf)
@@ -1455,10 +1472,15 @@ Underfull \hbox (badness 2150) in paragraph at lines 1073--1073
 File: Images/FutureDesign.pdf Graphic file (type pdf)
 
 <use Images/FutureDesign.pdf>
-Package pdftex.def Info: Images/FutureDesign.pdf used on input line 1093.
-(pdftex.def)             Requested size: 340.37662pt x 141.87689pt.
- [39 <./Images/FutureDesign.pdf>]
-Overfull \hbox (1.2215pt too wide) in paragraph at lines 1122--1146
+Package pdftex.def Info: Images/FutureDesign.pdf used on input line 1099.
+(pdftex.def)             Requested size: 255.28246pt x 106.40767pt.
+
+Underfull \hbox (badness 1210) in paragraph at lines 1105--1106
+\T1/futs/m/n/10 au-dio fre-quency. Ground plan-ing of the
+ []
+
+[39 <./Images/FutureDesign.pdf>]
+Overfull \hbox (1.2215pt too wide) in paragraph at lines 1129--1153
  [][] 
  []
 
@@ -1466,63 +1488,63 @@ Overfull \hbox (1.2215pt too wide) in paragraph at lines 1122--1146
 File: Images/0204_finger.JPG Graphic file (type jpg)
 
 <use Images/0204_finger.JPG>
-Package pdftex.def Info: Images/0204_finger.JPG used on input line 1265.
+Package pdftex.def Info: Images/0204_finger.JPG used on input line 1275.
 (pdftex.def)             Requested size: 84.03836pt x 84.0414pt.
 
 <Images/0204_thumb.JPG, id=431, 1435.3625pt x 1711.39375pt>
 File: Images/0204_thumb.JPG Graphic file (type jpg)
 
 <use Images/0204_thumb.JPG>
-Package pdftex.def Info: Images/0204_thumb.JPG used on input line 1268.
+Package pdftex.def Info: Images/0204_thumb.JPG used on input line 1278.
 (pdftex.def)             Requested size: 84.03735pt x 84.03398pt.
 
 <Images/0204_board.JPG, id=432, 2587.6675pt x 969.6225pt>
 File: Images/0204_board.JPG Graphic file (type jpg)
 
 <use Images/0204_board.JPG>
-Package pdftex.def Info: Images/0204_board.JPG used on input line 1271.
+Package pdftex.def Info: Images/0204_board.JPG used on input line 1281.
 (pdftex.def)             Requested size: 252.1485pt x 84.05168pt.
 
 <Images/0204_shield.JPG, id=433, 2672.98625pt x 1958.31625pt>
 File: Images/0204_shield.JPG Graphic file (type jpg)
 
 <use Images/0204_shield.JPG>
-Package pdftex.def Info: Images/0204_shield.JPG used on input line 1274.
+Package pdftex.def Info: Images/0204_shield.JPG used on input line 1284.
 (pdftex.def)             Requested size: 175.09616pt x 140.08429pt.
 
 <Images/0204_arduino.JPG, id=434, 2865.70625pt x 2053.6725pt>
 File: Images/0204_arduino.JPG Graphic file (type jpg)
 
 <use Images/0204_arduino.JPG>
-Package pdftex.def Info: Images/0204_arduino.JPG used on input line 1277.
+Package pdftex.def Info: Images/0204_arduino.JPG used on input line 1287.
 (pdftex.def)             Requested size: 175.12703pt x 140.07405pt.
 
 <Images/0204_jackcable.JPG, id=435, 2664.95625pt x 1957.3125pt>
 File: Images/0204_jackcable.JPG Graphic file (type jpg)
 
 <use Images/0204_jackcable.JPG>
-Package pdftex.def Info: Images/0204_jackcable.JPG used on input line 1280.
+Package pdftex.def Info: Images/0204_jackcable.JPG used on input line 1290.
 (pdftex.def)             Requested size: 175.09877pt x 140.07222pt.
 
 <Images/0204_usbcable.JPG, id=436, 2985.1525pt x 2093.8225pt>
 File: Images/0204_usbcable.JPG Graphic file (type jpg)
 
 <use Images/0204_usbcable.JPG>
-Package pdftex.def Info: Images/0204_usbcable.JPG used on input line 1283.
+Package pdftex.def Info: Images/0204_usbcable.JPG used on input line 1293.
 (pdftex.def)             Requested size: 175.09305pt x 140.09688pt.
 
 <Images/paws_3_open.png, id=437, 800.9925pt x 602.25pt>
 File: Images/paws_3_open.png Graphic file (type png)
 
 <use Images/paws_3_open.png>
-Package pdftex.def Info: Images/paws_3_open.png used on input line 1300.
+Package pdftex.def Info: Images/paws_3_open.png used on input line 1310.
 (pdftex.def)             Requested size: 200.24763pt x 150.56212pt.
 
 <Images/paws_3_connect.png, id=438, 803.0pt x 599.23875pt>
 File: Images/paws_3_connect.png Graphic file (type png)
 
 <use Images/paws_3_connect.png>
-Package pdftex.def Info: Images/paws_3_connect.png used on input line 1304.
+Package pdftex.def Info: Images/paws_3_connect.png used on input line 1314.
 (pdftex.def)             Requested size: 200.74951pt x 149.80931pt.
  [44 <./Images/0204_finger.JPG> <./Images/0204_thumb.JPG> <./Images/0204_board.
 JPG> <./Images/0204_shield.JPG> <./Images/0204_arduino.JPG> <./Images/0204_jack
@@ -1531,14 +1553,14 @@ cable.JPG> <./Images/0204_usbcable.JPG>]
 File: Images/paws_3_voice.png Graphic file (type png)
 
 <use Images/paws_3_voice.png>
-Package pdftex.def Info: Images/paws_3_voice.png used on input line 1321.
+Package pdftex.def Info: Images/paws_3_voice.png used on input line 1330.
 (pdftex.def)             Requested size: 200.49857pt x 150.31119pt.
 
 <Images/paws_3_sample.png, id=443, 799.98875pt x 602.25pt>
 File: Images/paws_3_sample.png Graphic file (type png)
 
 <use Images/paws_3_sample.png>
-Package pdftex.def Info: Images/paws_3_sample.png used on input line 1325.
+Package pdftex.def Info: Images/paws_3_sample.png used on input line 1334.
 (pdftex.def)             Requested size: 199.99669pt x 150.56212pt.
  [45 <./Images/paws_3_open.png> <./Images/paws_3_connect.png> <./Images/paws_3_
 voice.png> <./Images/paws_3_sample.png>] [46]
@@ -1701,81 +1723,74 @@ iceflow.pdf, id=474, 108.405pt x 298.11375pt>
 File: Images/interfacevoiceflow.pdf Graphic file (type pdf)
 
 <use Images/interfacevoiceflow.pdf>
-Package pdftex.def Info: Images/interfacevoiceflow.pdf used on input line 49.
+Package pdftex.def Info: Images/interfacevoiceflow.pdf used on input line 50.
 (pdftex.def)             Requested size: 108.40472pt x 298.11302pt.
 
 <Images/interfacesampleflow.pdf, id=475, 187.70125pt x 443.6575pt>
 File: Images/interfacesampleflow.pdf Graphic file (type pdf)
 
 <use Images/interfacesampleflow.pdf>
-Package pdftex.def Info: Images/interfacesampleflow.pdf used on input line 53.
+Package pdftex.def Info: Images/interfacesampleflow.pdf used on input line 54.
 (pdftex.def)             Requested size: 187.70079pt x 443.6564pt.
 
 <Images/PyFlow.pdf, id=476, 645.26207pt x 977.27481pt>
 File: Images/PyFlow.pdf Graphic file (type pdf)
  <use Images/PyFlow.pdf>
-Package pdftex.def Info: Images/PyFlow.pdf used on input line 60.
-(pdftex.def)             Requested size: 451.68036pt x 684.0877pt.
+Package pdftex.def Info: Images/PyFlow.pdf used on input line 62.
+(pdftex.def)             Requested size: 387.16022pt x 586.36942pt.
 
 [51 <./Images/interfacevoiceflow.pdf> <./Images/interfacesampleflow.pdf>]
-Overfull \vbox (13.88681pt too high) has occurred while \output is active []
-
-
-[52 <./Images/PyFlow.pdf>]
-<Images/JuceFlow.pdf, id=511, 610.42813pt x 500.61661pt>
+<Images/JuceFlow.pdf, id=498, 610.42813pt x 500.61661pt>
 File: Images/JuceFlow.pdf Graphic file (type pdf)
 
 <use Images/JuceFlow.pdf>
-Package pdftex.def Info: Images/JuceFlow.pdf used on input line 67.
+Package pdftex.def Info: Images/JuceFlow.pdf used on input line 71.
 (pdftex.def)             Requested size: 427.29677pt x 350.42923pt.
-
+ [52 <./Images/PyFlow.pdf>]
 <Images/mic_pcb_02.png, id=512, 153.6942pt x 58.2978pt>
 File: Images/mic_pcb_02.png Graphic file (type png)
 
 <use Images/mic_pcb_02.png>
-Package pdftex.def Info: Images/mic_pcb_02.png used on input line 78.
+Package pdftex.def Info: Images/mic_pcb_02.png used on input line 82.
 (pdftex.def)             Requested size: 307.3876pt x 116.5953pt.
 
 <Images/ard_pcb_01.png, id=513, 206.08995pt x 155.50095pt>
 File: Images/ard_pcb_01.png Graphic file (type png)
 
 <use Images/ard_pcb_01.png>
-Package pdftex.def Info: Images/ard_pcb_01.png used on input line 86.
+Package pdftex.def Info: Images/ard_pcb_01.png used on input line 90.
 (pdftex.def)             Requested size: 309.13414pt x 233.25084pt.
  [53 <./Images/JuceFlow.pdf> <./Images/mic_pcb_02.png>] <Images/ard_pcb_02.png,
  id=526, 207.174pt x 156.585pt>
 File: Images/ard_pcb_02.png Graphic file (type png)
 
 <use Images/ard_pcb_02.png>
-Package pdftex.def Info: Images/ard_pcb_02.png used on input line 94.
+Package pdftex.def Info: Images/ard_pcb_02.png used on input line 98.
 (pdftex.def)             Requested size: 310.76021pt x 234.8769pt.
 
-Overfull \hbox (35.16469pt too wide) in paragraph at lines 101--102
+Overfull \hbox (35.16469pt too wide) in paragraph at lines 105--106
 \T1/futs/m/n/10 sim-u-la-tions, etc. can be found in the fol-low-ing GitHub Rep
 os-i-tory: https://github.com/kartikg33/imp_fyp_2015 
  []
 
-) [54 <./Images/ard_pcb_01.png> <./Images/ard_pcb_02.png>] (./main.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+) [54 <./Images/ard_pcb_01.png> <./Images/ard_pcb_02.png>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 8315 strings out of 493117
- 122209 string characters out of 6135433
- 279284 words of memory out of 5000000
- 11494 multiletter control sequences out of 15000+600000
+ 8320 strings out of 493117
+ 122311 string characters out of 6135433
+ 279296 words of memory out of 5000000
+ 11499 multiletter control sequences out of 15000+600000
  102749 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,13n,47p,1646b,425s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2014/tex
-mf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on main.pdf (54 pages, 47933086 bytes).
+{/usr/
+local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/local/texlive/20
+14/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/texlive/20
+14/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2014/texmf-dist/
+fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on main.pdf (54 pages, 47936372 bytes).
 PDF statistics:
  554 PDF objects out of 1000 (max. 8388607)
  349 compressed objects within 4 object streams
