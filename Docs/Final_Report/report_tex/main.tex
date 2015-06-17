@@ -994,7 +994,7 @@ The prototype is in fact extremely restrictive. The Finger Boards, along with th
 
 
 \newpage
-\subsubsection{User Testing}
+\subsubsection{User Testing} \label{User Testing}
 
 %\begin{figure}[H]
 \begin{wrapfigure}{r}{0.4\textheight}
@@ -1082,42 +1082,78 @@ The aim of this project was to implement a version of the conceptualised PAWS in
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Improvements \& Enhancements} \label{Further Developments}
 
-\subsection{Future Design (Prototype 0.3.xx)}
-\subsubsection{Technical Implementation}
-Prototype 0.2.04 was fairly bulky in design relative to the concept design and any further developments would need to remedy this. I realised that the only need for the Arduino Uno was to sample the connected microphone signals and transmit the captured data to the Interface where all of the processing was done. It was of course also used to set the gain of the microphone circuit's amplifier but this function was not used in the initially intended way and was in fact set to a value which remained constant during run-time. 
+\subsection{Future Design, Prototype 0.3.xx}
+\subsubsection{The PAWS Board}
+Prototype 0.2.04 was fairly bulky in design relative to the concept design and any further developments would need to remedy this. I realised that the only need for the Arduino Uno was to sample the connected microphone signals and transmit the captured data to the Interface where all of the processing was done. It was of course also used to set the gain of the microphone circuits' amplifiers but this function was not used in the initially intended way and in fact the gain was kept constant during run-time. 
 
-Therefore, the Arduino Uno could be deemed to be a redundant component for what it was used to do, and could simply be replaced by an Analogue-to-Digital Converter (ADC) and a serial interface. This would mean that the entire circuitry could be contained on a single Finger Board, which would connect directly to a computer. A good enough ADC would also be able to detect the microphone signal's dynamic range and map the incoming voltages to the entire digital range of values, thereby removing the need for a bespoke amplifier as well. Some surrounding digital circuitry may also be required such as a clock, and Figure~\ref{fig:0304_circuit} shows a mock-up system design for the Finger Board.
+Therefore, the Arduino Uno could be deemed to be a redundant component for what it was used to do, and could simply be replaced by an Analogue-to-Digital Converter (ADC) and a Serial interface. This would mean that the entire circuitry could be contained on a single Finger Board, which would connect directly to a computer. A good enough ADC would also be able to detect the microphone signal's dynamic range and map the incoming voltages to the entire digital range of values, thereby removing the need for a bespoke amplifier. Some surrounding digital circuitry may also be required, such as a clock, and Figure~\ref{fig:0304_circuit} shows a mock-up system design for the Finger Board.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=2]{Images/FutureDesign}
-\caption{Prototype 0.3.xx - System Design}
+\caption{High-Level System Design for a PAWS Board, Prototype 0.3.xx}
 \label{fig:0304_circuit}
 \end{figure}
 
-The inclusion of a battery would clean up the rail noise significantly compared to the power being drawn from the computer and suffering additive noise from the Arduino. The serial interface could be a simple micro-usb connector or even a bluetooth transmitter. The microphone could also be thermally isolated\textsuperscript{\cite{thermalnoise}} to remove all thermal noise from the signal path, which is currently only being low pass filtered and therefore remains present in the audio frequency. Ground planing\textsuperscript{\cite{groundplane}} of the PCBs would also aim to reduce reactive noise in the signal path. 
+The inclusion of a battery would clean up the rail noise significantly compared to drawing power from the computer and suffering additive noise from the Arduino. The Serial interface could be a simple Micro-USB connector or even a Bluetooth transmitter. The microphone could also be thermally isolated to remove all thermal noise from the signal path, which is currently only being low pass filtered and therefore remains present in the audio frequency. Ground planing of the PCBs, where the components on the board are surrounded by a layer of silicon at ground potential,  would also aim to reduce reactive noise in the signal path. 
 
-Other improvements could involve oversampling\textsuperscript{\cite{oversampling}} methods to allow for a well-defined signal that is more robust to transmission errors. The coding of data for transmission could also be looked into further to increase the transmission rate by first analysing the sent signals in terms of entropy and defining smaller codewords\textsuperscript{\cite{codewords}}. In this case, a trade-off would have to be found between oversampling, which corresponds to more data per second, and coding, which aims for less data per second. 
+Other improvements could involve oversampling methods, where a signal is sampled at a much higher frequency than required, to allow for better definition and robustness to transmission errors. The coding of data for transmission could also be looked into further to increase the transmission rate by first analysing the sent signals in terms of entropy and defining smaller codewords to be sent between the PAWS Boards and the Interface. In this case, a trade-off would have to be found between oversampling, which corresponds to more data per second, and coding, which aims for less data per second. 
 
-\subsubsection{Graphical Interface}
+\subsubsection{The Interface}
 
-{\color{red} /////IMAGES OF INTERFACE BETTERMENT}
+As found in Section~\ref{User Testing} User Testing, the Interface would have to be modified to visually display a representation of the physical PAWS Boards to enhance the connection between the two. Prototype 0.2.04 displays controls that are intuitive to use but are not visually related to the actual hardware. Therefore, the Interface needs to be vastly improved to form a true visual counterpart to the PAWS instrument. Research can also be conducted into design methods for implementing interactive visuals, such as through Skeuomorphism, Flat Design, or Material Design\textsuperscript{\cite{materialdesign}}. 
 
-\subsection{Enhancing Creative Functionalities}
+The Interface would also require better processing of incoming audio data. Filtering the audio signal, as described in Section~\ref{0204} Prototype 0.2.04, is a major responsibility of the program. The data transfer between the PAWS Board and the Interface would have to be such that a large chunk of data samples (say 512 samples) could be received, filtered using standard digital signal processing methods, and then temporarily stored for future recall. Precise control over the reading and writing of sample data from and to buffers would be needed to ensure that data samples were not lost or missed, especially with circular buffers. 
 
-rubber or soft material for rings, expandable
-record mode in voice, add own samples in sample
-paw prints - 
+\subsection{Further Creative Functionalities}
 
-The embedding of accelerometers would vastly increase the functional range of the instrument. Accelerometers are able to detect acceleration, and so they could be used to map movements or motion gestures to perform tasks. 
+Further Prototypes would require additional functionality based on motion gestures, as described in Section~\ref{Concept Design} Product Design. 
 
-First of all, accelerometers may be better suited to the implementation of the 'Sample' function as they would be able to detect the sudden change in acceleration when colliding with a surface. This may turn out to be a more robust solution than looking at an audio signal from a microphone, however it could still be mis-triggered through random human motions.
+The embedding of accelerometers would vastly increase the functional range of the instrument. Accelerometers are able to detect acceleration, and so they could be used to map movements or motion gestures to perform tasks. First of all, accelerometers may be better suited to the implementation of the 'Sample' mode as they would be able to detect the sudden change in acceleration when colliding with a surface. This may turn out to be a more robust solution than looking at an audio signal from a microphone, however there still remains the ability to be mis-triggered through random human motions.
 
-Other functions could be introduced, like using motion to control parameters such as the amplitude and pitch of generated sounds, as discussed previously in Section~\ref{Product Concept} Product Concept. There are a vast number of things accelerometers could be programmed to do. They could allow the user to pretend to strum a guitar, in response to which the Interface would play back guitar chords, or synthesise tones with pitch and amplitude data set by macro-motions, or whole-arm movements, and details such as vibrato or modulation set by micro-motions, or finger movements. There is a great scope for how accelerometers could enable a user to be creative with their music production, which is currently very limited with microphones. 
+There are a vast number of things accelerometers could be programmed to do. They could allow the user to pretend to strum a guitar, in response to which the Interface would play back guitar chords, or synthesise tones with pitch and amplitude data set by macro-motions (e.g. whole-arm movements) and details such as vibrato or modulation set by micro-motions (e.g finger movements). There is a great scope for how accelerometers could enable a user to be creative with their music production, which is currently very limited with microphones. 
 
-Some functionalities to increase user feedback would probably be much appreciated. For example, a 'Blink' function could be added whereby the user could tell a particular Board to 'Blink' or identify itself through the Interface, and the Board would host an LED or some such device to respond to the command. Thus, the user would be able to quickly and easily map the physical location of a PAWS Board to its respective controls on the Interface. 
+Some functionalities to increase user feedback would probably be much appreciated. For example, a 'Blink' function could be added whereby the user could tell a particular PAWS Board to 'Blink' or identify itself through the Interface, and the Board would host an LED or some such device to respond to the command. Thus, the user would be able to quickly and easily map the physical location of a PAWS Board to its respective controls on the Interface. 
 
-{\color{red} ///// FILL UP WITH EVERY SINGLE ENHANCEMENT }
+Table~\ref{tab:enhancements} shows a list of all possible enhancements to give the user freedom of expression and musical creation. 
+
+\begin{table}[H]
+   \centering
+   \begin{tabular}{| l l} 
+   	Enhancement & Key Feature \\ \hline \hline
+	Wireless Boards & Removal of wires increases mobility \\
+	Small Boards & Portable and does not physically limit user \\
+	Rubber Housings & Comfortable to wear and one-size-fits-all compared to plastic\\
+	PAWprintS & Foldable case that arranges Boards in piano-style layout for non-worn use\\
+	On-Board Controls & On/Off switches or Mode Selection done directly from Board\\
+	Variety of Housings & Wristbands, Clips, etc. \\
+	\hline
+	Blink & Request a PAWS Board to identify itself\\
+	Motion Synthesis & Synthesise tones through motion gestures\\
+	Motion Control & Change parameters for other PAWS Boards through motion gestures\\
+	Record & Save audio output to file \\
+	Add Samples & Open and edit custom sample sound files for 'Sample' mode\\
+	Quantisation & Set tempo to quantise audio signals of other PAWS Boards \\
+	Harmonisation & Trigger sample at same pitch/frequency as signal from another PAWS Board\\
+	Process & Modify signal of a PAWS Board using functions such as EQ, Modulation, etc.\\
+	Share & Upload recorded content to a social network\\
+	Presets & Save setup of PAWS Boards for instant recall \\
+	MIDI & Save signal from PAWS Board as MIDI for future sample file assignment\\
+	Remote & Use PAWS Boards to control Interface, e.g. switch modes\\
+	Remote 2 & Use PAWS Boards to control other applications on smartphone/computer\\
+	Groups & Display and control large number of Boards and show individual controls on request\\	
+   \end{tabular}
+   \caption{List of possible enhancements for future development of PAWS instrument}
+   \label{tab:enhancements}
+\end{table}
+
+Using the complete list of enhancements, Figure~\ref{fig:pawprints} shows a concept design for future PAWS Boards and counterpart Interface. The PAW Prints (stylistically PAWprintS) idea is 
+
+
+
+{\color{red} /////PAWS Prints hardware + Matching layout on Interface\\
+highlighting Board shows controls\\
+}
 
 \subsection{Marketability}
 
