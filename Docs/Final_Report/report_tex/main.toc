@@ -13,7 +13,7 @@
 \contentsline {subsubsection}{\numberline {5.0.2}Programming the Software Interface}{13}
 \contentsline {subsubsection}{\numberline {5.0.3}Sample File Triggering Simulation}{14}
 \contentsline {section}{\numberline {6}Implementation Plan}{15}
-\contentsline {section}{\numberline {7}Implementation}{16}
+\contentsline {section}{\numberline {7}Product Implementation}{16}
 \contentsline {subsection}{\numberline {7.1}Prototype 0.1.01}{16}
 \contentsline {subsubsection}{\numberline {7.1.1}Microphone Circuit}{16}
 \contentsline {subsubsection}{\numberline {7.1.2}Microcontroller Program}{17}
@@ -41,14 +41,14 @@
 \contentsline {subsubsection}{\numberline {7.7.1}Connecting to multiple Finger Boards}{28}
 \contentsline {subsubsection}{\numberline {7.7.2}Enhancing User Control}{28}
 \contentsline {subsubsection}{\numberline {7.7.3}Filtering the Audio Signal}{29}
-\contentsline {section}{\numberline {8}Evaluation of Implemented Product}{31}
+\contentsline {section}{\numberline {8}Product Evaluation}{31}
 \contentsline {subsection}{\numberline {8.1}Prototype 0.2.04 - Analysis}{31}
 \contentsline {subsubsection}{\numberline {8.1.1}Effects of Noise}{31}
 \contentsline {subsubsection}{\numberline {8.1.2}Sample Rates}{33}
 \contentsline {subsection}{\numberline {8.2}Prototype 0.2.04 - Evaluation}{35}
 \contentsline {subsubsection}{\numberline {8.2.1}Requirements Evaluation}{35}
-\contentsline {subsubsection}{\numberline {8.2.2}User Evaluation}{36}
-\contentsline {section}{\numberline {9}Evaluation of Project Progress}{38}
+\contentsline {subsubsection}{\numberline {8.2.2}User Testing}{37}
+\contentsline {section}{\numberline {9}Project Evaluation}{38}
 \contentsline {section}{\numberline {10}Improvements \& Enhancements}{39}
 \contentsline {subsection}{\numberline {10.1}Future Design (Prototype 0.3.xx)}{39}
 \contentsline {subsubsection}{\numberline {10.1.1}Technical Implementation}{39}
@@ -77,3 +77,4 @@
 \contentsline {subsection}{\numberline {C.1}Finger Board}{52}
 \contentsline {subsection}{\numberline {C.2}Arduino Shield Version 1}{53}
 \contentsline {subsection}{\numberline {C.3}Arduino Shield Version 2}{53}
+\contentsline {section}{\numberline {D}GitHub Repository}{53}

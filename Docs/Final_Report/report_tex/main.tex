@@ -66,7 +66,7 @@ Throughout this project, I maintained the full scope of the product, detailed in
 
 The most difficult part of this project was designing a fast and reliable method of data transmission, from sampling the microphone signal on the Arduino side, to transmitting it via USB to the computer, processing the signal accordingly, and throwing the relevant data to the computer's audio device. Dealing with what was effectively a multirate system, where the sample rates were variable at each stage of data capture or transmission, was challenging but developing a strong data structure for each of these components and optimising the speeds of data transmission and processing at each stage inevitably led to an overall successful system. 
 
-This report begins with some research into the current market for wearable technologies, especially in the field of music production. Section~\ref{Product Concept} Product Concept involves the design of an idea for a musical instrument to fit the original brief: \textit{'The development and evaluation of a novel and unusual musical instrument to be constructed using a 3D printer'}. Section~\ref{Requirements} analyses the requirements the designed product will have to meet, and the following sections detail the design of the product and initial testing of my sample triggering theories and key components such as an Arduino Uno microprocessor. Section~\ref{Implementation} Implementation provides a discussion on the development of my various prototypes from the design stage to a working demonstrable product. Subsequently, I evaluate the final prototype and the progress of my project and also detail further developments to be made if the project were to be continued. Section~\ref{Finances} Finances provides a summary of the costs incurred in developing each prototype and the projected costs of future designs, and Section~\ref{User Manual} provides a User Manual on using my final prototype. Appendices have also included at the end with supporting diagrams and schematics. 
+This report begins with some research into the current market for wearable technologies, especially in the field of music production. Section~\ref{Product Concept} Product Concept involves the design of an idea for a musical instrument to fit the original brief: \textit{'The development and evaluation of a novel and unusual musical instrument to be constructed using a 3D printer'}. Section~\ref{Requirements} analyses the requirements the designed product will have to meet, and the following sections detail the design of the product and initial testing of my sample triggering theories and key components such as an Arduino Uno microprocessor. Section~\ref{Implementation} Product Implementation provides a discussion on the development of my various prototypes from the design stage to a working demonstrable product. Subsequently, I evaluate the final prototype and the progress of my project and also detail further developments to be made if the project were to be continued. Section~\ref{Finances} Finances provides a summary of the costs incurred in developing each prototype and the projected costs of future designs, and Section~\ref{User Manual} provides a User Manual on using my final prototype. Appendices have also included at the end with supporting diagrams and schematics. 
 
 
 \newpage
@@ -389,7 +389,7 @@ Prototype 0.1.01 was completed before the Interim Report and Prototype 0.1.05 wa
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Implementation} \label{Implementation}
+\section{Product Implementation} \label{Implementation}
 
 This section describes the implementation of a PAWS Board, starting with an Arduino Uno and a microphone circuit on breadboard and ending with three microphone circuits on Printed Circuit Boards worn on a user's fingers with 3D printed Rings, and that of a software Interface application that underwent a vast evolution in terms of functionality and interactivity. This section summarises the steps taken to get from the starting stage to the final prototype and provides details on the key features of each developed prototype and how they build upon their predecessors. 
 
@@ -759,7 +759,7 @@ Filtering in software was a necessary step, especially since I was upsampling th
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Evaluation of Implemented Product} \label{Evaluation}
+\section{Product Evaluation} \label{Evaluation}
 
 This section aims to analyse and critique Prototype 0.2.04 both quantitatively by looking at the hardware and software, and qualitatively in how it stands up to the requirements of the Product Concept and through user testing. 
 
@@ -993,23 +993,41 @@ The prototype is in fact extremely restrictive. The Finger Boards, along with th
 \end{table}
 
 
+\newpage
+\subsubsection{User Testing}
 
-\subsubsection{User Evaluation}
 
-
-After performing the Requirements Analysis myself, I sought to find a non-musician as a potential user to test my prototype. Considering that the 'Sample' mode for Prototype 0.2.04 worked to the extent where samples could be triggered by physically tapping the microphone but not through the detection of the Finger Rings impacting upon a surface, I decided to secure my Finger Boards to a workbench for my user to interact with and fully test the functionality of my instrument. Figure~\ref{fig:testrig} is a still frame from video footage of the user testing session, and simultaneously shows the user's interaction with the Boards, held down side by side using electrical tape, and the PAWS Interface. 
+After performing the Requirements Analysis myself, I sought to find a non-musician as a potential user to test my Prototype. Considering that the 'Sample' mode for Prototype 0.2.04 worked to the extent where samples could be triggered by physically tapping the microphone but not through the detection of the Finger Rings impacting upon a surface, I decided to secure my Finger Boards to a workbench for my user to interact with and still be able to test the functionality of my instrument. Figure~\ref{fig:testrig} shows a still frame from video footage of the user testing session, and simultaneously shows the the PAWS Interface and the user's interaction with the Boards, which have been held down in a row using electrical tape. 
 
 \begin{figure}[H]
    \centering
-   \includegraphics[scale=0.3]{Images/paws_testrig3} 
-   \caption{Finger Boards arranged on workbench for User Testing}
+   \includegraphics[scale=0.15]{Images/paws_testrig2} 
+   \caption{Prototype 0.2.04 Finger Boards arranged on workbench for User Testing}
    \label{fig:testrig}
 \end{figure}
+
+For the purposes of anonymity, I will hereby refer to the user who tested Prototype 0.2.04 as 'The User'.
+
+I began the test session by asking The User some preliminary questions. The User claimed to have to prior experience with musical instruments and, when asked why, claimed to not have any particular interest and had always been put off by the amount of time that would have to be set aside to learn and practice.
+
+I then gave The User a quick overview of the Interface program and observed how they interacted with it. The User immediately began to switch the Boards into 'Sample' mode and selected random sound files for playback. Since I had laid out the Finger Boards on the table in the order they were connected to the Arduino, it was easy for The User to map the controls on the Interface to the correct Boards. The User tapped the microphones and produced a rhythm very quickly. The User claimed that the Interface was intuitive and produced the expected responses, such as the dynamic volume control and visual feedback of the audio signal. 
+
+After letting The User spend some time with the instrument, I asked a few follow up questions. I firstly asked what The User was able to do with the instrument and they said that they spent the entire time in 'Sample' mode playing with the various sound files. When asked what they would like to be able to do with the instrument, The User said that they would like the feature to record custom sound files and add them to the list of available files. I suggested that the 'Voice' mode could be modified to be able to record captured audio and the recorded file could be used in 'Sample' mode, thus giving a user further freedom for creativity. 
+
+I asked The User what features of the instrument they did not like. The first thing that was mentioned was its portability. I let The User wear the Finger Boards with the Rings to allow them to test what it would be like to tap a rhythm against the workbench as conceptualised. The User mentioned that the Rings were uncomfortable; the lip dug into their skin and the long Board restricted the range of motion of their fingers. They instinctively wore the Boards with the jack cables leading away from their fingertip as opposed to the intended way of leading down the back of their hand, and they found that the jack cables weighed their fingers down and reduced their mobility. 
+
+
+rubber or soft material for rings, expandable
+record mode in voice, add own samples in sample
+paw prints - 
+
+
+
 
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Evaluation of Project Progress} \label{Progress Evaluation}
+\section{Project Evaluation} \label{Progress Evaluation}
 
 This section aims to evaluate the progress of the entire project against the initial Implementation Plans. Table~\ref{tab:listofprototypes} from Section~\ref{Implementation Plan} Implementation Plan shows a list detailing a plan of the successive development of prototypes. Table~\ref{tab:listofprogress} shows the actual progress I made over the duration of the project as a list of prototypes and their key features. 
 

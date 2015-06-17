@@ -1,9 +1,9 @@
 # Fdb version 3
-["cusdep eps pdf Images/slaptodrum"] 0 "Images/slaptodrum.eps" "Images/slaptodrum.pdf" "Images/slaptodrum" 1434494270
+["cusdep eps pdf Images/slaptodrum"] 0 "Images/slaptodrum.eps" "Images/slaptodrum.pdf" "Images/slaptodrum" 1434501507
   "Images/slaptodrum.eps" 1433941448 529314 9d9878d78d87766b50e88aacd4212053 ""
   (generated)
   "Images/slaptodrum.pdf"
-["pdflatex"] 1434494261 "main.tex" "main.pdf" "main" 1434494270
+["pdflatex"] 1434501498 "main.tex" "main.pdf" "main" 1434501507
   "/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm" 1136768653 3584 adb004a0c8e7c46ee66cad73671f37b4 ""
@@ -166,8 +166,8 @@
   "Images/paws_3_sample.png" 1434402208 85329 a68ac5920ce48279a4b11b726cfed839 ""
   "Images/paws_3_single.png" 1434402207 88627 9140ba659c55a8605bdd55453ade0b1e ""
   "Images/paws_3_voice.png" 1434402204 88334 cf19ccc95125e0f5c8b79a99f0778c3f ""
-  "Images/paws_full.JPG" 1434383044 3037214 1f3314fb5314b9dd7ef5c4b6b87fa95f ""
-  "Images/paws_testrig3.png" 1434418564 1712118 6fc929a81cb4d704a5208f704d7c283f ""
+  "Images/paws_full_clean.jpg" 1434498557 4303365 92ab51110c3704f2e4a2b39f4a194e5f ""
+  "Images/paws_testrig2.png" 1434417724 9050014 72be40a7e770ca50e2205e829d391267 ""
   "Images/prototype101board.JPG" 1433941448 3822993 8ab2bc2ee8afefffb1a628b06ba96ea0 ""
   "Images/pyblue_play.png" 1433941450 37340 221e12193b9e93598030b8dc280215a1 ""
   "Images/rail_1board2-eps-converted-to.pdf" 1434407360 9710 272a4725313281f0727c953a60a7e3cc ""
@@ -188,20 +188,20 @@
   "Images/sig_samp-eps-converted-to.pdf" 1434414169 9562 19cd1587dec04ddbb08d6d482d2bf9c0 ""
   "Images/sig_samp.eps" 1434414144 29757 48951ef6ac6ae17c6da05dc00060b5e1 ""
   "Images/slaptodrum.pdf" 1434299324 142695 e55e0bc188a9527707e1c71825746d66 "cusdep eps pdf Images/slaptodrum"
-  "appendix.tex" 1434320310 2399 4a68071ee98356a003d0b5e717858e20 ""
+  "appendix.tex" 1434500108 2650 cd9261a37e6323092782a65dd8a7a042 ""
   "bib.tex" 1434491531 7579 e9310bfe577e1e4d5c0078fce689b4fa ""
-  "frontpage.tex" 1434404729 888 79fa2f8ac85e72154d1ee66fe10b34ab ""
-  "main.aux" 1434494270 24202 1865e19a9ccca52fa153662dc78b8838 ""
-  "main.lof" 1434494270 7710 adbd4966a85dc70067be232628f6dd9b ""
-  "main.lot" 1434494270 1387 7e8fc35d2e6dcac6e3837cf870df5eb8 ""
-  "main.tex" 1434494253 122744 86c3167856534d4801650409906f7557 ""
-  "main.toc" 1434494270 5929 f9c2f4e24a79e5e63c14cb6e0ba75528 ""
+  "frontpage.tex" 1434498731 894 b05168e05c12de7b9ba21e2fa3cfd100 ""
+  "main.aux" 1434501507 24277 4ead8def7955bd65491b13d5b6fc28db ""
+  "main.lof" 1434501507 7727 aaef78ecee63bc0e71c63b7fa9719b1a ""
+  "main.lot" 1434501507 1387 7e8fc35d2e6dcac6e3837cf870df5eb8 ""
+  "main.tex" 1434501488 124562 bc4f4dcfe21a95503cd910e39f6de154 ""
+  "main.toc" 1434501507 5969 7c930fab7683f798b4c2fa59de643423 ""
   "mcode.sty" 1433941448 10446 27c95df50114756b18eaee5d6c6d7e7a ""
   "secondpage.tex" 1434292380 2628 313a0ee3c84e5e5cb935e81e9728dc2d ""
   (generated)
   "main.log"
-  "main.lof"
-  "main.aux"
   "main.toc"
   "main.pdf"
+  "main.lof"
   "main.lot"
+  "main.aux"
