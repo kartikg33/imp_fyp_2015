@@ -140,24 +140,30 @@ public:
                             
                             }
                            
+                            if(i < bufferToFill.numSamples)
+                                waveptr+=bufferToFill.numSamples-i;
+                            /*
                             while (i < bufferToFill.numSamples)
                             {
-                                waveformL[waveptr] += 0;
-                                waveformR[waveptr] += 0;
+                                //waveformL[waveptr] += 0;
+                                //waveformR[waveptr] += 0;
                                     
                                 waveptr++;
                                 i++;
-                            }
+                            }*/
                             
                             
                             overlay->boardUI[n]->sampBuffPtr = ptr;
                             
                         } else { //if(overlay->boardUI[n]->sampPlaying)
+                            
+                            waveptr+=bufferToFill.numSamples;
+                            /*
                             for(int x = 0; x<bufferToFill.numSamples;x++){
                                 waveformL[waveptr] += 0;
                                 waveformR[waveptr] += 0;
                                 waveptr++;
-                            }
+                            }*/
                         }
                     
                     } else { //if(overlay->boardUI[n]->SampleFl)
@@ -173,8 +179,8 @@ public:
                         for (int i = 0; i < bufferToFill.numSamples ; i++)
                         {
                         
-                            waveformL[waveptr] += float(bufferL[ptr]);//*overlay->amplitude);
-                            waveformR[waveptr] += float(bufferR[ptr]);//*overlay->amplitude);
+                            waveformL[waveptr] += float(bufferL[ptr]);
+                            waveformR[waveptr] += float(bufferR[ptr]);
                         
                             ptr++;
                             if(ptr>=len)
