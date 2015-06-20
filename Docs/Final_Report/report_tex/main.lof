@@ -24,8 +24,8 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {AD605 Circuit and Microphone on Veroboard}}}{21}
 \contentsline {figure}{\numberline {19}{\ignorespaces Concept Sketches for JUCE GUI, Prototype 0.2.01\relax }}{22}
 \contentsline {figure}{\numberline {20}{\ignorespaces Controls for 3 PAWS Boards in Interface, Prototype 0.2.01\relax }}{22}
-\contentsline {figure}{\numberline {21}{\ignorespaces Board connected to Interface in 'Sample' mode, Prototype 0.2.02\relax }}{23}
-\contentsline {figure}{\numberline {22}{\ignorespaces Board connected to Interface in 'Voice' mode, Prototype 0.2.02\relax }}{24}
+\contentsline {figure}{\numberline {21}{\ignorespaces Board connected to Interface in `Sample' mode, Prototype 0.2.02\relax }}{23}
+\contentsline {figure}{\numberline {22}{\ignorespaces Board connected to Interface in `Voice' mode, Prototype 0.2.02\relax }}{24}
 \contentsline {figure}{\numberline {23}{\ignorespaces PCBs for PAWS Board, Prototype 0.2.03\relax }}{25}
 \contentsline {figure}{\numberline {24}{\ignorespaces Finger Ring 3D Model - Version 1, Prototype 0.2.03\relax }}{26}
 \contentsline {figure}{\numberline {25}{\ignorespaces Finger Ring 3D Model - Version 2, Prototype 0.2.03\relax }}{26}
@@ -65,7 +65,7 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Opening Screen}}}{45}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Controls for 3 Finger Boards}}}{45}
 \contentsline {figure}{\numberline {40}{\ignorespaces PAWS Interface in different modes\relax }}{45}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {All Boards in 'Voice' mode}}}{45}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {All Boards in 'Sample' mode}}}{45}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {All Boards in `Voice' mode}}}{45}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {All Boards in `Sample' mode}}}{45}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {'Voice' Mode Program}}}{51}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {'Sample' Mode Program}}}{51}

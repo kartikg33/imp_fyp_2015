@@ -17,8 +17,8 @@
 \contentsline {subsection}{\numberline {7.1}Prototype 0.1.01}{16}
 \contentsline {subsubsection}{\numberline {7.1.1}Microphone Circuit}{16}
 \contentsline {subsubsection}{\numberline {7.1.2}Microcontroller Program}{17}
-\contentsline {subsubsection}{\numberline {7.1.3}Interface - 'Voice' Mode}{17}
-\contentsline {subsubsection}{\numberline {7.1.4}Interface - 'Sample' Mode}{17}
+\contentsline {subsubsection}{\numberline {7.1.3}Interface - `Voice' Mode}{17}
+\contentsline {subsubsection}{\numberline {7.1.4}Interface - `Sample' Mode}{17}
 \contentsline {subsection}{\numberline {7.2}Prototype 0.1.02}{17}
 \contentsline {subsubsection}{\numberline {7.2.1}Building a GUI}{17}
 \contentsline {subsection}{\numberline {7.3}Prototype 0.1.03}{18}
@@ -31,8 +31,8 @@
 \contentsline {subsubsection}{\numberline {7.4.2}Designing the GUI}{22}
 \contentsline {subsection}{\numberline {7.5}Prototype 0.2.02}{23}
 \contentsline {subsubsection}{\numberline {7.5.1}Serial Communication and Bluetooth}{23}
-\contentsline {subsubsection}{\numberline {7.5.2}Implementing the 'Sample' Mode}{23}
-\contentsline {subsubsection}{\numberline {7.5.3}Upsampling for the 'Voice' Mode}{24}
+\contentsline {subsubsection}{\numberline {7.5.2}Implementing the `Sample' Mode}{23}
+\contentsline {subsubsection}{\numberline {7.5.3}Upsampling for the `Voice' Mode}{24}
 \contentsline {subsubsection}{\numberline {7.5.4}Coding the Serial Transmission}{24}
 \contentsline {subsection}{\numberline {7.6}Prototype 0.2.03}{25}
 \contentsline {subsubsection}{\numberline {7.6.1}Hardware on Printed Circuit Boards}{25}

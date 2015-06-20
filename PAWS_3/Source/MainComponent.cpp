@@ -167,7 +167,7 @@ public:
                         }
                     
                     } else { //if(overlay->boardUI[n]->SampleFl)
-                    
+                        
                         int len = overlay->boardUI[n]->bufflen;
                         int ptr = (overlay->boardUI[n]->buffptr)-(bufferToFill.numSamples);
                         if(ptr<0)
@@ -189,11 +189,14 @@ public:
 
                         }//for (int i = 0; i < bufferToFill.numSamples ; ++i)
                         
-                    } //if(overlay->boardUI[n]->SampleFl)
+                    }  //if(overlay->boardUI[n]->SampleFl)
                 }//for(int n = 0; n<num;++n)
                 
                 
-            }//if(overlay->boardUI !=nullptr)
+            } else { //if(overlay->boardUI !=nullptr)
+                waveptr+=bufferToFill.numSamples;
+                
+            } //if(overlay->boardUI !=nullptr)
 
             bufferToFill.buffer->copyFrom(0, bufferToFill.startSample, &waveformL[start], bufferToFill.numSamples,overlay->amplitude);
             bufferToFill.buffer->copyFrom(1, bufferToFill.startSample, &waveformR[start], bufferToFill.numSamples,overlay->amplitude);

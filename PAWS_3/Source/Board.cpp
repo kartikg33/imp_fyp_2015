@@ -418,7 +418,7 @@ void *playSample(void* dummy){
     int tempptr = 0;
     int diff = 0;
     int change = 0;
-    int thresh = 135;
+    int thresh = 60;//135;
 
     obj->playSamp = false;
 
